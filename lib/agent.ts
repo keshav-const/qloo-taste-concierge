@@ -99,9 +99,17 @@ const TOOLS: ToolDef[] = [
         type: "object",
         properties: {
           city: { type: "string", description: "e.g. Delhi or Gurgaon" },
+          interests: {
+            type: ["array", "null"],
+            items: { type: "string" },
+            description:
+              "IMPORTANT for relevance: the user's food/place interests drawn from their taste — " +
+              "cuisines, dishes, vibes (e.g. ['street food','kebab','mughlai'] or ['cafe','coffee','chill'] " +
+              "or ['history','monuments']). Places are ranked to match these, so different tastes get different places.",
+          },
           category: {
             type: ["string", "null"],
-            description: "optional keyword filter, e.g. restaurant / cafe / monument",
+            description: "optional hard category filter, e.g. restaurant / cafe / monument",
           },
           limit: { type: ["number", "null"] },
         },
@@ -141,7 +149,7 @@ async function runTool(name: string, args: unknown): Promise<unknown> {
     }
     if (!seedIds.length) return { error: "Could not resolve any taste seeds on Qloo." };
     const target = TARGET_TYPE[a.target_domain ?? "destination"] ?? EntityType.destination;
-    const opts: Record<string, unknown> = { take: 6 };
+    const opts: Record<string, unknown> = { take: 8 };
     // Destinations are always India-wide (never narrowed to the focus city); a city
     // filter only makes sense for 'place' results.
     if (target === EntityType.destination) opts.countryCode = "IN";
@@ -157,10 +165,15 @@ async function runTool(name: string, args: unknown): Promise<unknown> {
     };
   }
   if (name === "get_verified_places") {
-    const a = args as { city?: string; category?: string; limit?: number };
+    const a = args as { city?: string; interests?: string[]; category?: string; limit?: number };
     // Cap server-side to keep tool-result tokens small (free-tier TPM).
     const limit = Math.min(a.limit ?? 8, 10);
-    const places = listVerifiedPlaces({ city: a.city, categoryLike: a.category, limit });
+    const places = listVerifiedPlaces({
+      city: a.city,
+      interests: a.interests ?? undefined,
+      categoryLike: a.category ?? undefined,
+      limit,
+    });
     return { city: a.city, verified_places: places };
   }
   if (name === "check_evidence") {
@@ -183,8 +196,11 @@ Given the user's tastes (music, film, TV, food, fashion, travel — any mix), bu
      destinations; the focus city is only for on-the-ground places).
    - Optionally get 'movie'/'tv_show'/'artist' picks to reflect their cultural vibe.
 2. For on-the-ground PLACES in a city we have depth for (Delhi / Gurgaon), use get_verified_places
-   as the PRIMARY source — these are real, creator-vouched spots. (For cities without depth, you may
-   fall back to expand_taste with target_domain='place', and optionally check_evidence on the names.)
+   as the PRIMARY source — these are real, creator-vouched spots. ALWAYS pass an 'interests' list derived
+   from the user's tastes (specific cuisines, dishes, or vibes — e.g. ['street food','kebab'],
+   ['cafe','coffee','chill'], ['history','monuments','architecture']) so the places genuinely match
+   THIS user and differ from other users. (For cities without depth, fall back to expand_taste with
+   target_domain='place'.)
 3. Then write a SHORT narrative (the app shows the destinations and verified places as cards
    separately, so do NOT re-list them in big tables). The narrative = a warm 1–2 sentence intro
    tied to their tastes + a concise **day-by-day plan** (Day 1 / Day 2 / Day 3) weaving in the

@@ -33,7 +33,7 @@ export async function chat(
   const body: Record<string, unknown> = {
     model: MODEL,
     messages,
-    temperature: opts.temperature ?? 0.4,
+    temperature: opts.temperature ?? 0.55,
     max_tokens: opts.maxTokens ?? 1800,
   };
   if (tools?.length) {

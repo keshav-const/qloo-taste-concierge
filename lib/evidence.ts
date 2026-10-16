@@ -134,21 +134,48 @@ export function citiesWithDepth(): string[] {
   return [...new Set(pois().map((p) => p.destination))];
 }
 
+const STOP = new Set([
+  "the", "and", "for", "with", "food", "place", "places", "good", "great", "love", "like",
+  "best", "delhi", "india", "want", "trip", "visit", "city", "i",
+]);
+
+/** A POI's searchable text (category + specialities + name), lowercased. */
+function haystack(p: Poi): string {
+  return `${p.poi_category ?? ""} ${(p.specialities ?? []).join(" ")} ${(p.tips ?? []).join(" ")} ${p.name}`.toLowerCase();
+}
+
 /**
- * The verified POIs we actually have for a city — the moat. Optionally filter by a
- * category keyword ("food", "restaurant", "monument"...) and cap the count.
- * Returned ranked by recommendation_score so the strongest, most-vouched places lead.
+ * The verified POIs we have for a city — the moat. When `interests` are given (cuisines,
+ * dishes, vibes drawn from the user's taste), results are RANKED BY RELEVANCE to those
+ * interests (then by score), so different tastes surface different places. Without
+ * interests it falls back to top-scored. Optional category keyword still narrows hard.
  */
 export function listVerifiedPlaces(
-  opts: { city?: string; categoryLike?: string; limit?: number } = {},
+  opts: { city?: string; interests?: string[]; categoryLike?: string; limit?: number } = {},
 ): VerifiedPlace[] {
   const dest = opts.city ? CITY_TO_DEST[opts.city.toLowerCase()] : undefined;
   const kw = opts.categoryLike?.toLowerCase();
+  const terms = (opts.interests ?? [])
+    .flatMap((s) => s.toLowerCase().split(/[\s,/&]+/))
+    .map((w) => w.replace(/[^a-z]/g, ""))
+    .filter((w) => w.length > 2 && !STOP.has(w));
+
+  const relevance = (p: Poi): number => {
+    if (!terms.length) return 0;
+    const hay = haystack(p);
+    let hits = 0;
+    for (const t of terms) if (hay.includes(t)) hits++;
+    return hits;
+  };
+
   const rows = pois()
     .filter((p) => (dest ? p.destination === dest : true))
     .filter((p) => (kw ? (p.poi_category ?? "").toLowerCase().includes(kw) : true))
-    .sort((a, b) => (b.recommendation_score ?? 0) - (a.recommendation_score ?? 0))
-    .slice(0, opts.limit ?? 12);
+    .map((p) => ({ p, rel: relevance(p) }))
+    .sort((a, b) => b.rel - a.rel || (b.p.recommendation_score ?? 0) - (a.p.recommendation_score ?? 0))
+    .slice(0, opts.limit ?? 8)
+    .map((x) => x.p);
+
   return rows.map((p) => ({
     name: p.name,
     category: p.poi_category,
