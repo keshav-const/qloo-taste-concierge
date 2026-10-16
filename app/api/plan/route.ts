@@ -1,0 +1,20 @@
+import { NextResponse } from "next/server";
+import { runAgent } from "@/lib/agent";
+
+// Route handlers run on the Node runtime by default, so the evidence overlay can
+// read data/evidence-snapshot.json from disk. (An explicit `runtime` export is
+// incompatible with Next 16's cacheComponents, so we rely on the default.)
+
+export async function POST(req: Request) {
+  try {
+    const { tastes } = await req.json();
+    if (!tastes || typeof tastes !== "string" || !tastes.trim()) {
+      return NextResponse.json({ error: "Provide 'tastes' (a non-empty string)." }, { status: 400 });
+    }
+    const result = await runAgent(tastes.trim());
+    return NextResponse.json(result);
+  } catch (e) {
+    const message = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
+}
