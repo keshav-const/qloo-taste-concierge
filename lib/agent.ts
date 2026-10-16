@@ -224,6 +224,33 @@ The app shows destinations + places as cards separately, so the narrative = a wa
 
 Your FINAL message (no tool call) is that narrative, in clean markdown.`;
 
+/**
+ * Ask a few SHORT clarifying questions tailored to the user's request (no tools).
+ * Powers the conversational step before planning.
+ */
+export async function generateQuestions(prompt: string): Promise<string[]> {
+  const sys = `A user gave a trip request for India. Ask exactly 3 SHORT, specific follow-up questions
+that would make their itinerary much more personal. Base them on THEIR request — probe what's
+ambiguous or missing (specific interests within their stated vibe, must-dos, food/diet, budget feel,
+pace, who's coming, how many days if unclear). Each question under 12 words. Friendly, concrete.
+Return ONLY a JSON array of exactly 3 strings — no prose, no keys.`;
+  const msg = await chat(
+    [
+      { role: "system", content: sys },
+      { role: "user", content: prompt },
+    ],
+    undefined,
+    { temperature: 0.6, maxTokens: 300 },
+  );
+  const text = msg.content ?? "";
+  try {
+    const arr = JSON.parse(text.slice(text.indexOf("["), text.lastIndexOf("]") + 1));
+    return Array.isArray(arr) ? arr.slice(0, 3).map((x) => String(x)) : [];
+  } catch {
+    return [];
+  }
+}
+
 export type AgentResult = {
   itinerary: string;
   trace: string[];
