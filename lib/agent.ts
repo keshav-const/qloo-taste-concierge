@@ -3,8 +3,15 @@
 // the evidence overlay adds verification. Server-only.
 
 import { searchEntities, tasteExpand, entityId, EntityType, type EntityTypeUrn } from "./qloo";
-import { findVerified, listVerifiedPlaces, citiesWithDepth } from "./evidence";
+import {
+  findVerified,
+  listVerifiedPlaces,
+  citiesWithDepth,
+  type VerifiedPlace,
+} from "./evidence";
 import { chat, type ChatMessage, type ToolDef } from "./llm";
+
+export type Destination = { name: string; city: string | null };
 
 // Map the model's friendly domain words -> Qloo entity-type URNs.
 const SEED_TYPE: Record<string, EntityTypeUrn> = {
@@ -69,7 +76,10 @@ const TOOLS: ToolDef[] = [
             type: "string",
             description: "one of: destination, place, movie, tv_show, artist, book, brand",
           },
-          city: { type: "string", description: "Optional Indian city to focus 'place' results in, e.g. Delhi." },
+          city: {
+            type: ["string", "null"],
+            description: "Optional Indian city to focus 'place' results in, e.g. Delhi. Omit/null for destinations.",
+          },
         },
         required: ["seeds", "target_domain"],
       },
@@ -89,8 +99,11 @@ const TOOLS: ToolDef[] = [
         type: "object",
         properties: {
           city: { type: "string", description: "e.g. Delhi or Gurgaon" },
-          category: { type: "string", description: "optional keyword filter, e.g. restaurant / cafe / monument" },
-          limit: { type: "number" },
+          category: {
+            type: ["string", "null"],
+            description: "optional keyword filter, e.g. restaurant / cafe / monument",
+          },
+          limit: { type: ["number", "null"] },
         },
         required: ["city"],
       },
@@ -129,7 +142,10 @@ async function runTool(name: string, args: unknown): Promise<unknown> {
     if (!seedIds.length) return { error: "Could not resolve any taste seeds on Qloo." };
     const target = TARGET_TYPE[a.target_domain ?? "destination"] ?? EntityType.destination;
     const opts: Record<string, unknown> = { take: 6 };
-    if (a.city) opts.locationQuery = a.city;
+    // Destinations are always India-wide (never narrowed to the focus city); a city
+    // filter only makes sense for 'place' results.
+    if (target === EntityType.destination) opts.countryCode = "IN";
+    else if (a.city) opts.locationQuery = a.city;
     else opts.countryCode = "IN";
     const ents = await tasteExpand(seedIds, target, opts);
     return {
@@ -163,27 +179,32 @@ We have our OWN creator-verified place data for: ${citiesWithDepth().join(", ")}
 Given the user's tastes (music, film, TV, food, fashion, travel — any mix), build a personalized itinerary:
 
 1. Call expand_taste to turn their tastes into Qloo picks:
-   - ALWAYS get 'destination' picks (which Indian cities/areas fit their taste).
+   - ALWAYS get 'destination' picks — these are INDIA-WIDE places to travel (do NOT pass a city for
+     destinations; the focus city is only for on-the-ground places).
    - Optionally get 'movie'/'tv_show'/'artist' picks to reflect their cultural vibe.
 2. For on-the-ground PLACES in a city we have depth for (Delhi / Gurgaon), use get_verified_places
    as the PRIMARY source — these are real, creator-vouched spots. (For cities without depth, you may
    fall back to expand_taste with target_domain='place', and optionally check_evidence on the names.)
-3. Compose a concise, warm itinerary in clean markdown:
-   - Destinations section (from Qloo) and a city places section.
-   - For every verified place, append " — ✓ Verified by N creators" and name what creators highlight
-     (use the specialities/tips returned by the tool).
+3. Then write a SHORT narrative (the app shows the destinations and verified places as cards
+   separately, so do NOT re-list them in big tables). The narrative = a warm 1–2 sentence intro
+   tied to their tastes + a concise **day-by-day plan** (Day 1 / Day 2 / Day 3) weaving in the
+   verified Delhi places by name. Use light markdown (a few bold names, short lines). No tables.
 
 BE ECONOMICAL: aim for 3–4 tool calls total — one expand_taste for 'destination', one
 get_verified_places for the focus city, and at most one more (a cultural domain). Then STOP calling
-tools and write the itinerary.
+tools and write the narrative.
 
 STRICT HONESTY: Use ONLY facts returned by the tools. Do NOT invent festivals, claims, or details.
-Keep each "why it fits" to one grounded sentence tied to the user's actual tastes. Only mark a place
-verified if a tool returned it as verified.
+Tie each mention to the user's actual tastes in one grounded phrase.
 
-Your FINAL message (no tool call) must be the itinerary itself, in clean markdown.`;
+Your FINAL message (no tool call) is that narrative, in clean markdown.`;
 
-export type AgentResult = { itinerary: string; trace: string[] };
+export type AgentResult = {
+  itinerary: string;
+  trace: string[];
+  destinations: Destination[];
+  verifiedPlaces: VerifiedPlace[];
+};
 
 export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentResult> {
   const messages: ChatMessage[] = [
@@ -191,6 +212,15 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
     { role: "user", content: userInput },
   ];
   const trace: string[] = [];
+  // Capture structured results so the UI can render styled cards/badges, not a blob.
+  const destinations: Destination[] = [];
+  const verifiedPlaces: VerifiedPlace[] = [];
+  const addDest = (d: Destination) => {
+    if (d?.name && !destinations.some((x) => x.name === d.name)) destinations.push(d);
+  };
+  const addPlace = (p: VerifiedPlace) => {
+    if (p?.name && !verifiedPlaces.some((x) => x.name === p.name)) verifiedPlaces.push(p);
+  };
 
   for (let step = 0; step < maxSteps; step++) {
     const msg = await chat(messages, TOOLS);
@@ -198,7 +228,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
 
     if (msg.tool_calls?.length) {
       for (const tc of msg.tool_calls) {
-        let parsed: unknown = {};
+        let parsed: Record<string, unknown> = {};
         try {
           parsed = JSON.parse(tc.function.arguments || "{}");
         } catch {
@@ -206,6 +236,18 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
         }
         trace.push(`${tc.function.name}(${(tc.function.arguments || "").slice(0, 120)})`);
         const result = await runTool(tc.function.name, parsed);
+
+        // Harvest structured data for the UI.
+        if (tc.function.name === "get_verified_places") {
+          for (const p of (result as { verified_places?: VerifiedPlace[] }).verified_places ?? [])
+            addPlace(p);
+        } else if (tc.function.name === "expand_taste") {
+          const td = parsed.target_domain;
+          if (!td || td === "destination") {
+            for (const d of (result as { results?: Destination[] }).results ?? []) addDest(d);
+          }
+        }
+
         messages.push({
           role: "tool",
           tool_call_id: tc.id,
@@ -215,7 +257,12 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       }
       continue;
     }
-    return { itinerary: msg.content ?? "", trace };
+    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces };
   }
-  return { itinerary: "(The agent didn't converge — try rephrasing your tastes.)", trace };
+  return {
+    itinerary: "(The agent didn't converge — try rephrasing your tastes.)",
+    trace,
+    destinations,
+    verifiedPlaces,
+  };
 }

@@ -1,16 +1,18 @@
 {
-  "name": "qloo-hackathon-tmp",
+  "name": "qloo-taste-concierge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3014",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3014"
   },
   "dependencies": {
     "next": "16.4.2",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "^4",
