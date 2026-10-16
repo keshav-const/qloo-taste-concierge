@@ -185,7 +185,8 @@ export default function Home() {
                 whileTap={{ scale: 0.97 }}
                 onClick={plan}
                 disabled={loading || !tastes.trim()}
-                className="btn-gradient rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition disabled:opacity-40"
+                style={{ background: "linear-gradient(135deg, #f0702a, #e2550e 55%, #c9430a)" }}
+                className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40"
               >
                 {loading ? "Planning…" : "Plan my trip →"}
               </motion.button>

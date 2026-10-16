@@ -256,7 +256,13 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
           /* leave {} */
         }
         trace.push(`${tc.function.name}(${(tc.function.arguments || "").slice(0, 120)})`);
-        const result = await runTool(tc.function.name, parsed);
+        let result: unknown;
+        try {
+          result = await runTool(tc.function.name, parsed);
+        } catch (e) {
+          // A single tool failure must not crash the plan — hand the error back to the LLM.
+          result = { error: e instanceof Error ? e.message : String(e) };
+        }
 
         // Harvest structured data for the UI.
         if (tc.function.name === "get_verified_places") {

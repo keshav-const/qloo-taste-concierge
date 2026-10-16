@@ -119,7 +119,21 @@ export async function insights(opts: InsightsOpts): Promise<QlooEntity[]> {
   if (opts.location) params["filter.location"] = opts.location;
   if (opts.countryCode) params["filter.geocode.country_code"] = opts.countryCode;
   if (opts.popularityMin !== undefined) params["filter.popularity.min"] = opts.popularityMin;
-  return extractEntities(await qlooGet("/v2/insights", params));
+
+  try {
+    return extractEntities(await qlooGet("/v2/insights", params));
+  } catch (e) {
+    // Qloo can't resolve some localities (small towns, misspellings) and 400s. Rather than
+    // fail the whole plan, retry India-wide so we still return taste-matched results.
+    const hadLocation = opts.locationQuery || opts.location;
+    if (hadLocation && /location|locality/i.test(String(e))) {
+      delete params["filter.location.query"];
+      delete params["filter.location"];
+      if (!params["filter.geocode.country_code"]) params["filter.geocode.country_code"] = "IN";
+      return extractEntities(await qlooGet("/v2/insights", params));
+    }
+    throw e;
+  }
 }
 
 /** Convenience: cross-domain taste expansion from seed ids into a target domain. */
