@@ -52,10 +52,18 @@ export async function chat(
       return json.choices?.[0]?.message as ChatMessage;
     }
     const text = await res.text().catch(() => "");
-    // Retry on rate limit (respect the suggested wait) and transient 5xx.
-    if ((res.status === 429 || res.status >= 500) && attempt < 3) {
+    // Groq gpt-oss sometimes leaks its "commentary" reasoning channel as a bogus tool call
+    // (400 tool_use_failed). It's intermittent, so a quick retry usually yields a valid call.
+    const toolGlitch =
+      res.status === 400 && /tool_use_failed|was not in request\.tools|commentary/i.test(text);
+    // Retry on rate limit (respect the suggested wait), transient 5xx, and the tool glitch.
+    if ((res.status === 429 || res.status >= 500 || toolGlitch) && attempt < 3) {
       const suggested = Number(/try again in ([\d.]+)s/i.exec(text)?.[1]);
-      const waitMs = Number.isFinite(suggested) ? suggested * 1000 + 400 : 1200 * (attempt + 1);
+      const waitMs = Number.isFinite(suggested)
+        ? suggested * 1000 + 400
+        : toolGlitch
+          ? 350
+          : 1200 * (attempt + 1);
       await new Promise((r) => setTimeout(r, Math.min(waitMs, 12000)));
       continue;
     }
