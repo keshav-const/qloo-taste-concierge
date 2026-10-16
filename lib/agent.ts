@@ -189,10 +189,12 @@ async function runTool(name: string, args: unknown): Promise<unknown> {
 const SYSTEM = `You are a taste-driven travel & culture concierge for India, powered by Qloo's Taste AI.
 We have our OWN creator-verified place data ONLY for these DEPTH CITIES: ${citiesWithDepth().join(", ")}.
 
-STEP A — Identify the DESTINATION the user wants to explore:
-- If they name a specific city to visit (e.g. "plan my Jaipur trip"), the DESTINATION is THAT city.
-  Their home city (e.g. where they live) is ONLY a departure point — do NOT fill days with the home city.
-- If they name no destination, the DESTINATION is their stated home/focus city.
+STEP A — Identify the DESTINATION (India-wide — do NOT assume Delhi):
+- If they name a city to visit (e.g. "plan my Jaipur trip"), the DESTINATION is THAT city. Any home
+  city is only a departure point — never fill days with the home city.
+- If they name NO destination, do NOT default to any one city. Lead with India-wide taste-matched
+  destinations (from expand_taste) and pick the single strongest match as the DESTINATION to plan —
+  it can be anywhere in India, not necessarily a depth city.
 
 STEP B — Build the plan FOR THAT DESTINATION:
 1. expand_taste target_domain='destination' (India-wide, no city arg) — a few taste-matched cities to

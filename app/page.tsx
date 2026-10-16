@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "motion/react";
+import { motion, type Transition } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -31,6 +31,8 @@ const CHIPS = [
   { icon: "☕", label: "cozy cafes" },
 ];
 
+const DESTS = ["Anywhere in India", "Delhi", "Gurgaon", "Jaipur", "Goa", "Mumbai"];
+
 const LOADING_STEPS = [
   "Reading your taste…",
   "Asking Qloo's Taste AI for destinations…",
@@ -38,7 +40,8 @@ const LOADING_STEPS = [
   "Composing your itinerary…",
 ];
 
-// Category → fallback visual (used when a place has no photo).
+const EASE: Transition = { duration: 0.6, ease: [0.22, 1, 0.36, 1] };
+
 function catVisual(category: string | null): { emoji: string; from: string; to: string } {
   const c = (category ?? "").toLowerCase();
   if (/(street|restaurant|dhaba|food)/.test(c)) return { emoji: "🍽️", from: "#f6b26b", to: "#e2550e" };
@@ -51,7 +54,7 @@ function catVisual(category: string | null): { emoji: string; from: string; to: 
 
 export default function Home() {
   const [tastes, setTastes] = useState("");
-  const [city, setCity] = useState("Delhi");
+  const [dest, setDest] = useState("Anywhere in India");
   const [loading, setLoading] = useState(false);
   const [steps, setSteps] = useState<string[]>([]);
   const [result, setResult] = useState<PlanResult | null>(null);
@@ -72,19 +75,21 @@ export default function Home() {
     const iv = setInterval(() => {
       if (i < LOADING_STEPS.length) setSteps((s) => [...s, LOADING_STEPS[i++]]);
     }, 1500);
+    const hint =
+      dest === "Anywhere in India"
+        ? "(Suggest taste-matched destinations across India and plan the strongest match.)"
+        : `(Destination: ${dest}.)`;
     try {
       const res = await fetch("/api/plan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tastes: `${tastes.trim()}\n\n(I'm based in ${city}. Plan for the destination I describe; if I don't name one, plan for ${city} itself.)`,
-        }),
+        body: JSON.stringify({ tastes: `${tastes.trim()}\n\n${hint}` }),
       });
       const data = await res.json();
       if (data.error) setError(data.error);
       else {
         setResult(data);
-        setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
+        setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: "smooth" }), 120);
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
@@ -97,8 +102,9 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="grain-overlay" />
-      {/* soft ambient glow */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
+      {/* ambient gradient orbs */}
+      <div className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
+      <div className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
 
       {/* Top bar */}
       <header className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
@@ -106,7 +112,7 @@ export default function Home() {
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-paper">✦</span>
           <span className="font-display text-xl text-ink">TasteTrail</span>
         </div>
-        <span className="rounded-full border border-line bg-paper-card px-3 py-1 text-xs text-ink-mute">
+        <span className="rounded-full border border-line bg-paper-card/70 px-3 py-1 text-xs text-ink-mute backdrop-blur">
           powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span>
         </span>
       </header>
@@ -114,28 +120,28 @@ export default function Home() {
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
         {/* Hero */}
         <motion.section
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={EASE}
           className="pt-10 pb-8 text-center sm:pt-16"
         >
-          <h1 className="font-display text-5xl leading-[1.05] text-ink sm:text-[4.25rem]">
-            Your taste, your India.
+          <h1 className="font-display text-5xl leading-[1.05] text-ink sm:text-[4.5rem]">
+            Your taste, your <span className="text-gradient">India</span>.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
-            Tell us what you love — music, films, food, anything. An AI agent plans a trip around it,
-            with real places <span className="font-medium text-verified">verified by creators</span>.
+            Tell us what you love — music, films, food, anything. An AI agent plans a trip anywhere in
+            India around it, with real places <span className="font-medium text-verified">verified by creators</span>.
           </p>
         </motion.section>
 
         {/* Taste input card */}
         <motion.section
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ ...EASE, delay: 0.08 }}
           className="mx-auto max-w-2xl"
         >
-          <div className="rounded-2xl border border-line bg-paper-card p-5 shadow-sm">
+          <div className="ring-soft rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
             <textarea
               value={tastes}
               onChange={(e) => setTastes(e.target.value)}
@@ -148,35 +154,38 @@ export default function Home() {
             />
             <div className="mt-3 flex flex-wrap gap-2">
               {CHIPS.map((c) => (
-                <button
+                <motion.button
                   key={c.label}
+                  whileHover={{ y: -1 }}
+                  whileTap={{ scale: 0.96 }}
                   onClick={() => addChip(c.label)}
-                  className="rounded-full border border-line px-3 py-1 text-sm text-ink-soft transition hover:border-saffron hover:bg-saffron-soft hover:text-saffron"
+                  className="rounded-full border border-line px-3 py-1 text-sm text-ink-soft transition-colors hover:border-saffron hover:bg-saffron-soft hover:text-saffron"
                 >
                   <span className="mr-1">{c.icon}</span>
                   {c.label}
-                </button>
+                </motion.button>
               ))}
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
               <label className="flex items-center gap-2 text-sm text-ink-mute">
-                Based in
+                Where to?
                 <select
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
+                  value={dest}
+                  onChange={(e) => setDest(e.target.value)}
                   className="rounded-lg border border-line bg-paper px-2 py-1 text-ink outline-none"
                 >
-                  <option>Delhi</option>
-                  <option>Gurgaon</option>
+                  {DESTS.map((d) => (
+                    <option key={d}>{d}</option>
+                  ))}
                 </select>
-                <span className="hidden text-verified sm:inline">· creator-verified depth</span>
               </label>
               <motion.button
+                whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={plan}
                 disabled={loading || !tastes.trim()}
-                className="rounded-xl bg-saffron px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-95 disabled:opacity-40"
+                className="btn-gradient rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition disabled:opacity-40"
               >
                 {loading ? "Planning…" : "Plan my trip →"}
               </motion.button>
@@ -192,16 +201,15 @@ export default function Home() {
             animate={{ opacity: 1 }}
             className="mx-auto mt-8 max-w-2xl"
           >
-            <div className="rounded-2xl border border-line bg-paper-card p-5">
-              <p className="mb-3 text-xs font-medium uppercase tracking-wider text-ink-mute">
-                Agent working
-              </p>
+            <div className="rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
+              <p className="mb-3 text-xs font-medium uppercase tracking-wider text-ink-mute">Agent working</p>
               <ul className="space-y-2">
                 {steps.map((s, i) => (
                   <motion.li
                     key={i}
-                    initial={{ opacity: 0, x: -8 }}
+                    initial={{ opacity: 0, x: -6 }}
                     animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     className="flex items-center gap-2 text-sm text-ink-soft"
                   >
                     <span className="text-verified">✓</span>
@@ -225,19 +233,20 @@ export default function Home() {
         {/* Results */}
         {result && (
           <div ref={resultsRef} className="mt-14">
-            {/* Destinations */}
             {result.destinations.length > 0 && (
               <section className="mb-12">
-                <SectionLabel>Destinations for you</SectionLabel>
+                <SectionLabel>Destinations across India</SectionLabel>
                 <p className="mb-5 text-sm text-ink-mute">Matched to your taste by Qloo&apos;s Taste AI.</p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {result.destinations.slice(0, 6).map((d, i) => (
                     <motion.div
                       key={d.name}
-                      initial={{ opacity: 0, y: 14 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: i * 0.06 }}
-                      className="group overflow-hidden rounded-2xl border border-line bg-paper-card shadow-sm"
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                      whileHover={{ y: -3 }}
+                      className="ring-soft group overflow-hidden rounded-2xl border border-line bg-paper-card"
                     >
                       <div className="relative h-32 overflow-hidden">
                         {d.image ? (
@@ -245,15 +254,13 @@ export default function Home() {
                           <img
                             src={d.image}
                             alt={d.name}
-                            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                            className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
                           />
                         ) : (
-                          <div className="h-full w-full bg-gradient-to-br from-saffron-soft to-line" />
+                          <div className="h-full w-full bg-gradient-to-br from-saffron-soft via-paper to-verified-soft" />
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
-                        <p className="absolute bottom-2 left-3 font-display text-2xl text-white drop-shadow">
-                          {d.name}
-                        </p>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                        <p className="absolute bottom-2 left-3 font-display text-2xl text-white drop-shadow">{d.name}</p>
                       </div>
                       <div className="px-3 py-2 text-[11px] uppercase tracking-wider text-ink-mute">
                         {d.city ?? "India"} · Qloo match
@@ -264,10 +271,9 @@ export default function Home() {
               </section>
             )}
 
-            {/* Verified places — the moat */}
             {result.verifiedPlaces.length > 0 && (
               <section className="mb-12">
-                <SectionLabel>In {city} — verified by creators</SectionLabel>
+                <SectionLabel>Verified by creators</SectionLabel>
                 <p className="mb-5 text-sm text-ink-mute">
                   Real spots vouched for in creator videos — ranked to your taste.
                 </p>
@@ -277,10 +283,12 @@ export default function Home() {
                     return (
                       <motion.div
                         key={p.name}
-                        initial={{ opacity: 0, y: 12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: i * 0.05 }}
-                        className="flex gap-3 rounded-2xl border border-line bg-paper-card p-3"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-40px" }}
+                        transition={{ duration: 0.45, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
+                        whileHover={{ y: -2 }}
+                        className="ring-soft flex gap-3 rounded-2xl border border-line bg-paper-card p-3"
                       >
                         <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl">
                           {p.image ? (
@@ -303,9 +311,7 @@ export default function Home() {
                             </span>
                           </div>
                           {p.specialities.length > 0 && (
-                            <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">
-                              {p.specialities.join(" · ")}
-                            </p>
+                            <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">{p.specialities.join(" · ")}</p>
                           )}
                           <p className="mt-1 text-[11px] uppercase tracking-wider text-ink-mute">
                             {[p.category, p.area].filter(Boolean).join(" · ") || "Delhi NCR"}
@@ -318,15 +324,15 @@ export default function Home() {
               </section>
             )}
 
-            {/* Narrative / day plan */}
             {result.itinerary && (
               <motion.section
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={EASE}
               >
                 <SectionLabel>The plan</SectionLabel>
-                <div className="mt-3 rounded-2xl border border-line bg-paper-card p-6">
+                <div className="ring-soft mt-3 rounded-2xl border border-line bg-paper-card p-6">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     components={{
@@ -358,7 +364,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
     <div className="flex items-center gap-3">
       <span className="text-saffron">◆</span>
       <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-ink">{children}</h2>
-      <span className="h-px flex-1 bg-line" />
+      <span className="h-px flex-1 bg-gradient-to-r from-line to-transparent" />
     </div>
   );
 }
