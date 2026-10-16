@@ -76,7 +76,9 @@ export default function Home() {
       const res = await fetch("/api/plan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tastes: `${tastes.trim()} Focus city: ${city}.` }),
+        body: JSON.stringify({
+          tastes: `${tastes.trim()}\n\n(I'm based in ${city}. Plan for the destination I describe; if I don't name one, plan for ${city} itself.)`,
+        }),
       });
       const data = await res.json();
       if (data.error) setError(data.error);
@@ -159,7 +161,7 @@ export default function Home() {
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
               <label className="flex items-center gap-2 text-sm text-ink-mute">
-                Focus city
+                Based in
                 <select
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
