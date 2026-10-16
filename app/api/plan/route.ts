@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { runAgent } from "@/lib/agent";
+import { enrichWithImages } from "@/lib/images";
 
 // Route handlers run on the Node runtime by default, so the evidence overlay can
 // read data/evidence-snapshot.json from disk. (An explicit `runtime` export is
@@ -12,7 +13,12 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Provide 'tastes' (a non-empty string)." }, { status: 400 });
     }
     const result = await runAgent(tastes.trim());
-    return NextResponse.json(result);
+    // Enrich with real imagery (Wikipedia) so the UI shows photos, not placeholders.
+    const [destinations, verifiedPlaces] = await Promise.all([
+      enrichWithImages(result.destinations),
+      enrichWithImages(result.verifiedPlaces),
+    ]);
+    return NextResponse.json({ ...result, destinations, verifiedPlaces });
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
     return NextResponse.json({ error: message }, { status: 500 });

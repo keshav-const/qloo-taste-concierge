@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { motion } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -11,8 +12,9 @@ type VerifiedPlace = {
   sources: number;
   specialities: string[];
   tips: string[];
+  image: string | null;
 };
-type Destination = { name: string; city: string | null };
+type Destination = { name: string; city: string | null; image: string | null };
 type PlanResult = {
   itinerary: string;
   trace: string[];
@@ -25,8 +27,8 @@ const CHIPS = [
   { icon: "🎬", label: "Inception" },
   { icon: "🍜", label: "street food" },
   { icon: "🎸", label: "Coldplay" },
-  { icon: "🎭", label: "Wes Anderson films" },
-  { icon: "📚", label: "Murakami novels" },
+  { icon: "🏛", label: "Mughal history" },
+  { icon: "☕", label: "cozy cafes" },
 ];
 
 const LOADING_STEPS = [
@@ -35,6 +37,17 @@ const LOADING_STEPS = [
   "Pulling creator-verified places…",
   "Composing your itinerary…",
 ];
+
+// Category → fallback visual (used when a place has no photo).
+function catVisual(category: string | null): { emoji: string; from: string; to: string } {
+  const c = (category ?? "").toLowerCase();
+  if (/(street|restaurant|dhaba|food)/.test(c)) return { emoji: "🍽️", from: "#f6b26b", to: "#e2550e" };
+  if (/(cafe|bakery|sweet|coffee)/.test(c)) return { emoji: "☕", from: "#cfa27a", to: "#8a5a34" };
+  if (/(monument|fort|temple|mosque|tomb|minar)/.test(c)) return { emoji: "🏛️", from: "#bcae95", to: "#7c6b4f" };
+  if (/(market|bazaar|shop)/.test(c)) return { emoji: "🛍️", from: "#e6a9b4", to: "#b24a63" };
+  if (/(park|garden|zoo|sanctuary|attraction|lake)/.test(c)) return { emoji: "🌳", from: "#9fc79a", to: "#2f7d4f" };
+  return { emoji: "📍", from: "#cdbfa6", to: "#8a7f73" };
+}
 
 export default function Home() {
   const [tastes, setTastes] = useState("");
@@ -80,8 +93,10 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-hidden">
       <div className="grain-overlay" />
+      {/* soft ambient glow */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
 
       {/* Top bar */}
       <header className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
@@ -96,18 +111,28 @@ export default function Home() {
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
         {/* Hero */}
-        <section className="pt-10 pb-8 text-center sm:pt-16">
-          <h1 className="font-display text-5xl leading-[1.05] text-ink sm:text-6xl">
+        <motion.section
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="pt-10 pb-8 text-center sm:pt-16"
+        >
+          <h1 className="font-display text-5xl leading-[1.05] text-ink sm:text-[4.25rem]">
             Your taste, your India.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
             Tell us what you love — music, films, food, anything. An AI agent plans a trip around it,
-            with real places <span className="text-verified">verified by creators</span>.
+            with real places <span className="font-medium text-verified">verified by creators</span>.
           </p>
-        </section>
+        </motion.section>
 
         {/* Taste input card */}
-        <section className="mx-auto max-w-2xl">
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mx-auto max-w-2xl"
+        >
           <div className="rounded-2xl border border-line bg-paper-card p-5 shadow-sm">
             <textarea
               value={tastes}
@@ -124,7 +149,7 @@ export default function Home() {
                 <button
                   key={c.label}
                   onClick={() => addChip(c.label)}
-                  className="rounded-full border border-line px-3 py-1 text-sm text-ink-soft transition hover:border-saffron hover:text-saffron"
+                  className="rounded-full border border-line px-3 py-1 text-sm text-ink-soft transition hover:border-saffron hover:bg-saffron-soft hover:text-saffron"
                 >
                   <span className="mr-1">{c.icon}</span>
                   {c.label}
@@ -145,38 +170,48 @@ export default function Home() {
                 </select>
                 <span className="hidden text-verified sm:inline">· creator-verified depth</span>
               </label>
-              <button
+              <motion.button
+                whileTap={{ scale: 0.97 }}
                 onClick={plan}
                 disabled={loading || !tastes.trim()}
                 className="rounded-xl bg-saffron px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-95 disabled:opacity-40"
               >
                 {loading ? "Planning…" : "Plan my trip →"}
-              </button>
+              </motion.button>
             </div>
           </div>
           <p className="mt-2 text-center text-xs text-ink-mute">⌘/Ctrl + Enter to plan</p>
-        </section>
+        </motion.section>
 
         {/* Loading trace */}
         {loading && (
-          <section className="mx-auto mt-8 max-w-2xl fade-up">
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mx-auto mt-8 max-w-2xl"
+          >
             <div className="rounded-2xl border border-line bg-paper-card p-5">
               <p className="mb-3 text-xs font-medium uppercase tracking-wider text-ink-mute">
                 Agent working
               </p>
               <ul className="space-y-2">
                 {steps.map((s, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-ink-soft fade-up">
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-center gap-2 text-sm text-ink-soft"
+                  >
                     <span className="text-verified">✓</span>
                     {s}
-                  </li>
+                  </motion.li>
                 ))}
                 <li className="flex items-center gap-2 text-sm text-ink-mute">
                   <span className="pulse-dot">●</span> thinking…
                 </li>
               </ul>
             </div>
-          </section>
+          </motion.section>
         )}
 
         {error && (
@@ -187,25 +222,41 @@ export default function Home() {
 
         {/* Results */}
         {result && (
-          <div ref={resultsRef} className="mt-14 fade-up">
+          <div ref={resultsRef} className="mt-14">
             {/* Destinations */}
             {result.destinations.length > 0 && (
               <section className="mb-12">
                 <SectionLabel>Destinations for you</SectionLabel>
-                <p className="mb-5 text-sm text-ink-mute">
-                  Matched to your taste by Qloo&apos;s Taste AI.
-                </p>
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {result.destinations.slice(0, 6).map((d) => (
-                    <div
+                <p className="mb-5 text-sm text-ink-mute">Matched to your taste by Qloo&apos;s Taste AI.</p>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {result.destinations.slice(0, 6).map((d, i) => (
+                    <motion.div
                       key={d.name}
-                      className="rounded-xl border border-line bg-paper-card p-4 transition hover:-translate-y-0.5 hover:shadow-sm"
+                      initial={{ opacity: 0, y: 14 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.06 }}
+                      className="group overflow-hidden rounded-2xl border border-line bg-paper-card shadow-sm"
                     >
-                      <p className="font-display text-xl text-ink">{d.name}</p>
-                      <p className="mt-1 text-xs uppercase tracking-wider text-ink-mute">
-                        {d.city ?? "India"}
-                      </p>
-                    </div>
+                      <div className="relative h-32 overflow-hidden">
+                        {d.image ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={d.image}
+                            alt={d.name}
+                            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="h-full w-full bg-gradient-to-br from-saffron-soft to-line" />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+                        <p className="absolute bottom-2 left-3 font-display text-2xl text-white drop-shadow">
+                          {d.name}
+                        </p>
+                      </div>
+                      <div className="px-3 py-2 text-[11px] uppercase tracking-wider text-ink-mute">
+                        {d.city ?? "India"} · Qloo match
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </section>
@@ -216,58 +267,82 @@ export default function Home() {
               <section className="mb-12">
                 <SectionLabel>In {city} — verified by creators</SectionLabel>
                 <p className="mb-5 text-sm text-ink-mute">
-                  Real spots vouched for in creator videos — not generic listings.
+                  Real spots vouched for in creator videos — ranked to your taste.
                 </p>
-                <div className="space-y-3">
-                  {result.verifiedPlaces.map((p) => (
-                    <div
-                      key={p.name}
-                      className="flex flex-col gap-2 rounded-xl border border-line bg-paper-card p-4 sm:flex-row sm:items-start sm:justify-between"
-                    >
-                      <div className="min-w-0">
-                        <p className="font-medium text-ink">{p.name}</p>
-                        {p.specialities.length > 0 && (
-                          <p className="mt-1 text-sm text-ink-soft">{p.specialities.join(" · ")}</p>
-                        )}
-                        <p className="mt-1 text-xs uppercase tracking-wider text-ink-mute">
-                          {[p.category, p.area].filter(Boolean).join(" · ") || "Delhi NCR"}
-                        </p>
-                      </div>
-                      <span className="inline-flex w-fit shrink-0 items-center gap-1 rounded-full bg-verified-soft px-3 py-1 text-sm font-medium text-verified">
-                        ✓ {p.sources} creator{p.sources === 1 ? "" : "s"}
-                      </span>
-                    </div>
-                  ))}
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {result.verifiedPlaces.map((p, i) => {
+                    const cat = catVisual(p.category);
+                    return (
+                      <motion.div
+                        key={p.name}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: i * 0.05 }}
+                        className="flex gap-3 rounded-2xl border border-line bg-paper-card p-3"
+                      >
+                        <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl">
+                          {p.image ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={p.image} alt={p.name} className="h-full w-full object-cover" />
+                          ) : (
+                            <div
+                              className="grid h-full w-full place-items-center text-2xl"
+                              style={{ background: `linear-gradient(135deg, ${cat.from}, ${cat.to})` }}
+                            >
+                              {cat.emoji}
+                            </div>
+                          )}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <p className="font-medium text-ink">{p.name}</p>
+                            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-verified-soft px-2 py-0.5 text-xs font-medium text-verified">
+                              ✓ {p.sources}
+                            </span>
+                          </div>
+                          {p.specialities.length > 0 && (
+                            <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">
+                              {p.specialities.join(" · ")}
+                            </p>
+                          )}
+                          <p className="mt-1 text-[11px] uppercase tracking-wider text-ink-mute">
+                            {[p.category, p.area].filter(Boolean).join(" · ") || "Delhi NCR"}
+                          </p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </section>
             )}
 
             {/* Narrative / day plan */}
             {result.itinerary && (
-              <section>
+              <motion.section
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
                 <SectionLabel>The plan</SectionLabel>
                 <div className="mt-3 rounded-2xl border border-line bg-paper-card p-6">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     components={{
-                      h1: (p) => <h3 className="font-display text-2xl text-ink" {...p} />,
-                      h2: (p) => <h3 className="mt-4 font-display text-xl text-ink" {...p} />,
-                      h3: (p) => (
-                        <h4
-                          className="mt-4 text-xs font-semibold uppercase tracking-wider text-saffron"
-                          {...p}
-                        />
+                      h1: ({ node, ...p }) => <h3 className="font-display text-2xl text-ink" {...p} />,
+                      h2: ({ node, ...p }) => <h3 className="mt-4 font-display text-xl text-ink" {...p} />,
+                      h3: ({ node, ...p }) => (
+                        <h4 className="mt-4 text-xs font-semibold uppercase tracking-wider text-saffron" {...p} />
                       ),
-                      p: (p) => <p className="mt-2 leading-relaxed text-ink-soft" {...p} />,
-                      strong: (p) => <strong className="font-semibold text-ink" {...p} />,
-                      ul: (p) => <ul className="mt-2 space-y-1 text-ink-soft" {...p} />,
-                      li: (p) => <li className="ml-4 list-disc" {...p} />,
+                      p: ({ node, ...p }) => <p className="mt-2 leading-relaxed text-ink-soft" {...p} />,
+                      strong: ({ node, ...p }) => <strong className="font-semibold text-ink" {...p} />,
+                      ul: ({ node, ...p }) => <ul className="mt-2 space-y-1 text-ink-soft" {...p} />,
+                      li: ({ node, ...p }) => <li className="ml-4 list-disc" {...p} />,
                     }}
                   >
                     {result.itinerary}
                   </ReactMarkdown>
                 </div>
-              </section>
+              </motion.section>
             )}
           </div>
         )}
