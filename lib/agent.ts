@@ -212,6 +212,10 @@ STEP B — Build the plan FOR THAT DESTINATION:
      start/end (one stop or meal at most) — NEVER 1–2 full days of the home city.
    - For a big destination (e.g. Jaipur), spread the real sights/food across the days there.
    - Name the actual places from the tools. Only mark verified what get_verified_places returned.
+   - TAILOR to any trip details the user gives: length → number of days; budget → prefer places whose
+     price level matches; travelers (solo/couple/friends/family) → the vibe; pace → how many stops/day.
+   - When a verified place includes a best_time or price (price_level / average_cost_inr), weave it in
+     naturally ("best in the evening", "around ₹300 a head").
 
 BE ECONOMICAL: 3–4 tool calls total, then STOP and write the narrative.
 STRICT HONESTY: use ONLY facts the tools returned; never invent places, festivals, or claims.

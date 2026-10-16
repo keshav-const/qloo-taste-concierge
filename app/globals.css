@@ -42,12 +42,41 @@ body {
   color: transparent;
 }
 
-/* gradient surface helpers */
-.btn-gradient {
-  background: linear-gradient(135deg, #f0702a, var(--color-saffron) 55%, #c9430a);
-}
 .ring-soft {
   box-shadow: 0 1px 2px rgba(28, 24, 20, 0.04), 0 8px 24px -12px rgba(28, 24, 20, 0.12);
+}
+
+/* animated gradients */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.text-gradient-anim {
+  background: linear-gradient(110deg, #e2550e, #c23d6a 38%, #0d6e5b 68%, #e2550e);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 9s ease-in-out infinite;
+}
+.btn-gradient-anim {
+  background: linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e);
+  background-size: 220% 100%;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-gradient-anim, .btn-gradient-anim { animation: none; }
+}
+
+/* price / timing pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
 
 /* Subtle paper grain overlay */

@@ -18,6 +18,7 @@ type Poi = {
   tips: string[] | null;
   best_time: string | null;
   price_level: string | null;
+  average_cost_inr: number | null;
   evidence: Evidence[];
 };
 
@@ -127,6 +128,9 @@ export type VerifiedPlace = {
   score: number | null;
   specialities: string[];
   tips: string[];
+  best_time: string | null;
+  price_level: string | null;
+  average_cost_inr: number | null;
 };
 
 /** Which cities we have verified depth for (for the "city depth map" + honesty). */
@@ -184,6 +188,9 @@ export function listVerifiedPlaces(
     score: p.recommendation_score,
     specialities: (p.specialities ?? []).slice(0, 4),
     tips: (p.tips ?? []).slice(0, 2),
+    best_time: p.best_time,
+    price_level: p.price_level,
+    average_cost_inr: p.average_cost_inr,
   }));
 }
 

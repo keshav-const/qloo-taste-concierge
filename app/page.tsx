@@ -12,6 +12,9 @@ type VerifiedPlace = {
   sources: number;
   specialities: string[];
   tips: string[];
+  best_time: string | null;
+  price_level: string | null;
+  average_cost_inr: number | null;
   image: string | null;
 };
 type Destination = { name: string; city: string | null; image: string | null };
@@ -32,6 +35,10 @@ const CHIPS = [
 ];
 
 const DESTS = ["Anywhere in India", "Delhi", "Gurgaon", "Jaipur", "Goa", "Mumbai"];
+const TRIP = ["A weekend", "3–4 days", "A week"];
+const WHO = ["Solo", "Couple", "Friends", "Family"];
+const BUDGET = ["Any budget", "Budget", "Comfortable", "Splurge"];
+const PACE = ["Relaxed", "Balanced", "Packed"];
 
 const LOADING_STEPS = [
   "Reading your taste…",
@@ -46,15 +53,43 @@ function catVisual(category: string | null): { emoji: string; from: string; to: 
   const c = (category ?? "").toLowerCase();
   if (/(street|restaurant|dhaba|food)/.test(c)) return { emoji: "🍽️", from: "#f6b26b", to: "#e2550e" };
   if (/(cafe|bakery|sweet|coffee)/.test(c)) return { emoji: "☕", from: "#cfa27a", to: "#8a5a34" };
-  if (/(monument|fort|temple|mosque|tomb|minar)/.test(c)) return { emoji: "🏛️", from: "#bcae95", to: "#7c6b4f" };
+  if (/(monument|fort|temple|mosque|tomb|minar|museum)/.test(c)) return { emoji: "🏛️", from: "#bcae95", to: "#7c6b4f" };
   if (/(market|bazaar|shop)/.test(c)) return { emoji: "🛍️", from: "#e6a9b4", to: "#b24a63" };
   if (/(park|garden|zoo|sanctuary|attraction|lake)/.test(c)) return { emoji: "🌳", from: "#9fc79a", to: "#2f7d4f" };
   return { emoji: "📍", from: "#cdbfa6", to: "#8a7f73" };
 }
 
+function priceSymbol(level: string | null): string {
+  switch ((level ?? "").toLowerCase()) {
+    case "budget": return "₹";
+    case "moderate": return "₹₹";
+    case "expensive": return "₹₹₹";
+    case "luxury": return "₹₹₹₹";
+    default: return "";
+  }
+}
+
+function Field({ value, onChange, options }: { value: string; onChange: (v: string) => void; options: string[] }) {
+  return (
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="rounded-lg border border-line bg-paper px-2 py-1 text-sm text-ink-soft outline-none transition hover:border-ink-mute"
+    >
+      {options.map((o) => (
+        <option key={o}>{o}</option>
+      ))}
+    </select>
+  );
+}
+
 export default function Home() {
   const [tastes, setTastes] = useState("");
   const [dest, setDest] = useState("Anywhere in India");
+  const [trip, setTrip] = useState(TRIP[0]);
+  const [who, setWho] = useState(WHO[1]);
+  const [budget, setBudget] = useState(BUDGET[0]);
+  const [pace, setPace] = useState(PACE[1]);
   const [loading, setLoading] = useState(false);
   const [steps, setSteps] = useState<string[]>([]);
   const [result, setResult] = useState<PlanResult | null>(null);
@@ -75,15 +110,17 @@ export default function Home() {
     const iv = setInterval(() => {
       if (i < LOADING_STEPS.length) setSteps((s) => [...s, LOADING_STEPS[i++]]);
     }, 1500);
-    const hint =
+    const destHint =
       dest === "Anywhere in India"
         ? "(Suggest taste-matched destinations across India and plan the strongest match.)"
         : `(Destination: ${dest}.)`;
+    const budgetHint = budget === "Any budget" ? "" : `${budget.toLowerCase()} budget, `;
+    const tripHint = `(Trip: ${trip.toLowerCase()}, ${who.toLowerCase()}, ${budgetHint}${pace.toLowerCase()} pace.)`;
     try {
       const res = await fetch("/api/plan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tastes: `${tastes.trim()}\n\n${hint}` }),
+        body: JSON.stringify({ tastes: `${tastes.trim()}\n\n${destHint} ${tripHint}` }),
       });
       const data = await res.json();
       if (data.error) setError(data.error);
@@ -102,9 +139,19 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="grain-overlay" />
-      {/* ambient gradient orbs */}
-      <div className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
+      {/* ambient drifting gradient orbs */}
+      <motion.div
+        aria-hidden
+        animate={{ x: [0, 30, 0], y: [0, 16, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl"
+      />
+      <motion.div
+        aria-hidden
+        animate={{ x: [0, -24, 0], y: [0, 24, 0] }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl"
+      />
 
       {/* Top bar */}
       <header className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
@@ -119,14 +166,9 @@ export default function Home() {
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
         {/* Hero */}
-        <motion.section
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={EASE}
-          className="pt-10 pb-8 text-center sm:pt-16"
-        >
+        <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="pt-10 pb-8 text-center sm:pt-16">
           <h1 className="font-display text-5xl leading-[1.05] text-ink sm:text-[4.5rem]">
-            Your taste, your <span className="text-gradient">India</span>.
+            Your taste, your <span className="text-gradient-anim">India</span>.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
             Tell us what you love — music, films, food, anything. An AI agent plans a trip anywhere in
@@ -135,12 +177,7 @@ export default function Home() {
         </motion.section>
 
         {/* Taste input card */}
-        <motion.section
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ...EASE, delay: 0.08 }}
-          className="mx-auto max-w-2xl"
-        >
+        <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...EASE, delay: 0.08 }} className="mx-auto max-w-2xl">
           <div className="ring-soft rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
             <textarea
               value={tastes}
@@ -167,52 +204,39 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
-              <label className="flex items-center gap-2 text-sm text-ink-mute">
-                Where to?
-                <select
-                  value={dest}
-                  onChange={(e) => setDest(e.target.value)}
-                  className="rounded-lg border border-line bg-paper px-2 py-1 text-ink outline-none"
-                >
-                  {DESTS.map((d) => (
-                    <option key={d}>{d}</option>
-                  ))}
-                </select>
-              </label>
+            {/* Questionnaire — quick trip details for a sharper plan */}
+            <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-line pt-4 text-sm text-ink-mute">
+              <span className="text-xs uppercase tracking-wider">Refine</span>
+              <Field value={dest} onChange={setDest} options={DESTS} />
+              <Field value={trip} onChange={setTrip} options={TRIP} />
+              <Field value={who} onChange={setWho} options={WHO} />
+              <Field value={budget} onChange={setBudget} options={BUDGET} />
+              <Field value={pace} onChange={setPace} options={PACE} />
+            </div>
+
+            <div className="mt-4 flex items-center justify-between gap-3">
+              <p className="text-xs text-ink-mute">⌘/Ctrl + Enter to plan</p>
               <motion.button
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={plan}
                 disabled={loading || !tastes.trim()}
-                style={{ background: "linear-gradient(135deg, #f0702a, #e2550e 55%, #c9430a)" }}
-                className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40"
+                className="btn-gradient-anim rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40"
               >
                 {loading ? "Planning…" : "Plan my trip →"}
               </motion.button>
             </div>
           </div>
-          <p className="mt-2 text-center text-xs text-ink-mute">⌘/Ctrl + Enter to plan</p>
         </motion.section>
 
         {/* Loading trace */}
         {loading && (
-          <motion.section
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="mx-auto mt-8 max-w-2xl"
-          >
+          <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mx-auto mt-8 max-w-2xl">
             <div className="rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
               <p className="mb-3 text-xs font-medium uppercase tracking-wider text-ink-mute">Agent working</p>
               <ul className="space-y-2">
                 {steps.map((s, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="flex items-center gap-2 text-sm text-ink-soft"
-                  >
+                  <motion.li key={i} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, ease: "easeOut" }} className="flex items-center gap-2 text-sm text-ink-soft">
                     <span className="text-verified">✓</span>
                     {s}
                   </motion.li>
@@ -226,9 +250,7 @@ export default function Home() {
         )}
 
         {error && (
-          <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-saffron/30 bg-saffron-soft px-4 py-3 text-sm text-ink-soft">
-            {error}
-          </p>
+          <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-saffron/30 bg-saffron-soft px-4 py-3 text-sm text-ink-soft">{error}</p>
         )}
 
         {/* Results */}
@@ -252,20 +274,14 @@ export default function Home() {
                       <div className="relative h-32 overflow-hidden">
                         {d.image ? (
                           // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={d.image}
-                            alt={d.name}
-                            className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                          />
+                          <img src={d.image} alt={d.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                         ) : (
                           <div className="h-full w-full bg-gradient-to-br from-saffron-soft via-paper to-verified-soft" />
                         )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                         <p className="absolute bottom-2 left-3 font-display text-2xl text-white drop-shadow">{d.name}</p>
                       </div>
-                      <div className="px-3 py-2 text-[11px] uppercase tracking-wider text-ink-mute">
-                        {d.city ?? "India"} · Qloo match
-                      </div>
+                      <div className="px-3 py-2 text-[11px] uppercase tracking-wider text-ink-mute">{d.city ?? "India"} · Qloo match</div>
                     </motion.div>
                   ))}
                 </div>
@@ -275,12 +291,11 @@ export default function Home() {
             {result.verifiedPlaces.length > 0 && (
               <section className="mb-12">
                 <SectionLabel>Verified by creators</SectionLabel>
-                <p className="mb-5 text-sm text-ink-mute">
-                  Real spots vouched for in creator videos — ranked to your taste.
-                </p>
+                <p className="mb-5 text-sm text-ink-mute">Real spots vouched for in creator videos — ranked to your taste, with timing &amp; price.</p>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {result.verifiedPlaces.map((p, i) => {
                     const cat = catVisual(p.category);
+                    const price = priceSymbol(p.price_level);
                     return (
                       <motion.div
                         key={p.name}
@@ -296,10 +311,7 @@ export default function Home() {
                             // eslint-disable-next-line @next/next/no-img-element
                             <img src={p.image} alt={p.name} className="h-full w-full object-cover" />
                           ) : (
-                            <div
-                              className="grid h-full w-full place-items-center text-2xl"
-                              style={{ background: `linear-gradient(135deg, ${cat.from}, ${cat.to})` }}
-                            >
+                            <div className="grid h-full w-full place-items-center text-2xl" style={{ background: `linear-gradient(135deg, ${cat.from}, ${cat.to})` }}>
                               {cat.emoji}
                             </div>
                           )}
@@ -314,9 +326,20 @@ export default function Home() {
                           {p.specialities.length > 0 && (
                             <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">{p.specialities.join(" · ")}</p>
                           )}
-                          <p className="mt-1 text-[11px] uppercase tracking-wider text-ink-mute">
-                            {[p.category, p.area].filter(Boolean).join(" · ") || "Delhi NCR"}
-                          </p>
+                          <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                            {(price || p.average_cost_inr) && (
+                              <span className="pill bg-saffron-soft text-saffron">
+                                {price}
+                                {p.average_cost_inr ? ` ~₹${p.average_cost_inr}` : ""}
+                              </span>
+                            )}
+                            {p.best_time && (
+                              <span className="pill bg-verified-soft text-verified">🕒 {p.best_time.slice(0, 22)}</span>
+                            )}
+                            <span className="pill border border-line text-ink-mute">
+                              {[p.category, p.area].filter(Boolean).join(" · ") || "Delhi NCR"}
+                            </span>
+                          </div>
                         </div>
                       </motion.div>
                     );
@@ -326,12 +349,7 @@ export default function Home() {
             )}
 
             {result.itinerary && (
-              <motion.section
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={EASE}
-              >
+              <motion.section initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={EASE}>
                 <SectionLabel>The plan</SectionLabel>
                 <div className="ring-soft mt-3 rounded-2xl border border-line bg-paper-card p-6">
                   <ReactMarkdown
@@ -339,9 +357,7 @@ export default function Home() {
                     components={{
                       h1: ({ node, ...p }) => <h3 className="font-display text-2xl text-ink" {...p} />,
                       h2: ({ node, ...p }) => <h3 className="mt-4 font-display text-xl text-ink" {...p} />,
-                      h3: ({ node, ...p }) => (
-                        <h4 className="mt-4 text-xs font-semibold uppercase tracking-wider text-saffron" {...p} />
-                      ),
+                      h3: ({ node, ...p }) => <h4 className="mt-4 text-xs font-semibold uppercase tracking-wider text-saffron" {...p} />,
                       p: ({ node, ...p }) => <p className="mt-2 leading-relaxed text-ink-soft" {...p} />,
                       strong: ({ node, ...p }) => <strong className="font-semibold text-ink" {...p} />,
                       ul: ({ node, ...p }) => <ul className="mt-2 space-y-1 text-ink-soft" {...p} />,
