@@ -228,27 +228,51 @@ Your FINAL message (no tool call) is that narrative, in clean markdown.`;
  * Ask a few SHORT clarifying questions tailored to the user's request (no tools).
  * Powers the conversational step before planning.
  */
+const FALLBACK_QUESTIONS = [
+  "How many days is the trip, and what pace do you prefer?",
+  "What's the budget, and any food preferences or must-dos?",
+  "Who's travelling, and what matters most to them?",
+];
+
+function extractQuestionArray(text: string): string[] {
+  if (!text) return [];
+  // strip code fences, then pull the first [...] block
+  const cleaned = text.replace(/```(?:json)?/gi, "");
+  const start = cleaned.indexOf("[");
+  const end = cleaned.lastIndexOf("]");
+  if (start === -1 || end === -1 || end < start) return [];
+  try {
+    const arr = JSON.parse(cleaned.slice(start, end + 1));
+    return Array.isArray(arr) ? arr.map((x) => String(x).trim()).filter(Boolean).slice(0, 3) : [];
+  } catch {
+    return [];
+  }
+}
+
 export async function generateQuestions(prompt: string): Promise<string[]> {
   const sys = `A user gave a trip request for India. Ask exactly 3 SHORT, specific follow-up questions
 that would make their itinerary much more personal. Base them on THEIR request — probe what's
 ambiguous or missing (specific interests within their stated vibe, must-dos, food/diet, budget feel,
 pace, who's coming, how many days if unclear). Each question under 12 words. Friendly, concrete.
-Return ONLY a JSON array of exactly 3 strings — no prose, no keys.`;
-  const msg = await chat(
-    [
-      { role: "system", content: sys },
-      { role: "user", content: prompt },
-    ],
-    undefined,
-    { temperature: 0.6, maxTokens: 300 },
-  );
-  const text = msg.content ?? "";
-  try {
-    const arr = JSON.parse(text.slice(text.indexOf("["), text.lastIndexOf("]") + 1));
-    return Array.isArray(arr) ? arr.slice(0, 3).map((x) => String(x)) : [];
-  } catch {
-    return [];
+Respond with ONLY a JSON array of exactly 3 strings, e.g. ["...","...","..."]. No prose, no keys, no markdown.`;
+  // gpt-oss sometimes returns empty content; retry, then fall back so questions ALWAYS show.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const msg = await chat(
+        [
+          { role: "system", content: sys },
+          { role: "user", content: `Request: ${prompt}\n\nReturn the JSON array now.` },
+        ],
+        undefined,
+        { temperature: 0.6, maxTokens: 400 },
+      );
+      const qs = extractQuestionArray(msg.content ?? "");
+      if (qs.length >= 2) return qs;
+    } catch {
+      /* try again, then fall back */
+    }
   }
+  return FALLBACK_QUESTIONS;
 }
 
 export type AgentResult = {

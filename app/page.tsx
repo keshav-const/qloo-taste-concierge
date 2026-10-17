@@ -124,6 +124,13 @@ export default function Home() {
     setStage("compose"); setResult(null); setQuestions([]); setAnswers([]); setError("");
   }
 
+  // Click a destination card -> plan a full trip for THAT city (keeps tastes + answers).
+  function planDestination(name: string) {
+    const detail = questions.length ? "\n\nMy answers:\n" + questions.map((q, i) => `- ${q} → ${answers[i]?.trim() || "no preference"}`).join("\n") : "";
+    runPlan(`${tastes.trim()}\n\n(Destination: ${name}.)${detail}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="grain-overlay" />
@@ -235,17 +242,34 @@ export default function Home() {
                 <p className="mb-5 text-sm text-ink-mute">Matched to your taste by Qloo&apos;s Taste AI.</p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {result.destinations.slice(0, 6).map((d, i) => (
-                    <motion.div key={d.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -3 }} className="ring-soft group overflow-hidden rounded-2xl border border-line bg-paper-card">
-                      <div className="relative h-32 overflow-hidden">
+                    <motion.button
+                      key={d.name}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                      whileHover={{ y: -4 }}
+                      onClick={() => planDestination(d.name)}
+                      disabled={!!busy}
+                      className="ring-soft group block overflow-hidden rounded-2xl border border-line bg-paper-card text-left transition hover:border-saffron disabled:opacity-60"
+                    >
+                      <div className="relative h-36 overflow-hidden">
                         {d.image ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img src={d.image} alt={d.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-110" />
                         ) : <div className="h-full w-full bg-gradient-to-br from-saffron-soft via-paper to-verified-soft" />}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
                         <p className="absolute bottom-2 left-3 font-display text-2xl text-white drop-shadow">{d.name}</p>
+                        {/* hover affordance */}
+                        <div className="absolute inset-0 flex items-end justify-end bg-saffron/0 p-3 opacity-0 transition group-hover:bg-black/20 group-hover:opacity-100">
+                          <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-ink shadow">Plan this trip →</span>
+                        </div>
                       </div>
-                      <div className="px-3 py-2 text-[11px] uppercase tracking-wider text-ink-mute">{d.city ?? "India"} · Qloo match</div>
-                    </motion.div>
+                      <div className="flex items-center justify-between px-3 py-2">
+                        <span className="text-[11px] uppercase tracking-wider text-ink-mute">{d.city ?? "India"} · Qloo match</span>
+                        <span className="text-xs text-saffron opacity-0 transition group-hover:opacity-100">↗</span>
+                      </div>
+                    </motion.button>
                   ))}
                 </div>
               </section>
