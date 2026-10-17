@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import HeroVideo from "./HeroVideo";
 import HeroStrip from "./HeroStrip";
+import SiteHeader from "./SiteHeader";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -194,14 +195,8 @@ export default function Home() {
     return (
       <div className="relative min-h-screen overflow-hidden">
         <div className="grain-overlay" />
-        <header className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-paper">✦</span>
-            <span className="font-display text-xl text-ink">TasteTrail</span>
-          </div>
-          <span className="rounded-full border border-line bg-paper-card/70 px-3 py-1 text-xs text-ink-mute backdrop-blur">powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span></span>
-        </header>
-        <main className="relative z-10 mx-auto max-w-3xl px-6 pb-24 pt-8">
+        <SiteHeader />
+        <main className="relative z-10 mx-auto max-w-3xl px-6 pb-24 pt-28">
           <p className="mb-2 text-xs font-medium uppercase tracking-wider text-saffron">Shared itinerary</p>
           {shared.r && <p className="mb-2 font-display text-2xl text-ink">“{shared.r}”</p>}
           {shared.q.length > 0 && (
@@ -223,16 +218,7 @@ export default function Home() {
       <motion.div aria-hidden animate={{ x: [0, 30, 0], y: [0, 16, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
       <motion.div aria-hidden animate={{ x: [0, -24, 0], y: [0, 24, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
 
-      {/* Frosted glass navbar — overlays the hero video so the video keeps full height */}
-      <header className="fixed inset-x-0 top-0 z-30 border-b border-white/15 bg-paper/50 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3.5">
-          <div className="flex items-center gap-2">
-            <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-paper">✦</span>
-            <span className="font-display text-xl text-ink">TasteTrail</span>
-          </div>
-          <span className="rounded-full border border-white/25 bg-paper-card/50 px-3 py-1 text-xs text-ink-mute backdrop-blur">powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span></span>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
         {/* Hero — full-bleed looping India montage (intro/outro trimmed), extends behind the glass navbar */}
