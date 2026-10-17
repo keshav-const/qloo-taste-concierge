@@ -7,11 +7,22 @@ import {
   findVerified,
   listVerifiedPlaces,
   citiesWithDepth,
+  qlooCorroborates,
   type VerifiedPlace,
 } from "./evidence";
 import { chat, type ChatMessage, type ToolDef } from "./llm";
 
-export type Destination = { name: string; city: string | null };
+export type Destination = {
+  name: string;
+  city: string | null;
+  /** Qloo explainability — which of the user's tastes correlated to this pick. */
+  why?: string;
+  /** Qloo affinity 0..1 for this result, when returned. */
+  affinity?: number;
+};
+
+/** A cross-domain "you'd also love" pick from Qloo (film / tv / music / book). */
+export type CulturalPick = { name: string; domain: string };
 
 // Map the model's friendly domain words -> Qloo entity-type URNs.
 const SEED_TYPE: Record<string, EntityTypeUrn> = {
@@ -131,22 +142,67 @@ const TOOLS: ToolDef[] = [
       },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "qloo_taste_graph",
+      description:
+        "Qloo's cross-domain taste graph. Call ONCE after you know the destination. Given the user's " +
+        "taste seeds it returns (a) 'cultural' — films, shows, artists & books the user would also love " +
+        "(the app shows these as a 'cultural vibe' strip, so you don't need to list them), and (b) " +
+        "'qloo_places' — Qloo's own taste-matched venues in the destination city, used by the app to " +
+        "corroborate and rank the creator-verified places. This is what makes Qloo visibly central.",
+      parameters: {
+        type: "object",
+        properties: {
+          seeds: {
+            type: "array",
+            description: "The user's tastes, each a name + its domain (same shape as expand_taste).",
+            items: {
+              type: "object",
+              properties: {
+                name: { type: "string" },
+                type: { type: "string", description: "music, film, tv, book, brand, place, food, or destination" },
+              },
+              required: ["name", "type"],
+            },
+          },
+          city: {
+            type: ["string", "null"],
+            description: "Destination city for 'qloo_places' (e.g. Jaipur). null to skip venue ranking.",
+          },
+        },
+        required: ["seeds"],
+      },
+    },
+  },
 ];
 
-type ExpandArgs = { seeds?: { name: string; type: string }[]; target_domain?: string; city?: string };
+type Seed = { name: string; type: string };
+type ExpandArgs = { seeds?: Seed[]; target_domain?: string; city?: string };
 type EvidenceArgs = { places?: string[] };
+
+/** Resolve the user's taste seeds to Qloo entity ids, keeping the names that resolved. */
+async function resolveSeeds(seeds: Seed[] = []): Promise<{ ids: string[]; names: string[] }> {
+  const ids: string[] = [];
+  const names: string[] = [];
+  for (const s of seeds) {
+    // Unknown types fall back to an untyped search (Qloo matches across all types).
+    const type = SEED_TYPE[(s.type || "").toLowerCase()];
+    const found = await searchEntities(s.name, type, 1);
+    const id = found[0] && entityId(found[0]);
+    if (id) {
+      ids.push(id);
+      names.push(s.name);
+    }
+  }
+  return { ids, names };
+}
 
 async function runTool(name: string, args: unknown): Promise<unknown> {
   if (name === "expand_taste") {
     const a = args as ExpandArgs;
-    const seedIds: string[] = [];
-    for (const s of a.seeds ?? []) {
-      // Unknown types fall back to an untyped search (Qloo matches across all types).
-      const type = SEED_TYPE[(s.type || "").toLowerCase()];
-      const found = await searchEntities(s.name, type, 1);
-      const id = found[0] && entityId(found[0]);
-      if (id) seedIds.push(id);
-    }
+    const { ids: seedIds, names: seedNames } = await resolveSeeds(a.seeds);
     if (!seedIds.length) return { error: "Could not resolve any taste seeds on Qloo." };
     const target = TARGET_TYPE[a.target_domain ?? "destination"] ?? EntityType.destination;
     const opts: Record<string, unknown> = { take: 8 };
@@ -157,12 +213,50 @@ async function runTool(name: string, args: unknown): Promise<unknown> {
     else opts.countryCode = "IN";
     const ents = await tasteExpand(seedIds, target, opts);
     return {
+      seeds_used: seedNames,
       results: ents.map((e) => ({
         name: e.name,
         city: e.properties?.geocode?.city ?? e.properties?.geocode?.name ?? null,
         country: e.properties?.geocode?.country_code ?? null,
+        affinity: typeof e.query?.affinity === "number" ? e.query.affinity : undefined,
       })),
     };
+  }
+  if (name === "qloo_taste_graph") {
+    const a = args as { seeds?: Seed[]; city?: string | null };
+    const { ids: seedIds, names: seedNames } = await resolveSeeds(a.seeds);
+    if (!seedIds.length) return { error: "Could not resolve any taste seeds on Qloo." };
+    // (a) Cross-domain cultural picks — the "you'd also love" strip. Taste-driven, not geo.
+    const domains: { key: string; type: EntityTypeUrn }[] = [
+      { key: "film", type: EntityType.movie },
+      { key: "tv", type: EntityType.tvShow },
+      { key: "music", type: EntityType.artist },
+      { key: "book", type: EntityType.book },
+    ];
+    const cultural: CulturalPick[] = [];
+    // Strip trailing "(series, #1)"-style suffixes so titles read cleanly and image lookups hit.
+    const cleanTitle = (s: string) => s.replace(/\s*\([^)]*\)\s*$/, "").trim();
+    await Promise.all(
+      domains.map(async (d) => {
+        try {
+          const ents = await tasteExpand(seedIds, d.type, { take: 3 });
+          for (const e of ents.slice(0, 3)) if (e.name) cultural.push({ name: cleanTitle(e.name), domain: d.key });
+        } catch {
+          /* skip this domain */
+        }
+      }),
+    );
+    // (b) Qloo's own taste-matched venues in the destination — used to rank verified places.
+    let qlooPlaces: string[] = [];
+    if (a.city) {
+      try {
+        const ents = await tasteExpand(seedIds, EntityType.place, { locationQuery: a.city, take: 15 });
+        qlooPlaces = ents.map((e) => e.name).filter((n): n is string => !!n);
+      } catch {
+        /* skip venue ranking */
+      }
+    }
+    return { cultural, qloo_places: qlooPlaces, seeds_used: seedNames };
   }
   if (name === "get_verified_places") {
     const a = args as { city?: string; interests?: string[]; category?: string; limit?: number };
@@ -207,7 +301,11 @@ STEP B — Build the plan FOR THAT DESTINATION:
    - OTHERWISE (e.g. Jaipur, Goa, Udaipur): call expand_taste target_domain='place' with city=<destination>
      to get Qloo places THERE. These are taste-matched but NOT creator-verified — present them as
      suggestions and be honest we don't have verified depth outside ${citiesWithDepth().join(" / ")} yet.
-3. Day-by-day narrative, WEIGHTED TO THE DESTINATION:
+3. Qloo cross-domain graph: call qloo_taste_graph ONCE with the user's seeds and city=<destination>.
+   The app renders the returned cultural picks (films/shows/music/books) as a "cultural vibe" strip and
+   uses qloo_places to rank the verified places — so you need NOT list them in prose. This makes Qloo
+   visibly central.
+4. Day-by-day narrative, WEIGHTED TO THE DESTINATION:
    - The days happen IN the destination. If it's a trip from a home city, the home city is only the
      start/end (one stop or meal at most) — NEVER 1–2 full days of the home city.
    - For a big destination (e.g. Jaipur), spread the real sights/food across the days there.
@@ -217,7 +315,7 @@ STEP B — Build the plan FOR THAT DESTINATION:
    - When a verified place includes a best_time or price (price_level / average_cost_inr), weave it in
      naturally ("best in the evening", "around ₹300 a head").
 
-BE ECONOMICAL: 3–4 tool calls total, then STOP and write the narrative.
+BE ECONOMICAL: 3–5 tool calls total (include qloo_taste_graph once), then STOP and write the narrative.
 STRICT HONESTY: use ONLY facts the tools returned; never invent places, festivals, or claims.
 FORMAT (important): The app shows destinations + places as cards separately. Your narrative =
 a warm 1–2 sentence intro, THEN one line "**Best time to visit:** <months/season + why>" for the
@@ -349,6 +447,7 @@ export type AgentResult = {
   trace: string[];
   destinations: Destination[];
   verifiedPlaces: VerifiedPlace[];
+  culturalVibe: CulturalPick[];
 };
 
 export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentResult> {
@@ -360,11 +459,24 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
   // Capture structured results so the UI can render styled cards/badges, not a blob.
   const destinations: Destination[] = [];
   const verifiedPlaces: VerifiedPlace[] = [];
+  const culturalVibe: CulturalPick[] = [];
+  const qlooPlaceNames: string[] = []; // Qloo venue names for the destination, for cross-ranking
   const addDest = (d: Destination) => {
     if (d?.name && !destinations.some((x) => x.name === d.name)) destinations.push(d);
   };
   const addPlace = (p: VerifiedPlace) => {
     if (p?.name && !verifiedPlaces.some((x) => x.name === p.name)) verifiedPlaces.push(p);
+  };
+  const addCultural = (c: CulturalPick) => {
+    if (c?.name && !culturalVibe.some((x) => x.name === c.name)) culturalVibe.push(c);
+  };
+  // Mark verified places Qloo independently recommended, and float them to the top.
+  const applyQlooRanking = () => {
+    if (!qlooPlaceNames.length) return;
+    for (const p of verifiedPlaces) {
+      if (qlooCorroborates(p.name, qlooPlaceNames)) p.qloo_ranked = true;
+    }
+    verifiedPlaces.sort((a, b) => Number(b.qloo_ranked ?? false) - Number(a.qloo_ranked ?? false));
   };
 
   for (let step = 0; step < maxSteps; step++) {
@@ -395,8 +507,16 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
         } else if (tc.function.name === "expand_taste") {
           const td = parsed.target_domain;
           if (!td || td === "destination") {
-            for (const d of (result as { results?: Destination[] }).results ?? []) addDest(d);
+            const r = result as { results?: Destination[]; seeds_used?: string[] };
+            const why = r.seeds_used?.length
+              ? `Qloo matched this to your love of ${r.seeds_used.slice(0, 3).join(", ")}`
+              : undefined;
+            for (const d of r.results ?? []) addDest({ ...d, why });
           }
+        } else if (tc.function.name === "qloo_taste_graph") {
+          const r = result as { cultural?: CulturalPick[]; qloo_places?: string[] };
+          for (const c of r.cultural ?? []) addCultural(c);
+          for (const n of r.qloo_places ?? []) qlooPlaceNames.push(n);
         }
 
         messages.push({
@@ -408,8 +528,10 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       }
       continue;
     }
-    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces };
+    applyQlooRanking();
+    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe };
   }
+  applyQlooRanking();
   // Didn't compose in-loop (the model kept calling tools). Compose from the data we gathered, in a
   // FRESH context (no tool-call history) so the model writes the plan instead of calling more tools.
   const dataSummary =
@@ -432,6 +554,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       trace,
       destinations,
       verifiedPlaces,
+      culturalVibe,
     };
   } catch {
     return {
@@ -439,6 +562,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       trace,
       destinations,
       verifiedPlaces,
+      culturalVibe,
     };
   }
 }

@@ -14,11 +14,12 @@ export async function POST(req: Request) {
     }
     const result = await runAgent(tastes.trim());
     // Enrich with real imagery (Wikipedia) so the UI shows photos, not placeholders.
-    const [destinations, verifiedPlaces] = await Promise.all([
+    const [destinations, verifiedPlaces, culturalVibe] = await Promise.all([
       enrichWithImages(result.destinations),
       enrichWithImages(result.verifiedPlaces),
+      enrichWithImages(result.culturalVibe),
     ]);
-    return NextResponse.json({ ...result, destinations, verifiedPlaces });
+    return NextResponse.json({ ...result, destinations, verifiedPlaces, culturalVibe });
   } catch (e) {
     const message = e instanceof Error ? e.message : String(e);
     return NextResponse.json({ error: message }, { status: 500 });

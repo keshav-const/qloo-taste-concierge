@@ -131,11 +131,29 @@ export type VerifiedPlace = {
   best_time: string | null;
   price_level: string | null;
   average_cost_inr: number | null;
+  /** True when Qloo's Taste AI independently surfaced this place for the user's taste. */
+  qloo_ranked?: boolean;
 };
 
 /** Which cities we have verified depth for (for the "city depth map" + honesty). */
 export function citiesWithDepth(): string[] {
   return [...new Set(pois().map((p) => p.destination))];
+}
+
+/**
+ * Does Qloo's Taste AI independently corroborate this place? Fuzzy (creators use colloquial
+ * names, Qloo uses formal ones), via normalized substring or high edit-similarity.
+ */
+export function qlooCorroborates(placeName: string, qlooNames: string[]): boolean {
+  const q = normalize(placeName);
+  if (!q || q.length < 3) return false;
+  for (const raw of qlooNames) {
+    const n = normalize(raw);
+    if (!n) continue;
+    if (n === q || n.includes(q) || q.includes(n)) return true;
+    if (similarity(q, n) >= 0.82) return true;
+  }
+  return false;
 }
 
 const STOP = new Set([

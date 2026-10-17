@@ -34,3 +34,4 @@ coverage/
 # Internal working docs — kept local for continuity, NOT published to the public repo
 HACKATHON_CONTEXT.md
 notes/
+tsconfig.tsbuildinfo

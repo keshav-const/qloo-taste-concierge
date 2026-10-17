@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, type Transition } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import HeroVideo from "./HeroVideo";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -11,9 +12,21 @@ type VerifiedPlace = {
   name: string; category: string | null; area: string | null; sources: number;
   specialities: string[]; tips: string[];
   best_time: string | null; price_level: string | null; average_cost_inr: number | null; image: string | null;
+  qloo_ranked?: boolean;
 };
-type Destination = { name: string; city: string | null; image: string | null };
-type PlanResult = { itinerary: string; trace: string[]; destinations: Destination[]; verifiedPlaces: VerifiedPlace[] };
+type Destination = { name: string; city: string | null; image: string | null; why?: string; affinity?: number };
+type CulturalPick = { name: string; domain: string; image: string | null };
+type PlanResult = {
+  itinerary: string; trace: string[];
+  destinations: Destination[]; verifiedPlaces: VerifiedPlace[]; culturalVibe: CulturalPick[];
+};
+
+const CULTURE_META: Record<string, { icon: string; label: string }> = {
+  film: { icon: "🎬", label: "Film" },
+  tv: { icon: "📺", label: "Show" },
+  music: { icon: "🎵", label: "Artist" },
+  book: { icon: "📖", label: "Book" },
+};
 
 const CHIPS = [
   { icon: "♫", label: "A.R. Rahman" }, { icon: "🎬", label: "Inception" }, { icon: "🍜", label: "street food" },
@@ -152,15 +165,10 @@ export default function Home() {
       </header>
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
-        {/* Hero with a looping India montage video background */}
-        <section className="relative mb-2 flex min-h-[23rem] items-center justify-center overflow-hidden rounded-3xl py-14 sm:min-h-[28rem]">
+        {/* Hero — full-bleed looping India montage (intro/outro trimmed) */}
+        <section className="relative left-1/2 mb-8 flex min-h-[26rem] w-screen -translate-x-1/2 items-center justify-center overflow-hidden py-16 sm:min-h-[34rem]">
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <iframe
-              title="Incredible India"
-              src="https://www.youtube-nocookie.com/embed/JtOMlDLxEy0?autoplay=1&mute=1&loop=1&playlist=JtOMlDLxEy0&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3"
-              allow="autoplay; encrypted-media"
-              className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
-            />
+            <HeroVideo />
             {/* readability wash + fade into the page */}
             <div className="absolute inset-0 bg-paper/45" />
             <div className="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/20 to-paper" />
@@ -275,6 +283,31 @@ export default function Home() {
               )}
             </div>
 
+            {result.culturalVibe && result.culturalVibe.length > 0 && (
+              <section className="mb-12">
+                <SectionLabel>Your cultural vibe</SectionLabel>
+                <p className="mb-5 text-sm text-ink-mute">Films, shows, music &amp; books Qloo says share your taste DNA — the cross-domain thread behind your trip.</p>
+                <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2">
+                  {result.culturalVibe.map((c, i) => {
+                    const m = CULTURE_META[c.domain] ?? { icon: "✨", label: "Pick" };
+                    return (
+                      <motion.div key={c.name + i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.4, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
+                        className="ring-soft w-32 shrink-0 overflow-hidden rounded-2xl border border-line bg-paper-card">
+                        <div className="relative h-40 overflow-hidden">
+                          {c.image ? (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={c.image} alt={c.name} className="h-full w-full object-cover" />
+                          ) : <div className="grid h-full w-full place-items-center bg-gradient-to-br from-saffron-soft via-paper to-verified-soft text-3xl">{m.icon}</div>}
+                          <span className="absolute left-1.5 top-1.5 rounded-full bg-black/55 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur">{m.icon} {m.label}</span>
+                        </div>
+                        <p className="line-clamp-2 px-2 py-1.5 text-xs font-medium leading-snug text-ink">{c.name}</p>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
             {result.destinations.length > 0 && (
               <section className="mb-12">
                 <SectionLabel>Destinations across India</SectionLabel>
@@ -292,7 +325,13 @@ export default function Home() {
                         <p className="absolute bottom-2 left-3 font-display text-2xl text-white drop-shadow">{d.name}</p>
                         <div className="absolute inset-0 flex items-end justify-end p-3 opacity-0 transition group-hover:bg-black/20 group-hover:opacity-100"><span className="rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-ink shadow">Plan this trip →</span></div>
                       </div>
-                      <div className="flex items-center justify-between px-3 py-2"><span className="text-[11px] uppercase tracking-wider text-ink-mute">{d.city ?? "India"} · Qloo match</span><span className="text-xs text-saffron opacity-0 transition group-hover:opacity-100">↗</span></div>
+                      <div className="px-3 py-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] uppercase tracking-wider text-ink-mute">{d.city ?? "India"}{typeof d.affinity === "number" ? ` · ${Math.round(d.affinity * 100)}% match` : " · Qloo match"}</span>
+                          <span className="text-xs text-saffron opacity-0 transition group-hover:opacity-100">↗</span>
+                        </div>
+                        {d.why && <p className="mt-1 line-clamp-2 text-xs text-ink-soft"><span className="text-saffron">✨</span> {d.why}</p>}
+                      </div>
                     </motion.button>
                   ))}
                 </div>
@@ -302,7 +341,7 @@ export default function Home() {
             {result.verifiedPlaces.length > 0 && (
               <section className="mb-12">
                 <SectionLabel>Verified by creators</SectionLabel>
-                <p className="mb-5 text-sm text-ink-mute">Real spots vouched for in creator videos — ranked to your taste, with timing &amp; price.</p>
+                <p className="mb-5 text-sm text-ink-mute">Real spots vouched for in creator videos — ranked to your taste. <span className="font-medium text-ink-soft">✨ Qloo pick</span> = Qloo&apos;s Taste AI independently surfaced it too.</p>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {result.verifiedPlaces.map((p, i) => {
                     const cat = catVisual(p.category); const price = priceSymbol(p.price_level);
@@ -318,6 +357,7 @@ export default function Home() {
                           <div className="flex items-start justify-between gap-2"><p className="font-medium text-ink">{p.name}</p><span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-verified-soft px-2 py-0.5 text-xs font-medium text-verified">✓ {p.sources}</span></div>
                           {p.specialities.length > 0 && <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">{p.specialities.join(" · ")}</p>}
                           <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                            {p.qloo_ranked && <span className="pill bg-ink text-paper">✨ Qloo pick</span>}
                             {(price || p.average_cost_inr) && <span className="pill bg-saffron-soft text-saffron">{price}{p.average_cost_inr ? ` ~₹${p.average_cost_inr}` : ""}</span>}
                             {p.best_time && <span className="pill bg-verified-soft text-verified">🕒 {p.best_time.slice(0, 22)}</span>}
                             <span className="pill border border-line text-ink-mute">{[p.category, p.area].filter(Boolean).join(" · ") || "Delhi NCR"}</span>
