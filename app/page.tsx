@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion, type Transition } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -21,11 +21,6 @@ const CHIPS = [
 ];
 const DESTS = ["Anywhere in India", "Delhi", "Gurgaon", "Jaipur", "Goa", "Mumbai"];
 const LOADING_STEPS = ["Reading your taste…", "Asking Qloo's Taste AI for destinations…", "Pulling creator-verified places…", "Composing your itinerary…"];
-const HERO_PLACES = [
-  "Taj Mahal", "Hawa Mahal", "Varanasi", "Golden Temple", "Qutub Minar", "Gateway of India",
-  "Kerala backwaters", "Hampi", "Mysore Palace", "Jaisalmer Fort", "Holi", "Diwali",
-  "Meenakshi Temple", "Pushkar Fair", "Darjeeling", "Munnar",
-];
 const EASE: Transition = { duration: 0.6, ease: [0.22, 1, 0.36, 1] };
 
 function catVisual(category: string | null) {
@@ -48,7 +43,8 @@ export default function Home() {
   const [dest, setDest] = useState("Anywhere in India");
   const [stage, setStage] = useState<"compose" | "questions" | "result">("compose");
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[][]>([]); // multi-select labels per question
+  const [typed, setTyped] = useState<string[]>([]);          // free text per question
   const [refine, setRefine] = useState("");
   const [busy, setBusy] = useState<"" | "questions" | "plan">("");
   const [steps, setSteps] = useState<string[]>([]);
@@ -57,20 +53,7 @@ export default function Home() {
   const [reqText, setReqText] = useState("");           // the tastes the user typed
   const [qa, setQa] = useState<{ q: string; a: string }[]>([]);
   const [error, setError] = useState("");
-  const [heroImgs, setHeroImgs] = useState<string[]>([]);
   const resultsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let alive = true;
-    Promise.all(HERO_PLACES.map(async (n) => {
-      try {
-        const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(n)}`);
-        const j = await r.json();
-        return (j?.thumbnail?.source as string) ?? null;
-      } catch { return null; }
-    })).then((imgs) => { if (alive) setHeroImgs(imgs.filter((x): x is string => !!x)); });
-    return () => { alive = false; };
-  }, []);
 
   const addChip = (label: string) => setTastes((t) => (t.trim() ? `${t.replace(/[.\s]+$/, "")}, ${label}` : `I love ${label}`));
   const destHint = () => dest === "Anywhere in India" ? "(Suggest taste-matched destinations across India and plan the strongest match.)" : `(Destination: ${dest}.)`;
@@ -86,7 +69,7 @@ export default function Home() {
       if (d.error) setError(d.error);
       else {
         const qs: Question[] = d.questions ?? [];
-        if (qs.length) { setQuestions(qs); setAnswers(qs.map(() => "")); setStage("questions"); }
+        if (qs.length) { setQuestions(qs); setSelected(qs.map(() => [])); setTyped(qs.map(() => "")); setStage("questions"); }
         else await runPlan(base(), []);
       }
     } catch (e) { setError(e instanceof Error ? e.message : String(e)); }
@@ -112,7 +95,10 @@ export default function Home() {
   }
 
   function createItinerary() {
-    const pairs = questions.map((q, i) => ({ q: q.question, a: answers[i]?.trim() || "no preference" }));
+    const pairs = questions.map((q, i) => {
+      const parts = [...(selected[i] ?? []), (typed[i] ?? "").trim()].filter(Boolean);
+      return { q: q.question, a: parts.length ? parts.join(", ") : "no preference" };
+    });
     const detail = "\n\nMy answers:\n" + pairs.map((p) => `- ${p.q} → ${p.a}`).join("\n");
     runPlan(base() + detail, pairs);
   }
@@ -148,7 +134,7 @@ export default function Home() {
   }
 
   function startOver() {
-    setStage("compose"); setResult(null); setHistory([]); setQuestions([]); setAnswers([]); setQa([]); setError("");
+    setStage("compose"); setResult(null); setHistory([]); setQuestions([]); setSelected([]); setTyped([]); setQa([]); setError("");
   }
 
   return (
@@ -166,28 +152,26 @@ export default function Home() {
       </header>
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
-        {/* Hero with a faded India collage background (places, culture, festivals) */}
-        <section className="relative mb-2 flex min-h-[22rem] items-center justify-center overflow-hidden rounded-3xl py-12 sm:min-h-[26rem]">
-          {heroImgs.length >= 6 && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="pointer-events-none absolute inset-0">
-              <div className="grid h-full w-full grid-cols-4 grid-rows-3 gap-1 opacity-[0.28] sm:grid-cols-6 sm:grid-rows-3">
-                {heroImgs.slice(0, 18).map((src, i) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img key={i} src={src} alt="" className="h-full w-full object-cover" />
-                ))}
-              </div>
-              {/* readability overlay: fade to paper at top/bottom + a warm center wash */}
-              <div className="absolute inset-0 bg-gradient-to-b from-paper via-paper/70 to-paper" />
-              <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_45%,rgba(244,238,227,0.55),transparent)]" />
-            </motion.div>
-          )}
+        {/* Hero with a looping India montage video background */}
+        <section className="relative mb-2 flex min-h-[23rem] items-center justify-center overflow-hidden rounded-3xl py-14 sm:min-h-[28rem]">
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <iframe
+              title="Incredible India"
+              src="https://www.youtube-nocookie.com/embed/JtOMlDLxEy0?autoplay=1&mute=1&loop=1&playlist=JtOMlDLxEy0&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3"
+              allow="autoplay; encrypted-media"
+              className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2"
+            />
+            {/* readability wash + fade into the page */}
+            <div className="absolute inset-0 bg-paper/45" />
+            <div className="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/20 to-paper" />
+          </div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="relative z-10 px-4 text-center">
-            <h1 className="font-display text-5xl leading-[1.05] text-ink drop-shadow-[0_1px_8px_rgba(244,238,227,0.9)] sm:text-[4.75rem]">
+            <h1 className="font-display text-5xl leading-[1.05] text-ink drop-shadow-[0_2px_12px_rgba(244,238,227,0.95)] sm:text-[4.75rem]">
               Your taste, your{" "}
               <span style={{ background: "linear-gradient(110deg, #e2550e, #c23d6a 38%, #0d6e5b 68%, #e2550e)", backgroundSize: "260% 100%", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "gradient-shift 9s ease-in-out infinite" }}>India</span>.
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
-              Tell us what you love. We&apos;ll ask a couple of quick questions, then plan a trip anywhere in India — with real places <span className="font-medium text-verified">verified by creators</span>.
+            <p className="mx-auto mt-4 max-w-xl text-lg font-medium text-ink-soft drop-shadow-[0_1px_8px_rgba(244,238,227,0.95)]">
+              Tell us what you love. We&apos;ll ask a couple of quick questions, then plan a trip anywhere in India — with real places <span className="text-verified">verified by creators</span>.
             </p>
           </motion.div>
         </section>
@@ -221,30 +205,28 @@ export default function Home() {
           <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="mx-auto max-w-2xl">
             <div className="ring-soft rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
               <p className="mb-1 text-xs font-medium uppercase tracking-wider text-saffron">A few quick questions</p>
-              <p className="mb-4 text-sm text-ink-mute">Tap a suggestion or type your own — skip what you like.</p>
+              <p className="mb-4 text-sm text-ink-mute">Pick any that fit (you can choose several) or type your own.</p>
               <div className="space-y-5">
-                {questions.map((q, i) => {
-                  const typed = answers[i] && !q.suggestions.some((s) => s.label === answers[i]);
-                  return (
-                    <div key={i}>
-                      <p className="mb-2 text-sm font-medium text-ink">{q.question}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {q.suggestions.map((s) => {
-                          const active = answers[i] === s.label;
-                          return (
-                            <button key={s.label} onClick={() => setAnswers((a) => a.map((v, j) => (j === i ? (v === s.label ? "" : s.label) : v)))}
-                              className={`max-w-[15rem] rounded-xl border px-3 py-2 text-left transition ${active ? "border-saffron bg-saffron-soft" : "border-line hover:border-ink-mute"}`}>
-                              <span className="block text-sm font-medium text-ink">{s.label}</span>
-                              {s.desc && <span className="block text-xs text-ink-mute">{s.desc}</span>}
-                            </button>
-                          );
-                        })}
-                      </div>
-                      <input value={typed ? answers[i] : ""} onChange={(e) => setAnswers((a) => a.map((v, j) => (j === i ? e.target.value : v)))}
-                        placeholder="Or type your own…" className="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-saffron" />
+                {questions.map((q, i) => (
+                  <div key={i}>
+                    <p className="mb-2 text-sm font-medium text-ink">{q.question} <span className="text-xs font-normal text-ink-mute">· pick any</span></p>
+                    <div className="flex flex-wrap gap-2">
+                      {q.suggestions.map((s) => {
+                        const active = (selected[i] ?? []).includes(s.label);
+                        return (
+                          <button key={s.label}
+                            onClick={() => setSelected((sel) => sel.map((arr, j) => (j === i ? (arr.includes(s.label) ? arr.filter((x) => x !== s.label) : [...arr, s.label]) : arr)))}
+                            className={`max-w-[15rem] rounded-xl border px-3 py-2 text-left transition ${active ? "border-saffron bg-saffron-soft" : "border-line hover:border-ink-mute"}`}>
+                            <span className="flex items-center gap-1.5 text-sm font-medium text-ink">{active && <span className="text-saffron">✓</span>}{s.label}</span>
+                            {s.desc && <span className="block text-xs text-ink-mute">{s.desc}</span>}
+                          </button>
+                        );
+                      })}
                     </div>
-                  );
-                })}
+                    <input value={typed[i] ?? ""} onChange={(e) => setTyped((t) => t.map((v, j) => (j === i ? e.target.value : v)))}
+                      placeholder="Add your own…" className="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-saffron" />
+                  </div>
+                ))}
               </div>
               <div className="mt-5 flex items-center justify-between gap-3">
                 <button onClick={() => runPlan(base(), [])} className="text-sm text-ink-mute underline-offset-2 hover:text-ink hover:underline">Skip &amp; plan now</button>

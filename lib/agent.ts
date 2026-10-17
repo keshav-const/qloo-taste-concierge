@@ -220,7 +220,9 @@ STEP B — Build the plan FOR THAT DESTINATION:
 BE ECONOMICAL: 3–4 tool calls total, then STOP and write the narrative.
 STRICT HONESTY: use ONLY facts the tools returned; never invent places, festivals, or claims.
 FORMAT (important): The app shows destinations + places as cards separately. Your narrative =
-a warm 1–2 sentence intro, then a day-by-day plan formatted EXACTLY like this:
+a warm 1–2 sentence intro, THEN one line "**Best time to visit:** <months/season + why>" for the
+destination (use your general knowledge of India's seasons/festivals), then a day-by-day plan
+formatted EXACTLY like this:
 
 **Day 1 — <short theme>**
 - Morning: <place/activity, one line>
