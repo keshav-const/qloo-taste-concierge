@@ -6,8 +6,8 @@
 import { useEffect, useRef } from "react";
 
 const VIDEO_ID = "JtOMlDLxEy0";
-const INTRO = 6; // seconds skipped at the start (creator name card)
-const OUTRO = 8; // seconds stopped before the end (creator name / outro)
+const INTRO = 14; // seconds skipped at the start (creator title card)
+const OUTRO = 10; // seconds stopped before the end (creator name / outro)
 
 // Minimal shape of the parts of the YT IFrame API we use.
 type YTPlayer = {
@@ -100,7 +100,7 @@ export default function HeroVideo() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-[100vh] w-[177.78vh] min-w-[100vw] -translate-x-1/2 -translate-y-1/2 [&>iframe]:h-full [&>iframe]:w-full"
+      className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-[100vh] w-[177.78vh] min-w-[100vw] -translate-x-1/2 -translate-y-1/2 scale-[1.45] [&>iframe]:h-full [&>iframe]:w-full"
     >
       <div ref={targetRef} className="h-full w-full" />
     </div>
