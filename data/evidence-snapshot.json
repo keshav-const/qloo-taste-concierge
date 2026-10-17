@@ -1,7 +1,7 @@
 {
-  "exported_at": "2026-10-16T19:32:40.076519Z",
-  "source": "Rasta (frozen) — Delhi/Gurgaon creator-evidence graph",
-  "poi_count": 119,
+  "exported_at": "2026-10-17T11:10:30.019350Z",
+  "source": "Rasta (frozen) — India creator-evidence graph",
+  "poi_count": 143,
   "pois": [
     {
       "name": "Mamas Restaurant",
@@ -71,109 +71,6 @@
           ],
           "views": 15030,
           "upload_date": "2026-07-11"
-        }
-      ]
-    },
-    {
-      "name": "Qutub Minar",
-      "name_local": "कुतुब मीनार",
-      "slug": "qutub-minar",
-      "normalized_name": "qutub minar",
-      "entity_type": "poi",
-      "poi_category": "monument",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.4942,
-      "frequency_count": 2,
-      "specialities": [
-        "UNESCO World Heritage Site, Iron Pillar, Alai Darwaza, Tomb of Iltutmish"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": "Early morning",
-      "price_level": "₹35 (Light Show)",
-      "average_cost_inr": 40,
-      "crowd_info": "High in evening",
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.9,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "UNESCO World Heritage Site, Iron Pillar, Alai Darwaza, Tomb of Iltutmish",
-              "evidence": "ये प्लेस एक यूनेस्को वर्ल्ड हेरिटेज साइट है... जैसे कि यह आयरन पिलर... अलाई दरवाजा, टॉम ऑफ इल्तुतमिश",
-              "confidence": 0.95,
-              "timestamp_seconds": 19
-            },
-            {
-              "field": "average_cost",
-              "value": "₹40 per person",
-              "evidence": "कुतुब मीनार कॉम्प्लेक्स में एंट्री के चार्जेस हैं ₹40 पर पर्सन",
-              "confidence": 0.95,
-              "timestamp_seconds": 39
-            },
-            {
-              "field": "parking",
-              "value": "₹60 for car",
-              "evidence": "पार्किंग के चार्जेस हैं ₹60 कार के",
-              "confidence": 0.95,
-              "timestamp_seconds": 41
-            },
-            {
-              "field": "opening_hours",
-              "value": "After sunrise",
-              "evidence": "कुतुब मीनार में एंट्री ओपन हो जाती है सनराइज के बाद से",
-              "confidence": 0.9,
-              "timestamp_seconds": 46
-            },
-            {
-              "field": "closing_hours",
-              "value": "Before 8:00 PM",
-              "evidence": "लास्ट एंट्री आपको मिल जाएगी शाम के 8:00 बजे से पहले",
-              "confidence": 0.9,
-              "timestamp_seconds": 48
-            },
-            {
-              "field": "best_time",
-              "value": "Early morning",
-              "evidence": "अगर आप कम क्राउड में एक्सप्लोर करना चाहते हो तो अर्ली मॉर्निंग यहां पर आ जाना",
-              "confidence": 0.9,
-              "timestamp_seconds": 50
-            },
-            {
-              "field": "crowd_level",
-              "value": "High in evening",
-              "evidence": "शाम में यहां पर काफी ज्यादा क्राउड होता है",
-              "confidence": 0.9,
-              "timestamp_seconds": 55
-            }
-          ],
-          "views": 376773,
-          "upload_date": "2025-08-29"
-        },
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "activities",
-              "value": "Laser Light Show",
-              "evidence": "हर शाम कुतुब मीनार पे लेजर लाइट शो होता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 520
-            },
-            {
-              "field": "price_level",
-              "value": "₹35 (Light Show)",
-              "evidence": "जिसके टिकट ₹35 है",
-              "confidence": 0.95,
-              "timestamp_seconds": 523
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
         }
       ]
     },
@@ -273,6 +170,109 @@
               "evidence": "जहाँ की एंट्री बिल्कुल फ्री होती है",
               "confidence": 0.95,
               "timestamp_seconds": 511
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Qutub Minar",
+      "name_local": "कुतुब मीनार",
+      "slug": "qutub-minar",
+      "normalized_name": "qutub minar",
+      "entity_type": "poi",
+      "poi_category": "monument",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4942,
+      "frequency_count": 2,
+      "specialities": [
+        "UNESCO World Heritage Site, Iron Pillar, Alai Darwaza, Tomb of Iltutmish"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": "Early morning",
+      "price_level": "₹35 (Light Show)",
+      "average_cost_inr": 40,
+      "crowd_info": "High in evening",
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "UNESCO World Heritage Site, Iron Pillar, Alai Darwaza, Tomb of Iltutmish",
+              "evidence": "ये प्लेस एक यूनेस्को वर्ल्ड हेरिटेज साइट है... जैसे कि यह आयरन पिलर... अलाई दरवाजा, टॉम ऑफ इल्तुतमिश",
+              "confidence": 0.95,
+              "timestamp_seconds": 19
+            },
+            {
+              "field": "average_cost",
+              "value": "₹40 per person",
+              "evidence": "कुतुब मीनार कॉम्प्लेक्स में एंट्री के चार्जेस हैं ₹40 पर पर्सन",
+              "confidence": 0.95,
+              "timestamp_seconds": 39
+            },
+            {
+              "field": "parking",
+              "value": "₹60 for car",
+              "evidence": "पार्किंग के चार्जेस हैं ₹60 कार के",
+              "confidence": 0.95,
+              "timestamp_seconds": 41
+            },
+            {
+              "field": "opening_hours",
+              "value": "After sunrise",
+              "evidence": "कुतुब मीनार में एंट्री ओपन हो जाती है सनराइज के बाद से",
+              "confidence": 0.9,
+              "timestamp_seconds": 46
+            },
+            {
+              "field": "closing_hours",
+              "value": "Before 8:00 PM",
+              "evidence": "लास्ट एंट्री आपको मिल जाएगी शाम के 8:00 बजे से पहले",
+              "confidence": 0.9,
+              "timestamp_seconds": 48
+            },
+            {
+              "field": "best_time",
+              "value": "Early morning",
+              "evidence": "अगर आप कम क्राउड में एक्सप्लोर करना चाहते हो तो अर्ली मॉर्निंग यहां पर आ जाना",
+              "confidence": 0.9,
+              "timestamp_seconds": 50
+            },
+            {
+              "field": "crowd_level",
+              "value": "High in evening",
+              "evidence": "शाम में यहां पर काफी ज्यादा क्राउड होता है",
+              "confidence": 0.9,
+              "timestamp_seconds": 55
+            }
+          ],
+          "views": 376773,
+          "upload_date": "2025-08-29"
+        },
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "activities",
+              "value": "Laser Light Show",
+              "evidence": "हर शाम कुतुब मीनार पे लेजर लाइट शो होता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 520
+            },
+            {
+              "field": "price_level",
+              "value": "₹35 (Light Show)",
+              "evidence": "जिसके टिकट ₹35 है",
+              "confidence": 0.95,
+              "timestamp_seconds": 523
             }
           ],
           "views": 726485,
@@ -1177,23 +1177,26 @@
       ]
     },
     {
-      "name": "Lodhi Garden",
-      "name_local": "लोधी गार्डन",
-      "slug": "lodhi-garden",
-      "normalized_name": "lodhi garden",
+      "name": "Sai Paratha",
+      "name_local": "साईं पराठा",
+      "slug": "sai-paratha",
+      "normalized_name": "sai paratha",
       "entity_type": "poi",
-      "poi_category": "park",
-      "destination": "delhi",
+      "poi_category": "street_food",
+      "destination": "udaipur",
       "area": null,
-      "recommendation_score": 0.4587,
+      "recommendation_score": 0.4597,
       "frequency_count": 1,
       "specialities": [
-        "Historical site, Beautiful gardens, Morning/Evening walk spot"
+        "Aloo Paratha deep-fried in overloaded desi ghee",
+        "Aloo Paratha Plate (served with curd, dal, and Rajasthani garlic chutney)"
       ],
-      "tips": null,
+      "tips": [
+        "The parathas are extremely rich in calories and ghee; one plate (2 parathas) is ideal for two people to share"
+      ],
       "warnings": null,
-      "best_time": "Winter days, Spring (flowers bloom)",
-      "price_level": null,
+      "best_time": null,
+      "price_level": "₹150 for a plate of 2 parathas with dal, curd, and chutney; full menu ranges from ₹150 to ₹300",
       "average_cost_inr": null,
       "crowd_info": null,
       "verification_status": "ai_extracted",
@@ -1204,56 +1207,128 @@
           "claims": [
             {
               "field": "speciality",
-              "value": "Historical site, Beautiful gardens, Morning/Evening walk spot",
-              "evidence": "दिल्ली के मोस्ट ब्यूटीफुल एंड पीसफुल प्लेसेस में से एक... हिसटोरिकल साइट भी है... मॉर्निंग एंड इवनिंग वॉक के लिए",
+              "value": "Aloo Paratha deep-fried in overloaded desi ghee",
+              "evidence": "देसी घी में तले ओवरलोडेड पराठे आलू के",
               "confidence": 0.95,
-              "timestamp_seconds": 244
+              "timestamp_seconds": 295
             },
             {
-              "field": "size",
-              "value": "90 acres",
-              "evidence": "यह जगह 90 एक्सर्स में फैली हुई है",
-              "confidence": 0.9,
-              "timestamp_seconds": 248
-            },
-            {
-              "field": "average_cost",
-              "value": "Free entry",
-              "evidence": "एंट्री के कोई भी चार्जेस नहीं है",
+              "field": "price_level",
+              "value": "₹150 for a plate of 2 parathas with dal, curd, and chutney; full menu ranges from ₹150 to ₹300",
+              "evidence": "300 तक का ही मेन्यू... 150 एक प्लेट में दो परांठा साथ में दाल",
               "confidence": 0.95,
-              "timestamp_seconds": 250
-            },
-            {
-              "field": "parking",
-              "value": "Free",
-              "evidence": "पार्किंग स्पेस भी अवेलबल था फ्री ऑफ कॉस्ट",
-              "confidence": 0.9,
-              "timestamp_seconds": 256
-            },
-            {
-              "field": "best_time",
-              "value": "Winter days, Spring (flowers bloom)",
-              "evidence": "विंटर्स में... दिन में क्योंकि यहां पर काफी सुंदर गार्डन हैं... स्प्रिंग के टाइम में यहां फ्लावर्स ब्लूम करते हैं",
-              "confidence": 0.9,
-              "timestamp_seconds": 269
+              "timestamp_seconds": 344
             },
             {
               "field": "opening_hours",
-              "value": "6:00 AM",
-              "evidence": "सुबह 6:00 बजे से",
+              "value": "08:00 AM",
+              "evidence": "8:00 बजे से लेकर रात के 10:00 बजे तक",
               "confidence": 0.9,
-              "timestamp_seconds": 284
+              "timestamp_seconds": 379
             },
             {
               "field": "closing_hours",
-              "value": "8:00 PM",
-              "evidence": "शाम के 8:00 बजे तक",
+              "value": "10:00 PM",
+              "evidence": "8:00 बजे से लेकर रात के 10:00 बजे तक",
               "confidence": 0.9,
-              "timestamp_seconds": 285
+              "timestamp_seconds": 379
+            },
+            {
+              "field": "must_try_item",
+              "value": "Aloo Paratha Plate (served with curd, dal, and Rajasthani garlic chutney)",
+              "evidence": "साथ में दही, दाल और चटनी",
+              "confidence": 0.95,
+              "timestamp_seconds": 394
+            },
+            {
+              "field": "tip",
+              "value": "The parathas are extremely rich in calories and ghee; one plate (2 parathas) is ideal for two people to share",
+              "evidence": "दो लोग आओगे एक-एक पराठा खाना",
+              "confidence": 0.9,
+              "timestamp_seconds": 456
             }
           ],
-          "views": 376773,
-          "upload_date": "2025-08-29"
+          "views": 24884,
+          "upload_date": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "name": "Central Tiffin Room (CTR)",
+      "name_local": null,
+      "slug": "central-tiffin-room-ctr",
+      "normalized_name": "central tiffin room ctr",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.4588,
+      "frequency_count": 1,
+      "specialities": [
+        "Benne Dosa (Butter Masala Dosa)",
+        "Benne Dosa and Filter Coffee"
+      ],
+      "tips": [
+        "Mangalore Bhaji is served starting at 4 PM"
+      ],
+      "warnings": [
+        "Served with chutney only, no sambar"
+      ],
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 90,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 1.0,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Benne Dosa (Butter Masala Dosa)",
+              "evidence": "The best food here is Benne Dosa.",
+              "confidence": 0.98,
+              "timestamp_seconds": 364
+            },
+            {
+              "field": "must_try_item",
+              "value": "Benne Dosa and Filter Coffee",
+              "evidence": "The best food here is Benne Dosa... I have ordered filter coffee too.",
+              "confidence": 0.95,
+              "timestamp_seconds": 364
+            },
+            {
+              "field": "average_cost",
+              "value": "Rs. 90 for Benne Dosa",
+              "evidence": "I would rate this place a 10/10 because the dosa is very tasty and its price is only Rs.90.",
+              "confidence": 0.98,
+              "timestamp_seconds": 477
+            },
+            {
+              "field": "waiting_time",
+              "value": "Around 30 minutes",
+              "evidence": "There is waiting here and it will easily take half an hour.",
+              "confidence": 0.95,
+              "timestamp_seconds": 383
+            },
+            {
+              "field": "tip",
+              "value": "Mangalore Bhaji is served starting at 4 PM",
+              "evidence": "If you come at 4 PM, you will get it. The review is that Mangalore Bhaji is not available at this time.",
+              "confidence": 0.92,
+              "timestamp_seconds": 356
+            },
+            {
+              "field": "warning",
+              "value": "Served with chutney only, no sambar",
+              "evidence": "one thing which is very different is that they didn't give Sambhar with the dosa. They only gave chutney.",
+              "confidence": 0.95,
+              "timestamp_seconds": 409
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
         }
       ]
     },
@@ -1329,6 +1404,87 @@
               "evidence": "शाम के टाइम लाइट एंड साउंड शो होता है",
               "confidence": 0.9,
               "timestamp_seconds": 224
+            }
+          ],
+          "views": 376773,
+          "upload_date": "2025-08-29"
+        }
+      ]
+    },
+    {
+      "name": "Lodhi Garden",
+      "name_local": "लोधी गार्डन",
+      "slug": "lodhi-garden",
+      "normalized_name": "lodhi garden",
+      "entity_type": "poi",
+      "poi_category": "park",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4587,
+      "frequency_count": 1,
+      "specialities": [
+        "Historical site, Beautiful gardens, Morning/Evening walk spot"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": "Winter days, Spring (flowers bloom)",
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Historical site, Beautiful gardens, Morning/Evening walk spot",
+              "evidence": "दिल्ली के मोस्ट ब्यूटीफुल एंड पीसफुल प्लेसेस में से एक... हिसटोरिकल साइट भी है... मॉर्निंग एंड इवनिंग वॉक के लिए",
+              "confidence": 0.95,
+              "timestamp_seconds": 244
+            },
+            {
+              "field": "size",
+              "value": "90 acres",
+              "evidence": "यह जगह 90 एक्सर्स में फैली हुई है",
+              "confidence": 0.9,
+              "timestamp_seconds": 248
+            },
+            {
+              "field": "average_cost",
+              "value": "Free entry",
+              "evidence": "एंट्री के कोई भी चार्जेस नहीं है",
+              "confidence": 0.95,
+              "timestamp_seconds": 250
+            },
+            {
+              "field": "parking",
+              "value": "Free",
+              "evidence": "पार्किंग स्पेस भी अवेलबल था फ्री ऑफ कॉस्ट",
+              "confidence": 0.9,
+              "timestamp_seconds": 256
+            },
+            {
+              "field": "best_time",
+              "value": "Winter days, Spring (flowers bloom)",
+              "evidence": "विंटर्स में... दिन में क्योंकि यहां पर काफी सुंदर गार्डन हैं... स्प्रिंग के टाइम में यहां फ्लावर्स ब्लूम करते हैं",
+              "confidence": 0.9,
+              "timestamp_seconds": 269
+            },
+            {
+              "field": "opening_hours",
+              "value": "6:00 AM",
+              "evidence": "सुबह 6:00 बजे से",
+              "confidence": 0.9,
+              "timestamp_seconds": 284
+            },
+            {
+              "field": "closing_hours",
+              "value": "8:00 PM",
+              "evidence": "शाम के 8:00 बजे तक",
+              "confidence": 0.9,
+              "timestamp_seconds": 285
             }
           ],
           "views": 376773,
@@ -1431,76 +1587,71 @@
       ]
     },
     {
-      "name": "Akshardham Temple",
-      "name_local": "अक्षरधाम टेंपल",
-      "slug": "akshardham-temple",
-      "normalized_name": "akshardham temple",
+      "name": "B.N. Sambaiah Setty Tiffin Room",
+      "name_local": null,
+      "slug": "bn-sambaiah-setty-tiffin-room",
+      "normalized_name": "b n sambaiah setty tiffin room",
       "entity_type": "poi",
-      "poi_category": "temple",
-      "destination": "delhi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
       "area": null,
-      "recommendation_score": 0.4418,
+      "recommendation_score": 0.442,
       "frequency_count": 1,
       "specialities": [
-        "Swami Narayan Temple, Beautiful Architecture"
+        "Pongal"
       ],
-      "tips": null,
+      "tips": [
+        "No spoons provided, eat with hands"
+      ],
       "warnings": null,
       "best_time": null,
       "price_level": null,
-      "average_cost_inr": 260,
-      "crowd_info": null,
+      "average_cost_inr": 50,
+      "crowd_info": "High / Long queue",
       "verification_status": "ai_extracted",
       "evidence": [
         {
           "stance": "recommended",
-          "strength": 0.9,
+          "strength": 1.0,
           "claims": [
             {
-              "field": "speciality",
-              "value": "Swami Narayan Temple, Beautiful Architecture",
-              "evidence": "बहुत ही सुंदर स्वामी नारायण जी का टेंपल है... आर्किटेक्चर आपको बहुत पसंद आएगा",
+              "field": "must_try_item",
+              "value": "Pongal",
+              "evidence": "The name of that item is Pongal. For that, we have come to B.N. Sambaiah Setty Tiffin Room.",
               "confidence": 0.95,
-              "timestamp_seconds": 565
-            },
-            {
-              "field": "closed_days",
-              "value": "Monday",
-              "evidence": "मंडे को यह बंद रहता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 568
-            },
-            {
-              "field": "opening_hours",
-              "value": "10:00 AM",
-              "evidence": "सुबह 10:00 बजे से",
-              "confidence": 0.9,
-              "timestamp_seconds": 571
+              "timestamp_seconds": 44
             },
             {
               "field": "closing_hours",
-              "value": "6:30 PM",
-              "evidence": "शाम के 6:30 बजे तक",
-              "confidence": 0.9,
-              "timestamp_seconds": 573
+              "value": "10:30 AM",
+              "evidence": "They close the shop at 10:30 AM.",
+              "confidence": 0.95,
+              "timestamp_seconds": 59
             },
             {
               "field": "average_cost",
-              "value": "Free for temple, ~₹260 for exhibitions",
-              "evidence": "सिर्फ टेंपल विजिट करने के कोई भी चार्जेस नहीं है... टिकट का प्राइस है लगभग ₹260 पर एडल्ट",
-              "confidence": 0.9,
-              "timestamp_seconds": 577
+              "value": "Rs. 50 for Pongal plate",
+              "evidence": "The plate of Pongal was for Rs.50.",
+              "confidence": 0.95,
+              "timestamp_seconds": 141
             },
             {
-              "field": "rules",
-              "value": "No photography/videography inside",
-              "evidence": "अंदर फोटोग्राफी एंड वीडियोग्राफी अलाउड नहीं है",
-              "confidence": 0.95,
-              "timestamp_seconds": 582
+              "field": "crowd_level",
+              "value": "High / Long queue",
+              "evidence": "There is a long queue of people buying Pongal.",
+              "confidence": 0.9,
+              "timestamp_seconds": 80
+            },
+            {
+              "field": "tip",
+              "value": "No spoons provided, eat with hands",
+              "evidence": "Everybody is eating it with hands. There is no option for a spoon.",
+              "confidence": 0.9,
+              "timestamp_seconds": 92
             }
           ],
-          "views": 376773,
-          "upload_date": "2025-08-29"
+          "views": 894808,
+          "upload_date": "2024-12-06"
         }
       ]
     },
@@ -1575,6 +1726,223 @@
           ],
           "views": 376773,
           "upload_date": "2025-08-29"
+        }
+      ]
+    },
+    {
+      "name": "Akshardham Temple",
+      "name_local": "अक्षरधाम टेंपल",
+      "slug": "akshardham-temple",
+      "normalized_name": "akshardham temple",
+      "entity_type": "poi",
+      "poi_category": "temple",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4418,
+      "frequency_count": 1,
+      "specialities": [
+        "Swami Narayan Temple, Beautiful Architecture"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 260,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Swami Narayan Temple, Beautiful Architecture",
+              "evidence": "बहुत ही सुंदर स्वामी नारायण जी का टेंपल है... आर्किटेक्चर आपको बहुत पसंद आएगा",
+              "confidence": 0.95,
+              "timestamp_seconds": 565
+            },
+            {
+              "field": "closed_days",
+              "value": "Monday",
+              "evidence": "मंडे को यह बंद रहता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 568
+            },
+            {
+              "field": "opening_hours",
+              "value": "10:00 AM",
+              "evidence": "सुबह 10:00 बजे से",
+              "confidence": 0.9,
+              "timestamp_seconds": 571
+            },
+            {
+              "field": "closing_hours",
+              "value": "6:30 PM",
+              "evidence": "शाम के 6:30 बजे तक",
+              "confidence": 0.9,
+              "timestamp_seconds": 573
+            },
+            {
+              "field": "average_cost",
+              "value": "Free for temple, ~₹260 for exhibitions",
+              "evidence": "सिर्फ टेंपल विजिट करने के कोई भी चार्जेस नहीं है... टिकट का प्राइस है लगभग ₹260 पर एडल्ट",
+              "confidence": 0.9,
+              "timestamp_seconds": 577
+            },
+            {
+              "field": "rules",
+              "value": "No photography/videography inside",
+              "evidence": "अंदर फोटोग्राफी एंड वीडियोग्राफी अलाउड नहीं है",
+              "confidence": 0.95,
+              "timestamp_seconds": 582
+            }
+          ],
+          "views": 376773,
+          "upload_date": "2025-08-29"
+        }
+      ]
+    },
+    {
+      "name": "Jagdish Poha & Kachori",
+      "name_local": "जगदीश पोहा एवं कचौरी",
+      "slug": "jagdish-poha-kachori",
+      "normalized_name": "jagdish poha kachori",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "udaipur",
+      "area": null,
+      "recommendation_score": 0.4384,
+      "frequency_count": 1,
+      "specialities": [
+        "Moong dal hing kachori, Indori/Gwalior style Poha, and Dahi Samosa Chaat",
+        "Poha with Jeerawan, Namkeen, Boondi, and Peanuts (Seeng)",
+        "Samosa Chaat with Dahi and Meethi Sonth Chutney"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 20,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Moong dal hing kachori, Indori/Gwalior style Poha, and Dahi Samosa Chaat",
+              "evidence": "ये मूंग की दाल की हींग वाली कचोरी... पोहा है पोहा",
+              "confidence": 0.95,
+              "timestamp_seconds": 13
+            },
+            {
+              "field": "must_try_item",
+              "value": "Poha with Jeerawan, Namkeen, Boondi, and Peanuts (Seeng)",
+              "evidence": "इस पे ये नमकीन आ रही है... ये जीरा वान है",
+              "confidence": 0.95,
+              "timestamp_seconds": 61
+            },
+            {
+              "field": "must_try_item",
+              "value": "Samosa Chaat with Dahi and Meethi Sonth Chutney",
+              "evidence": "मीठी सोंठ की चटनी... दही आ गया ऊपर से... ये ₹30 का है",
+              "confidence": 0.95,
+              "timestamp_seconds": 119
+            },
+            {
+              "field": "average_cost",
+              "value": "₹20 - ₹25 for Poha, ₹30 for Dahi Samosa Chaat",
+              "evidence": "₹20 की और सींग ये सींग के साथ में 25 का हो जाता है... ये ₹30 का है",
+              "confidence": 0.95,
+              "timestamp_seconds": 86
+            },
+            {
+              "field": "opening_hours",
+              "value": "Closes around 1:00 PM; half day on Sunday",
+              "evidence": "कोई छुट्टी संडे को हाफ... बजे तक इतने बिजी शेड्यूल में",
+              "confidence": 0.85,
+              "timestamp_seconds": 146
+            }
+          ],
+          "views": 24884,
+          "upload_date": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "name": "National Crafts Museum",
+      "name_local": "नेशनल क्रैफ्ट म्यूज़ियम",
+      "slug": "national-crafts-museum",
+      "normalized_name": "national crafts museum",
+      "entity_type": "poi",
+      "poi_category": "museum",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4371,
+      "frequency_count": 1,
+      "specialities": [
+        "Indian Heritage, Culture, Handicrafts"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "Free",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "best_for",
+              "value": "Women, Culture Lovers",
+              "evidence": "यह जगह महिलाओं को बहुत पसंद आती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 356
+            },
+            {
+              "field": "speciality",
+              "value": "Indian Heritage, Culture, Handicrafts",
+              "evidence": "देश की रिसनेस, कल्चर और धरोहर को कैसे सजाया गया है... अलग-अलग स्टेट्स में कैसे घर हुआ करते थे",
+              "confidence": 0.95,
+              "timestamp_seconds": 358
+            },
+            {
+              "field": "price_level",
+              "value": "Free",
+              "evidence": "यहाँ की एंट्री बिल्कुल फ्री है",
+              "confidence": 0.95,
+              "timestamp_seconds": 369
+            },
+            {
+              "field": "opening_hours",
+              "value": "10:00 AM",
+              "evidence": "टाइमिंग सुबह 10:00 बजे से",
+              "confidence": 0.95,
+              "timestamp_seconds": 371
+            },
+            {
+              "field": "closing_hours",
+              "value": "7:00 PM",
+              "evidence": "शाम के 7:00 बजे तक",
+              "confidence": 0.95,
+              "timestamp_seconds": 373
+            },
+            {
+              "field": "transport",
+              "value": "Supreme Court Metro Station",
+              "evidence": "नियरेस्ट मेट्रो स्टेशन यहाँ का सुप्रीम कोर्ट ही है",
+              "confidence": 0.95,
+              "timestamp_seconds": 375
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
         }
       ]
     },
@@ -1655,80 +2023,6 @@
       ]
     },
     {
-      "name": "National Crafts Museum",
-      "name_local": "नेशनल क्रैफ्ट म्यूज़ियम",
-      "slug": "national-crafts-museum",
-      "normalized_name": "national crafts museum",
-      "entity_type": "poi",
-      "poi_category": "museum",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.4371,
-      "frequency_count": 1,
-      "specialities": [
-        "Indian Heritage, Culture, Handicrafts"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": "Free",
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "best_for",
-              "value": "Women, Culture Lovers",
-              "evidence": "यह जगह महिलाओं को बहुत पसंद आती है",
-              "confidence": 0.95,
-              "timestamp_seconds": 356
-            },
-            {
-              "field": "speciality",
-              "value": "Indian Heritage, Culture, Handicrafts",
-              "evidence": "देश की रिसनेस, कल्चर और धरोहर को कैसे सजाया गया है... अलग-अलग स्टेट्स में कैसे घर हुआ करते थे",
-              "confidence": 0.95,
-              "timestamp_seconds": 358
-            },
-            {
-              "field": "price_level",
-              "value": "Free",
-              "evidence": "यहाँ की एंट्री बिल्कुल फ्री है",
-              "confidence": 0.95,
-              "timestamp_seconds": 369
-            },
-            {
-              "field": "opening_hours",
-              "value": "10:00 AM",
-              "evidence": "टाइमिंग सुबह 10:00 बजे से",
-              "confidence": 0.95,
-              "timestamp_seconds": 371
-            },
-            {
-              "field": "closing_hours",
-              "value": "7:00 PM",
-              "evidence": "शाम के 7:00 बजे तक",
-              "confidence": 0.95,
-              "timestamp_seconds": 373
-            },
-            {
-              "field": "transport",
-              "value": "Supreme Court Metro Station",
-              "evidence": "नियरेस्ट मेट्रो स्टेशन यहाँ का सुप्रीम कोर्ट ही है",
-              "confidence": 0.95,
-              "timestamp_seconds": 375
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
       "name": "Jain",
       "name_local": null,
       "slug": "jain",
@@ -1794,6 +2088,67 @@
           ],
           "views": 7778,
           "upload_date": "2025-12-12"
+        }
+      ]
+    },
+    {
+      "name": "Nani Gali Rabri Stall",
+      "name_local": "नानी गली के बाहर नुक्कड़ की दुकान",
+      "slug": "nani-gali-rabri-stall",
+      "normalized_name": "nani gali rabri stall",
+      "entity_type": "poi",
+      "poi_category": "sweet_shop",
+      "destination": "udaipur",
+      "area": null,
+      "recommendation_score": 0.4309,
+      "frequency_count": 1,
+      "specialities": [
+        "Fresh hot Rabri with extra malai, available both with sugar and sugar-free",
+        "Sugar-free Rabri"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 50,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Fresh hot Rabri with extra malai, available both with sugar and sugar-free",
+              "evidence": "ताजी मलाई और डाल ली है। और अब मिक्स करके... गरमा गरम रबड़ी भाई। दिस इज दी बेस्ट यू",
+              "confidence": 0.95,
+              "timestamp_seconds": 600
+            },
+            {
+              "field": "average_cost",
+              "value": "₹50 for 125 grams",
+              "evidence": "हम ₹50 लेते हैं। ये 125 ग्राम।",
+              "confidence": 0.95,
+              "timestamp_seconds": 584
+            },
+            {
+              "field": "opening_hours",
+              "value": "05:00 AM",
+              "evidence": "सुबह मॉर्निंग में 5:00 बजे खुलती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 625
+            },
+            {
+              "field": "must_try_item",
+              "value": "Sugar-free Rabri",
+              "evidence": "आज विदाउट शुगर खाऊंगा।",
+              "confidence": 0.9,
+              "timestamp_seconds": 580
+            }
+          ],
+          "views": 24884,
+          "upload_date": "2026-03-03"
         }
       ]
     },
@@ -2093,23 +2448,21 @@
       ]
     },
     {
-      "name": "Bal Bhavan",
-      "name_local": "बाल भवन",
-      "slug": "bal-bhavan",
-      "normalized_name": "bal bhavan",
+      "name": "Farm Houses in Gurugram",
+      "name_local": "फार्म हाउस",
+      "slug": "farm-houses-in-gurugram",
+      "normalized_name": "farm houses in gurugram",
       "entity_type": "poi",
-      "poi_category": "park",
-      "destination": "delhi",
+      "poi_category": "attraction",
+      "destination": "gurgaon",
       "area": null,
       "recommendation_score": 0.4203,
       "frequency_count": 1,
-      "specialities": [
-        "Activities for kids, toy train, classes (dance, Kathak, art, handicraft), fish aquarium, small observatory"
-      ],
+      "specialities": null,
       "tips": null,
       "warnings": null,
       "best_time": null,
-      "price_level": "Entry Free for <16 yrs, Adults ₹20, Toy Train Kids <16 ₹10, Adults ₹30",
+      "price_level": "₹1000 - ₹1200 (includes food)",
       "average_cost_inr": null,
       "crowd_info": null,
       "verification_status": "ai_extracted",
@@ -2119,39 +2472,39 @@
           "strength": 0.8,
           "claims": [
             {
-              "field": "speciality",
-              "value": "Activities for kids, toy train, classes (dance, Kathak, art, handicraft), fish aquarium, small observatory",
-              "evidence": "बच्चों के हिसाब से बहुत सारी करने को एक्टिविटीज हैं... एक बहुत ही बढ़िया टॉय ट्रेन चलती है... क्लासेस भी कराने को मिलती हैं... डान्स, कथक, किसी भी तरीके का आर्ट, हैंडक्राफ्ट... फिश एक्वेरियम मिलेगा... छोटा सा तारामंडल देखने को मिलेगा",
-              "confidence": 0.9,
-              "timestamp_seconds": 89
+              "field": "best_for",
+              "value": "Families, Day Outing",
+              "evidence": "यहाँ पर फैमिलीज के साथ घूमने के लिए, डे आउटिंग करने के लिए सबसे अच्छी जगह मानी जाती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 322
             },
             {
               "field": "price_level",
-              "value": "Entry Free for <16 yrs, Adults ₹20, Toy Train Kids <16 ₹10, Adults ₹30",
-              "evidence": "16 साल तक के बच्चों की एंट्री बिल्कुल फ्री है... बड़ों की यहां पर ₹20 की टिकट लगती है... टॉय ट्रेन की टिकट लगभग 16 साल तक के बच्चों की ₹10 है और इससे बड़ों की ₹30 है",
-              "confidence": 0.9,
-              "timestamp_seconds": 117
+              "value": "₹1000 - ₹1200 (includes food)",
+              "evidence": "इन सभी फार्म्स की टिकट लगभग ₹1000 से ₹1200 की होती है जिसमें फ़ूड वगैरह इंक्लूड होता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 332
+            },
+            {
+              "field": "activities",
+              "value": "Zip-lining, Zip-cycling, Swimming Pool",
+              "evidence": "जिप लाइनिंग, जिप साइकिलिंग वगैरह आदि एक्टिविटियाँ होती हैं... मैक्सिमम फार्म्स में आपको स्विमिंग पूल वगैरह भी मिल जाता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 341
             },
             {
               "field": "opening_hours",
-              "value": "Open 9:30 AM to 4:30 PM",
-              "evidence": "सुबह 9:30 बजे यह जगह खुल जाती है और शाम को लगभग 4:30 बजे तक यह जगह खुली रहती है",
-              "confidence": 0.9,
-              "timestamp_seconds": 126
+              "value": "10:00 AM",
+              "evidence": "फार्म्स की टाइमिंग सुबह 10:00 बजे से",
+              "confidence": 0.95,
+              "timestamp_seconds": 348
             },
             {
               "field": "closing_hours",
-              "value": "Closed on Mondays and Tuesdays",
-              "evidence": "यह बाल भवन मंडे और ट्यूसडे को क्लोज रहता है",
-              "confidence": 0.9,
-              "timestamp_seconds": 133
-            },
-            {
-              "field": "transport",
-              "value": "Near ITO Metro Station",
-              "evidence": "यहां का निकटतम मेट्रो स्टेशन आईटीओ है",
-              "confidence": 0.9,
-              "timestamp_seconds": 136
+              "value": "5:00 PM - 6:00 PM",
+              "evidence": "शाम के 5 6:00 बजे तक होती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 350
             }
           ],
           "views": 726485,
@@ -2227,21 +2580,23 @@
       ]
     },
     {
-      "name": "Farm Houses in Gurugram",
-      "name_local": "फार्म हाउस",
-      "slug": "farm-houses-in-gurugram",
-      "normalized_name": "farm houses in gurugram",
+      "name": "Bal Bhavan",
+      "name_local": "बाल भवन",
+      "slug": "bal-bhavan",
+      "normalized_name": "bal bhavan",
       "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
+      "poi_category": "park",
+      "destination": "delhi",
       "area": null,
       "recommendation_score": 0.4203,
       "frequency_count": 1,
-      "specialities": null,
+      "specialities": [
+        "Activities for kids, toy train, classes (dance, Kathak, art, handicraft), fish aquarium, small observatory"
+      ],
       "tips": null,
       "warnings": null,
       "best_time": null,
-      "price_level": "₹1000 - ₹1200 (includes food)",
+      "price_level": "Entry Free for <16 yrs, Adults ₹20, Toy Train Kids <16 ₹10, Adults ₹30",
       "average_cost_inr": null,
       "crowd_info": null,
       "verification_status": "ai_extracted",
@@ -2251,39 +2606,39 @@
           "strength": 0.8,
           "claims": [
             {
-              "field": "best_for",
-              "value": "Families, Day Outing",
-              "evidence": "यहाँ पर फैमिलीज के साथ घूमने के लिए, डे आउटिंग करने के लिए सबसे अच्छी जगह मानी जाती है",
-              "confidence": 0.95,
-              "timestamp_seconds": 322
+              "field": "speciality",
+              "value": "Activities for kids, toy train, classes (dance, Kathak, art, handicraft), fish aquarium, small observatory",
+              "evidence": "बच्चों के हिसाब से बहुत सारी करने को एक्टिविटीज हैं... एक बहुत ही बढ़िया टॉय ट्रेन चलती है... क्लासेस भी कराने को मिलती हैं... डान्स, कथक, किसी भी तरीके का आर्ट, हैंडक्राफ्ट... फिश एक्वेरियम मिलेगा... छोटा सा तारामंडल देखने को मिलेगा",
+              "confidence": 0.9,
+              "timestamp_seconds": 89
             },
             {
               "field": "price_level",
-              "value": "₹1000 - ₹1200 (includes food)",
-              "evidence": "इन सभी फार्म्स की टिकट लगभग ₹1000 से ₹1200 की होती है जिसमें फ़ूड वगैरह इंक्लूड होता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 332
-            },
-            {
-              "field": "activities",
-              "value": "Zip-lining, Zip-cycling, Swimming Pool",
-              "evidence": "जिप लाइनिंग, जिप साइकिलिंग वगैरह आदि एक्टिविटियाँ होती हैं... मैक्सिमम फार्म्स में आपको स्विमिंग पूल वगैरह भी मिल जाता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 341
+              "value": "Entry Free for <16 yrs, Adults ₹20, Toy Train Kids <16 ₹10, Adults ₹30",
+              "evidence": "16 साल तक के बच्चों की एंट्री बिल्कुल फ्री है... बड़ों की यहां पर ₹20 की टिकट लगती है... टॉय ट्रेन की टिकट लगभग 16 साल तक के बच्चों की ₹10 है और इससे बड़ों की ₹30 है",
+              "confidence": 0.9,
+              "timestamp_seconds": 117
             },
             {
               "field": "opening_hours",
-              "value": "10:00 AM",
-              "evidence": "फार्म्स की टाइमिंग सुबह 10:00 बजे से",
-              "confidence": 0.95,
-              "timestamp_seconds": 348
+              "value": "Open 9:30 AM to 4:30 PM",
+              "evidence": "सुबह 9:30 बजे यह जगह खुल जाती है और शाम को लगभग 4:30 बजे तक यह जगह खुली रहती है",
+              "confidence": 0.9,
+              "timestamp_seconds": 126
             },
             {
               "field": "closing_hours",
-              "value": "5:00 PM - 6:00 PM",
-              "evidence": "शाम के 5 6:00 बजे तक होती है",
-              "confidence": 0.95,
-              "timestamp_seconds": 350
+              "value": "Closed on Mondays and Tuesdays",
+              "evidence": "यह बाल भवन मंडे और ट्यूसडे को क्लोज रहता है",
+              "confidence": 0.9,
+              "timestamp_seconds": 133
+            },
+            {
+              "field": "transport",
+              "value": "Near ITO Metro Station",
+              "evidence": "यहां का निकटतम मेट्रो स्टेशन आईटीओ है",
+              "confidence": 0.9,
+              "timestamp_seconds": 136
             }
           ],
           "views": 726485,
@@ -2292,26 +2647,23 @@
       ]
     },
     {
-      "name": "Gandhiji Pakora Shop",
+      "name": "Hi-fi",
       "name_local": null,
-      "slug": "gandhiji-pakora-shop",
-      "normalized_name": "gandhiji pakora shop",
+      "slug": "hi-fi",
+      "normalized_name": "hi fi",
       "entity_type": "poi",
-      "poi_category": "street_food",
+      "poi_category": "restaurant",
       "destination": "gurgaon",
       "area": null,
       "recommendation_score": 0.4165,
       "frequency_count": 1,
       "specialities": [
-        "70 years old shop specializing in pakoras",
-        "Jackfruit pakora, Soya chaap pakora, Brinjal Pakora, Paneer Pakora, Moong Dal, Mushroom pakora, Onion bhaji, Palak (spinach), Cabbage, Chilli, Aloo Kachalu"
+        "pineapple bun maska with buttermilk, beetroot idli, homemade buttermilk"
       ],
       "tips": [
-        "Ask uncle directly for jackfruit pakora as they run out on Sundays"
+        "come early in the morning"
       ],
-      "warnings": [
-        "Jackfruit pakora may be unavailable on Sundays"
-      ],
+      "warnings": null,
       "best_time": null,
       "price_level": null,
       "average_cost_inr": null,
@@ -2324,31 +2676,31 @@
           "claims": [
             {
               "field": "speciality",
-              "value": "70 years old shop specializing in pakoras",
-              "evidence": "Gandhiji Pakora shop which is just I think 50-60 meters away from the Jalebi shop now and it is a 70 years old shop.",
+              "value": "pineapple bun maska with buttermilk, beetroot idli, homemade buttermilk",
+              "evidence": "Their specialty, their signature dish, is their pineapple bun maska with buttermilk. They have beetroot idli here.",
               "confidence": 0.9,
-              "timestamp_seconds": 1120
+              "timestamp_seconds": 306
             },
             {
-              "field": "must_try_item",
-              "value": "Jackfruit pakora, Soya chaap pakora, Brinjal Pakora, Paneer Pakora, Moong Dal, Mushroom pakora, Onion bhaji, Palak (spinach), Cabbage, Chilli, Aloo Kachalu",
-              "evidence": "Brinjal Pakora... Paneer Pakora... Moong Dal... mushroom pakora... onion bhaji... palak... cabbage... chilli... soya chaap... jackfruit pakoras are also quite famous... potato... Aloo Kachalu",
+              "field": "opening_hours",
+              "value": "opens at 7:00 in the morning",
+              "evidence": "This outlet opens at 7:00 in the morning",
               "confidence": 0.9,
-              "timestamp_seconds": 1157
+              "timestamp_seconds": 330
+            },
+            {
+              "field": "closing_hours",
+              "value": "all supplies gone by 11:00",
+              "evidence": "by 11:00, Bhaiya said that all the supplies we bring are gone",
+              "confidence": 0.9,
+              "timestamp_seconds": 334
             },
             {
               "field": "tip",
-              "value": "Ask uncle directly for jackfruit pakora as they run out on Sundays",
-              "evidence": "But unfortunately today is Sunday because they are finished here. So if you come here then ask uncle directly that I want to eat jackfruit pakora.",
+              "value": "come early in the morning",
+              "evidence": "if you want to try bun maska and buttermilk here, come early in the morning",
               "confidence": 0.9,
-              "timestamp_seconds": 1197
-            },
-            {
-              "field": "warning",
-              "value": "Jackfruit pakora may be unavailable on Sundays",
-              "evidence": "But unfortunately today is Sunday because they are finished here.",
-              "confidence": 0.9,
-              "timestamp_seconds": 1197
+              "timestamp_seconds": 339
             }
           ],
           "views": 7778,
@@ -2421,23 +2773,26 @@
       ]
     },
     {
-      "name": "Hi-fi",
+      "name": "Gandhiji Pakora Shop",
       "name_local": null,
-      "slug": "hi-fi",
-      "normalized_name": "hi fi",
+      "slug": "gandhiji-pakora-shop",
+      "normalized_name": "gandhiji pakora shop",
       "entity_type": "poi",
-      "poi_category": "restaurant",
+      "poi_category": "street_food",
       "destination": "gurgaon",
       "area": null,
       "recommendation_score": 0.4165,
       "frequency_count": 1,
       "specialities": [
-        "pineapple bun maska with buttermilk, beetroot idli, homemade buttermilk"
+        "70 years old shop specializing in pakoras",
+        "Jackfruit pakora, Soya chaap pakora, Brinjal Pakora, Paneer Pakora, Moong Dal, Mushroom pakora, Onion bhaji, Palak (spinach), Cabbage, Chilli, Aloo Kachalu"
       ],
       "tips": [
-        "come early in the morning"
+        "Ask uncle directly for jackfruit pakora as they run out on Sundays"
       ],
-      "warnings": null,
+      "warnings": [
+        "Jackfruit pakora may be unavailable on Sundays"
+      ],
       "best_time": null,
       "price_level": null,
       "average_cost_inr": null,
@@ -2450,35 +2805,96 @@
           "claims": [
             {
               "field": "speciality",
-              "value": "pineapple bun maska with buttermilk, beetroot idli, homemade buttermilk",
-              "evidence": "Their specialty, their signature dish, is their pineapple bun maska with buttermilk. They have beetroot idli here.",
+              "value": "70 years old shop specializing in pakoras",
+              "evidence": "Gandhiji Pakora shop which is just I think 50-60 meters away from the Jalebi shop now and it is a 70 years old shop.",
               "confidence": 0.9,
-              "timestamp_seconds": 306
+              "timestamp_seconds": 1120
             },
             {
-              "field": "opening_hours",
-              "value": "opens at 7:00 in the morning",
-              "evidence": "This outlet opens at 7:00 in the morning",
+              "field": "must_try_item",
+              "value": "Jackfruit pakora, Soya chaap pakora, Brinjal Pakora, Paneer Pakora, Moong Dal, Mushroom pakora, Onion bhaji, Palak (spinach), Cabbage, Chilli, Aloo Kachalu",
+              "evidence": "Brinjal Pakora... Paneer Pakora... Moong Dal... mushroom pakora... onion bhaji... palak... cabbage... chilli... soya chaap... jackfruit pakoras are also quite famous... potato... Aloo Kachalu",
               "confidence": 0.9,
-              "timestamp_seconds": 330
-            },
-            {
-              "field": "closing_hours",
-              "value": "all supplies gone by 11:00",
-              "evidence": "by 11:00, Bhaiya said that all the supplies we bring are gone",
-              "confidence": 0.9,
-              "timestamp_seconds": 334
+              "timestamp_seconds": 1157
             },
             {
               "field": "tip",
-              "value": "come early in the morning",
-              "evidence": "if you want to try bun maska and buttermilk here, come early in the morning",
+              "value": "Ask uncle directly for jackfruit pakora as they run out on Sundays",
+              "evidence": "But unfortunately today is Sunday because they are finished here. So if you come here then ask uncle directly that I want to eat jackfruit pakora.",
               "confidence": 0.9,
-              "timestamp_seconds": 339
+              "timestamp_seconds": 1197
+            },
+            {
+              "field": "warning",
+              "value": "Jackfruit pakora may be unavailable on Sundays",
+              "evidence": "But unfortunately today is Sunday because they are finished here.",
+              "confidence": 0.9,
+              "timestamp_seconds": 1197
             }
           ],
           "views": 7778,
           "upload_date": "2025-12-12"
+        }
+      ]
+    },
+    {
+      "name": "Shree Idli Corner",
+      "name_local": "श्री इडली कॉर्नर",
+      "slug": "shree-idli-corner",
+      "normalized_name": "shree idli corner",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.4151,
+      "frequency_count": 1,
+      "specialities": [
+        "Butter Idli",
+        "Soft, melt-in-mouth fermented idlis topped with butter and served with spicy chutney"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "Rs. 55 per plate",
+      "average_cost_inr": null,
+      "crowd_info": "Crowded even at night",
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "must_try_item",
+              "value": "Butter Idli",
+              "evidence": "Let's try this butter idli.",
+              "confidence": 0.95,
+              "timestamp_seconds": 799
+            },
+            {
+              "field": "speciality",
+              "value": "Soft, melt-in-mouth fermented idlis topped with butter and served with spicy chutney",
+              "evidence": "This idli is so soft. It melts as soon as it goes into your mouth.",
+              "confidence": 0.95,
+              "timestamp_seconds": 826
+            },
+            {
+              "field": "price_level",
+              "value": "Rs. 55 per plate",
+              "evidence": "Its price is Rs.55.",
+              "confidence": 0.95,
+              "timestamp_seconds": 839
+            },
+            {
+              "field": "crowd_level",
+              "value": "Crowded even at night",
+              "evidence": "It's night but still, there is a lot of rush at the shop.",
+              "confidence": 0.9,
+              "timestamp_seconds": 770
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
         }
       ]
     },
@@ -2544,6 +2960,115 @@
           ],
           "views": 360529,
           "upload_date": "2024-11-02"
+        }
+      ]
+    },
+    {
+      "name": "Unlimited Rajasthani Thali Restaurant",
+      "name_local": null,
+      "slug": "unlimited-rajasthani-thali-restaurant",
+      "normalized_name": "unlimited rajasthani thali",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "udaipur",
+      "area": null,
+      "recommendation_score": 0.409,
+      "frequency_count": 1,
+      "specialities": [
+        "Unlimited pure Rajasthani Thali with fresh items cooked in pure desi ghee",
+        "Biscuit Bhakri, Gatte ki Sabji, Ker Sangri, Kadhi, and Ghevar"
+      ],
+      "tips": [
+        "You can request extra desi ghee on your food if you like"
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Unlimited pure Rajasthani Thali with fresh items cooked in pure desi ghee",
+              "evidence": "ये सारी आइटम्स आप अनलिमिटेड बाहर ले सकते सब कुछ जो बना है एकदम प्योर बना हुआ है",
+              "confidence": 0.95,
+              "timestamp_seconds": 812
+            },
+            {
+              "field": "must_try_item",
+              "value": "Biscuit Bhakri, Gatte ki Sabji, Ker Sangri, Kadhi, and Ghevar",
+              "evidence": "बिस्किट भाकरी... कढ़ी... गट्टे का सब्जी... राजस्थानी गट्टे का सब्जी... केयर सांगरी... गेवर",
+              "confidence": 0.95,
+              "timestamp_seconds": 840
+            },
+            {
+              "field": "tip",
+              "value": "You can request extra desi ghee on your food if you like",
+              "evidence": "उनमें देसी घी डला हुआ है। जिनमें नहीं चाहे तो एक्स्ट्रा देसी घी डलवा सकते हैं।",
+              "confidence": 0.9,
+              "timestamp_seconds": 937
+            }
+          ],
+          "views": 24884,
+          "upload_date": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "name": "Corner House",
+      "name_local": "कॉर्नर हाउस",
+      "slug": "corner-house",
+      "normalized_name": "corner house",
+      "entity_type": "poi",
+      "poi_category": "sweet_shop",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.4082,
+      "frequency_count": 1,
+      "specialities": [
+        "DBC ice cream (Death By Chocolate)"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 270,
+      "crowd_info": "Very crowded / lot of rush",
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 1.0,
+          "claims": [
+            {
+              "field": "must_try_item",
+              "value": "DBC ice cream (Death By Chocolate)",
+              "evidence": "what we are going to eat here is DBC ice cream. The full form of DBC is Death By Chocolate.",
+              "confidence": 0.98,
+              "timestamp_seconds": 984
+            },
+            {
+              "field": "average_cost",
+              "value": "Rs. 270 for DBC ice cream",
+              "evidence": "Its price is Rs.270",
+              "confidence": 0.95,
+              "timestamp_seconds": 1017
+            },
+            {
+              "field": "crowd_level",
+              "value": "Very crowded / lot of rush",
+              "evidence": "There is a lot of rush at the shop.",
+              "confidence": 0.9,
+              "timestamp_seconds": 1024
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
         }
       ]
     },
@@ -2868,6 +3393,66 @@
       ]
     },
     {
+      "name": "Waste to Wonder Park",
+      "name_local": "वेस्ट टू वंडर",
+      "slug": "waste-to-wonder-park",
+      "normalized_name": "waste to wonder park",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4034,
+      "frequency_count": 1,
+      "specialities": [
+        "Replicas of 7 Wonders made from waste"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "₹50 (Weekdays), ₹100 (Weekends)",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Replicas of 7 Wonders made from waste",
+              "evidence": "यहाँ आपको सात अजूबे देखने को मिलते हैं... वेस्ट, लोहे और जो भी कबाड़ होते हैं उन सभी चीज़ों से इसे बनाया गया है",
+              "confidence": 0.95,
+              "timestamp_seconds": 416
+            },
+            {
+              "field": "activities",
+              "value": "Dinosaur Park",
+              "evidence": "वेस्ट टू वंडर के अंदर ही आपको एक डायनासोर पार्क भी देखने को मिलता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 424
+            },
+            {
+              "field": "best_for",
+              "value": "Children, Families",
+              "evidence": "यह जगह बच्चों और परिवार को घुमाने के लिए सबसे अच्छी जगह है",
+              "confidence": 0.95,
+              "timestamp_seconds": 431
+            },
+            {
+              "field": "price_level",
+              "value": "₹50 (Weekdays), ₹100 (Weekends)",
+              "evidence": "यहाँ की टिकट वीक डेज पर ₹50 और वीक एंड्स पे ₹100 है",
+              "confidence": 0.95,
+              "timestamp_seconds": 433
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
       "name": "National Science Centre",
       "name_local": "साइंस म्यूजियम",
       "slug": "national-science-centre",
@@ -2980,66 +3565,6 @@
               "evidence": "सेंट्रल सेक्रेटेरिएट मेट्रो स्टेशन के पास में ही लगभग 2 कि.मी. की दूरी पर है",
               "confidence": 0.9,
               "timestamp_seconds": 20
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
-      "name": "Waste to Wonder Park",
-      "name_local": "वेस्ट टू वंडर",
-      "slug": "waste-to-wonder-park",
-      "normalized_name": "waste to wonder park",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.4034,
-      "frequency_count": 1,
-      "specialities": [
-        "Replicas of 7 Wonders made from waste"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": "₹50 (Weekdays), ₹100 (Weekends)",
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Replicas of 7 Wonders made from waste",
-              "evidence": "यहाँ आपको सात अजूबे देखने को मिलते हैं... वेस्ट, लोहे और जो भी कबाड़ होते हैं उन सभी चीज़ों से इसे बनाया गया है",
-              "confidence": 0.95,
-              "timestamp_seconds": 416
-            },
-            {
-              "field": "activities",
-              "value": "Dinosaur Park",
-              "evidence": "वेस्ट टू वंडर के अंदर ही आपको एक डायनासोर पार्क भी देखने को मिलता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 424
-            },
-            {
-              "field": "best_for",
-              "value": "Children, Families",
-              "evidence": "यह जगह बच्चों और परिवार को घुमाने के लिए सबसे अच्छी जगह है",
-              "confidence": 0.95,
-              "timestamp_seconds": 431
-            },
-            {
-              "field": "price_level",
-              "value": "₹50 (Weekdays), ₹100 (Weekends)",
-              "evidence": "यहाँ की टिकट वीक डेज पर ₹50 और वीक एंड्स पे ₹100 है",
-              "confidence": 0.95,
-              "timestamp_seconds": 433
             }
           ],
           "views": 726485,
@@ -3238,66 +3763,6 @@
       ]
     },
     {
-      "name": "Adventure Island",
-      "name_local": "एडवेंचर आइलैंड",
-      "slug": "adventure-island",
-      "normalized_name": "adventure island",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.3981,
-      "frequency_count": 1,
-      "specialities": [
-        "Thrilling rides, Water rides, Boating"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Thrilling rides, Water rides, Boating",
-              "evidence": "काफी सारी थ्रिलिंग राइड्स एंड वॉटर राइड्स के ऑप्शन मिल जाएंगे... बोटिंग भी कर सकते हो",
-              "confidence": 0.9,
-              "timestamp_seconds": 594
-            },
-            {
-              "field": "size",
-              "value": "62 acres",
-              "evidence": "यह प्लेस 62 एक्स में फैला हुआ है",
-              "confidence": 0.9,
-              "timestamp_seconds": 593
-            },
-            {
-              "field": "opening_hours",
-              "value": "11:00 AM",
-              "evidence": "सुबह 11:00 बजे से",
-              "confidence": 0.9,
-              "timestamp_seconds": 605
-            },
-            {
-              "field": "closing_hours",
-              "value": "7:00 PM",
-              "evidence": "शाम के 7:00 बजे तक",
-              "confidence": 0.9,
-              "timestamp_seconds": 607
-            }
-          ],
-          "views": 376773,
-          "upload_date": "2025-08-29"
-        }
-      ]
-    },
-    {
       "name": "Palika Bazaar",
       "name_local": "पालिका बाजार",
       "slug": "palika-bazaar",
@@ -3354,6 +3819,66 @@
               "evidence": "क्राउड थोड़ा सा ज्यादा होता है तो अपने बिलॉन्गिंक्स का ध्यान रखना",
               "confidence": 0.9,
               "timestamp_seconds": 558
+            }
+          ],
+          "views": 376773,
+          "upload_date": "2025-08-29"
+        }
+      ]
+    },
+    {
+      "name": "Adventure Island",
+      "name_local": "एडवेंचर आइलैंड",
+      "slug": "adventure-island",
+      "normalized_name": "adventure island",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3981,
+      "frequency_count": 1,
+      "specialities": [
+        "Thrilling rides, Water rides, Boating"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Thrilling rides, Water rides, Boating",
+              "evidence": "काफी सारी थ्रिलिंग राइड्स एंड वॉटर राइड्स के ऑप्शन मिल जाएंगे... बोटिंग भी कर सकते हो",
+              "confidence": 0.9,
+              "timestamp_seconds": 594
+            },
+            {
+              "field": "size",
+              "value": "62 acres",
+              "evidence": "यह प्लेस 62 एक्स में फैला हुआ है",
+              "confidence": 0.9,
+              "timestamp_seconds": 593
+            },
+            {
+              "field": "opening_hours",
+              "value": "11:00 AM",
+              "evidence": "सुबह 11:00 बजे से",
+              "confidence": 0.9,
+              "timestamp_seconds": 605
+            },
+            {
+              "field": "closing_hours",
+              "value": "7:00 PM",
+              "evidence": "शाम के 7:00 बजे तक",
+              "confidence": 0.9,
+              "timestamp_seconds": 607
             }
           ],
           "views": 376773,
@@ -3599,6 +4124,155 @@
       ]
     },
     {
+      "name": "Cafe Naati",
+      "name_local": "कैफे नाटी",
+      "slug": "cafe-naati",
+      "normalized_name": "cafe naati",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.3932,
+      "frequency_count": 1,
+      "specialities": [
+        "Thick and crunchy ghee dosa served with curry leaf South Indian style chicken fry on a leaf",
+        "Ghee Dosa with Chicken Fry"
+      ],
+      "tips": [
+        "Dosa and chicken fry are separate dishes that must be ordered individually"
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Thick and crunchy ghee dosa served with curry leaf South Indian style chicken fry on a leaf",
+              "evidence": "We got dosas and chicken fry on a leaf.",
+              "confidence": 0.95,
+              "timestamp_seconds": 1069
+            },
+            {
+              "field": "must_try_item",
+              "value": "Ghee Dosa with Chicken Fry",
+              "evidence": "This is a ghee dosa and they have used a lot of ghee.",
+              "confidence": 0.9,
+              "timestamp_seconds": 1080
+            },
+            {
+              "field": "tip",
+              "value": "Dosa and chicken fry are separate dishes that must be ordered individually",
+              "evidence": "Here, you will have to order dosa separately with chicken.",
+              "confidence": 0.95,
+              "timestamp_seconds": 1109
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
+        }
+      ]
+    },
+    {
+      "name": "Unlimited Thali Restaurant",
+      "name_local": null,
+      "slug": "unlimited-thali-restaurant",
+      "normalized_name": "unlimited thali",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "udaipur",
+      "area": null,
+      "recommendation_score": 0.3922,
+      "frequency_count": 1,
+      "specialities": [
+        "Unlimited Rajasthani and Gujarati thali containing Dhokla, White Kadi, Rajasthani Dal, Gujarati Dal, Rajasthani Ghevar, Biscuit Bhakri with Desi Ghee, Paneer, Khichdi, and Chaas",
+        "Rajasthani Ghevar and Biscuit Bhakri loaded with Desi Ghee"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Unlimited Rajasthani and Gujarati thali containing Dhokla, White Kadi, Rajasthani Dal, Gujarati Dal, Rajasthani Ghevar, Biscuit Bhakri with Desi Ghee, Paneer, Khichdi, and Chaas",
+              "evidence": "ये सारी आइटम्स आप अनलिमिटेड बाहर ले सकते",
+              "confidence": 0.9,
+              "timestamp_seconds": 812
+            },
+            {
+              "field": "must_try_item",
+              "value": "Rajasthani Ghevar and Biscuit Bhakri loaded with Desi Ghee",
+              "evidence": "ये आ गया राजस्थानी गेवर... बिस्किट बाकरी... और ये देख लो अलग से देसी घी भी ऊपर",
+              "confidence": 0.9,
+              "timestamp_seconds": 757
+            }
+          ],
+          "views": 24884,
+          "upload_date": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "name": "K.V. Canteen",
+      "name_local": null,
+      "slug": "kv-canteen",
+      "normalized_name": "k v canteen",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.3913,
+      "frequency_count": 1,
+      "specialities": [
+        "Tomato Bath"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 45,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 1.0,
+          "claims": [
+            {
+              "field": "must_try_item",
+              "value": "Tomato Bath",
+              "evidence": "So now I am at K.V. Canteen to try the Tomato Bath",
+              "confidence": 0.95,
+              "timestamp_seconds": 173
+            },
+            {
+              "field": "average_cost",
+              "value": "Rs. 45",
+              "evidence": "The price of this plate is just Rs.45 and it's a complete breakfast.",
+              "confidence": 0.95,
+              "timestamp_seconds": 226
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
+        }
+      ]
+    },
+    {
       "name": "Bhaap D Hotel",
       "name_local": "भापे द होटल",
       "slug": "bhaap-d-hotel",
@@ -3706,6 +4380,286 @@
       ]
     },
     {
+      "name": "Mavalli Tiffin Room (MTR)",
+      "name_local": "एमटीआर",
+      "slug": "mavalli-tiffin-room-mtr",
+      "normalized_name": "mavalli tiffin room mtr",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.3888,
+      "frequency_count": 1,
+      "specialities": [
+        "Mini Thali and Cold Almond Milk"
+      ],
+      "tips": [
+        "Prefer dosa or puri over the rice flour roti in the mini thali"
+      ],
+      "warnings": [
+        "Overhyped food with average taste despite good quality and fast service"
+      ],
+      "best_time": null,
+      "price_level": "Rs. 190 for Mini Thali, Rs. 120 for Almond Milk",
+      "average_cost_inr": null,
+      "crowd_info": "High rush",
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mixed",
+          "strength": 0.5,
+          "claims": [
+            {
+              "field": "opening_hours",
+              "value": "Established in 1924 (100 years old)",
+              "evidence": "This restaurant is from 1924 and it's very famous.",
+              "confidence": 0.95,
+              "timestamp_seconds": 653
+            },
+            {
+              "field": "speciality",
+              "value": "Mini Thali and Cold Almond Milk",
+              "evidence": "So we ordered their mini thali.",
+              "confidence": 0.9,
+              "timestamp_seconds": 666
+            },
+            {
+              "field": "price_level",
+              "value": "Rs. 190 for Mini Thali, Rs. 120 for Almond Milk",
+              "evidence": "The cost of this thali is Rs.190",
+              "confidence": 0.95,
+              "timestamp_seconds": 739
+            },
+            {
+              "field": "crowd_level",
+              "value": "High rush",
+              "evidence": "There is a lot of rush here.",
+              "confidence": 0.9,
+              "timestamp_seconds": 730
+            },
+            {
+              "field": "tip",
+              "value": "Prefer dosa or puri over the rice flour roti in the mini thali",
+              "evidence": "This roti is a little chewy... I would prefer to take dosa.",
+              "confidence": 0.85,
+              "timestamp_seconds": 686
+            },
+            {
+              "field": "warning",
+              "value": "Overhyped food with average taste despite good quality and fast service",
+              "evidence": "this place is so much hyped up. I thought the food would be amazing but I would give it a rating of 6.5.",
+              "confidence": 0.9,
+              "timestamp_seconds": 753
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
+        }
+      ]
+    },
+    {
+      "name": "Santosh Chaat Counter",
+      "name_local": "संतोष चाट काउंटर",
+      "slug": "santosh-chaat-counter",
+      "normalized_name": "santosh chaat counter",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.3882,
+      "frequency_count": 1,
+      "specialities": [
+        "Bombay mix chaat",
+        "Hot samosa and papdi base chaat with sweet and sour spices"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 60,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "must_try_item",
+              "value": "Bombay mix chaat",
+              "evidence": "the vendor recommended me Bombay mix chaat.",
+              "confidence": 0.95,
+              "timestamp_seconds": 872
+            },
+            {
+              "field": "average_cost",
+              "value": "Rs. 60 for Bombay mix chaat",
+              "evidence": "Its price is only Rs.60.",
+              "confidence": 0.95,
+              "timestamp_seconds": 892
+            },
+            {
+              "field": "speciality",
+              "value": "Hot samosa and papdi base chaat with sweet and sour spices",
+              "evidence": "This chaat is like Bhel Puri mixed with Samosa Chaat.",
+              "confidence": 0.9,
+              "timestamp_seconds": 944
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
+        }
+      ]
+    },
+    {
+      "name": "Raj Bhai Desi Ghee Paratha Stall",
+      "name_local": "देसी घी पराठा",
+      "slug": "raj-bhai-desi-ghee-paratha-stall",
+      "normalized_name": "raj bhai desi ghee paratha stall",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "udaipur",
+      "area": null,
+      "recommendation_score": 0.3872,
+      "frequency_count": 1,
+      "specialities": [
+        "Parathas deep-drenched in Saras Government Desi Ghee",
+        "Aloo Paratha"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Parathas deep-drenched in Saras Government Desi Ghee",
+              "evidence": "सर ये देसी घी के पराठे प्योर स्पेशल... ये सरस का गवर्नमेंट एरिया का घी है",
+              "confidence": 0.9,
+              "timestamp_seconds": 245
+            },
+            {
+              "field": "must_try_item",
+              "value": "Aloo Paratha",
+              "evidence": "राज भाई, उदयपुर में परांठा का मतलब होता है आलू के पराठे",
+              "confidence": 0.9,
+              "timestamp_seconds": 289
+            }
+          ],
+          "views": 24884,
+          "upload_date": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "name": "Raju Bhai Rabri",
+      "name_local": "राजू भाई रबड़ी",
+      "slug": "raju-bhai-rabri",
+      "normalized_name": "raju bhai rabri",
+      "entity_type": "poi",
+      "poi_category": "sweet_shop",
+      "destination": "udaipur",
+      "area": null,
+      "recommendation_score": 0.3872,
+      "frequency_count": 1,
+      "specialities": [
+        "Traditional sweet Rabri made with layered milk cream (malai)"
+      ],
+      "tips": [
+        "A 170-year-old heritage sweet shop focused exclusively on traditional rabri, popular among domestic and foreign tourists"
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Traditional sweet Rabri made with layered milk cream (malai)",
+              "evidence": "उदयपुर की 170 साल पुरानी राजू भाई रबड़ी",
+              "confidence": 0.9,
+              "timestamp_seconds": 474
+            },
+            {
+              "field": "tip",
+              "value": "A 170-year-old heritage sweet shop focused exclusively on traditional rabri, popular among domestic and foreign tourists",
+              "evidence": "देसी विदेशी सारे टूरिस्ट लोग आते हैं",
+              "confidence": 0.9,
+              "timestamp_seconds": 494
+            }
+          ],
+          "views": 24884,
+          "upload_date": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "name": "Adventure Island Rohini",
+      "name_local": "Adventure Island Rohini",
+      "slug": "adventure-island-rohini",
+      "normalized_name": "adventure island rohini",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3865,
+      "frequency_count": 1,
+      "specialities": [
+        "Largest amusement park in Delhi, rides, water/splash activities, swimming pool"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "Weekday ₹500, Weekend ₹700, Pool ₹200, Locker ₹1200 (with costume)",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Largest amusement park in Delhi, rides, water/splash activities, swimming pool",
+              "evidence": "दिल्ली का सबसे बड़ा अम्यूजमेंट पार्क है... बहुत सारे झूले मिलेंगे... वॉटर और स्प्लस एक्टिविटीज भी है... स्विमिंग पूल भी है",
+              "confidence": 0.9,
+              "timestamp_seconds": 248
+            },
+            {
+              "field": "price_level",
+              "value": "Weekday ₹500, Weekend ₹700, Pool ₹200, Locker ₹1200 (with costume)",
+              "evidence": "इसकी टिकट प्राइस ₹500 वीक डेज पर होती है और ₹700 वीकेंड्स पर होती है... स्विमिंग पूल के ₹200 देन पड़ते हैं और लॉकर के भी आपको अलग से ₹1200 कॉस्ट्यूम के साथ देन पड़ते हैं",
+              "confidence": 0.9,
+              "timestamp_seconds": 258
+            },
+            {
+              "field": "transport",
+              "value": "Near Rithala Metro Station",
+              "evidence": "यहां का निकटतम मेट्रो स्टेशन रिठाला है",
+              "confidence": 0.9,
+              "timestamp_seconds": 271
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
       "name": "National Rail Museum",
       "name_local": "रेल म्यूजियम",
       "slug": "national-rail-museum",
@@ -3759,22 +4713,24 @@
       ]
     },
     {
-      "name": "Garden of Five Senses",
-      "name_local": "गार्डन ऑफ फाइव सेंसेस",
-      "slug": "garden-of-five-senses",
-      "normalized_name": "garden of five senses",
+      "name": "Champakali",
+      "name_local": "चंपागली",
+      "slug": "champakali",
+      "normalized_name": "champakali",
       "entity_type": "poi",
-      "poi_category": "park",
+      "poi_category": "market",
       "destination": "delhi",
       "area": "Saket",
       "recommendation_score": 0.3865,
       "frequency_count": 1,
-      "specialities": null,
+      "specialities": [
+        "Cafe Street"
+      ],
       "tips": null,
       "warnings": null,
       "best_time": null,
       "price_level": null,
-      "average_cost_inr": 35,
+      "average_cost_inr": 1000,
       "crowd_info": null,
       "verification_status": "ai_extracted",
       "evidence": [
@@ -3783,25 +4739,25 @@
           "strength": 0.8,
           "claims": [
             {
-              "field": "average_cost",
-              "value": "₹35 entry ticket",
-              "evidence": "एंटी टिकट गार्डन की ₹35 है",
+              "field": "speciality",
+              "value": "Cafe Street",
+              "evidence": "चंपागली साकेत में काफ़ी बढ़िया कैफेस की एक गली है",
               "confidence": 0.95,
-              "timestamp_seconds": 649
-            },
-            {
-              "field": "opening_hours",
-              "value": "Open all 7 days",
-              "evidence": "यह जगह सप्ताह के सातों दिन खुला रहता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 652
+              "timestamp_seconds": 693
             },
             {
               "field": "ambiance",
-              "value": "Beautiful, popular for couples",
-              "evidence": "बहुत ही सुंदर है... मगर यहां पर कपल्स बहुत ज्यादा आते हैं",
+              "value": "Good for birthdays, dates, proposals; nice evening lights",
+              "evidence": "जहां पर आप अपना बर्थडे सेलिब्रेशन हो या किसी को डेट पे ले जाना हो... इन गलियों में शाम के नजारे काफ़ी अच्छे होते हैं. लाइटिंग्स बहुत ही मजेदार होती है",
               "confidence": 0.9,
-              "timestamp_seconds": 643
+              "timestamp_seconds": 698
+            },
+            {
+              "field": "average_cost",
+              "value": "₹1000 - ₹2000 for two",
+              "evidence": "यहां पर दो लोगों के खाने का खर्चा 1000 से 2000 के बीच होगा",
+              "confidence": 0.9,
+              "timestamp_seconds": 718
             }
           ],
           "views": 726485,
@@ -3863,77 +4819,22 @@
       ]
     },
     {
-      "name": "Adventure Island Rohini",
-      "name_local": "Adventure Island Rohini",
-      "slug": "adventure-island-rohini",
-      "normalized_name": "adventure island rohini",
+      "name": "Garden of Five Senses",
+      "name_local": "गार्डन ऑफ फाइव सेंसेस",
+      "slug": "garden-of-five-senses",
+      "normalized_name": "garden of five senses",
       "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.3865,
-      "frequency_count": 1,
-      "specialities": [
-        "Largest amusement park in Delhi, rides, water/splash activities, swimming pool"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": "Weekday ₹500, Weekend ₹700, Pool ₹200, Locker ₹1200 (with costume)",
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Largest amusement park in Delhi, rides, water/splash activities, swimming pool",
-              "evidence": "दिल्ली का सबसे बड़ा अम्यूजमेंट पार्क है... बहुत सारे झूले मिलेंगे... वॉटर और स्प्लस एक्टिविटीज भी है... स्विमिंग पूल भी है",
-              "confidence": 0.9,
-              "timestamp_seconds": 248
-            },
-            {
-              "field": "price_level",
-              "value": "Weekday ₹500, Weekend ₹700, Pool ₹200, Locker ₹1200 (with costume)",
-              "evidence": "इसकी टिकट प्राइस ₹500 वीक डेज पर होती है और ₹700 वीकेंड्स पर होती है... स्विमिंग पूल के ₹200 देन पड़ते हैं और लॉकर के भी आपको अलग से ₹1200 कॉस्ट्यूम के साथ देन पड़ते हैं",
-              "confidence": 0.9,
-              "timestamp_seconds": 258
-            },
-            {
-              "field": "transport",
-              "value": "Near Rithala Metro Station",
-              "evidence": "यहां का निकटतम मेट्रो स्टेशन रिठाला है",
-              "confidence": 0.9,
-              "timestamp_seconds": 271
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
-      "name": "Champakali",
-      "name_local": "चंपागली",
-      "slug": "champakali",
-      "normalized_name": "champakali",
-      "entity_type": "poi",
-      "poi_category": "market",
+      "poi_category": "park",
       "destination": "delhi",
       "area": "Saket",
       "recommendation_score": 0.3865,
       "frequency_count": 1,
-      "specialities": [
-        "Cafe Street"
-      ],
+      "specialities": null,
       "tips": null,
       "warnings": null,
       "best_time": null,
       "price_level": null,
-      "average_cost_inr": 1000,
+      "average_cost_inr": 35,
       "crowd_info": null,
       "verification_status": "ai_extracted",
       "evidence": [
@@ -3942,25 +4843,25 @@
           "strength": 0.8,
           "claims": [
             {
-              "field": "speciality",
-              "value": "Cafe Street",
-              "evidence": "चंपागली साकेत में काफ़ी बढ़िया कैफेस की एक गली है",
+              "field": "average_cost",
+              "value": "₹35 entry ticket",
+              "evidence": "एंटी टिकट गार्डन की ₹35 है",
               "confidence": 0.95,
-              "timestamp_seconds": 693
+              "timestamp_seconds": 649
+            },
+            {
+              "field": "opening_hours",
+              "value": "Open all 7 days",
+              "evidence": "यह जगह सप्ताह के सातों दिन खुला रहता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 652
             },
             {
               "field": "ambiance",
-              "value": "Good for birthdays, dates, proposals; nice evening lights",
-              "evidence": "जहां पर आप अपना बर्थडे सेलिब्रेशन हो या किसी को डेट पे ले जाना हो... इन गलियों में शाम के नजारे काफ़ी अच्छे होते हैं. लाइटिंग्स बहुत ही मजेदार होती है",
+              "value": "Beautiful, popular for couples",
+              "evidence": "बहुत ही सुंदर है... मगर यहां पर कपल्स बहुत ज्यादा आते हैं",
               "confidence": 0.9,
-              "timestamp_seconds": 698
-            },
-            {
-              "field": "average_cost",
-              "value": "₹1000 - ₹2000 for two",
-              "evidence": "यहां पर दो लोगों के खाने का खर्चा 1000 से 2000 के बीच होगा",
-              "confidence": 0.9,
-              "timestamp_seconds": 718
+              "timestamp_seconds": 643
             }
           ],
           "views": 726485,
@@ -4365,54 +5266,6 @@
       ]
     },
     {
-      "name": "Bun Maska Stall near Leisure Valley Park",
-      "name_local": null,
-      "slug": "bun-maska-stall-near-leisure-valley-park",
-      "normalized_name": "bun maska stall near leisure valley park",
-      "entity_type": "poi",
-      "poi_category": "street_food",
-      "destination": "gurgaon",
-      "area": "Sector 29",
-      "recommendation_score": 0.3777,
-      "frequency_count": 1,
-      "specialities": [
-        "Bun maska with homemade buttermilk; multi-grain buns for healthy option"
-      ],
-      "tips": [
-        "Try the healthy version with multi-grain buns"
-      ],
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.85,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Bun maska with homemade buttermilk; multi-grain buns for healthy option",
-              "evidence": "there's a brother who sits selling Krishna, bun, maska, and buttermilk... Their specialty is buttermilk... They have multi-grain buns.",
-              "confidence": 0.85,
-              "timestamp_seconds": 269
-            },
-            {
-              "field": "tip",
-              "value": "Try the healthy version with multi-grain buns",
-              "evidence": "How can I make the buns in a healthy way? They have multi-grain buns.",
-              "confidence": 0.85,
-              "timestamp_seconds": 297
-            }
-          ],
-          "views": 7778,
-          "upload_date": "2025-12-12"
-        }
-      ]
-    },
-    {
       "name": "Krishna's Banmaska",
       "name_local": null,
       "slug": "krishnas-banmaska",
@@ -4453,6 +5306,54 @@
               "evidence": "starting the day lightly",
               "confidence": 0.85,
               "timestamp_seconds": 518
+            }
+          ],
+          "views": 7778,
+          "upload_date": "2025-12-12"
+        }
+      ]
+    },
+    {
+      "name": "Bun Maska Stall near Leisure Valley Park",
+      "name_local": null,
+      "slug": "bun-maska-stall-near-leisure-valley-park",
+      "normalized_name": "bun maska stall near leisure valley park",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "gurgaon",
+      "area": "Sector 29",
+      "recommendation_score": 0.3777,
+      "frequency_count": 1,
+      "specialities": [
+        "Bun maska with homemade buttermilk; multi-grain buns for healthy option"
+      ],
+      "tips": [
+        "Try the healthy version with multi-grain buns"
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Bun maska with homemade buttermilk; multi-grain buns for healthy option",
+              "evidence": "there's a brother who sits selling Krishna, bun, maska, and buttermilk... Their specialty is buttermilk... They have multi-grain buns.",
+              "confidence": 0.85,
+              "timestamp_seconds": 269
+            },
+            {
+              "field": "tip",
+              "value": "Try the healthy version with multi-grain buns",
+              "evidence": "How can I make the buns in a healthy way? They have multi-grain buns.",
+              "confidence": 0.85,
+              "timestamp_seconds": 297
             }
           ],
           "views": 7778,
@@ -4555,59 +5456,6 @@
               "evidence": "यहां का नजदीकी मेट्रो स्टेशन जहांगीरपुरी है. वहां से 15 मिनट का रास्ता होता है",
               "confidence": 0.9,
               "timestamp_seconds": 782
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
-      "name": "Runway One Aeroplane Restaurant",
-      "name_local": "रनवे वन एरोप्लेन रेस्टोरेंट",
-      "slug": "runway-one-aeroplane-restaurant",
-      "normalized_name": "runway one aeroplane",
-      "entity_type": "poi",
-      "poi_category": "restaurant",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.3765,
-      "frequency_count": 1,
-      "specialities": [
-        "Aeroplane Theme Dining"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": 1500,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.7,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Aeroplane Theme Dining",
-              "evidence": "अगला है रनवे वन एरोप्लेन रेस्टोरेंट",
-              "confidence": 0.95,
-              "timestamp_seconds": 788
-            },
-            {
-              "field": "average_cost",
-              "value": "₹1500 - ₹2000 for two; ₹5000 for birthday celebration",
-              "evidence": "जनरली यहां पर ₹1500 से ₹2000 तक दो लोगों का खर्चा आ जाता है. अगर आप बर्थडे वगैरह मनाते हैं तो 4 से ₹5000 का खर्चा आ जाएगा",
-              "confidence": 0.9,
-              "timestamp_seconds": 798
-            },
-            {
-              "field": "location_hint",
-              "value": "Rohini",
-              "evidence": "यह एरोप्लेन रेस्टोरेंट आपको रोहिणी मेट्रो वॉक में मिल जाएगा",
-              "confidence": 0.9,
-              "timestamp_seconds": 808
             }
           ],
           "views": 726485,
@@ -4722,22 +5570,74 @@
       ]
     },
     {
-      "name": "Changezi Chicken Birthplace",
-      "name_local": null,
-      "slug": "changezi-chicken-birthplace",
-      "normalized_name": "changezi chicken birthplace",
+      "name": "Runway One Aeroplane Restaurant",
+      "name_local": "रनवे वन एरोप्लेन रेस्टोरेंट",
+      "slug": "runway-one-aeroplane-restaurant",
+      "normalized_name": "runway one aeroplane",
       "entity_type": "poi",
       "poi_category": "restaurant",
       "destination": "delhi",
       "area": null,
-      "recommendation_score": 0.3744,
+      "recommendation_score": 0.3765,
       "frequency_count": 1,
       "specialities": [
-        "Changezi chicken (onion and tomato-based sauce with ghee)",
-        "Changezi chicken with khameeri roti"
+        "Aeroplane Theme Dining"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 1500,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.7,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Aeroplane Theme Dining",
+              "evidence": "अगला है रनवे वन एरोप्लेन रेस्टोरेंट",
+              "confidence": 0.95,
+              "timestamp_seconds": 788
+            },
+            {
+              "field": "average_cost",
+              "value": "₹1500 - ₹2000 for two; ₹5000 for birthday celebration",
+              "evidence": "जनरली यहां पर ₹1500 से ₹2000 तक दो लोगों का खर्चा आ जाता है. अगर आप बर्थडे वगैरह मनाते हैं तो 4 से ₹5000 का खर्चा आ जाएगा",
+              "confidence": 0.9,
+              "timestamp_seconds": 798
+            },
+            {
+              "field": "location_hint",
+              "value": "Rohini",
+              "evidence": "यह एरोप्लेन रेस्टोरेंट आपको रोहिणी मेट्रो वॉक में मिल जाएगा",
+              "confidence": 0.9,
+              "timestamp_seconds": 808
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Veena Stores",
+      "name_local": null,
+      "slug": "veena-stores",
+      "normalized_name": "veena stores",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.3763,
+      "frequency_count": 1,
+      "specialities": [
+        "Idli Vada"
       ],
       "tips": [
-        "Authentic origin spot"
+        "Ordering is done via a touch screen kiosk"
       ],
       "warnings": null,
       "best_time": null,
@@ -4748,32 +5648,25 @@
       "evidence": [
         {
           "stance": "recommended",
-          "strength": 0.8,
+          "strength": 0.85,
           "claims": [
             {
-              "field": "speciality",
-              "value": "Changezi chicken (onion and tomato-based sauce with ghee)",
-              "evidence": "This is the place where chicken changezi was first started... Basically, onion and tomato-based sauce... Lots of ghee",
-              "confidence": 0.8,
-              "timestamp_seconds": 1011
-            },
-            {
               "field": "must_try_item",
-              "value": "Changezi chicken with khameeri roti",
-              "evidence": "Chengezi chicken... Khameeri roti",
-              "confidence": 0.7,
-              "timestamp_seconds": 1090
+              "value": "Idli Vada",
+              "evidence": "Guys, we are at Veena Stores to eat Idli Vada.",
+              "confidence": 0.95,
+              "timestamp_seconds": 246
             },
             {
               "field": "tip",
-              "value": "Authentic origin spot",
-              "evidence": "at the original joint that invented it... this is the birthplace",
-              "confidence": 0.8,
-              "timestamp_seconds": 987
+              "value": "Ordering is done via a touch screen kiosk",
+              "evidence": "There is an option to order from a screen.",
+              "confidence": 0.9,
+              "timestamp_seconds": 267
             }
           ],
-          "views": 6565893,
-          "upload_date": "2018-07-21"
+          "views": 894808,
+          "upload_date": "2024-12-06"
         }
       ]
     },
@@ -4824,6 +5717,62 @@
               "evidence": "How late does the iftar go for? Around 4:00.",
               "confidence": 0.8,
               "timestamp_seconds": 671
+            }
+          ],
+          "views": 6565893,
+          "upload_date": "2018-07-21"
+        }
+      ]
+    },
+    {
+      "name": "Changezi Chicken Birthplace",
+      "name_local": null,
+      "slug": "changezi-chicken-birthplace",
+      "normalized_name": "changezi chicken birthplace",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3744,
+      "frequency_count": 1,
+      "specialities": [
+        "Changezi chicken (onion and tomato-based sauce with ghee)",
+        "Changezi chicken with khameeri roti"
+      ],
+      "tips": [
+        "Authentic origin spot"
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Changezi chicken (onion and tomato-based sauce with ghee)",
+              "evidence": "This is the place where chicken changezi was first started... Basically, onion and tomato-based sauce... Lots of ghee",
+              "confidence": 0.8,
+              "timestamp_seconds": 1011
+            },
+            {
+              "field": "must_try_item",
+              "value": "Changezi chicken with khameeri roti",
+              "evidence": "Chengezi chicken... Khameeri roti",
+              "confidence": 0.7,
+              "timestamp_seconds": 1090
+            },
+            {
+              "field": "tip",
+              "value": "Authentic origin spot",
+              "evidence": "at the original joint that invented it... this is the birthplace",
+              "confidence": 0.8,
+              "timestamp_seconds": 987
             }
           ],
           "views": 6565893,
@@ -5034,50 +5983,6 @@
       ]
     },
     {
-      "name": "Red Fort",
-      "name_local": "लाल किला",
-      "slug": "red-fort",
-      "normalized_name": "red fort",
-      "entity_type": "poi",
-      "poi_category": "monument",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.3696,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": "₹35",
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "price_level",
-              "value": "₹35",
-              "evidence": "वहाँ के टिकट भी ₹35 है",
-              "confidence": 0.95,
-              "timestamp_seconds": 526
-            },
-            {
-              "field": "worst_time",
-              "value": "Monday (Closed)",
-              "evidence": "और यह जगह मंडे को क्लोज रहती है",
-              "confidence": 0.95,
-              "timestamp_seconds": 528
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
       "name": "Swaminarayan Akshardham",
       "name_local": "अक्षरधाम",
       "slug": "swaminarayan-akshardham",
@@ -5114,6 +6019,50 @@
               "evidence": "मंडे को यह जगह भी क्लोज रहती है",
               "confidence": 0.95,
               "timestamp_seconds": 539
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Red Fort",
+      "name_local": "लाल किला",
+      "slug": "red-fort",
+      "normalized_name": "red fort",
+      "entity_type": "poi",
+      "poi_category": "monument",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3696,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "₹35",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "price_level",
+              "value": "₹35",
+              "evidence": "वहाँ के टिकट भी ₹35 है",
+              "confidence": 0.95,
+              "timestamp_seconds": 526
+            },
+            {
+              "field": "worst_time",
+              "value": "Monday (Closed)",
+              "evidence": "और यह जगह मंडे को क्लोज रहती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 528
             }
           ],
           "views": 726485,
@@ -5291,6 +6240,59 @@
       ]
     },
     {
+      "name": "40-Year Old Mutton Pulao Shop",
+      "name_local": null,
+      "slug": "40-year-old-mutton-pulao-shop",
+      "normalized_name": "40 year old mutton pulao shop",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "jaipur",
+      "area": null,
+      "recommendation_score": 0.3621,
+      "frequency_count": 1,
+      "specialities": [
+        "Mutton Pulao"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": "Extremely crowded with long lines",
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Mutton Pulao",
+              "evidence": "This is 40 years old... 40 years he's been doing this job... Mutton pulao",
+              "confidence": 0.9,
+              "timestamp_seconds": 134
+            },
+            {
+              "field": "waiting_time",
+              "value": "30 minutes or more in line",
+              "evidence": "We've been waiting for 30 minutes. Finally, the pulao has come",
+              "confidence": 0.85,
+              "timestamp_seconds": 132
+            },
+            {
+              "field": "crowd_level",
+              "value": "Extremely crowded with long lines",
+              "evidence": "Inside the room is already full... Look at all the people waiting already... After fighting in the line, we finally received our beautiful pulao",
+              "confidence": 0.85,
+              "timestamp_seconds": 159
+            }
+          ],
+          "views": 421497,
+          "upload_date": "2022-07-03"
+        }
+      ]
+    },
+    {
       "name": "Amar Jyoti",
       "name_local": null,
       "slug": "amar-jyoti",
@@ -5436,6 +6438,68 @@
       ]
     },
     {
+      "name": "Meghana Foods",
+      "name_local": "मेघना फूड",
+      "slug": "meghana-foods",
+      "normalized_name": "meghana foods",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.3551,
+      "frequency_count": 1,
+      "specialities": [
+        "Biryani"
+      ],
+      "tips": null,
+      "warnings": [
+        "Style feels like cooked meat/toppings mixed over rice rather than classic dum biryani"
+      ],
+      "best_time": null,
+      "price_level": "Slightly expensive",
+      "average_cost_inr": 370,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mixed",
+          "strength": 0.5,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Biryani",
+              "evidence": "and now we have come to eat Biryani... The name of the place is Meghna food.",
+              "confidence": 0.95,
+              "timestamp_seconds": 510
+            },
+            {
+              "field": "average_cost",
+              "value": "Rs. 370 for Chicken Biryani",
+              "evidence": "the price of this biryani is Rs.370.",
+              "confidence": 0.98,
+              "timestamp_seconds": 557
+            },
+            {
+              "field": "warning",
+              "value": "Style feels like cooked meat/toppings mixed over rice rather than classic dum biryani",
+              "evidence": "This looks less like a biryani and more like there is chicken mixed with rice... I think they cook the rice separately and add vegetables separately according to the order.",
+              "confidence": 0.9,
+              "timestamp_seconds": 529
+            },
+            {
+              "field": "price_level",
+              "value": "Slightly expensive",
+              "evidence": "According to that, it's a little expensive.",
+              "confidence": 0.85,
+              "timestamp_seconds": 566
+            }
+          ],
+          "views": 894808,
+          "upload_date": "2024-12-06"
+        }
+      ]
+    },
+    {
       "name": "Celebration Cafe",
       "name_local": "सेलेब्रेशन कैफे",
       "slug": "celebration-cafe",
@@ -5561,6 +6625,147 @@
           ],
           "views": 6565893,
           "upload_date": "2018-07-21"
+        }
+      ]
+    },
+    {
+      "name": "Rajasthani Aloo Pyaz & Rabdi Restaurant",
+      "name_local": null,
+      "slug": "rajasthani-aloo-pyaz-rabdi-restaurant",
+      "normalized_name": "rajasthani aloo pyaz rabdi",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "jaipur",
+      "area": null,
+      "recommendation_score": 0.3502,
+      "frequency_count": 1,
+      "specialities": [
+        "Bejad ki Roti roasted on coals, Aloo Pyaz Paneer Sabzi, and Rabdi",
+        "Bejad ki Roti with Aloo Pyaz Curry and Rabdi"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Bejad ki Roti roasted on coals, Aloo Pyaz Paneer Sabzi, and Rabdi",
+              "evidence": "This is pure Rajasthani food... Bejad ki roti... cooked on the kind of a wok... put it directly on coals... Aloo pyaz paneer... Rabdi made with milk, cardamom, saffron",
+              "confidence": 0.9,
+              "timestamp_seconds": 320
+            },
+            {
+              "field": "must_try_item",
+              "value": "Bejad ki Roti with Aloo Pyaz Curry and Rabdi",
+              "evidence": "What we came here for is the Bejad ki roti which is a whole wheat flour bread smothered in desi ghee. This is the Rajasthani aloo pyaz curry... then this is rabri",
+              "confidence": 0.95,
+              "timestamp_seconds": 477
+            }
+          ],
+          "views": 421497,
+          "upload_date": "2022-07-03"
+        }
+      ]
+    },
+    {
+      "name": "Afghani Restaurant",
+      "name_local": null,
+      "slug": "afghani-restaurant",
+      "normalized_name": "afghani",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "jaipur",
+      "area": null,
+      "recommendation_score": 0.3502,
+      "frequency_count": 1,
+      "specialities": [
+        "Kabuli Chicken Sajji",
+        "Afghani Chicken Sajji and Al Faham Chicken with Afghani Roti"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "must_try_item",
+              "value": "Kabuli Chicken Sajji",
+              "evidence": "If you're ever in Jaipur, Rajasthan, you have to come to this restaurant and try their famous chicken sajji",
+              "confidence": 0.95,
+              "timestamp_seconds": 1055
+            },
+            {
+              "field": "speciality",
+              "value": "Afghani Chicken Sajji and Al Faham Chicken with Afghani Roti",
+              "evidence": "Afghani chicken sajji... slow cook it over charcoal... Al Faham chicken which is a marinated chicken... beautiful afghani roti",
+              "confidence": 0.9,
+              "timestamp_seconds": 873
+            }
+          ],
+          "views": 421497,
+          "upload_date": "2022-07-03"
+        }
+      ]
+    },
+    {
+      "name": "Jaipur Non-Veg Street Food Restaurant",
+      "name_local": null,
+      "slug": "jaipur-non-veg-street-food-restaurant",
+      "normalized_name": "jaipur non veg street food",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "jaipur",
+      "area": null,
+      "recommendation_score": 0.3502,
+      "frequency_count": 1,
+      "specialities": [
+        "Chicken Changezi",
+        "Chicken Changezi, Mutton Nihari, and Chicken Korma"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "must_try_item",
+              "value": "Chicken Changezi",
+              "evidence": "Chicken changezi The best!",
+              "confidence": 0.95,
+              "timestamp_seconds": 846
+            },
+            {
+              "field": "speciality",
+              "value": "Chicken Changezi, Mutton Nihari, and Chicken Korma",
+              "evidence": "This is their famous chicken changezi... another signature dish This is called mutton nihari... And then, chicken korma",
+              "confidence": 0.9,
+              "timestamp_seconds": 711
+            }
+          ],
+          "views": 421497,
+          "upload_date": "2022-07-03"
         }
       ]
     },
@@ -5708,6 +6913,53 @@
       ]
     },
     {
+      "name": "100-Year Old Chai Shop",
+      "name_local": null,
+      "slug": "100-year-old-chai-shop",
+      "normalized_name": "100 year old chai shop",
+      "entity_type": "poi",
+      "poi_category": "cafe",
+      "destination": "jaipur",
+      "area": null,
+      "recommendation_score": 0.3452,
+      "frequency_count": 1,
+      "specialities": [
+        "Masala Chai with ginger and cardamom, and Maska Bun",
+        "Masala Chai and Maska Bun"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Masala Chai with ginger and cardamom, and Maska Bun",
+              "evidence": "This shop has been running for almost 100 years... I can taste the ginger and cardamom in it... And we got Maska bun",
+              "confidence": 0.9,
+              "timestamp_seconds": 44
+            },
+            {
+              "field": "must_try_item",
+              "value": "Masala Chai and Maska Bun",
+              "evidence": "We got our beautiful tea... This is absolutely the best way to start the day here in India... And we got Maska bun",
+              "confidence": 0.9,
+              "timestamp_seconds": 80
+            }
+          ],
+          "views": 421497,
+          "upload_date": "2022-07-03"
+        }
+      ]
+    },
+    {
       "name": "Chengezi chicken",
       "name_local": null,
       "slug": "chengezi-chicken",
@@ -5837,45 +7089,6 @@
       ]
     },
     {
-      "name": "Tau Devi Lal's Taiman",
-      "name_local": "तौ देवी लाल का तैमान",
-      "slug": "tau-devi-lals-taiman",
-      "normalized_name": "tau devi lals taiman",
-      "entity_type": "poi",
-      "poi_category": "market",
-      "destination": "gurgaon",
-      "area": null,
-      "recommendation_score": 0.3258,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": [
-        "Visit early in the morning to find dry fruit, sprouts, ghee, and jaggery vendors"
-      ],
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "tip",
-              "value": "Visit early in the morning to find dry fruit, sprouts, ghee, and jaggery vendors",
-              "evidence": "look here, you'll find the dry fruit vendor here early in the morning. Next, you'll find a sprouts counter. Next, you'll find a ghee counter... I just saw at the entrance that there was a lot of jaggery available here",
-              "confidence": 0.85,
-              "timestamp_seconds": 91
-            }
-          ],
-          "views": 7778,
-          "upload_date": "2025-12-12"
-        }
-      ]
-    },
-    {
       "name": "Mini India Food Court",
       "name_local": null,
       "slug": "mini-india-food-court",
@@ -5907,6 +7120,45 @@
               "evidence": "Its name should be changed. It should become Mini India Food Court. You'll find everything here. If you want to eat anything from Gujarat, Maharashtra, Punjabi, Bihar, anything, come here.",
               "confidence": 0.7,
               "timestamp_seconds": 1756
+            }
+          ],
+          "views": 7778,
+          "upload_date": "2025-12-12"
+        }
+      ]
+    },
+    {
+      "name": "Tau Devi Lal's Taiman",
+      "name_local": "तौ देवी लाल का तैमान",
+      "slug": "tau-devi-lals-taiman",
+      "normalized_name": "tau devi lals taiman",
+      "entity_type": "poi",
+      "poi_category": "market",
+      "destination": "gurgaon",
+      "area": null,
+      "recommendation_score": 0.3258,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": [
+        "Visit early in the morning to find dry fruit, sprouts, ghee, and jaggery vendors"
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "tip",
+              "value": "Visit early in the morning to find dry fruit, sprouts, ghee, and jaggery vendors",
+              "evidence": "look here, you'll find the dry fruit vendor here early in the morning. Next, you'll find a sprouts counter. Next, you'll find a ghee counter... I just saw at the entrance that there was a lot of jaggery available here",
+              "confidence": 0.85,
+              "timestamp_seconds": 91
             }
           ],
           "views": 7778,
@@ -5952,10 +7204,86 @@
       ]
     },
     {
-      "name": "Pratapgarh Farm",
-      "name_local": "प्रतापगढ़ फार्म",
-      "slug": "pratapgarh-farm",
-      "normalized_name": "pratapgarh farm",
+      "name": "Local Pyaz Kachori Joint",
+      "name_local": null,
+      "slug": "local-pyaz-kachori-joint",
+      "normalized_name": "local pyaz kachori joint",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "jaipur",
+      "area": null,
+      "recommendation_score": 0.3233,
+      "frequency_count": 1,
+      "specialities": [
+        "Pyaz Kachori"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "must_try_item",
+              "value": "Pyaz Kachori",
+              "evidence": "Pyaz Kachori?... fried kind of dough made with flour and stuffed with moong dal and onions... served with green chutney",
+              "confidence": 0.85,
+              "timestamp_seconds": 244
+            }
+          ],
+          "views": 421497,
+          "upload_date": "2022-07-03"
+        }
+      ]
+    },
+    {
+      "name": "Rithala Metro Station",
+      "name_local": "रिठाला",
+      "slug": "rithala-metro-station",
+      "normalized_name": "rithala metro station",
+      "entity_type": "poi",
+      "poi_category": "other",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3228,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.1,
+          "claims": [
+            {
+              "field": "transport",
+              "value": "Nearest Metro Station",
+              "evidence": "यहाँ का नजदीकी मेट्रो स्टेशन रिठाला है",
+              "confidence": 0.95,
+              "timestamp_seconds": 271
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Rangmanch Farm",
+      "name_local": "रंगमंच फार्म",
+      "slug": "rangmanch-farm",
+      "normalized_name": "rangmanch farm",
       "entity_type": "poi",
       "poi_category": "attraction",
       "destination": "gurgaon",
@@ -5978,7 +7306,155 @@
             {
               "field": "category",
               "value": "Farm House",
-              "evidence": "प्रतापगढ़ फार्म",
+              "evidence": "रंगमंच फार्म",
+              "confidence": 0.95,
+              "timestamp_seconds": 332
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Just Chill Water Park",
+      "name_local": "जस्ट चिल",
+      "slug": "just-chill-water-park",
+      "normalized_name": "just chill water park",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3228,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "location",
+              "value": "GT Road",
+              "evidence": "जस्ट चिल जीटी का नोड पे है",
+              "confidence": 0.95,
+              "timestamp_seconds": 291
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Lohagarh Farm",
+      "name_local": "लोहागढ़ फार्म",
+      "slug": "lohagarh-farm",
+      "normalized_name": "lohagarh farm",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "gurgaon",
+      "area": null,
+      "recommendation_score": 0.3228,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "category",
+              "value": "Farm House",
+              "evidence": "गुरुग्राम के कुछ फेमस फार्म्स हैं जैसे लोहगढ़ फार्म",
+              "confidence": 0.95,
+              "timestamp_seconds": 328
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Yadvanshi Farm",
+      "name_local": "यदुवंशी फार्म",
+      "slug": "yadvanshi-farm",
+      "normalized_name": "yadvanshi farm",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "gurgaon",
+      "area": null,
+      "recommendation_score": 0.3228,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "category",
+              "value": "Farm House",
+              "evidence": "यदुवंशी फार्म",
+              "confidence": 0.95,
+              "timestamp_seconds": 330
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31"
+        }
+      ]
+    },
+    {
+      "name": "Madhavgarh Farm",
+      "name_local": "माधवगढ़ फार्म",
+      "slug": "madhavgarh-farm",
+      "normalized_name": "madhavgarh farm",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "gurgaon",
+      "area": null,
+      "recommendation_score": 0.3228,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "category",
+              "value": "Farm House",
+              "evidence": "माधवगढ़ फार्म",
               "confidence": 0.95,
               "timestamp_seconds": 330
             }
@@ -6026,191 +7502,6 @@
       ]
     },
     {
-      "name": "Yadvanshi Farm",
-      "name_local": "यदुवंशी फार्म",
-      "slug": "yadvanshi-farm",
-      "normalized_name": "yadvanshi farm",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
-      "area": null,
-      "recommendation_score": 0.3228,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "category",
-              "value": "Farm House",
-              "evidence": "यदुवंशी फार्म",
-              "confidence": 0.95,
-              "timestamp_seconds": 330
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
-      "name": "Rithala Metro Station",
-      "name_local": "रिठाला",
-      "slug": "rithala-metro-station",
-      "normalized_name": "rithala metro station",
-      "entity_type": "poi",
-      "poi_category": "other",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.3228,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.1,
-          "claims": [
-            {
-              "field": "transport",
-              "value": "Nearest Metro Station",
-              "evidence": "यहाँ का नजदीकी मेट्रो स्टेशन रिठाला है",
-              "confidence": 0.95,
-              "timestamp_seconds": 271
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
-      "name": "Madhavgarh Farm",
-      "name_local": "माधवगढ़ फार्म",
-      "slug": "madhavgarh-farm",
-      "normalized_name": "madhavgarh farm",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
-      "area": null,
-      "recommendation_score": 0.3228,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "category",
-              "value": "Farm House",
-              "evidence": "माधवगढ़ फार्म",
-              "confidence": 0.95,
-              "timestamp_seconds": 330
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
-      "name": "Lohagarh Farm",
-      "name_local": "लोहागढ़ फार्म",
-      "slug": "lohagarh-farm",
-      "normalized_name": "lohagarh farm",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
-      "area": null,
-      "recommendation_score": 0.3228,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "category",
-              "value": "Farm House",
-              "evidence": "गुरुग्राम के कुछ फेमस फार्म्स हैं जैसे लोहगढ़ फार्म",
-              "confidence": 0.95,
-              "timestamp_seconds": 328
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
-      "name": "Just Chill Water Park",
-      "name_local": "जस्ट चिल",
-      "slug": "just-chill-water-park",
-      "normalized_name": "just chill water park",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.3228,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "location",
-              "value": "GT Road",
-              "evidence": "जस्ट चिल जीटी का नोड पे है",
-              "confidence": 0.95,
-              "timestamp_seconds": 291
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31"
-        }
-      ]
-    },
-    {
       "name": "Vedha Adventure",
       "name_local": "वेदा एडवेंचर",
       "slug": "vedha-adventure",
@@ -6250,10 +7541,10 @@
       ]
     },
     {
-      "name": "Rangmanch Farm",
-      "name_local": "रंगमंच फार्म",
-      "slug": "rangmanch-farm",
-      "normalized_name": "rangmanch farm",
+      "name": "Pratapgarh Farm",
+      "name_local": "प्रतापगढ़ फार्म",
+      "slug": "pratapgarh-farm",
+      "normalized_name": "pratapgarh farm",
       "entity_type": "poi",
       "poi_category": "attraction",
       "destination": "gurgaon",
@@ -6276,9 +7567,9 @@
             {
               "field": "category",
               "value": "Farm House",
-              "evidence": "रंगमंच फार्म",
+              "evidence": "प्रतापगढ़ फार्म",
               "confidence": 0.95,
-              "timestamp_seconds": 332
+              "timestamp_seconds": 330
             }
           ],
           "views": 726485,
@@ -6334,18 +7625,22 @@
       ]
     },
     {
-      "name": "Kath Roll",
-      "name_local": "काथ रोल",
-      "slug": "kath-roll",
-      "normalized_name": "kath roll",
-      "entity_type": "activity",
-      "poi_category": null,
-      "destination": "delhi",
-      "area": "Connaught Place",
-      "recommendation_score": 0.3171,
+      "name": "SLN Muddanna Hotel",
+      "name_local": "एस.एल.एन. मुद्दन्ना",
+      "slug": "sln-muddanna-hotel",
+      "normalized_name": "sln muddanna",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "bangalore",
+      "area": null,
+      "recommendation_score": 0.3213,
       "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
+      "specialities": [
+        "Bath Masala Dosa"
+      ],
+      "tips": [
+        "Go early in the morning as popular items sell out quickly"
+      ],
       "warnings": null,
       "best_time": null,
       "price_level": null,
@@ -6354,19 +7649,26 @@
       "verification_status": "ai_extracted",
       "evidence": [
         {
-          "stance": "mentioned",
-          "strength": 0.2,
+          "stance": "mixed",
+          "strength": 0.4,
           "claims": [
             {
-              "field": "preparation_method",
-              "value": "Paratha on large tawa topped with chicken boti, kath kabab, onion, then wrapped",
-              "evidence": "पहले बड़े से तवे पर मैदे का पराठा बनाया जाता है उसके ऊपर में य चिकन की बोटी डाल दी जाती है काथ कबाब डाल दिया जाता है उसके बाद प्याज डालते हैं और फिर इसको रैप करकर बना देते हैं काथ रोल",
-              "confidence": 0.8,
-              "timestamp_seconds": 1672
+              "field": "speciality",
+              "value": "Bath Masala Dosa",
+              "evidence": "We came here to eat Bath Masala Dosa. There is rice in that dosa",
+              "confidence": 0.95,
+              "timestamp_seconds": 493
+            },
+            {
+              "field": "tip",
+              "value": "Go early in the morning as popular items sell out quickly",
+              "evidence": "We came here to eat Bath Masala Dosa... but it finishes in the morning itself.",
+              "confidence": 0.95,
+              "timestamp_seconds": 493
             }
           ],
-          "views": 360529,
-          "upload_date": "2024-11-02"
+          "views": 894808,
+          "upload_date": "2024-12-06"
         }
       ]
     },
@@ -6400,6 +7702,43 @@
               "evidence": "ये जो एक सामने मीनार रेस्टोरेंट है वो भी सेम इन्हीं का ही है जी जी सेम ओनर्स है तो खाना यहां से बन के वहां जाता है या वहां से बन के यहां आता वहां से बन के यहां आता है मीनार से बन आता है यहां पे स्पेस नहीं है ना स्पेस तो वही है तो मीनार रेस्टोरेंट बनता है व से बन के यहां किचन हुआ है",
               "confidence": 0.8,
               "timestamp_seconds": 1008
+            }
+          ],
+          "views": 360529,
+          "upload_date": "2024-11-02"
+        }
+      ]
+    },
+    {
+      "name": "Kath Roll",
+      "name_local": "काथ रोल",
+      "slug": "kath-roll",
+      "normalized_name": "kath roll",
+      "entity_type": "activity",
+      "poi_category": null,
+      "destination": "delhi",
+      "area": "Connaught Place",
+      "recommendation_score": 0.3171,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "preparation_method",
+              "value": "Paratha on large tawa topped with chicken boti, kath kabab, onion, then wrapped",
+              "evidence": "पहले बड़े से तवे पर मैदे का पराठा बनाया जाता है उसके ऊपर में य चिकन की बोटी डाल दी जाती है काथ कबाब डाल दिया जाता है उसके बाद प्याज डालते हैं और फिर इसको रैप करकर बना देते हैं काथ रोल",
+              "confidence": 0.8,
+              "timestamp_seconds": 1672
             }
           ],
           "views": 360529,
@@ -6645,50 +7984,6 @@
       ]
     },
     {
-      "name": "Damdama Lake",
-      "name_local": "दमदमा लेक",
-      "slug": "damdama-lake",
-      "normalized_name": "damdama lake",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
-      "area": null,
-      "recommendation_score": 0.293,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "target_audience",
-              "value": "People seeking peace and adventure.",
-              "evidence": "सोहणा हरियणा के पास दमदमा ले एक परफेक्ट स्पॉट है उन लोगों के लिए जो पीस और एडवेंचर दोनों चाहते हैं",
-              "confidence": 0.9,
-              "timestamp_seconds": 206
-            },
-            {
-              "field": "experience",
-              "value": "Lake scenes and surroundings provide a break from daily life.",
-              "evidence": "अरावली हिल्स के बीच ट्रेकिंग करते हुए लेक के सींस और सराउंडिंग्स आपको डेली हेक्टिक लाइफ से एक परफेक्ट ब्रेक देंगे",
-              "confidence": 0.9,
-              "timestamp_seconds": 210
-            }
-          ],
-          "views": 2355,
-          "upload_date": "2024-10-09"
-        }
-      ]
-    },
-    {
       "name": "Bhosi Nature Park",
       "name_local": "भोसी नेचर पार्क",
       "slug": "bhosi-nature-park",
@@ -6725,6 +8020,50 @@
               "evidence": "यह एक आसान ट्रैक फैमिली आउटिंग्स और बिगिनर्स के लिए बिल्कुल परफेक्ट है",
               "confidence": 0.9,
               "timestamp_seconds": 156
+            }
+          ],
+          "views": 2355,
+          "upload_date": "2024-10-09"
+        }
+      ]
+    },
+    {
+      "name": "Damdama Lake",
+      "name_local": "दमदमा लेक",
+      "slug": "damdama-lake",
+      "normalized_name": "damdama lake",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "gurgaon",
+      "area": null,
+      "recommendation_score": 0.293,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "target_audience",
+              "value": "People seeking peace and adventure.",
+              "evidence": "सोहणा हरियणा के पास दमदमा ले एक परफेक्ट स्पॉट है उन लोगों के लिए जो पीस और एडवेंचर दोनों चाहते हैं",
+              "confidence": 0.9,
+              "timestamp_seconds": 206
+            },
+            {
+              "field": "experience",
+              "value": "Lake scenes and surroundings provide a break from daily life.",
+              "evidence": "अरावली हिल्स के बीच ट्रेकिंग करते हुए लेक के सींस और सराउंडिंग्स आपको डेली हेक्टिक लाइफ से एक परफेक्ट ब्रेक देंगे",
+              "confidence": 0.9,
+              "timestamp_seconds": 210
             }
           ],
           "views": 2355,
@@ -6773,43 +8112,6 @@
           ],
           "views": 2355,
           "upload_date": "2024-10-09"
-        }
-      ]
-    },
-    {
-      "name": "TPO Restaurant",
-      "name_local": null,
-      "slug": "tpo-restaurant",
-      "normalized_name": "tpo",
-      "entity_type": "poi",
-      "poi_category": "restaurant",
-      "destination": "delhi",
-      "area": "Connaught Place",
-      "recommendation_score": 0.2471,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "warned_against",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "opening_hours",
-              "value": "Closed until after Navratri",
-              "evidence": "अनफॉर्चूनेटली हम लोग कवर नहीं कर पा रहे हैं क्योंकि रेस्टोरेंट अभी बंद है ये शुरू होगा नवरात्रों के बाद",
-              "confidence": 0.9,
-              "timestamp_seconds": 1634
-            }
-          ],
-          "views": 360529,
-          "upload_date": "2024-11-02"
         }
       ]
     },
@@ -6884,6 +8186,43 @@
               "evidence": "सोया चाप जिसका मैं उतना शौकीन नहीं हूं मतलब मुझे उना पसंद नहीं है सोया चाप रिसेंट इयर्स में सोया चाप एक ट्रेंड बन गया है दिल्ली में आपको बहुत सारे शाकाहारी रेस्टोरेंट में सोया चाप मिलेगा टेक्सचर थोड़ा मीटी होता है कुछ लोग इसको मॉक मीट भी बोलते हैं लेकिन बहुत जगहों सोया चाप मिलता है उसमें मैदा की मात्रा ज्यादा होती है सोया की मात्रा कम होती है",
               "confidence": 0.7,
               "timestamp_seconds": 384
+            }
+          ],
+          "views": 360529,
+          "upload_date": "2024-11-02"
+        }
+      ]
+    },
+    {
+      "name": "TPO Restaurant",
+      "name_local": null,
+      "slug": "tpo-restaurant",
+      "normalized_name": "tpo",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "delhi",
+      "area": "Connaught Place",
+      "recommendation_score": 0.2471,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "warned_against",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "opening_hours",
+              "value": "Closed until after Navratri",
+              "evidence": "अनफॉर्चूनेटली हम लोग कवर नहीं कर पा रहे हैं क्योंकि रेस्टोरेंट अभी बंद है ये शुरू होगा नवरात्रों के बाद",
+              "confidence": 0.9,
+              "timestamp_seconds": 1634
             }
           ],
           "views": 360529,
