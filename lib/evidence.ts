@@ -6,6 +6,15 @@ import fs from "node:fs";
 import path from "node:path";
 
 type Evidence = { stance: string; strength: number | null; claims: unknown[] };
+export type CreatorVideo = {
+  url: string | null;
+  video_id: string | null;
+  platform: string | null;
+  creator_name: string | null;
+  title: string | null;
+  views: number | string | null;
+  timestamp_seconds: number | null;
+};
 type Poi = {
   name: string;
   normalized_name: string;
@@ -20,6 +29,7 @@ type Poi = {
   price_level: string | null;
   average_cost_inr: number | null;
   evidence: Evidence[];
+  creator_video: CreatorVideo | null;
 };
 
 let CACHE: Poi[] | null = null;
@@ -133,7 +143,17 @@ export type VerifiedPlace = {
   average_cost_inr: number | null;
   /** True when Qloo's Taste AI independently surfaced this place for the user's taste. */
   qloo_ranked?: boolean;
+  /** The creator video that vouched for this place (deep-linked to the mention). */
+  creator_video?: CreatorVideo | null;
+  /** A Google Maps link for the place. */
+  maps_url?: string;
 };
+
+/** Build a Google Maps search link for a place (always works, no API). */
+export function mapsUrl(name: string, city?: string | null): string {
+  const q = [name, city].filter(Boolean).join(" ");
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+}
 
 /** Which cities we have verified depth for (for the "city depth map" + honesty). */
 export function citiesWithDepth(): string[] {
@@ -209,6 +229,8 @@ export function listVerifiedPlaces(
     best_time: p.best_time,
     price_level: p.price_level,
     average_cost_inr: p.average_cost_inr,
+    creator_video: p.creator_video ?? null,
+    maps_url: mapsUrl(p.name, p.destination),
   }));
 }
 

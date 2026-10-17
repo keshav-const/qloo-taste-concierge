@@ -9,11 +9,12 @@ import HeroStrip from "./HeroStrip";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
+type CreatorVideo = { url: string | null; creator_name: string | null; title: string | null; timestamp_seconds: number | null };
 type VerifiedPlace = {
   name: string; category: string | null; area: string | null; sources: number;
   specialities: string[]; tips: string[];
   best_time: string | null; price_level: string | null; average_cost_inr: number | null; image: string | null;
-  qloo_ranked?: boolean;
+  qloo_ranked?: boolean; creator_video?: CreatorVideo | null; maps_url?: string;
 };
 type Destination = { name: string; city: string | null; image: string | null; why?: string; affinity?: number };
 type CulturalPick = { name: string; domain: string; image: string | null };
@@ -222,17 +223,20 @@ export default function Home() {
       <motion.div aria-hidden animate={{ x: [0, 30, 0], y: [0, 16, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
       <motion.div aria-hidden animate={{ x: [0, -24, 0], y: [0, 24, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
 
-      <header className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-        <div className="flex items-center gap-2">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-paper">✦</span>
-          <span className="font-display text-xl text-ink">TasteTrail</span>
+      {/* Frosted glass navbar — overlays the hero video so the video keeps full height */}
+      <header className="fixed inset-x-0 top-0 z-30 border-b border-white/15 bg-paper/50 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3.5">
+          <div className="flex items-center gap-2">
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-paper">✦</span>
+            <span className="font-display text-xl text-ink">TasteTrail</span>
+          </div>
+          <span className="rounded-full border border-white/25 bg-paper-card/50 px-3 py-1 text-xs text-ink-mute backdrop-blur">powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span></span>
         </div>
-        <span className="rounded-full border border-line bg-paper-card/70 px-3 py-1 text-xs text-ink-mute backdrop-blur">powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span></span>
       </header>
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
-        {/* Hero — full-bleed looping India montage (intro/outro trimmed) */}
-        <section className="relative left-1/2 mb-8 flex min-h-[26rem] w-screen -translate-x-1/2 items-center justify-center overflow-hidden py-16 sm:min-h-[34rem]">
+        {/* Hero — full-bleed looping India montage (intro/outro trimmed), extends behind the glass navbar */}
+        <section className="relative left-1/2 mb-8 flex min-h-[80vh] w-screen -translate-x-1/2 items-center justify-center overflow-hidden py-16 sm:min-h-[88vh]">
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <HeroVideo />
             {/* readability wash + fade into the page */}
@@ -436,6 +440,18 @@ export default function Home() {
                             {p.best_time && <span className="pill bg-verified-soft text-verified">🕒 {p.best_time.slice(0, 22)}</span>}
                             <span className="pill border border-line text-ink-mute">{[p.category, p.area].filter(Boolean).join(" · ") || "Delhi NCR"}</span>
                           </div>
+                          {(p.creator_video?.url || p.maps_url) && (
+                            <div className="mt-2 flex flex-wrap items-center gap-3 text-xs">
+                              {p.creator_video?.url && (
+                                <a href={p.creator_video.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-medium text-saffron hover:underline">
+                                  ▶ {p.creator_video.creator_name ? `Watch ${p.creator_video.creator_name}` : "Watch the creator"}
+                                </a>
+                              )}
+                              {p.maps_url && (
+                                <a href={p.maps_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-ink-mute hover:text-ink hover:underline">📍 Map</a>
+                              )}
+                            </div>
+                          )}
                         </div>
                       </motion.div>
                     );

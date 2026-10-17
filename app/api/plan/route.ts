@@ -3,6 +3,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { runAgent } from "@/lib/agent";
 import { enrichWithImages } from "@/lib/images";
+import { LLMError } from "@/lib/llm";
+
+/** Map any thrown error to a user-safe message (never leak raw provider bodies). */
+function friendly(e: unknown): { message: string; status: number } {
+  if (e instanceof LLMError) return { message: e.userMessage, status: e.rateLimited ? 429 : 502 };
+  const raw = e instanceof Error ? e.message : String(e);
+  if (/Qloo/i.test(raw)) return { message: "Qloo's Taste AI is briefly unavailable — please try again.", status: 502 };
+  return { message: "Something went wrong planning your trip — please try again.", status: 500 };
+}
 
 // Append one line per plan to logs/searches.jsonl — a durable record of what was searched
 // and which Qloo/tool calls ran (the agent trace). Best-effort; never blocks the response.
@@ -46,7 +55,8 @@ export async function POST(req: Request) {
     ]);
     return NextResponse.json({ ...result, destinations, verifiedPlaces, culturalVibe });
   } catch (e) {
-    const message = e instanceof Error ? e.message : String(e);
-    return NextResponse.json({ error: message }, { status: 500 });
+    console.error("[plan] error:", e instanceof Error ? e.message : e);
+    const { message, status } = friendly(e);
+    return NextResponse.json({ error: message }, { status });
   }
 }

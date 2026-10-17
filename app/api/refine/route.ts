@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { refineItinerary } from "@/lib/agent";
+import { LLMError } from "@/lib/llm";
 
 export async function POST(req: Request) {
   try {
@@ -10,6 +11,8 @@ export async function POST(req: Request) {
     const revised = await refineItinerary(String(itinerary), changeRequest.trim(), String(context ?? ""));
     return NextResponse.json({ itinerary: revised });
   } catch (e) {
-    return NextResponse.json({ error: e instanceof Error ? e.message : String(e) }, { status: 500 });
+    console.error("[refine] error:", e instanceof Error ? e.message : e);
+    const message = e instanceof LLMError ? e.userMessage : "Couldn't update the plan — please try again.";
+    return NextResponse.json({ error: message }, { status: e instanceof LLMError && e.rateLimited ? 429 : 500 });
   }
 }

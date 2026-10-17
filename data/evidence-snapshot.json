@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-10-17T17:20:35.255130Z",
+  "exported_at": "2026-10-17T20:05:07.228584Z",
   "source": "Rasta (frozen) — India creator-evidence graph",
   "poi_count": 143,
   "pois": [
@@ -70,9 +70,25 @@
             }
           ],
           "views": 15030,
-          "upload_date": "2026-07-11"
+          "upload_date": "2026-07-11",
+          "source_url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR",
+          "video_id": "lg49s0Ah7dY",
+          "platform": "youtube",
+          "creator_name": "Bhooka Saand",
+          "source_title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+          "timestamp_seconds": 346,
+          "deep_link": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=346"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=346",
+        "video_id": "lg49s0Ah7dY",
+        "platform": "youtube",
+        "creator_name": "Bhooka Saand",
+        "title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+        "views": 15030,
+        "timestamp_seconds": 346
+      }
     },
     {
       "name": "Lotus Temple",
@@ -158,7 +174,14 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 64,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=64"
         },
         {
           "stance": "recommended",
@@ -173,9 +196,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 511,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=511"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=64",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 64
+      }
     },
     {
       "name": "Qutub Minar",
@@ -254,7 +293,14 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 19,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=19"
         },
         {
           "stance": "recommended",
@@ -276,9 +322,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 520,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=520"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=19",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 19
+      }
     },
     {
       "name": "Connaught Place",
@@ -350,7 +412,14 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 418,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=418"
         },
         {
           "stance": "recommended",
@@ -407,9 +476,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 1080,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1080"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=418",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 418
+      }
     },
     {
       "name": "Mysore Cafe",
@@ -470,9 +555,25 @@
             }
           ],
           "views": 15030,
-          "upload_date": "2026-07-11"
+          "upload_date": "2026-07-11",
+          "source_url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR",
+          "video_id": "lg49s0Ah7dY",
+          "platform": "youtube",
+          "creator_name": "Bhooka Saand",
+          "source_title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+          "timestamp_seconds": 186,
+          "deep_link": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=186"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=186",
+        "video_id": "lg49s0Ah7dY",
+        "platform": "youtube",
+        "creator_name": "Bhooka Saand",
+        "title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+        "views": 15030,
+        "timestamp_seconds": 186
+      }
     },
     {
       "name": "National Zoological Park (Delhi Zoo)",
@@ -572,9 +673,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 118,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=118"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=118",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 118
+      }
     },
     {
       "name": "Pandit Ji's Dhaba",
@@ -663,9 +780,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1386,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1386"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1386",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1386
+      }
     },
     {
       "name": "Shri Ram Dhaba",
@@ -741,7 +874,14 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1991,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1991"
         },
         {
           "stance": "recommended",
@@ -770,9 +910,25 @@
             }
           ],
           "views": 2765,
-          "upload_date": "2025-12-25"
+          "upload_date": "2025-12-25",
+          "source_url": "https://youtu.be/uxCt9Ei799E",
+          "video_id": "uxCt9Ei799E",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Best Street Food in Gurgaon | Indian Street Food #indianstreetfood #indianfood #streetfood",
+          "timestamp_seconds": 37,
+          "deep_link": "https://youtu.be/uxCt9Ei799E?t=37"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1991",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1991
+      }
     },
     {
       "name": "Sundar Nursery",
@@ -861,9 +1017,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 468,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=468"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=468",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 468
+      }
     },
     {
       "name": "Hauz Khas Village & Hauz Khas Fort",
@@ -949,9 +1121,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 298,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=298"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=298",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 298
+      }
     },
     {
       "name": "Odeon Sweets",
@@ -1005,9 +1193,25 @@
             }
           ],
           "views": 15030,
-          "upload_date": "2026-07-11"
+          "upload_date": "2026-07-11",
+          "source_url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR",
+          "video_id": "lg49s0Ah7dY",
+          "platform": "youtube",
+          "creator_name": "Bhooka Saand",
+          "source_title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+          "timestamp_seconds": 83,
+          "deep_link": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=83"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=83",
+        "video_id": "lg49s0Ah7dY",
+        "platform": "youtube",
+        "creator_name": "Bhooka Saand",
+        "title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+        "views": 15030,
+        "timestamp_seconds": 83
+      }
     },
     {
       "name": "Venkats Bakery",
@@ -1059,9 +1263,25 @@
             }
           ],
           "views": 15030,
-          "upload_date": "2026-07-11"
+          "upload_date": "2026-07-11",
+          "source_url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR",
+          "video_id": "lg49s0Ah7dY",
+          "platform": "youtube",
+          "creator_name": "Bhooka Saand",
+          "source_title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+          "timestamp_seconds": 297,
+          "deep_link": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=297"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lg49s0Ah7dY?si=qCkAgNUfllpz_dqR&t=297",
+        "video_id": "lg49s0Ah7dY",
+        "platform": "youtube",
+        "creator_name": "Bhooka Saand",
+        "title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
+        "views": 15030,
+        "timestamp_seconds": 297
+      }
     },
     {
       "name": "Asola Bhatti Wildlife Sanctuary",
@@ -1115,7 +1335,14 @@
             }
           ],
           "views": 2355,
-          "upload_date": "2024-10-09"
+          "upload_date": "2024-10-09",
+          "source_url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR",
+          "video_id": "DP9LF3dInyo",
+          "platform": "youtube",
+          "creator_name": "Travel By India",
+          "source_title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+          "timestamp_seconds": 47,
+          "deep_link": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=47"
         },
         {
           "stance": "recommended",
@@ -1172,9 +1399,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 382,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=382"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=47",
+        "video_id": "DP9LF3dInyo",
+        "platform": "youtube",
+        "creator_name": "Travel By India",
+        "title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+        "views": 2355,
+        "timestamp_seconds": 47
+      }
     },
     {
       "name": "Sai Paratha",
@@ -1249,9 +1492,25 @@
             }
           ],
           "views": 24884,
-          "upload_date": "2026-03-03"
+          "upload_date": "2026-03-03",
+          "source_url": "https://youtu.be/XTWnOanBb6M",
+          "video_id": "XTWnOanBb6M",
+          "platform": "youtube",
+          "creator_name": "Food Pandits ",
+          "source_title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+          "timestamp_seconds": 295,
+          "deep_link": "https://youtu.be/XTWnOanBb6M?t=295"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XTWnOanBb6M?t=295",
+        "video_id": "XTWnOanBb6M",
+        "platform": "youtube",
+        "creator_name": "Food Pandits ",
+        "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+        "views": 24895,
+        "timestamp_seconds": 295
+      }
     },
     {
       "name": "Central Tiffin Room (CTR)",
@@ -1328,9 +1587,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 356,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=356"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=356",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 356
+      }
     },
     {
       "name": "Lodhi Garden",
@@ -1409,9 +1684,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 244,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=244"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=244",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 244
+      }
     },
     {
       "name": "Red Fort (Lal Qila)",
@@ -1488,9 +1779,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 170,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=170"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=170",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 170
+      }
     },
     {
       "name": "Royal Restaurant",
@@ -1582,9 +1889,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 7,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=7"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=7",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 7
+      }
     },
     {
       "name": "B.N. Sambaiah Setty Tiffin Room",
@@ -1651,9 +1974,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 44,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=44"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=44",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 44
+      }
     },
     {
       "name": "Akshardham Temple",
@@ -1725,9 +2064,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 565,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=565"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=565",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 565
+      }
     },
     {
       "name": "India Gate & Kartavya Path",
@@ -1799,9 +2154,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 360,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=360"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=360",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 360
+      }
     },
     {
       "name": "Jagdish Poha & Kachori",
@@ -1868,9 +2239,25 @@
             }
           ],
           "views": 24884,
-          "upload_date": "2026-03-03"
+          "upload_date": "2026-03-03",
+          "source_url": "https://youtu.be/XTWnOanBb6M",
+          "video_id": "XTWnOanBb6M",
+          "platform": "youtube",
+          "creator_name": "Food Pandits ",
+          "source_title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+          "timestamp_seconds": 13,
+          "deep_link": "https://youtu.be/XTWnOanBb6M?t=13"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XTWnOanBb6M?t=13",
+        "video_id": "XTWnOanBb6M",
+        "platform": "youtube",
+        "creator_name": "Food Pandits ",
+        "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+        "views": 24895,
+        "timestamp_seconds": 13
+      }
     },
     {
       "name": "Delhi Zoo",
@@ -1944,9 +2331,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 189,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=189"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=189",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 189
+      }
     },
     {
       "name": "National Crafts Museum",
@@ -2018,9 +2421,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 356,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=356"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=356",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 356
+      }
     },
     {
       "name": "Jain",
@@ -2087,9 +2506,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 814,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=814"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=814",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 814
+      }
     },
     {
       "name": "Nani Gali Rabri Stall",
@@ -2148,9 +2583,25 @@
             }
           ],
           "views": 24884,
-          "upload_date": "2026-03-03"
+          "upload_date": "2026-03-03",
+          "source_url": "https://youtu.be/XTWnOanBb6M",
+          "video_id": "XTWnOanBb6M",
+          "platform": "youtube",
+          "creator_name": "Food Pandits ",
+          "source_title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+          "timestamp_seconds": 580,
+          "deep_link": "https://youtu.be/XTWnOanBb6M?t=580"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XTWnOanBb6M?t=580",
+        "video_id": "XTWnOanBb6M",
+        "platform": "youtube",
+        "creator_name": "Food Pandits ",
+        "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+        "views": 24895,
+        "timestamp_seconds": 580
+      }
     },
     {
       "name": "Shahi Dahi Bhalla",
@@ -2226,9 +2677,25 @@
             }
           ],
           "views": 253953,
-          "upload_date": "2025-08-30"
+          "upload_date": "2025-08-30",
+          "source_url": "https://youtu.be/XOulNWggT_M",
+          "video_id": "XOulNWggT_M",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+          "timestamp_seconds": 0,
+          "deep_link": "https://youtu.be/XOulNWggT_M"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XOulNWggT_M",
+        "video_id": "XOulNWggT_M",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+        "views": 253953,
+        "timestamp_seconds": 0
+      }
     },
     {
       "name": "Jain Kachori Wala",
@@ -2294,9 +2761,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 777,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=777"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=777",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 777
+      }
     },
     {
       "name": "Kulcha King",
@@ -2381,9 +2864,25 @@
             }
           ],
           "views": 253953,
-          "upload_date": "2025-08-30"
+          "upload_date": "2025-08-30",
+          "source_url": "https://youtu.be/XOulNWggT_M",
+          "video_id": "XOulNWggT_M",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+          "timestamp_seconds": 0,
+          "deep_link": "https://youtu.be/XOulNWggT_M"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XOulNWggT_M",
+        "video_id": "XOulNWggT_M",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+        "views": 253953,
+        "timestamp_seconds": 0
+      }
     },
     {
       "name": "Fresh Juice Stall at Tau Devi Lal's Taiman",
@@ -2443,9 +2942,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 168,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=168"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=168",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 168
+      }
     },
     {
       "name": "Farm Houses in Gurugram",
@@ -2508,9 +3023,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 322,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=322"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=322",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 322
+      }
     },
     {
       "name": "Prime Minister's Museum",
@@ -2575,9 +3106,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 42,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=42"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=42",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 42
+      }
     },
     {
       "name": "Bal Bhavan",
@@ -2642,9 +3189,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 89,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=89"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=89",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 89
+      }
     },
     {
       "name": "AG Wonder",
@@ -2706,9 +3269,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 985,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=985"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=985",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 985
+      }
     },
     {
       "name": "Gandhiji Pakora Shop",
@@ -2771,9 +3350,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1120,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1120"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1120",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1120
+      }
     },
     {
       "name": "Hi-fi",
@@ -2833,9 +3428,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 306,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=306"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=306",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 306
+      }
     },
     {
       "name": "Shree Idli Corner",
@@ -2894,9 +3505,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 770,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=770"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=770",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 770
+      }
     },
     {
       "name": "National Restaurant",
@@ -2959,9 +3586,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 547,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=547"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=547",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 547
+      }
     },
     {
       "name": "Unlimited Rajasthani Thali Restaurant",
@@ -3015,9 +3658,25 @@
             }
           ],
           "views": 24884,
-          "upload_date": "2026-03-03"
+          "upload_date": "2026-03-03",
+          "source_url": "https://youtu.be/XTWnOanBb6M",
+          "video_id": "XTWnOanBb6M",
+          "platform": "youtube",
+          "creator_name": "Food Pandits ",
+          "source_title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+          "timestamp_seconds": 812,
+          "deep_link": "https://youtu.be/XTWnOanBb6M?t=812"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XTWnOanBb6M?t=812",
+        "video_id": "XTWnOanBb6M",
+        "platform": "youtube",
+        "creator_name": "Food Pandits ",
+        "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+        "views": 24895,
+        "timestamp_seconds": 812
+      }
     },
     {
       "name": "Corner House",
@@ -3068,9 +3727,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 984,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=984"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=984",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 984
+      }
     },
     {
       "name": "Bal Ji Restaurant",
@@ -3132,9 +3807,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1291,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1291"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1291",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1291
+      }
     },
     {
       "name": "Matamaal",
@@ -3251,9 +3942,25 @@
             }
           ],
           "views": 95701,
-          "upload_date": "2021-03-20"
+          "upload_date": "2021-03-20",
+          "source_url": "https://youtu.be/ZX2wi1TSO2s",
+          "video_id": "ZX2wi1TSO2s",
+          "platform": "youtube",
+          "creator_name": "Times Foodie",
+          "source_title": "Authentic Kashmiri Feast at Matamaal Restaurant Gurgaon |Foodie & The Feast |Kashmiri Pandit Cuisine",
+          "timestamp_seconds": 86,
+          "deep_link": "https://youtu.be/ZX2wi1TSO2s?t=86"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/ZX2wi1TSO2s?t=86",
+        "video_id": "ZX2wi1TSO2s",
+        "platform": "youtube",
+        "creator_name": "Times Foodie",
+        "title": "Authentic Kashmiri Feast at Matamaal Restaurant Gurgaon |Foodie & The Feast |Kashmiri Pandit Cuisine",
+        "views": 95701,
+        "timestamp_seconds": 86
+      }
     },
     {
       "name": "Water Parks in Delhi NCR",
@@ -3332,9 +4039,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 732,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=732"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=732",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 732
+      }
     },
     {
       "name": "Ghana Jalebi",
@@ -3388,9 +4111,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1899,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1899"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1899",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1899
+      }
     },
     {
       "name": "Nehru Planetarium",
@@ -3448,9 +4187,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 20,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=20"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=20",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 20
+      }
     },
     {
       "name": "National Science Centre",
@@ -3508,9 +4263,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 138,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=138"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=138",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 138
+      }
     },
     {
       "name": "Waste to Wonder Park",
@@ -3568,9 +4339,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 416,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=416"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=416",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 416
+      }
     },
     {
       "name": "Rashtrapati Bhavan",
@@ -3642,9 +4429,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 473,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=473"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=473",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 473
+      }
     },
     {
       "name": "Durga Sweets",
@@ -3705,9 +4508,25 @@
             }
           ],
           "views": 253953,
-          "upload_date": "2025-08-30"
+          "upload_date": "2025-08-30",
+          "source_url": "https://youtu.be/XOulNWggT_M",
+          "video_id": "XOulNWggT_M",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+          "timestamp_seconds": 738,
+          "deep_link": "https://youtu.be/XOulNWggT_M?t=738"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XOulNWggT_M?t=738",
+        "video_id": "XOulNWggT_M",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+        "views": 253953,
+        "timestamp_seconds": 738
+      }
     },
     {
       "name": "Bhaiya's Vada Pav",
@@ -3758,9 +4577,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1831,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1831"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1831",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1831
+      }
     },
     {
       "name": "Adventure Island",
@@ -3818,9 +4653,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 593,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=593"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=593",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 593
+      }
     },
     {
       "name": "Palika Bazaar",
@@ -3882,9 +4733,25 @@
             }
           ],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 530,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=530"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=530",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 530
+      }
     },
     {
       "name": "Anand Restaurant",
@@ -3944,9 +4811,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 1477,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1477"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=1477",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 1477
+      }
     },
     {
       "name": "Khandani Pakoda Wala",
@@ -4006,9 +4889,25 @@
             }
           ],
           "views": 253953,
-          "upload_date": "2025-08-30"
+          "upload_date": "2025-08-30",
+          "source_url": "https://youtu.be/XOulNWggT_M",
+          "video_id": "XOulNWggT_M",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+          "timestamp_seconds": 58,
+          "deep_link": "https://youtu.be/XOulNWggT_M?t=58"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XOulNWggT_M?t=58",
+        "video_id": "XOulNWggT_M",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+        "views": 253953,
+        "timestamp_seconds": 58
+      }
     },
     {
       "name": "Seni's",
@@ -4061,9 +4960,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 927,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=927"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=927",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 927
+      }
     },
     {
       "name": "Paragliding",
@@ -4119,9 +5034,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 544,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=544"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=544",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 544
+      }
     },
     {
       "name": "Cafe Naati",
@@ -4175,9 +5106,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 1069,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=1069"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=1069",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 1069
+      }
     },
     {
       "name": "Unlimited Thali Restaurant",
@@ -4222,9 +5169,25 @@
             }
           ],
           "views": 24884,
-          "upload_date": "2026-03-03"
+          "upload_date": "2026-03-03",
+          "source_url": "https://youtu.be/XTWnOanBb6M",
+          "video_id": "XTWnOanBb6M",
+          "platform": "youtube",
+          "creator_name": "Food Pandits ",
+          "source_title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+          "timestamp_seconds": 757,
+          "deep_link": "https://youtu.be/XTWnOanBb6M?t=757"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XTWnOanBb6M?t=757",
+        "video_id": "XTWnOanBb6M",
+        "platform": "youtube",
+        "creator_name": "Food Pandits ",
+        "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+        "views": 24895,
+        "timestamp_seconds": 757
+      }
     },
     {
       "name": "K.V. Canteen",
@@ -4268,9 +5231,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 173,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=173"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=173",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 173
+      }
     },
     {
       "name": "Bhaap D Hotel",
@@ -4324,9 +5303,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 894,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=894"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=894",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 894
+      }
     },
     {
       "name": "Sector 56 HUDA Market",
@@ -4375,9 +5370,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1538,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1538"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1538",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1538
+      }
     },
     {
       "name": "Mavalli Tiffin Room (MTR)",
@@ -4453,9 +5464,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 653,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=653"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=653",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 653
+      }
     },
     {
       "name": "Santosh Chaat Counter",
@@ -4507,9 +5534,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 872,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=872"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=872",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 872
+      }
     },
     {
       "name": "Raju Bhai Rabri",
@@ -4555,9 +5598,25 @@
             }
           ],
           "views": 24884,
-          "upload_date": "2026-03-03"
+          "upload_date": "2026-03-03",
+          "source_url": "https://youtu.be/XTWnOanBb6M",
+          "video_id": "XTWnOanBb6M",
+          "platform": "youtube",
+          "creator_name": "Food Pandits ",
+          "source_title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+          "timestamp_seconds": 474,
+          "deep_link": "https://youtu.be/XTWnOanBb6M?t=474"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XTWnOanBb6M?t=474",
+        "video_id": "XTWnOanBb6M",
+        "platform": "youtube",
+        "creator_name": "Food Pandits ",
+        "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+        "views": 24895,
+        "timestamp_seconds": 474
+      }
     },
     {
       "name": "Raj Bhai Desi Ghee Paratha Stall",
@@ -4602,9 +5661,25 @@
             }
           ],
           "views": 24884,
-          "upload_date": "2026-03-03"
+          "upload_date": "2026-03-03",
+          "source_url": "https://youtu.be/XTWnOanBb6M",
+          "video_id": "XTWnOanBb6M",
+          "platform": "youtube",
+          "creator_name": "Food Pandits ",
+          "source_title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+          "timestamp_seconds": 245,
+          "deep_link": "https://youtu.be/XTWnOanBb6M?t=245"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XTWnOanBb6M?t=245",
+        "video_id": "XTWnOanBb6M",
+        "platform": "youtube",
+        "creator_name": "Food Pandits ",
+        "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
+        "views": 24895,
+        "timestamp_seconds": 245
+      }
     },
     {
       "name": "Champakali",
@@ -4655,9 +5730,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 693,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=693"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=693",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 693
+      }
     },
     {
       "name": "Garden of Five Senses",
@@ -4706,9 +5797,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 643,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=643"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=643",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 643
+      }
     },
     {
       "name": "EOI Adventure Park",
@@ -4759,9 +5866,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 222,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=222"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=222",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 222
+      }
     },
     {
       "name": "Adventure Island Rohini",
@@ -4812,9 +5935,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 248,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=248"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=248",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 248
+      }
     },
     {
       "name": "National Rail Museum",
@@ -4865,9 +6004,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 161,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=161"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=161",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 161
+      }
     },
     {
       "name": "Local Iftar Party",
@@ -4921,9 +6076,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 683,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=683"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=683",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 683
+      }
     },
     {
       "name": "Dolma Aunty",
@@ -4977,9 +6148,25 @@
             }
           ],
           "views": 1875469,
-          "upload_date": "2025-08-20"
+          "upload_date": "2025-08-20",
+          "source_url": "https://youtube.com/shorts/tqFXz3D6yz0?si=4zjxzCN-mOdWubLB",
+          "video_id": "tqFXz3D6yz0",
+          "platform": "youtube",
+          "creator_name": "Help With Harsh",
+          "source_title": "Trying Viral & Overhyped Food Places in Delhi 🔥😱 #shorts #food",
+          "timestamp_seconds": 8,
+          "deep_link": "https://youtube.com/shorts/tqFXz3D6yz0?si=4zjxzCN-mOdWubLB&t=8"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtube.com/shorts/tqFXz3D6yz0?si=4zjxzCN-mOdWubLB&t=8",
+        "video_id": "tqFXz3D6yz0",
+        "platform": "youtube",
+        "creator_name": "Help With Harsh",
+        "title": "Trying Viral & Overhyped Food Places in Delhi 🔥😱 #shorts #food",
+        "views": 1875469,
+        "timestamp_seconds": 8
+      }
     },
     {
       "name": "Jalebi Shop",
@@ -5024,9 +6211,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1086,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1086"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1086",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1086
+      }
     },
     {
       "name": "Jaisingh Sprouts Stall",
@@ -5070,9 +6273,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 149,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=149"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=149",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 149
+      }
     },
     {
       "name": "Jama Masjid",
@@ -5133,9 +6352,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 44,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=44"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=44",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 44
+      }
     },
     {
       "name": "Jama Masjid Fried Chicken (JFC)",
@@ -5189,9 +6424,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 462,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=462"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=462",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 462
+      }
     },
     {
       "name": "Debloss",
@@ -5261,9 +6512,25 @@
             }
           ],
           "views": 1875469,
-          "upload_date": "2025-08-20"
+          "upload_date": "2025-08-20",
+          "source_url": "https://youtube.com/shorts/tqFXz3D6yz0?si=4zjxzCN-mOdWubLB",
+          "video_id": "tqFXz3D6yz0",
+          "platform": "youtube",
+          "creator_name": "Help With Harsh",
+          "source_title": "Trying Viral & Overhyped Food Places in Delhi 🔥😱 #shorts #food",
+          "timestamp_seconds": 28,
+          "deep_link": "https://youtube.com/shorts/tqFXz3D6yz0?si=4zjxzCN-mOdWubLB&t=28"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtube.com/shorts/tqFXz3D6yz0?si=4zjxzCN-mOdWubLB&t=28",
+        "video_id": "tqFXz3D6yz0",
+        "platform": "youtube",
+        "creator_name": "Help With Harsh",
+        "title": "Trying Viral & Overhyped Food Places in Delhi 🔥😱 #shorts #food",
+        "views": 1875469,
+        "timestamp_seconds": 28
+      }
     },
     {
       "name": "Krishna's Banmaska",
@@ -5309,9 +6576,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 475,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=475"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=475",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 475
+      }
     },
     {
       "name": "Pushkar Raj Momos",
@@ -5356,9 +6639,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1640,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1640"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1640",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1640
+      }
     },
     {
       "name": "Bun Maska Stall near Leisure Valley Park",
@@ -5404,9 +6703,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 269,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=269"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=269",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 269
+      }
     },
     {
       "name": "ISKCON Temple",
@@ -5457,9 +6772,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 618,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=618"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=618",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 618
+      }
     },
     {
       "name": "Omaxe Mall",
@@ -5510,9 +6841,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 684,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=684"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=684",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 684
+      }
     },
     {
       "name": "Khatushyam Delhi Dham",
@@ -5565,9 +6912,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 764,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=764"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=764",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 764
+      }
     },
     {
       "name": "Runway One Aeroplane Restaurant",
@@ -5618,9 +6981,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 788,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=788"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=788",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 788
+      }
     },
     {
       "name": "Veena Stores",
@@ -5666,9 +7045,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 246,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=246"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=246",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 246
+      }
     },
     {
       "name": "Butter Chicken Tikka Stall",
@@ -5720,9 +7115,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 600,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=600"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=600",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 600
+      }
     },
     {
       "name": "Changezi Chicken Birthplace",
@@ -5776,9 +7187,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 987,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=987"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=987",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 987
+      }
     },
     {
       "name": "Gandhi Ji Pakode Wale",
@@ -5823,9 +7250,25 @@
             }
           ],
           "views": 2765,
-          "upload_date": "2025-12-25"
+          "upload_date": "2025-12-25",
+          "source_url": "https://youtu.be/uxCt9Ei799E",
+          "video_id": "uxCt9Ei799E",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Best Street Food in Gurgaon | Indian Street Food #indianstreetfood #indianfood #streetfood",
+          "timestamp_seconds": 18,
+          "deep_link": "https://youtu.be/uxCt9Ei799E?t=18"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/uxCt9Ei799E?t=18",
+        "video_id": "uxCt9Ei799E",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Best Street Food in Gurgaon | Indian Street Food #indianstreetfood #indianfood #streetfood",
+        "views": 2765,
+        "timestamp_seconds": 18
+      }
     },
     {
       "name": "Lip Jalebi (Haryana Sweet Shop)",
@@ -5870,9 +7313,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1899,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1899"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1899",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1899
+      }
     },
     {
       "name": "Pyare Lal Amritsari's shop",
@@ -5916,9 +7375,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 541,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=541"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=541",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 541
+      }
     },
     {
       "name": "Gypsy Cafe",
@@ -5978,9 +7453,25 @@
             }
           ],
           "views": 7985,
-          "upload_date": "2024-12-23"
+          "upload_date": "2024-12-23",
+          "source_url": "https://youtu.be/7PPaLULqyWY",
+          "video_id": "7PPaLULqyWY",
+          "platform": "youtube",
+          "creator_name": "DLRV VLOGS",
+          "source_title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+          "timestamp_seconds": 977,
+          "deep_link": "https://youtu.be/7PPaLULqyWY?t=977"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7PPaLULqyWY?t=977",
+        "video_id": "7PPaLULqyWY",
+        "platform": "youtube",
+        "creator_name": "DLRV VLOGS",
+        "title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+        "views": 7985,
+        "timestamp_seconds": 977
+      }
     },
     {
       "name": "Swaminarayan Akshardham",
@@ -6022,9 +7513,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 537,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=537"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=537",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 537
+      }
     },
     {
       "name": "Red Fort",
@@ -6066,9 +7573,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 526,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=526"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=526",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 526
+      }
     },
     {
       "name": "Ashwini Ji's Chole Kulche Bhature Stall",
@@ -6112,9 +7635,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 1653,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1653"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=1653",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 1653
+      }
     },
     {
       "name": "Bistar Cafe",
@@ -6175,9 +7714,25 @@
             }
           ],
           "views": 7985,
-          "upload_date": "2024-12-23"
+          "upload_date": "2024-12-23",
+          "source_url": "https://youtu.be/7PPaLULqyWY",
+          "video_id": "7PPaLULqyWY",
+          "platform": "youtube",
+          "creator_name": "DLRV VLOGS",
+          "source_title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+          "timestamp_seconds": 399,
+          "deep_link": "https://youtu.be/7PPaLULqyWY?t=399"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7PPaLULqyWY?t=399",
+        "video_id": "7PPaLULqyWY",
+        "platform": "youtube",
+        "creator_name": "DLRV VLOGS",
+        "title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+        "views": 7985,
+        "timestamp_seconds": 399
+      }
     },
     {
       "name": "Swimming Pools in Delhi",
@@ -6235,9 +7790,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 578,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=578"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=578",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 578
+      }
     },
     {
       "name": "40-Year Old Mutton Pulao Shop",
@@ -6288,9 +7859,25 @@
             }
           ],
           "views": 421497,
-          "upload_date": "2022-07-03"
+          "upload_date": "2022-07-03",
+          "source_url": "https://youtu.be/5-2p-HOc1Rg",
+          "video_id": "5-2p-HOc1Rg",
+          "platform": "youtube",
+          "creator_name": "Abroad and Hungry",
+          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+          "timestamp_seconds": 132,
+          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=132"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/5-2p-HOc1Rg?t=132",
+        "video_id": "5-2p-HOc1Rg",
+        "platform": "youtube",
+        "creator_name": "Abroad and Hungry",
+        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+        "views": 421509,
+        "timestamp_seconds": 132
+      }
     },
     {
       "name": "Amar Jyoti",
@@ -6336,9 +7923,25 @@
             }
           ],
           "views": 253953,
-          "upload_date": "2025-08-30"
+          "upload_date": "2025-08-30",
+          "source_url": "https://youtu.be/XOulNWggT_M",
+          "video_id": "XOulNWggT_M",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+          "timestamp_seconds": 1042,
+          "deep_link": "https://youtu.be/XOulNWggT_M?t=1042"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XOulNWggT_M?t=1042",
+        "video_id": "XOulNWggT_M",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 17, Sarojini Nagar Food Tour l Khandani Pakoda + Kulcha King + Shahi Dahi Bhalle + Amar Jyoti",
+        "views": 253953,
+        "timestamp_seconds": 1042
+      }
     },
     {
       "name": "Majnu Ka Tilla",
@@ -6382,9 +7985,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 710,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=710"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=710",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 710
+      }
     },
     {
       "name": "Model Town Naini Lake",
@@ -6433,9 +8052,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 660,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=660"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=660",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 660
+      }
     },
     {
       "name": "Meghana Foods",
@@ -6495,9 +8130,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 510,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=510"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=510",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 510
+      }
     },
     {
       "name": "Celebration Cafe",
@@ -6548,9 +8199,25 @@
             }
           ],
           "views": 7985,
-          "upload_date": "2024-12-23"
+          "upload_date": "2024-12-23",
+          "source_url": "https://youtu.be/7PPaLULqyWY",
+          "video_id": "7PPaLULqyWY",
+          "platform": "youtube",
+          "creator_name": "DLRV VLOGS",
+          "source_title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+          "timestamp_seconds": 675,
+          "deep_link": "https://youtu.be/7PPaLULqyWY?t=675"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7PPaLULqyWY?t=675",
+        "video_id": "7PPaLULqyWY",
+        "platform": "youtube",
+        "creator_name": "DLRV VLOGS",
+        "title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+        "views": 7985,
+        "timestamp_seconds": 675
+      }
     },
     {
       "name": "India Gate",
@@ -6585,9 +8252,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 531,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=531"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=531",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 531
+      }
     },
     {
       "name": "Delhi Food Walks",
@@ -6624,9 +8307,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 1307,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=1307"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=1307",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 1307
+      }
     },
     {
       "name": "Jaipur Non-Veg Street Food Restaurant",
@@ -6671,9 +8370,25 @@
             }
           ],
           "views": 421497,
-          "upload_date": "2022-07-03"
+          "upload_date": "2022-07-03",
+          "source_url": "https://youtu.be/5-2p-HOc1Rg",
+          "video_id": "5-2p-HOc1Rg",
+          "platform": "youtube",
+          "creator_name": "Abroad and Hungry",
+          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+          "timestamp_seconds": 711,
+          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=711"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/5-2p-HOc1Rg?t=711",
+        "video_id": "5-2p-HOc1Rg",
+        "platform": "youtube",
+        "creator_name": "Abroad and Hungry",
+        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+        "views": 421509,
+        "timestamp_seconds": 711
+      }
     },
     {
       "name": "Afghani Restaurant",
@@ -6718,9 +8433,25 @@
             }
           ],
           "views": 421497,
-          "upload_date": "2022-07-03"
+          "upload_date": "2022-07-03",
+          "source_url": "https://youtu.be/5-2p-HOc1Rg",
+          "video_id": "5-2p-HOc1Rg",
+          "platform": "youtube",
+          "creator_name": "Abroad and Hungry",
+          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+          "timestamp_seconds": 873,
+          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=873"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/5-2p-HOc1Rg?t=873",
+        "video_id": "5-2p-HOc1Rg",
+        "platform": "youtube",
+        "creator_name": "Abroad and Hungry",
+        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+        "views": 421509,
+        "timestamp_seconds": 873
+      }
     },
     {
       "name": "Rajasthani Aloo Pyaz & Rabdi Restaurant",
@@ -6765,9 +8496,25 @@
             }
           ],
           "views": 421497,
-          "upload_date": "2022-07-03"
+          "upload_date": "2022-07-03",
+          "source_url": "https://youtu.be/5-2p-HOc1Rg",
+          "video_id": "5-2p-HOc1Rg",
+          "platform": "youtube",
+          "creator_name": "Abroad and Hungry",
+          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+          "timestamp_seconds": 320,
+          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=320"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/5-2p-HOc1Rg?t=320",
+        "video_id": "5-2p-HOc1Rg",
+        "platform": "youtube",
+        "creator_name": "Abroad and Hungry",
+        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+        "views": 421509,
+        "timestamp_seconds": 320
+      }
     },
     {
       "name": "Pink Cafe",
@@ -6818,9 +8565,25 @@
             }
           ],
           "views": 7985,
-          "upload_date": "2024-12-23"
+          "upload_date": "2024-12-23",
+          "source_url": "https://youtu.be/7PPaLULqyWY",
+          "video_id": "7PPaLULqyWY",
+          "platform": "youtube",
+          "creator_name": "DLRV VLOGS",
+          "source_title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+          "timestamp_seconds": 736,
+          "deep_link": "https://youtu.be/7PPaLULqyWY?t=736"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7PPaLULqyWY?t=736",
+        "video_id": "7PPaLULqyWY",
+        "platform": "youtube",
+        "creator_name": "DLRV VLOGS",
+        "title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
+        "views": 7985,
+        "timestamp_seconds": 736
+      }
     },
     {
       "name": "Fun and Food Village",
@@ -6869,9 +8632,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 283,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=283"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=283",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 283
+      }
     },
     {
       "name": "Kebab Lane",
@@ -6908,9 +8687,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 1181,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=1181"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=1181",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 1181
+      }
     },
     {
       "name": "100-Year Old Chai Shop",
@@ -6955,9 +8750,25 @@
             }
           ],
           "views": 421497,
-          "upload_date": "2022-07-03"
+          "upload_date": "2022-07-03",
+          "source_url": "https://youtu.be/5-2p-HOc1Rg",
+          "video_id": "5-2p-HOc1Rg",
+          "platform": "youtube",
+          "creator_name": "Abroad and Hungry",
+          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+          "timestamp_seconds": 44,
+          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=44"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/5-2p-HOc1Rg?t=44",
+        "video_id": "5-2p-HOc1Rg",
+        "platform": "youtube",
+        "creator_name": "Abroad and Hungry",
+        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+        "views": 421509,
+        "timestamp_seconds": 44
+      }
     },
     {
       "name": "Chengezi chicken",
@@ -6994,9 +8805,25 @@
             }
           ],
           "views": 6565893,
-          "upload_date": "2018-07-21"
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 1090,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=1090"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=1090",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 1090
+      }
     },
     {
       "name": "Just Chill",
@@ -7038,9 +8865,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 292,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=292"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=292",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 292
+      }
     },
     {
       "name": "Bharat Darshan Park",
@@ -7084,9 +8927,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 439,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=439"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=439",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 439
+      }
     },
     {
       "name": "Leisure Valley Park",
@@ -7121,9 +8980,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 264,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=264"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=264",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 264
+      }
     },
     {
       "name": "Tau Devi Lal's Taiman",
@@ -7160,9 +9035,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 91,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=91"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=91",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 91
+      }
     },
     {
       "name": "Mini India Food Court",
@@ -7199,9 +9090,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1756,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1756"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1756",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1756
+      }
     },
     {
       "name": "Local Pyaz Kachori Joint",
@@ -7238,9 +9145,25 @@
             }
           ],
           "views": 421497,
-          "upload_date": "2022-07-03"
+          "upload_date": "2022-07-03",
+          "source_url": "https://youtu.be/5-2p-HOc1Rg",
+          "video_id": "5-2p-HOc1Rg",
+          "platform": "youtube",
+          "creator_name": "Abroad and Hungry",
+          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+          "timestamp_seconds": 244,
+          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=244"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/5-2p-HOc1Rg?t=244",
+        "video_id": "5-2p-HOc1Rg",
+        "platform": "youtube",
+        "creator_name": "Abroad and Hungry",
+        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+        "views": 421509,
+        "timestamp_seconds": 244
+      }
     },
     {
       "name": "Vedha Adventure",
@@ -7277,9 +9200,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 567,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=567"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=567",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 567
+      }
     },
     {
       "name": "Pratapgarh Farm",
@@ -7314,9 +9253,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 330,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 330
+      }
     },
     {
       "name": "Rangmanch Farm",
@@ -7351,9 +9306,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 332,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=332"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=332",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 332
+      }
     },
     {
       "name": "Airplane Restaurant",
@@ -7388,9 +9359,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 812,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=812"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=812",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 812
+      }
     },
     {
       "name": "Just Chill Water Park",
@@ -7425,9 +9412,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 291,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=291"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=291",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 291
+      }
     },
     {
       "name": "Madhavgarh Farm",
@@ -7462,9 +9465,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 330,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 330
+      }
     },
     {
       "name": "Rithala Metro Station",
@@ -7499,9 +9518,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 271,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=271"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=271",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 271
+      }
     },
     {
       "name": "Yadvanshi Farm",
@@ -7536,9 +9571,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 330,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 330
+      }
     },
     {
       "name": "Lohagarh Farm",
@@ -7573,9 +9624,25 @@
             }
           ],
           "views": 726485,
-          "upload_date": "2025-05-31"
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 328,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=328"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=328",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 328
+      }
     },
     {
       "name": "Chinese Corner",
@@ -7620,9 +9687,25 @@
             }
           ],
           "views": 7778,
-          "upload_date": "2025-12-12"
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 1640,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=1640"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=1640",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 1640
+      }
     },
     {
       "name": "SLN Muddanna Hotel",
@@ -7668,9 +9751,25 @@
             }
           ],
           "views": 894808,
-          "upload_date": "2024-12-06"
+          "upload_date": "2024-12-06",
+          "source_url": "https://youtu.be/wv9FyeoyjK8",
+          "video_id": "wv9FyeoyjK8",
+          "platform": "youtube",
+          "creator_name": "Foodie We",
+          "source_title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+          "timestamp_seconds": 493,
+          "deep_link": "https://youtu.be/wv9FyeoyjK8?t=493"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/wv9FyeoyjK8?t=493",
+        "video_id": "wv9FyeoyjK8",
+        "platform": "youtube",
+        "creator_name": "Foodie We",
+        "title": "Exposing Food Vloggers Of India 😱 Bangalore Edition 🔥",
+        "views": 894854,
+        "timestamp_seconds": 493
+      }
     },
     {
       "name": "Kath Roll",
@@ -7705,9 +9804,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 1672,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1672"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=1672",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 1672
+      }
     },
     {
       "name": "Minar Restaurant",
@@ -7742,9 +9857,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 1008,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1008"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=1008",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 1008
+      }
     },
     {
       "name": "Sanjay Van",
@@ -7795,9 +9926,25 @@
             }
           ],
           "views": 2355,
-          "upload_date": "2024-10-09"
+          "upload_date": "2024-10-09",
+          "source_url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR",
+          "video_id": "DP9LF3dInyo",
+          "platform": "youtube",
+          "creator_name": "Travel By India",
+          "source_title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+          "timestamp_seconds": 75,
+          "deep_link": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=75"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=75",
+        "video_id": "DP9LF3dInyo",
+        "platform": "youtube",
+        "creator_name": "Travel By India",
+        "title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+        "views": 2355,
+        "timestamp_seconds": 75
+      }
     },
     {
       "name": "Aravali Biodiversity Park",
@@ -7848,9 +9995,25 @@
             }
           ],
           "views": 2355,
-          "upload_date": "2024-10-09"
+          "upload_date": "2024-10-09",
+          "source_url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR",
+          "video_id": "DP9LF3dInyo",
+          "platform": "youtube",
+          "creator_name": "Travel By India",
+          "source_title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+          "timestamp_seconds": 101,
+          "deep_link": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=101"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=101",
+        "video_id": "DP9LF3dInyo",
+        "platform": "youtube",
+        "creator_name": "Travel By India",
+        "title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+        "views": 2355,
+        "timestamp_seconds": 101
+      }
     },
     {
       "name": "Bangla Sahib Gurudwara",
@@ -7877,9 +10040,25 @@
           "strength": 0.2,
           "claims": [],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": null,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": null
+      }
     },
     {
       "name": "Hanuman Temple (Connaught Place)",
@@ -7906,9 +10085,25 @@
           "strength": 0.2,
           "claims": [],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": null,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": null
+      }
     },
     {
       "name": "Jantar Mantar",
@@ -7935,9 +10130,25 @@
           "strength": 0.2,
           "claims": [],
           "views": 376773,
-          "upload_date": "2025-08-29"
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": null,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": null
+      }
     },
     {
       "name": "Camp Wild Dhauj",
@@ -7979,9 +10190,25 @@
             }
           ],
           "views": 2355,
-          "upload_date": "2024-10-09"
+          "upload_date": "2024-10-09",
+          "source_url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR",
+          "video_id": "DP9LF3dInyo",
+          "platform": "youtube",
+          "creator_name": "Travel By India",
+          "source_title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+          "timestamp_seconds": 186,
+          "deep_link": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=186"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=186",
+        "video_id": "DP9LF3dInyo",
+        "platform": "youtube",
+        "creator_name": "Travel By India",
+        "title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+        "views": 2355,
+        "timestamp_seconds": 186
+      }
     },
     {
       "name": "Bhosi Nature Park",
@@ -8023,9 +10250,25 @@
             }
           ],
           "views": 2355,
-          "upload_date": "2024-10-09"
+          "upload_date": "2024-10-09",
+          "source_url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR",
+          "video_id": "DP9LF3dInyo",
+          "platform": "youtube",
+          "creator_name": "Travel By India",
+          "source_title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+          "timestamp_seconds": 150,
+          "deep_link": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=150"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=150",
+        "video_id": "DP9LF3dInyo",
+        "platform": "youtube",
+        "creator_name": "Travel By India",
+        "title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+        "views": 2355,
+        "timestamp_seconds": 150
+      }
     },
     {
       "name": "Damdama Lake",
@@ -8067,9 +10310,25 @@
             }
           ],
           "views": 2355,
-          "upload_date": "2024-10-09"
+          "upload_date": "2024-10-09",
+          "source_url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR",
+          "video_id": "DP9LF3dInyo",
+          "platform": "youtube",
+          "creator_name": "Travel By India",
+          "source_title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+          "timestamp_seconds": 206,
+          "deep_link": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=206"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=206",
+        "video_id": "DP9LF3dInyo",
+        "platform": "youtube",
+        "creator_name": "Travel By India",
+        "title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+        "views": 2355,
+        "timestamp_seconds": 206
+      }
     },
     {
       "name": "Mangar Bani",
@@ -8111,9 +10370,25 @@
             }
           ],
           "views": 2355,
-          "upload_date": "2024-10-09"
+          "upload_date": "2024-10-09",
+          "source_url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR",
+          "video_id": "DP9LF3dInyo",
+          "platform": "youtube",
+          "creator_name": "Travel By India",
+          "source_title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+          "timestamp_seconds": 167,
+          "deep_link": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=167"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/DP9LF3dInyo?si=Rb-hM-LLH2vVyXqR&t=167",
+        "video_id": "DP9LF3dInyo",
+        "platform": "youtube",
+        "creator_name": "Travel By India",
+        "title": "Discover Delhi’s Hidden Trails: Top Trekking Spots You Can't Miss! | Travel Guide",
+        "views": 2355,
+        "timestamp_seconds": 167
+      }
     },
     {
       "name": "TPO Restaurant",
@@ -8148,9 +10423,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 1634,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1634"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=1634",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 1634
+      }
     },
     {
       "name": "Bapyan Hotel",
@@ -8187,9 +10478,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 37,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=37"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=37",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 37
+      }
     },
     {
       "name": "Soya Chap",
@@ -8226,9 +10533,25 @@
             }
           ],
           "views": 360529,
-          "upload_date": "2024-11-02"
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 384,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=384"
         }
-      ]
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=384",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 384
+      }
     }
   ]
 }
