@@ -64,6 +64,7 @@ export async function chat(
         : toolGlitch
           ? 350
           : 1200 * (attempt + 1);
+      console.warn(`[llm] ${res.status}${toolGlitch ? " tool-glitch" : ""} — retry ${attempt + 1} after ${Math.round(Math.min(waitMs, 12000))}ms`);
       await new Promise((r) => setTimeout(r, Math.min(waitMs, 12000)));
       continue;
     }

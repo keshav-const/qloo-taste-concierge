@@ -21,7 +21,11 @@ const CHIPS = [
 ];
 const DESTS = ["Anywhere in India", "Delhi", "Gurgaon", "Jaipur", "Goa", "Mumbai"];
 const LOADING_STEPS = ["Reading your taste…", "Asking Qloo's Taste AI for destinations…", "Pulling creator-verified places…", "Composing your itinerary…"];
-const HERO_PLACES = ["Taj Mahal", "Hawa Mahal", "Gateway of India", "Qutub Minar", "Golden Temple", "Meenakshi Temple"];
+const HERO_PLACES = [
+  "Taj Mahal", "Hawa Mahal", "Varanasi", "Golden Temple", "Qutub Minar", "Gateway of India",
+  "Kerala backwaters", "Hampi", "Mysore Palace", "Jaisalmer Fort", "Holi", "Diwali",
+  "Meenakshi Temple", "Pushkar Fair", "Darjeeling", "Munnar",
+];
 const EASE: Transition = { duration: 0.6, ease: [0.22, 1, 0.36, 1] };
 
 function catVisual(category: string | null) {
@@ -113,12 +117,19 @@ export default function Home() {
     runPlan(base() + detail, pairs);
   }
 
-  function refinePlan() {
-    if (!refine.trim() || !result) return;
-    const detail = qa.length ? "\n\nMy answers:\n" + qa.map((p) => `- ${p.q} → ${p.a}`).join("\n") : "";
-    const prompt = `${base()}${detail}\n\nHere is the current plan:\n${result.itinerary}\n\nRevise it per this request: ${refine.trim()}`;
+  async function refinePlan() {
+    if (!refine.trim() || !result || busy) return;
+    const changeRequest = refine.trim();
+    const context = `${reqText}${qa.length ? "\n" + qa.map((p) => `${p.q} → ${p.a}`).join("\n") : ""}`;
     setRefine("");
-    runPlan(prompt, null);
+    setBusy("plan"); setError(""); setSteps(["Revising your plan…"]);
+    try {
+      const r = await fetch("/api/refine", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ itinerary: result.itinerary, request: changeRequest, context }) });
+      const d = await r.json();
+      if (d.error) setError(d.error);
+      else setResult((prev) => { if (!prev) return prev; setHistory((h) => [...h, prev]); return { ...prev, itinerary: d.itinerary }; });
+    } catch (e) { setError(e instanceof Error ? e.message : String(e)); }
+    finally { setBusy(""); }
   }
 
   function planDestination(name: string) {
@@ -155,33 +166,31 @@ export default function Home() {
       </header>
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
-        {/* Hero */}
-        <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="pt-10 pb-6 text-center sm:pt-14">
-          <h1 className="font-display text-5xl leading-[1.05] text-ink sm:text-[4.5rem]">
-            Your taste, your{" "}
-            <span style={{ background: "linear-gradient(110deg, #e2550e, #c23d6a 38%, #0d6e5b 68%, #e2550e)", backgroundSize: "260% 100%", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "gradient-shift 9s ease-in-out infinite" }}>India</span>.
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
-            Tell us what you love. We&apos;ll ask a couple of quick questions, then plan a trip anywhere in India — with real places <span className="font-medium text-verified">verified by creators</span>.
-          </p>
-          {/* floating image strip */}
-          {heroImgs.length > 0 && (
-            <div className="mt-8 flex items-center justify-center gap-3">
-              {heroImgs.slice(0, 6).map((src, i) => (
-                <motion.div
-                  key={src}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: [0, i % 2 ? -6 : 6, 0] }}
-                  transition={{ opacity: { duration: 0.5, delay: i * 0.08 }, y: { duration: 5 + i, repeat: Infinity, ease: "easeInOut" } }}
-                  className={`overflow-hidden rounded-2xl border border-line shadow-sm ${i % 2 ? "h-20 w-16" : "h-24 w-20"} ${i > 3 ? "hidden sm:block" : ""}`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt="" className="h-full w-full object-cover" />
-                </motion.div>
-              ))}
-            </div>
+        {/* Hero with a faded India collage background (places, culture, festivals) */}
+        <section className="relative mb-2 flex min-h-[22rem] items-center justify-center overflow-hidden rounded-3xl py-12 sm:min-h-[26rem]">
+          {heroImgs.length >= 6 && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2 }} className="pointer-events-none absolute inset-0">
+              <div className="grid h-full w-full grid-cols-4 grid-rows-3 gap-1 opacity-[0.28] sm:grid-cols-6 sm:grid-rows-3">
+                {heroImgs.slice(0, 18).map((src, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img key={i} src={src} alt="" className="h-full w-full object-cover" />
+                ))}
+              </div>
+              {/* readability overlay: fade to paper at top/bottom + a warm center wash */}
+              <div className="absolute inset-0 bg-gradient-to-b from-paper via-paper/70 to-paper" />
+              <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_45%,rgba(244,238,227,0.55),transparent)]" />
+            </motion.div>
           )}
-        </motion.section>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="relative z-10 px-4 text-center">
+            <h1 className="font-display text-5xl leading-[1.05] text-ink drop-shadow-[0_1px_8px_rgba(244,238,227,0.9)] sm:text-[4.75rem]">
+              Your taste, your{" "}
+              <span style={{ background: "linear-gradient(110deg, #e2550e, #c23d6a 38%, #0d6e5b 68%, #e2550e)", backgroundSize: "260% 100%", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "gradient-shift 9s ease-in-out infinite" }}>India</span>.
+            </h1>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
+              Tell us what you love. We&apos;ll ask a couple of quick questions, then plan a trip anywhere in India — with real places <span className="font-medium text-verified">verified by creators</span>.
+            </p>
+          </motion.div>
+        </section>
 
         {/* STAGE: compose */}
         {stage === "compose" && (

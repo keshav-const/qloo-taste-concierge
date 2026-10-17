@@ -325,6 +325,23 @@ No prose, no markdown, no keys other than question/suggestions/label/desc.`;
   return FALLBACK_QUESTIONS;
 }
 
+/**
+ * Edit an existing itinerary in ONE focused LLM call (no tools) — fast and reliably applies the
+ * change, instead of re-running the whole agent with the plan stuffed into the prompt.
+ */
+export async function refineItinerary(currentItinerary: string, request: string, context: string): Promise<string> {
+  const sys = `You are editing an India travel itinerary. Apply the user's requested change precisely
+and keep everything else that already works. Keep the EXACT format: bold "**Day N — theme**" headings,
+each followed by "- Morning:", "- Afternoon:", "- Evening:" bullet lines. NEVER use tables or the "|"
+character. If the user asked a QUESTION (not an edit), answer it briefly at the top, then show the
+(possibly unchanged) itinerary. Return ONLY markdown.`;
+  const user = `Current itinerary:\n${currentItinerary}\n\nTraveller context:\n${context || "(none)"}\n\nRequested change / question: ${request}`;
+  const t0 = Date.now();
+  const msg = await chat([{ role: "system", content: sys }, { role: "user", content: user }], undefined, { temperature: 0.5, maxTokens: 1600 });
+  console.log(`[refine] done in ${Date.now() - t0}ms`);
+  return (msg.content ?? "").trim() || currentItinerary;
+}
+
 export type AgentResult = {
   itinerary: string;
   trace: string[];
