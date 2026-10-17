@@ -219,8 +219,19 @@ STEP B — Build the plan FOR THAT DESTINATION:
 
 BE ECONOMICAL: 3–4 tool calls total, then STOP and write the narrative.
 STRICT HONESTY: use ONLY facts the tools returned; never invent places, festivals, or claims.
-The app shows destinations + places as cards separately, so the narrative = a warm 1–2 sentence intro
-+ a concise **day-by-day plan** in light markdown (bold names, short lines). No big tables.
+FORMAT (important): The app shows destinations + places as cards separately. Your narrative =
+a warm 1–2 sentence intro, then a day-by-day plan formatted EXACTLY like this:
+
+**Day 1 — <short theme>**
+- Morning: <place/activity, one line>
+- Afternoon: <...>
+- Evening: <...>
+
+**Day 2 — <short theme>**
+- Morning: ...
+
+NEVER use markdown tables or the "|" character. Each day is a bold heading followed by short
+"- Morning/Afternoon/Evening:" bullet lines. Keep lines short.
 
 Your FINAL message (no tool call) is that narrative, in clean markdown.`;
 
@@ -228,34 +239,73 @@ Your FINAL message (no tool call) is that narrative, in clean markdown.`;
  * Ask a few SHORT clarifying questions tailored to the user's request (no tools).
  * Powers the conversational step before planning.
  */
-const FALLBACK_QUESTIONS = [
-  "How many days is the trip, and what pace do you prefer?",
-  "What's the budget, and any food preferences or must-dos?",
-  "Who's travelling, and what matters most to them?",
+export type Suggestion = { label: string; desc: string };
+export type Question = { question: string; suggestions: Suggestion[] };
+
+const FALLBACK_QUESTIONS: Question[] = [
+  {
+    question: "How long is the trip?",
+    suggestions: [
+      { label: "A weekend", desc: "2–3 days, keep it tight" },
+      { label: "A week", desc: "5–7 days, room to explore" },
+    ],
+  },
+  {
+    question: "What's the budget feel?",
+    suggestions: [
+      { label: "Budget", desc: "street eats, local stays" },
+      { label: "Comfortable", desc: "mid-range, a few treats" },
+      { label: "Splurge", desc: "fine dining, premium stays" },
+    ],
+  },
+  {
+    question: "What matters most?",
+    suggestions: [
+      { label: "Food", desc: "eat your way through" },
+      { label: "Culture & history", desc: "monuments, museums, old quarters" },
+      { label: "Relaxed vibe", desc: "slow, scenic, unhurried" },
+    ],
+  },
 ];
 
-function extractQuestionArray(text: string): string[] {
+function extractQuestions(text: string): Question[] {
   if (!text) return [];
-  // strip code fences, then pull the first [...] block
   const cleaned = text.replace(/```(?:json)?/gi, "");
   const start = cleaned.indexOf("[");
   const end = cleaned.lastIndexOf("]");
   if (start === -1 || end === -1 || end < start) return [];
   try {
     const arr = JSON.parse(cleaned.slice(start, end + 1));
-    return Array.isArray(arr) ? arr.map((x) => String(x).trim()).filter(Boolean).slice(0, 3) : [];
+    if (!Array.isArray(arr)) return [];
+    return arr
+      .map((q): Question | null => {
+        const question = String(q?.question ?? "").trim();
+        if (!question) return null;
+        const suggestions = Array.isArray(q?.suggestions)
+          ? q.suggestions
+              .map((s: unknown) => ({
+                label: String((s as { label?: unknown })?.label ?? "").trim(),
+                desc: String((s as { desc?: unknown })?.desc ?? "").trim(),
+              }))
+              .filter((s: Suggestion) => s.label)
+              .slice(0, 3)
+          : [];
+        return { question, suggestions };
+      })
+      .filter((q): q is Question => q !== null)
+      .slice(0, 4);
   } catch {
     return [];
   }
 }
 
-export async function generateQuestions(prompt: string): Promise<string[]> {
-  const sys = `A user gave a trip request for India. Ask exactly 3 SHORT, specific follow-up questions
-that would make their itinerary much more personal. Base them on THEIR request — probe what's
-ambiguous or missing (specific interests within their stated vibe, must-dos, food/diet, budget feel,
-pace, who's coming, how many days if unclear). Each question under 12 words. Friendly, concrete.
-Respond with ONLY a JSON array of exactly 3 strings, e.g. ["...","...","..."]. No prose, no keys, no markdown.`;
-  // gpt-oss sometimes returns empty content; retry, then fall back so questions ALWAYS show.
+export async function generateQuestions(prompt: string): Promise<Question[]> {
+  const sys = `A user gave a trip request for India. Ask 2–4 SHORT follow-up questions that make the
+itinerary more personal — base them on THEIR request (specific interests, must-dos, food/diet, budget,
+pace, who's coming, days). For EACH question give 2–3 quick-pick suggestions (a short label + a tiny
+description). Respond with ONLY a JSON array like:
+[{"question":"How many days?","suggestions":[{"label":"A weekend","desc":"2–3 days"},{"label":"A week","desc":"5–7 days"}]}]
+No prose, no markdown, no keys other than question/suggestions/label/desc.`;
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const msg = await chat(
@@ -264,12 +314,12 @@ Respond with ONLY a JSON array of exactly 3 strings, e.g. ["...","...","..."]. N
           { role: "user", content: `Request: ${prompt}\n\nReturn the JSON array now.` },
         ],
         undefined,
-        { temperature: 0.6, maxTokens: 400 },
+        { temperature: 0.6, maxTokens: 700 },
       );
-      const qs = extractQuestionArray(msg.content ?? "");
+      const qs = extractQuestions(msg.content ?? "");
       if (qs.length >= 2) return qs;
     } catch {
-      /* try again, then fall back */
+      /* retry, then fall back */
     }
   }
   return FALLBACK_QUESTIONS;

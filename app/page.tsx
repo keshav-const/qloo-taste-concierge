@@ -1,15 +1,16 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, type Transition } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+type Suggestion = { label: string; desc: string };
+type Question = { question: string; suggestions: Suggestion[] };
 type VerifiedPlace = {
   name: string; category: string | null; area: string | null; sources: number;
   specialities: string[]; tips: string[];
-  best_time: string | null; price_level: string | null; average_cost_inr: number | null;
-  image: string | null;
+  best_time: string | null; price_level: string | null; average_cost_inr: number | null; image: string | null;
 };
 type Destination = { name: string; city: string | null; image: string | null };
 type PlanResult = { itinerary: string; trace: string[]; destinations: Destination[]; verifiedPlaces: VerifiedPlace[] };
@@ -20,6 +21,7 @@ const CHIPS = [
 ];
 const DESTS = ["Anywhere in India", "Delhi", "Gurgaon", "Jaipur", "Goa", "Mumbai"];
 const LOADING_STEPS = ["Reading your taste…", "Asking Qloo's Taste AI for destinations…", "Pulling creator-verified places…", "Composing your itinerary…"];
+const HERO_PLACES = ["Taj Mahal", "Hawa Mahal", "Gateway of India", "Qutub Minar", "Golden Temple", "Meenakshi Temple"];
 const EASE: Transition = { duration: 0.6, ease: [0.22, 1, 0.36, 1] };
 
 function catVisual(category: string | null) {
@@ -41,51 +43,55 @@ export default function Home() {
   const [tastes, setTastes] = useState("");
   const [dest, setDest] = useState("Anywhere in India");
   const [stage, setStage] = useState<"compose" | "questions" | "result">("compose");
-  const [questions, setQuestions] = useState<string[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<string[]>([]);
   const [refine, setRefine] = useState("");
   const [busy, setBusy] = useState<"" | "questions" | "plan">("");
   const [steps, setSteps] = useState<string[]>([]);
   const [result, setResult] = useState<PlanResult | null>(null);
+  const [history, setHistory] = useState<PlanResult[]>([]);
+  const [reqText, setReqText] = useState("");           // the tastes the user typed
+  const [qa, setQa] = useState<{ q: string; a: string }[]>([]);
   const [error, setError] = useState("");
+  const [heroImgs, setHeroImgs] = useState<string[]>([]);
   const resultsRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    let alive = true;
+    Promise.all(HERO_PLACES.map(async (n) => {
+      try {
+        const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(n)}`);
+        const j = await r.json();
+        return (j?.thumbnail?.source as string) ?? null;
+      } catch { return null; }
+    })).then((imgs) => { if (alive) setHeroImgs(imgs.filter((x): x is string => !!x)); });
+    return () => { alive = false; };
+  }, []);
+
   const addChip = (label: string) => setTastes((t) => (t.trim() ? `${t.replace(/[.\s]+$/, "")}, ${label}` : `I love ${label}`));
-  const destHint = () =>
-    dest === "Anywhere in India"
-      ? "(Suggest taste-matched destinations across India and plan the strongest match.)"
-      : `(Destination: ${dest}.)`;
+  const destHint = () => dest === "Anywhere in India" ? "(Suggest taste-matched destinations across India and plan the strongest match.)" : `(Destination: ${dest}.)`;
   const base = () => `${tastes.trim()}\n\n${destHint()}`;
 
   async function getQuestions() {
     if (!tastes.trim() || busy) return;
-    setBusy("questions");
-    setError("");
+    setReqText(tastes.trim());
+    setBusy("questions"); setError("");
     try {
       const r = await fetch("/api/questions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt: base() }) });
       const d = await r.json();
       if (d.error) setError(d.error);
       else {
-        const qs: string[] = d.questions ?? [];
-        if (qs.length) {
-          setQuestions(qs);
-          setAnswers(qs.map(() => ""));
-          setStage("questions");
-        } else {
-          await runPlan(base());
-        }
+        const qs: Question[] = d.questions ?? [];
+        if (qs.length) { setQuestions(qs); setAnswers(qs.map(() => "")); setStage("questions"); }
+        else await runPlan(base(), []);
       }
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-    } finally {
-      setBusy("");
-    }
+    } catch (e) { setError(e instanceof Error ? e.message : String(e)); }
+    finally { setBusy(""); }
   }
 
-  async function runPlan(prompt: string) {
-    setBusy("plan");
-    setError("");
-    setSteps([]);
+  async function runPlan(prompt: string, qaPairs: { q: string; a: string }[] | null) {
+    if (qaPairs) setQa(qaPairs);
+    setBusy("plan"); setError(""); setSteps([]);
     let i = 0;
     const iv = setInterval(() => { if (i < LOADING_STEPS.length) setSteps((s) => [...s, LOADING_STEPS[i++]]); }, 1500);
     try {
@@ -93,42 +99,45 @@ export default function Home() {
       const d = await r.json();
       if (d.error) setError(d.error);
       else {
-        setResult(d);
+        setResult((prev) => { if (prev) setHistory((h) => [...h, prev]); return d; });
         setStage("result");
         setTimeout(() => resultsRef.current?.scrollIntoView({ behavior: "smooth" }), 120);
       }
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-    } finally {
-      clearInterval(iv);
-      setBusy("");
-    }
+    } catch (e) { setError(e instanceof Error ? e.message : String(e)); }
+    finally { clearInterval(iv); setBusy(""); }
   }
 
   function createItinerary() {
-    const detail = questions.length
-      ? "\n\nMy answers:\n" + questions.map((q, i) => `- ${q} → ${answers[i]?.trim() || "no preference"}`).join("\n")
-      : "";
-    runPlan(base() + detail);
+    const pairs = questions.map((q, i) => ({ q: q.question, a: answers[i]?.trim() || "no preference" }));
+    const detail = "\n\nMy answers:\n" + pairs.map((p) => `- ${p.q} → ${p.a}`).join("\n");
+    runPlan(base() + detail, pairs);
   }
 
   function refinePlan() {
     if (!refine.trim() || !result) return;
-    const detail = questions.length ? "\n\nMy answers:\n" + questions.map((q, i) => `- ${q} → ${answers[i]?.trim() || "no preference"}`).join("\n") : "";
+    const detail = qa.length ? "\n\nMy answers:\n" + qa.map((p) => `- ${p.q} → ${p.a}`).join("\n") : "";
     const prompt = `${base()}${detail}\n\nHere is the current plan:\n${result.itinerary}\n\nRevise it per this request: ${refine.trim()}`;
     setRefine("");
-    runPlan(prompt);
+    runPlan(prompt, null);
+  }
+
+  function planDestination(name: string) {
+    const detail = qa.length ? "\n\nMy answers:\n" + qa.map((p) => `- ${p.q} → ${p.a}`).join("\n") : "";
+    runPlan(`${tastes.trim()}\n\n(Destination: ${name}.)${detail}`, null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goBack() {
+    setHistory((h) => {
+      if (!h.length) return h;
+      const prev = h[h.length - 1];
+      setResult(prev);
+      return h.slice(0, -1);
+    });
   }
 
   function startOver() {
-    setStage("compose"); setResult(null); setQuestions([]); setAnswers([]); setError("");
-  }
-
-  // Click a destination card -> plan a full trip for THAT city (keeps tastes + answers).
-  function planDestination(name: string) {
-    const detail = questions.length ? "\n\nMy answers:\n" + questions.map((q, i) => `- ${q} → ${answers[i]?.trim() || "no preference"}`).join("\n") : "";
-    runPlan(`${tastes.trim()}\n\n(Destination: ${name}.)${detail}`);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setStage("compose"); setResult(null); setHistory([]); setQuestions([]); setAnswers([]); setQa([]); setError("");
   }
 
   return (
@@ -142,13 +151,12 @@ export default function Home() {
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-paper">✦</span>
           <span className="font-display text-xl text-ink">TasteTrail</span>
         </div>
-        <span className="rounded-full border border-line bg-paper-card/70 px-3 py-1 text-xs text-ink-mute backdrop-blur">
-          powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span>
-        </span>
+        <span className="rounded-full border border-line bg-paper-card/70 px-3 py-1 text-xs text-ink-mute backdrop-blur">powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span></span>
       </header>
 
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
-        <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="pt-10 pb-8 text-center sm:pt-16">
+        {/* Hero */}
+        <motion.section initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="pt-10 pb-6 text-center sm:pt-14">
           <h1 className="font-display text-5xl leading-[1.05] text-ink sm:text-[4.5rem]">
             Your taste, your{" "}
             <span style={{ background: "linear-gradient(110deg, #e2550e, #c23d6a 38%, #0d6e5b 68%, #e2550e)", backgroundSize: "260% 100%", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "gradient-shift 9s ease-in-out infinite" }}>India</span>.
@@ -156,6 +164,23 @@ export default function Home() {
           <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
             Tell us what you love. We&apos;ll ask a couple of quick questions, then plan a trip anywhere in India — with real places <span className="font-medium text-verified">verified by creators</span>.
           </p>
+          {/* floating image strip */}
+          {heroImgs.length > 0 && (
+            <div className="mt-8 flex items-center justify-center gap-3">
+              {heroImgs.slice(0, 6).map((src, i) => (
+                <motion.div
+                  key={src}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: [0, i % 2 ? -6 : 6, 0] }}
+                  transition={{ opacity: { duration: 0.5, delay: i * 0.08 }, y: { duration: 5 + i, repeat: Infinity, ease: "easeInOut" } }}
+                  className={`overflow-hidden rounded-2xl border border-line shadow-sm ${i % 2 ? "h-20 w-16" : "h-24 w-20"} ${i > 3 ? "hidden sm:block" : ""}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={src} alt="" className="h-full w-full object-cover" />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </motion.section>
 
         {/* STAGE: compose */}
@@ -163,27 +188,20 @@ export default function Home() {
           <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...EASE, delay: 0.08 }} className="mx-auto max-w-2xl">
             <div className="ring-soft rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
               <textarea value={tastes} onChange={(e) => setTastes(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) getQuestions(); }} rows={3}
-                placeholder="e.g. My friend's visiting Delhi this long weekend and loves pop culture…"
+                placeholder="e.g. Travelling with family over a long weekend — parents want pilgrimage, we love light hiking…"
                 className="w-full resize-none bg-transparent text-lg text-ink outline-none placeholder:text-ink-mute" />
               <div className="mt-3 flex flex-wrap gap-2">
                 {CHIPS.map((c) => (
-                  <motion.button key={c.label} whileHover={{ y: -1 }} whileTap={{ scale: 0.96 }} onClick={() => addChip(c.label)}
-                    className="rounded-full border border-line px-3 py-1 text-sm text-ink-soft transition-colors hover:border-saffron hover:bg-saffron-soft hover:text-saffron">
-                    <span className="mr-1">{c.icon}</span>{c.label}
-                  </motion.button>
+                  <motion.button key={c.label} whileHover={{ y: -1 }} whileTap={{ scale: 0.96 }} onClick={() => addChip(c.label)} className="rounded-full border border-line px-3 py-1 text-sm text-ink-soft transition-colors hover:border-saffron hover:bg-saffron-soft hover:text-saffron"><span className="mr-1">{c.icon}</span>{c.label}</motion.button>
                 ))}
               </div>
               <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
                 <label className="flex items-center gap-2 text-sm text-ink-mute">Where to?
-                  <select value={dest} onChange={(e) => setDest(e.target.value)} className="rounded-lg border border-line bg-paper px-2 py-1 text-ink outline-none">
-                    {DESTS.map((d) => <option key={d}>{d}</option>)}
-                  </select>
+                  <select value={dest} onChange={(e) => setDest(e.target.value)} className="rounded-lg border border-line bg-paper px-2 py-1 text-ink outline-none">{DESTS.map((d) => <option key={d}>{d}</option>)}</select>
                 </label>
                 <motion.button whileHover={{ y: -1 }} whileTap={{ scale: 0.97 }} onClick={getQuestions} disabled={!!busy || !tastes.trim()}
                   style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%", animation: "gradient-shift 6s ease-in-out infinite" }}
-                  className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40">
-                  {busy === "questions" ? "Thinking…" : "Continue →"}
-                </motion.button>
+                  className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40">{busy === "questions" ? "Thinking…" : "Continue →"}</motion.button>
               </div>
             </div>
           </motion.section>
@@ -194,37 +212,47 @@ export default function Home() {
           <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="mx-auto max-w-2xl">
             <div className="ring-soft rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
               <p className="mb-1 text-xs font-medium uppercase tracking-wider text-saffron">A few quick questions</p>
-              <p className="mb-4 text-sm text-ink-mute">Answer what you like — skip the rest. It makes the plan sharper.</p>
-              <div className="space-y-4">
-                {questions.map((q, i) => (
-                  <div key={i}>
-                    <label className="mb-1 block text-sm font-medium text-ink">{q}</label>
-                    <input value={answers[i] ?? ""} onChange={(e) => setAnswers((a) => a.map((v, j) => (j === i ? e.target.value : v)))}
-                      placeholder="Your answer (optional)" className="w-full rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-saffron" />
-                  </div>
-                ))}
+              <p className="mb-4 text-sm text-ink-mute">Tap a suggestion or type your own — skip what you like.</p>
+              <div className="space-y-5">
+                {questions.map((q, i) => {
+                  const typed = answers[i] && !q.suggestions.some((s) => s.label === answers[i]);
+                  return (
+                    <div key={i}>
+                      <p className="mb-2 text-sm font-medium text-ink">{q.question}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {q.suggestions.map((s) => {
+                          const active = answers[i] === s.label;
+                          return (
+                            <button key={s.label} onClick={() => setAnswers((a) => a.map((v, j) => (j === i ? (v === s.label ? "" : s.label) : v)))}
+                              className={`max-w-[15rem] rounded-xl border px-3 py-2 text-left transition ${active ? "border-saffron bg-saffron-soft" : "border-line hover:border-ink-mute"}`}>
+                              <span className="block text-sm font-medium text-ink">{s.label}</span>
+                              {s.desc && <span className="block text-xs text-ink-mute">{s.desc}</span>}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <input value={typed ? answers[i] : ""} onChange={(e) => setAnswers((a) => a.map((v, j) => (j === i ? e.target.value : v)))}
+                        placeholder="Or type your own…" className="mt-2 w-full rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-saffron" />
+                    </div>
+                  );
+                })}
               </div>
               <div className="mt-5 flex items-center justify-between gap-3">
-                <button onClick={() => runPlan(base())} className="text-sm text-ink-mute underline-offset-2 hover:text-ink hover:underline">Skip &amp; plan now</button>
+                <button onClick={() => runPlan(base(), [])} className="text-sm text-ink-mute underline-offset-2 hover:text-ink hover:underline">Skip &amp; plan now</button>
                 <motion.button whileHover={{ y: -1 }} whileTap={{ scale: 0.97 }} onClick={createItinerary} disabled={!!busy}
                   style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%", animation: "gradient-shift 6s ease-in-out infinite" }}
-                  className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40">
-                  {busy === "plan" ? "Planning…" : "Create itinerary →"}
-                </motion.button>
+                  className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40">{busy === "plan" ? "Planning…" : "Create itinerary →"}</motion.button>
               </div>
             </div>
           </motion.section>
         )}
 
-        {/* loading trace */}
         {busy === "plan" && (
           <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mx-auto mt-8 max-w-2xl">
             <div className="rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
               <p className="mb-3 text-xs font-medium uppercase tracking-wider text-ink-mute">Agent working</p>
               <ul className="space-y-2">
-                {steps.map((s, i) => (
-                  <motion.li key={i} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-2 text-sm text-ink-soft"><span className="text-verified">✓</span>{s}</motion.li>
-                ))}
+                {steps.map((s, i) => <motion.li key={i} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-2 text-sm text-ink-soft"><span className="text-verified">✓</span>{s}</motion.li>)}
                 <li className="flex items-center gap-2 text-sm text-ink-mute"><span className="pulse-dot">●</span> thinking…</li>
               </ul>
             </div>
@@ -235,24 +263,35 @@ export default function Home() {
 
         {/* STAGE: result */}
         {stage === "result" && result && (
-          <div ref={resultsRef} className="mt-14">
+          <div ref={resultsRef} className="mt-12">
+            {/* Your request + back */}
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <details className="group min-w-0 flex-1">
+                <summary className="cursor-pointer list-none text-sm text-ink-mute hover:text-ink">
+                  <span className="font-medium text-ink-soft">Your request</span> — tap to see what you asked ▾
+                </summary>
+                <div className="mt-2 rounded-xl border border-line bg-paper-card/70 p-3 text-sm text-ink-soft">
+                  {reqText && <p className="mb-2">“{reqText}”</p>}
+                  {qa.length > 0 && (
+                    <ul className="space-y-0.5 text-ink-mute">
+                      {qa.map((p, i) => <li key={i}><span className="text-ink-soft">{p.q}</span> → {p.a}</li>)}
+                    </ul>
+                  )}
+                </div>
+              </details>
+              {history.length > 0 && (
+                <button onClick={goBack} className="shrink-0 rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-ink hover:text-ink">← Previous plan</button>
+              )}
+            </div>
+
             {result.destinations.length > 0 && (
               <section className="mb-12">
                 <SectionLabel>Destinations across India</SectionLabel>
-                <p className="mb-5 text-sm text-ink-mute">Matched to your taste by Qloo&apos;s Taste AI.</p>
+                <p className="mb-5 text-sm text-ink-mute">Matched to your taste by Qloo&apos;s Taste AI — tap one to plan it.</p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {result.destinations.slice(0, 6).map((d, i) => (
-                    <motion.button
-                      key={d.name}
-                      initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
-                      whileHover={{ y: -4 }}
-                      onClick={() => planDestination(d.name)}
-                      disabled={!!busy}
-                      className="ring-soft group block overflow-hidden rounded-2xl border border-line bg-paper-card text-left transition hover:border-saffron disabled:opacity-60"
-                    >
+                    <motion.button key={d.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -4 }} onClick={() => planDestination(d.name)} disabled={!!busy}
+                      className="ring-soft group block overflow-hidden rounded-2xl border border-line bg-paper-card text-left transition hover:border-saffron disabled:opacity-60">
                       <div className="relative h-36 overflow-hidden">
                         {d.image ? (
                           // eslint-disable-next-line @next/next/no-img-element
@@ -260,15 +299,9 @@ export default function Home() {
                         ) : <div className="h-full w-full bg-gradient-to-br from-saffron-soft via-paper to-verified-soft" />}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
                         <p className="absolute bottom-2 left-3 font-display text-2xl text-white drop-shadow">{d.name}</p>
-                        {/* hover affordance */}
-                        <div className="absolute inset-0 flex items-end justify-end bg-saffron/0 p-3 opacity-0 transition group-hover:bg-black/20 group-hover:opacity-100">
-                          <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-ink shadow">Plan this trip →</span>
-                        </div>
+                        <div className="absolute inset-0 flex items-end justify-end p-3 opacity-0 transition group-hover:bg-black/20 group-hover:opacity-100"><span className="rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-ink shadow">Plan this trip →</span></div>
                       </div>
-                      <div className="flex items-center justify-between px-3 py-2">
-                        <span className="text-[11px] uppercase tracking-wider text-ink-mute">{d.city ?? "India"} · Qloo match</span>
-                        <span className="text-xs text-saffron opacity-0 transition group-hover:opacity-100">↗</span>
-                      </div>
+                      <div className="flex items-center justify-between px-3 py-2"><span className="text-[11px] uppercase tracking-wider text-ink-mute">{d.city ?? "India"} · Qloo match</span><span className="text-xs text-saffron opacity-0 transition group-hover:opacity-100">↗</span></div>
                     </motion.button>
                   ))}
                 </div>
@@ -291,10 +324,7 @@ export default function Home() {
                           ) : <div className="grid h-full w-full place-items-center text-2xl" style={{ background: `linear-gradient(135deg, ${cat.from}, ${cat.to})` }}>{cat.emoji}</div>}
                         </div>
                         <div className="min-w-0 flex-1">
-                          <div className="flex items-start justify-between gap-2">
-                            <p className="font-medium text-ink">{p.name}</p>
-                            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-verified-soft px-2 py-0.5 text-xs font-medium text-verified">✓ {p.sources}</span>
-                          </div>
+                          <div className="flex items-start justify-between gap-2"><p className="font-medium text-ink">{p.name}</p><span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-verified-soft px-2 py-0.5 text-xs font-medium text-verified">✓ {p.sources}</span></div>
                           {p.specialities.length > 0 && <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">{p.specialities.join(" · ")}</p>}
                           <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
                             {(price || p.average_cost_inr) && <span className="pill bg-saffron-soft text-saffron">{price}{p.average_cost_inr ? ` ~₹${p.average_cost_inr}` : ""}</span>}
@@ -316,28 +346,26 @@ export default function Home() {
                   <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
                     h1: ({ node, ...p }) => <h3 className="font-display text-2xl text-ink" {...p} />,
                     h2: ({ node, ...p }) => <h3 className="mt-4 font-display text-xl text-ink" {...p} />,
-                    h3: ({ node, ...p }) => <h4 className="mt-4 text-xs font-semibold uppercase tracking-wider text-saffron" {...p} />,
+                    h3: ({ node, ...p }) => <h4 className="mt-5 text-sm font-semibold text-ink" {...p} />,
                     p: ({ node, ...p }) => <p className="mt-2 leading-relaxed text-ink-soft" {...p} />,
                     strong: ({ node, ...p }) => <strong className="font-semibold text-ink" {...p} />,
-                    ul: ({ node, ...p }) => <ul className="mt-2 space-y-1 text-ink-soft" {...p} />,
-                    li: ({ node, ...p }) => <li className="ml-4 list-disc" {...p} />,
+                    ul: ({ node, ...p }) => <ul className="mt-1.5 space-y-1 text-ink-soft" {...p} />,
+                    li: ({ node, ...p }) => <li className="ml-4 list-disc marker:text-saffron" {...p} />,
+                    table: ({ node, ...p }) => <div className="mt-2 overflow-x-auto"><table className="w-full text-sm" {...p} /></div>,
+                    th: ({ node, ...p }) => <th className="border-b border-line px-2 py-1 text-left font-medium text-ink" {...p} />,
+                    td: ({ node, ...p }) => <td className="border-b border-line/50 px-2 py-1 align-top text-ink-soft" {...p} />,
                   }}>{result.itinerary}</ReactMarkdown>
                 </div>
               </section>
             )}
 
-            {/* refine */}
             <div className="ring-soft mt-6 rounded-2xl border border-line bg-paper-card/80 p-4 backdrop-blur">
-              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-saffron">Not quite right? Refine it</p>
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-saffron">Not quite right? Refine or ask</p>
               <div className="flex flex-wrap gap-2">
                 <input value={refine} onChange={(e) => setRefine(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") refinePlan(); }} disabled={!!busy}
-                  placeholder="e.g. make day 2 more relaxed, add more street food, keep it under ₹2000…"
+                  placeholder="e.g. make day 2 more relaxed · add a street-food night · what's the best time for day 1?"
                   className="min-w-0 flex-1 rounded-lg border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-saffron" />
-                <motion.button whileTap={{ scale: 0.97 }} onClick={refinePlan} disabled={!!busy || !refine.trim()}
-                  style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%" }}
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-white transition hover:brightness-105 disabled:opacity-40">
-                  {busy === "plan" ? "Updating…" : "Update plan"}
-                </motion.button>
+                <motion.button whileTap={{ scale: 0.97 }} onClick={refinePlan} disabled={!!busy || !refine.trim()} style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%" }} className="rounded-lg px-4 py-2 text-sm font-medium text-white transition hover:brightness-105 disabled:opacity-40">{busy === "plan" ? "Updating…" : "Update plan"}</motion.button>
                 <button onClick={startOver} className="rounded-lg border border-line px-4 py-2 text-sm text-ink-soft transition hover:border-ink hover:text-ink">Start over</button>
               </div>
             </div>
