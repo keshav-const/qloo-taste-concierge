@@ -157,7 +157,11 @@ const TOOLS: ToolDef[] = [
         properties: {
           seeds: {
             type: "array",
-            description: "The user's tastes, each a name + its domain (same shape as expand_taste).",
+            description:
+              "The user's tastes, each a name + its domain. IMPORTANT: for the cultural strip to be " +
+              "meaningful, include the user's GENUINE cultural tastes — specific artists/bands, films, " +
+              "shows, books or brands they actually named (type music/film/tv/book/brand). Do NOT invent " +
+              "any. You may also pass place/food/destination seeds (used only for venue ranking).",
             items: {
               type: "object",
               properties: {
@@ -182,27 +186,32 @@ type Seed = { name: string; type: string };
 type ExpandArgs = { seeds?: Seed[]; target_domain?: string; city?: string };
 type EvidenceArgs = { places?: string[] };
 
-/** Resolve the user's taste seeds to Qloo entity ids, keeping the names that resolved. */
-async function resolveSeeds(seeds: Seed[] = []): Promise<{ ids: string[]; names: string[] }> {
-  const ids: string[] = [];
-  const names: string[] = [];
+type ResolvedSeed = { id: string; name: string; type: string };
+
+/** The seed domains that are genuine CULTURAL tastes (vs trip logistics like place/food/city). */
+const CULTURAL_SEED_TYPES = new Set([
+  "music", "artist", "band", "song", "film", "movie", "tv", "show", "book", "author", "brand", "fashion",
+]);
+
+/** Resolve the user's taste seeds to Qloo entity ids, keeping each seed's name + domain. */
+async function resolveSeeds(seeds: Seed[] = []): Promise<ResolvedSeed[]> {
+  const out: ResolvedSeed[] = [];
   for (const s of seeds) {
+    const typeKey = (s.type || "").toLowerCase();
     // Unknown types fall back to an untyped search (Qloo matches across all types).
-    const type = SEED_TYPE[(s.type || "").toLowerCase()];
-    const found = await searchEntities(s.name, type, 1);
+    const found = await searchEntities(s.name, SEED_TYPE[typeKey], 1);
     const id = found[0] && entityId(found[0]);
-    if (id) {
-      ids.push(id);
-      names.push(s.name);
-    }
+    if (id) out.push({ id, name: s.name, type: typeKey });
   }
-  return { ids, names };
+  return out;
 }
 
 async function runTool(name: string, args: unknown): Promise<unknown> {
   if (name === "expand_taste") {
     const a = args as ExpandArgs;
-    const { ids: seedIds, names: seedNames } = await resolveSeeds(a.seeds);
+    const resolved = await resolveSeeds(a.seeds);
+    const seedIds = resolved.map((r) => r.id);
+    const seedNames = resolved.map((r) => r.name);
     if (!seedIds.length) return { error: "Could not resolve any taste seeds on Qloo." };
     const target = TARGET_TYPE[a.target_domain ?? "destination"] ?? EntityType.destination;
     const opts: Record<string, unknown> = { take: 8 };
@@ -224,39 +233,50 @@ async function runTool(name: string, args: unknown): Promise<unknown> {
   }
   if (name === "qloo_taste_graph") {
     const a = args as { seeds?: Seed[]; city?: string | null };
-    const { ids: seedIds, names: seedNames } = await resolveSeeds(a.seeds);
-    if (!seedIds.length) return { error: "Could not resolve any taste seeds on Qloo." };
-    // (a) Cross-domain cultural picks — the "you'd also love" strip. Taste-driven, not geo.
-    const domains: { key: string; type: EntityTypeUrn }[] = [
-      { key: "film", type: EntityType.movie },
-      { key: "tv", type: EntityType.tvShow },
-      { key: "music", type: EntityType.artist },
-      { key: "book", type: EntityType.book },
-    ];
+    const resolved = await resolveSeeds(a.seeds);
+    const allIds = resolved.map((r) => r.id);
+    if (!allIds.length) return { error: "Could not resolve any taste seeds on Qloo." };
+
+    // (a) Cross-domain cultural picks — ONLY from genuine cultural tastes (music/film/tv/book/brand).
+    // Trip logistics (place/food/city/"spiritual sites") are NOT taste seeds — feeding them to Qloo
+    // produces garbage cross-domain results, so we drop them. No cultural seeds => no strip.
+    const culturalSeeds = resolved.filter((r) => CULTURAL_SEED_TYPES.has(r.type));
+    const culturalIds = culturalSeeds.map((r) => r.id);
     const cultural: CulturalPick[] = [];
-    // Strip trailing "(series, #1)"-style suffixes so titles read cleanly and image lookups hit.
-    const cleanTitle = (s: string) => s.replace(/\s*\([^)]*\)\s*$/, "").trim();
-    await Promise.all(
-      domains.map(async (d) => {
-        try {
-          const ents = await tasteExpand(seedIds, d.type, { take: 3 });
-          for (const e of ents.slice(0, 3)) if (e.name) cultural.push({ name: cleanTitle(e.name), domain: d.key });
-        } catch {
-          /* skip this domain */
-        }
-      }),
-    );
+    if (culturalIds.length) {
+      const domains: { key: string; type: EntityTypeUrn }[] = [
+        { key: "film", type: EntityType.movie },
+        { key: "tv", type: EntityType.tvShow },
+        { key: "music", type: EntityType.artist },
+        { key: "book", type: EntityType.book },
+      ];
+      // Strip trailing "(series, #1)"-style suffixes so titles read cleanly and image lookups hit.
+      const cleanTitle = (s: string) => s.replace(/\s*\([^)]*\)\s*$/, "").trim();
+      await Promise.all(
+        domains.map(async (d) => {
+          try {
+            // popularityMin biases to NOTABLE, recognizable titles (avoids obscure off-key picks).
+            const ents = await tasteExpand(culturalIds, d.type, { take: 3, popularityMin: 0.6 });
+            for (const e of ents.slice(0, 3)) if (e.name) cultural.push({ name: cleanTitle(e.name), domain: d.key });
+          } catch {
+            /* skip this domain */
+          }
+        }),
+      );
+    }
+
     // (b) Qloo's own taste-matched venues in the destination — used to rank verified places.
+    // Places benefit from ALL seeds (food/vibe included), so use the full seed set here.
     let qlooPlaces: string[] = [];
     if (a.city) {
       try {
-        const ents = await tasteExpand(seedIds, EntityType.place, { locationQuery: a.city, take: 15 });
+        const ents = await tasteExpand(allIds, EntityType.place, { locationQuery: a.city, take: 15 });
         qlooPlaces = ents.map((e) => e.name).filter((n): n is string => !!n);
       } catch {
         /* skip venue ranking */
       }
     }
-    return { cultural, qloo_places: qlooPlaces, seeds_used: seedNames };
+    return { cultural, qloo_places: qlooPlaces, cultural_seeds: culturalSeeds.map((r) => r.name) };
   }
   if (name === "get_verified_places") {
     const a = args as { city?: string; interests?: string[]; category?: string; limit?: number };
@@ -301,10 +321,12 @@ STEP B — Build the plan FOR THAT DESTINATION:
    - OTHERWISE (e.g. Jaipur, Goa, Udaipur): call expand_taste target_domain='place' with city=<destination>
      to get Qloo places THERE. These are taste-matched but NOT creator-verified — present them as
      suggestions and be honest we don't have verified depth outside ${citiesWithDepth().join(" / ")} yet.
-3. Qloo cross-domain graph: call qloo_taste_graph ONCE with the user's seeds and city=<destination>.
-   The app renders the returned cultural picks (films/shows/music/books) as a "cultural vibe" strip and
-   uses qloo_places to rank the verified places — so you need NOT list them in prose. This makes Qloo
-   visibly central.
+3. Qloo cross-domain graph: call qloo_taste_graph ONCE with city=<destination>. For its seeds, pass the
+   user's GENUINE cultural tastes (specific artists/films/shows/books/brands they named) PLUS their
+   food/place seeds. If the user named no cultural tastes at all, that's fine — pass what you have; the
+   cultural strip will simply be omitted (do NOT invent tastes to fill it). The app renders the cultural
+   picks as a "cultural vibe" strip and uses qloo_places to rank verified places — you need NOT list
+   them in prose. This makes Qloo visibly central.
 4. Day-by-day narrative, WEIGHTED TO THE DESTINATION:
    - The days happen IN the destination. If it's a trip from a home city, the home city is only the
      start/end (one stop or meal at most) — NEVER 1–2 full days of the home city.
@@ -332,6 +354,11 @@ formatted EXACTLY like this:
 
 NEVER use markdown tables or the "|" character. Each day is a bold heading followed by short
 "- Morning/Afternoon/Evening:" bullet lines. Keep lines short.
+
+AFTER the last day, add ONE final line:
+"**Estimated budget:** ₹<low>–<high> per person" — a realistic per-person estimate for the WHOLE trip
+(stay + food + local travel + entries) based on the number of days, the budget tier they chose, and any
+place prices the tools returned. Keep it a sensible range, not a breakdown.
 
 Your FINAL message (no tool call) is that narrative, in clean markdown.`;
 
@@ -448,6 +475,8 @@ export type AgentResult = {
   destinations: Destination[];
   verifiedPlaces: VerifiedPlace[];
   culturalVibe: CulturalPick[];
+  /** The cultural tastes that drove the cultural vibe strip (for explainability). */
+  culturalSeeds: string[];
 };
 
 export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentResult> {
@@ -460,6 +489,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
   const destinations: Destination[] = [];
   const verifiedPlaces: VerifiedPlace[] = [];
   const culturalVibe: CulturalPick[] = [];
+  let culturalSeeds: string[] = []; // cultural tastes that drove the strip (explainability)
   const qlooPlaceNames: string[] = []; // Qloo venue names for the destination, for cross-ranking
   const addDest = (d: Destination) => {
     if (d?.name && !destinations.some((x) => x.name === d.name)) destinations.push(d);
@@ -514,9 +544,10 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
             for (const d of r.results ?? []) addDest({ ...d, why });
           }
         } else if (tc.function.name === "qloo_taste_graph") {
-          const r = result as { cultural?: CulturalPick[]; qloo_places?: string[] };
+          const r = result as { cultural?: CulturalPick[]; qloo_places?: string[]; cultural_seeds?: string[] };
           for (const c of r.cultural ?? []) addCultural(c);
           for (const n of r.qloo_places ?? []) qlooPlaceNames.push(n);
+          if (r.cultural_seeds?.length) culturalSeeds = r.cultural_seeds;
         }
 
         messages.push({
@@ -529,7 +560,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       continue;
     }
     applyQlooRanking();
-    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe };
+    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds };
   }
   applyQlooRanking();
   // Didn't compose in-loop (the model kept calling tools). Compose from the data we gathered, in a
@@ -555,6 +586,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       destinations,
       verifiedPlaces,
       culturalVibe,
+      culturalSeeds,
     };
   } catch {
     return {
@@ -563,6 +595,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       destinations,
       verifiedPlaces,
       culturalVibe,
+      culturalSeeds,
     };
   }
 }

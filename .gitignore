@@ -35,3 +35,4 @@ coverage/
 HACKATHON_CONTEXT.md
 notes/
 tsconfig.tsbuildinfo
+logs/

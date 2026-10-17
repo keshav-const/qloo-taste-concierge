@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, type Transition } from "motion/react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import HeroVideo from "./HeroVideo";
+import HeroStrip from "./HeroStrip";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -18,7 +19,8 @@ type Destination = { name: string; city: string | null; image: string | null; wh
 type CulturalPick = { name: string; domain: string; image: string | null };
 type PlanResult = {
   itinerary: string; trace: string[];
-  destinations: Destination[]; verifiedPlaces: VerifiedPlace[]; culturalVibe: CulturalPick[];
+  destinations: Destination[]; verifiedPlaces: VerifiedPlace[];
+  culturalVibe: CulturalPick[]; culturalSeeds?: string[];
 };
 
 const CULTURE_META: Record<string, { icon: string; label: string }> = {
@@ -66,7 +68,44 @@ export default function Home() {
   const [reqText, setReqText] = useState("");           // the tastes the user typed
   const [qa, setQa] = useState<{ q: string; a: string }[]>([]);
   const [error, setError] = useState("");
+  const [toast, setToast] = useState("");
+  const [shared, setShared] = useState<{ r: string; q: { q: string; a: string }[]; i: string } | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
+
+  // A shared plan link carries the plan in the URL hash (no backend) — render it read-only.
+  useEffect(() => {
+    const m = /#plan=(.+)$/.exec(window.location.hash);
+    if (!m) return;
+    try {
+      const obj = JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(m[1])))));
+      if (obj?.i) setShared({ r: obj.r ?? "", q: Array.isArray(obj.q) ? obj.q : [], i: obj.i });
+    } catch { /* ignore a malformed hash */ }
+  }, []);
+
+  function flash(msg: string) { setToast(msg); setTimeout(() => setToast(""), 2400); }
+
+  async function sharePlan() {
+    if (!result) return;
+    try {
+      const payload = { r: reqText, q: qa, i: result.itinerary };
+      const encoded = encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(payload)))));
+      await navigator.clipboard.writeText(`${location.origin}${location.pathname}#plan=${encoded}`);
+      flash("Share link copied ✓");
+    } catch { flash("Couldn't copy the link"); }
+  }
+  async function copyPlan() {
+    if (!result) return;
+    try { await navigator.clipboard.writeText(result.itinerary); flash("Itinerary copied ✓"); }
+    catch { flash("Couldn't copy"); }
+  }
+  function downloadPlan() {
+    if (!result) return;
+    const blob = new Blob([`# ${reqText || "Your India trip"}\n\n${result.itinerary}\n`], { type: "text/markdown" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = "tastetrail-itinerary.md"; a.click();
+    URL.revokeObjectURL(a.href);
+  }
+  function exitShared() { setShared(null); window.history.replaceState(null, "", window.location.pathname); }
 
   const addChip = (label: string) => setTastes((t) => (t.trim() ? `${t.replace(/[.\s]+$/, "")}, ${label}` : `I love ${label}`));
   const destHint = () => dest === "Anywhere in India" ? "(Suggest taste-matched destinations across India and plan the strongest match.)" : `(Destination: ${dest}.)`;
@@ -150,9 +189,36 @@ export default function Home() {
     setStage("compose"); setResult(null); setHistory([]); setQuestions([]); setSelected([]); setTyped([]); setQa([]); setError("");
   }
 
+  if (shared) {
+    return (
+      <div className="relative min-h-screen overflow-hidden">
+        <div className="grain-overlay" />
+        <header className="relative z-10 mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+          <div className="flex items-center gap-2">
+            <span className="grid h-8 w-8 place-items-center rounded-lg bg-ink text-paper">✦</span>
+            <span className="font-display text-xl text-ink">TasteTrail</span>
+          </div>
+          <span className="rounded-full border border-line bg-paper-card/70 px-3 py-1 text-xs text-ink-mute backdrop-blur">powered by <span className="font-medium text-ink-soft">Qloo Taste AI</span></span>
+        </header>
+        <main className="relative z-10 mx-auto max-w-3xl px-6 pb-24 pt-8">
+          <p className="mb-2 text-xs font-medium uppercase tracking-wider text-saffron">Shared itinerary</p>
+          {shared.r && <p className="mb-2 font-display text-2xl text-ink">“{shared.r}”</p>}
+          {shared.q.length > 0 && (
+            <ul className="mb-4 space-y-0.5 text-sm text-ink-mute">
+              {shared.q.map((p, i) => <li key={i}><span className="text-ink-soft">{p.q}</span> → {p.a}</li>)}
+            </ul>
+          )}
+          <div className="ring-soft rounded-2xl border border-line bg-paper-card p-6"><ItineraryMD md={shared.i} /></div>
+          <button onClick={exitShared} style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%", animation: "gradient-shift 6s ease-in-out infinite" }} className="mt-6 rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105">Plan your own trip →</button>
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="grain-overlay" />
+      {toast && <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-ink px-4 py-2 text-sm text-paper shadow-lg">{toast}</div>}
       <motion.div aria-hidden animate={{ x: [0, 30, 0], y: [0, 16, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
       <motion.div aria-hidden animate={{ x: [0, -24, 0], y: [0, 24, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
 
@@ -181,7 +247,11 @@ export default function Home() {
             <p className="mx-auto mt-4 max-w-xl text-lg font-medium text-ink-soft drop-shadow-[0_1px_8px_rgba(244,238,227,0.95)]">
               Tell us what you love. We&apos;ll ask a couple of quick questions, then plan a trip anywhere in India — with real places <span className="text-verified">verified by creators</span>.
             </p>
+            <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }} className="mt-8 flex justify-center text-ink-mute">
+              <span className="text-2xl">↓</span>
+            </motion.div>
           </motion.div>
+          <HeroStrip />
         </section>
 
         {/* STAGE: compose */}
@@ -286,7 +356,11 @@ export default function Home() {
             {result.culturalVibe && result.culturalVibe.length > 0 && (
               <section className="mb-12">
                 <SectionLabel>Your cultural vibe</SectionLabel>
-                <p className="mb-5 text-sm text-ink-mute">Films, shows, music &amp; books Qloo says share your taste DNA — the cross-domain thread behind your trip.</p>
+                <p className="mb-5 text-sm text-ink-mute">
+                  {result.culturalSeeds && result.culturalSeeds.length > 0
+                    ? <>Because you love <span className="font-medium text-ink-soft">{result.culturalSeeds.join(", ")}</span>, Qloo cross-matched these films, shows, music &amp; books you&apos;d also enjoy — the taste thread behind your trip.</>
+                    : <>Films, shows, music &amp; books Qloo says share your taste DNA — the cross-domain thread behind your trip.</>}
+                </p>
                 <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2">
                   {result.culturalVibe.map((c, i) => {
                     const m = CULTURE_META[c.domain] ?? { icon: "✨", label: "Pick" };
@@ -374,20 +448,25 @@ export default function Home() {
               <section>
                 <SectionLabel>The plan</SectionLabel>
                 <div className="ring-soft mt-3 rounded-2xl border border-line bg-paper-card p-6">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
-                    h1: ({ node, ...p }) => <h3 className="font-display text-2xl text-ink" {...p} />,
-                    h2: ({ node, ...p }) => <h3 className="mt-4 font-display text-xl text-ink" {...p} />,
-                    h3: ({ node, ...p }) => <h4 className="mt-5 text-sm font-semibold text-ink" {...p} />,
-                    p: ({ node, ...p }) => <p className="mt-2 leading-relaxed text-ink-soft" {...p} />,
-                    strong: ({ node, ...p }) => <strong className="font-semibold text-ink" {...p} />,
-                    ul: ({ node, ...p }) => <ul className="mt-1.5 space-y-1 text-ink-soft" {...p} />,
-                    li: ({ node, ...p }) => <li className="ml-4 list-disc marker:text-saffron" {...p} />,
-                    table: ({ node, ...p }) => <div className="mt-2 overflow-x-auto"><table className="w-full text-sm" {...p} /></div>,
-                    th: ({ node, ...p }) => <th className="border-b border-line px-2 py-1 text-left font-medium text-ink" {...p} />,
-                    td: ({ node, ...p }) => <td className="border-b border-line/50 px-2 py-1 align-top text-ink-soft" {...p} />,
-                  }}>{result.itinerary}</ReactMarkdown>
+                  <ItineraryMD md={result.itinerary} />
+                </div>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <button onClick={sharePlan} className="rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-saffron hover:text-saffron">🔗 Share link</button>
+                  <button onClick={copyPlan} className="rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-ink hover:text-ink">Copy</button>
+                  <button onClick={downloadPlan} className="rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-ink hover:text-ink">Download .md</button>
                 </div>
               </section>
+            )}
+
+            {result.trace && result.trace.length > 0 && (
+              <details className="mt-6 text-sm">
+                <summary className="cursor-pointer list-none text-ink-mute hover:text-ink">
+                  <span className="font-medium text-ink-soft">Agent activity</span> — {result.trace.length} Qloo/data calls this plan ▾
+                </summary>
+                <ol className="mt-2 space-y-1 rounded-xl border border-line bg-paper-card/70 p-3 font-mono text-xs text-ink-mute">
+                  {result.trace.map((t, i) => <li key={i} className="truncate"><span className="text-verified">{i + 1}.</span> {t}</li>)}
+                </ol>
+              </details>
             )}
 
             <div className="ring-soft mt-6 rounded-2xl border border-line bg-paper-card/80 p-4 backdrop-blur">
@@ -404,6 +483,23 @@ export default function Home() {
         )}
       </main>
     </div>
+  );
+}
+
+function ItineraryMD({ md }: { md: string }) {
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
+      h1: ({ node, ...p }) => <h3 className="font-display text-2xl text-ink" {...p} />,
+      h2: ({ node, ...p }) => <h3 className="mt-4 font-display text-xl text-ink" {...p} />,
+      h3: ({ node, ...p }) => <h4 className="mt-5 text-sm font-semibold text-ink" {...p} />,
+      p: ({ node, ...p }) => <p className="mt-2 leading-relaxed text-ink-soft" {...p} />,
+      strong: ({ node, ...p }) => <strong className="font-semibold text-ink" {...p} />,
+      ul: ({ node, ...p }) => <ul className="mt-1.5 space-y-1 text-ink-soft" {...p} />,
+      li: ({ node, ...p }) => <li className="ml-4 list-disc marker:text-saffron" {...p} />,
+      table: ({ node, ...p }) => <div className="mt-2 overflow-x-auto"><table className="w-full text-sm" {...p} /></div>,
+      th: ({ node, ...p }) => <th className="border-b border-line px-2 py-1 text-left font-medium text-ink" {...p} />,
+      td: ({ node, ...p }) => <td className="border-b border-line/50 px-2 py-1 align-top text-ink-soft" {...p} />,
+    }}>{md}</ReactMarkdown>
   );
 }
 
