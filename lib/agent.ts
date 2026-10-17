@@ -408,10 +408,35 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
     }
     return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces };
   }
-  return {
-    itinerary: "(The agent didn't converge — try rephrasing your tastes.)",
-    trace,
-    destinations,
-    verifiedPlaces,
-  };
+  // Didn't compose in-loop (the model kept calling tools). Compose from the data we gathered, in a
+  // FRESH context (no tool-call history) so the model writes the plan instead of calling more tools.
+  const dataSummary =
+    `Destinations (from Qloo Taste AI): ${destinations.map((d) => d.name).join(", ") || "none"}.\n` +
+    `Creator-verified places: ${verifiedPlaces.map((p) => p.name + (p.specialities?.length ? ` (${p.specialities.slice(0, 2).join(", ")})` : "")).join("; ") || "none"}.`;
+  try {
+    const composed = await chat(
+      [
+        { role: "system", content: SYSTEM },
+        {
+          role: "user",
+          content: `${userInput}\n\nUse ONLY this data:\n${dataSummary}\n\nNow write the day-by-day itinerary (bold "**Day N — theme**" headings + "- Morning/Afternoon/Evening:" bullets, no tables).`,
+        },
+      ],
+      undefined,
+      { temperature: 0.5, maxTokens: 1600 },
+    );
+    return {
+      itinerary: (composed.content ?? "").trim() || "Here are taste-matched picks for your trip — refine below to shape the plan.",
+      trace,
+      destinations,
+      verifiedPlaces,
+    };
+  } catch {
+    return {
+      itinerary: "Here are taste-matched picks for your trip — refine below to shape the plan.",
+      trace,
+      destinations,
+      verifiedPlaces,
+    };
+  }
 }
