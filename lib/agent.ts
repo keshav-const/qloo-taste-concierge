@@ -309,6 +309,13 @@ STEP A — Identify the DESTINATION (India-wide — do NOT assume Delhi):
 - If they name NO destination, do NOT default to any one city. Lead with India-wide taste-matched
   destinations (from expand_taste) and pick the single strongest match as the DESTINATION to plan —
   it can be anywhere in India, not necessarily a depth city.
+- COVERAGE HONESTY (critical): if they ask for a specific REGION or area (e.g. "Northeast", "South
+  India", "Ladakh") and the destination you actually end up planning is NOT in that region — because
+  your Qloo picks and our data don't really cover it — DO NOT silently plan a different region as if it
+  were what they asked (that reads as the app ignoring them). Instead, OPEN the narrative with one
+  honest sentence, e.g.: "We don't have deep, on-the-ground coverage for <their region> yet — but
+  based on what you love, <chosen destination> is a strong match, so here's a plan for it." Then plan
+  the chosen destination normally. Never pretend the substitute lies in their requested region.
 
 STEP B — Build the plan FOR THAT DESTINATION:
 1. expand_taste target_domain='destination' (India-wide, no city arg) — a few taste-matched cities to

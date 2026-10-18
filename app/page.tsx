@@ -74,14 +74,14 @@ export default function Home() {
   const [shared, setShared] = useState<{ r: string; q: { q: string; a: string }[]; i: string } | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
-  // A shared plan link carries the plan in the URL hash (no backend) — render it read-only.
+  // A shared plan link is a short /?p=<id> — fetch the stored plan and render it read-only.
   useEffect(() => {
-    const m = /#plan=(.+)$/.exec(window.location.hash);
-    if (!m) return;
-    try {
-      const obj = JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(m[1])))));
-      if (obj?.i) setShared({ r: obj.r ?? "", q: Array.isArray(obj.q) ? obj.q : [], i: obj.i });
-    } catch { /* ignore a malformed hash */ }
+    const id = new URLSearchParams(window.location.search).get("p");
+    if (!id) return;
+    fetch(`/api/share?id=${encodeURIComponent(id)}`)
+      .then((r) => r.json())
+      .then((obj) => { if (obj?.i) setShared({ r: obj.r ?? "", q: Array.isArray(obj.q) ? obj.q : [], i: obj.i }); })
+      .catch(() => { /* ignore */ });
   }, []);
 
   function flash(msg: string) { setToast(msg); setTimeout(() => setToast(""), 2400); }
@@ -89,11 +89,15 @@ export default function Home() {
   async function sharePlan() {
     if (!result) return;
     try {
-      const payload = { r: reqText, q: qa, i: result.itinerary };
-      const encoded = encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(payload)))));
-      await navigator.clipboard.writeText(`${location.origin}${location.pathname}#plan=${encoded}`);
+      const res = await fetch("/api/share", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ r: reqText, q: qa, i: result.itinerary }),
+      });
+      const d = await res.json();
+      if (!d.id) throw new Error(d.error || "no id");
+      await navigator.clipboard.writeText(`${location.origin}/?p=${d.id}`);
       flash("Share link copied ✓");
-    } catch { flash("Couldn't copy the link"); }
+    } catch { flash("Couldn't create the link"); }
   }
   async function copyPlan() {
     if (!result) return;
@@ -107,7 +111,7 @@ export default function Home() {
     a.href = URL.createObjectURL(blob); a.download = "tastetrail-itinerary.md"; a.click();
     URL.revokeObjectURL(a.href);
   }
-  function exitShared() { setShared(null); window.history.replaceState(null, "", window.location.pathname); }
+  function exitShared() { setShared(null); window.history.replaceState(null, "", "/"); }
 
   const addChip = (label: string) => setTastes((t) => (t.trim() ? `${t.replace(/[.\s]+$/, "")}, ${label}` : `I love ${label}`));
   const destHint = () => dest === "Anywhere in India" ? "(Suggest taste-matched destinations across India and plan the strongest match.)" : `(Destination: ${dest}.)`;

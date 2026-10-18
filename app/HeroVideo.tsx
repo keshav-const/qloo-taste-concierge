@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 
 const VIDEO_ID = "JtOMlDLxEy0";
 const INTRO = 14; // seconds skipped at the start (creator title card)
-const OUTRO = 10; // seconds stopped before the end (creator name / outro)
+const OUTRO = 42; // seconds stopped before the end (creator credits roll)
 
 // Minimal shape of the parts of the YT IFrame API we use.
 type YTPlayer = {
