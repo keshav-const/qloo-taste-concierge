@@ -10,7 +10,17 @@ import SiteHeader from "./SiteHeader";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
-type CreatorVideo = { url: string | null; creator_name: string | null; title: string | null; timestamp_seconds: number | null };
+type CreatorVideo = { url: string | null; creator_name: string | null; title: string | null; timestamp_seconds: number | null; platform?: string | null };
+
+function sourceCta(cv: CreatorVideo): { icon: string; text: string } {
+  const who = cv.creator_name || "source";
+  switch ((cv.platform || "youtube").toLowerCase()) {
+    case "blog": return { icon: "📖", text: `Read ${who}` };
+    case "reddit": return { icon: "🔗", text: who };
+    case "youtube": return { icon: "▶", text: `Watch ${who}` };
+    default: return { icon: "🔗", text: who };
+  }
+}
 type VerifiedPlace = {
   name: string; category: string | null; area: string | null; sources: number;
   specialities: string[]; tips: string[];
@@ -221,11 +231,11 @@ export default function Home() {
       {toast && <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-ink px-4 py-2 text-sm text-paper shadow-lg">{toast}</div>}
       <motion.div aria-hidden animate={{ x: [0, 30, 0], y: [0, 16, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
       <motion.div aria-hidden animate={{ x: [0, -24, 0], y: [0, 24, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
-      {/* color blooms down the content area so the gutters never read as flat white */}
-      <div aria-hidden className="pointer-events-none absolute -left-40 top-[42rem] h-[30rem] w-[30rem] rounded-full bg-saffron/15 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -right-48 top-[70rem] h-[32rem] w-[32rem] rounded-full bg-[#c23d6a]/12 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -left-44 top-[104rem] h-[30rem] w-[30rem] rounded-full bg-verified/12 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -right-40 top-[138rem] h-[30rem] w-[30rem] rounded-full bg-saffron/12 blur-3xl" />
+      {/* animated color blooms down the content area so the gutters breathe, never flat white */}
+      <motion.div aria-hidden animate={{ x: [0, 28, 0], y: [0, -20, 0], scale: [1, 1.08, 1] }} transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -left-40 top-[42rem] h-[30rem] w-[30rem] rounded-full bg-saffron/15 blur-3xl" />
+      <motion.div aria-hidden animate={{ x: [0, -26, 0], y: [0, 24, 0], scale: [1, 1.1, 1] }} transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-48 top-[70rem] h-[32rem] w-[32rem] rounded-full bg-[#c23d6a]/12 blur-3xl" />
+      <motion.div aria-hidden animate={{ x: [0, 24, 0], y: [0, -18, 0], scale: [1, 1.07, 1] }} transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -left-44 top-[104rem] h-[30rem] w-[30rem] rounded-full bg-verified/12 blur-3xl" />
+      <motion.div aria-hidden animate={{ x: [0, -22, 0], y: [0, 22, 0], scale: [1, 1.09, 1] }} transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-40 top-[138rem] h-[30rem] w-[30rem] rounded-full bg-saffron/12 blur-3xl" />
 
       <SiteHeader />
 
@@ -437,11 +447,11 @@ export default function Home() {
                           </div>
                           {(p.creator_video?.url || p.maps_url) && (
                             <div className="mt-2 flex flex-wrap items-center gap-3 text-xs">
-                              {p.creator_video?.url && (
+                              {p.creator_video?.url && (() => { const cta = sourceCta(p.creator_video!); return (
                                 <a href={p.creator_video.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-medium text-saffron hover:underline">
-                                  ▶ {p.creator_video.creator_name ? `Watch ${p.creator_video.creator_name}` : "Watch the creator"}
+                                  {cta.icon} {cta.text}
                                 </a>
-                              )}
+                              ); })()}
                               {p.maps_url && (
                                 <a href={p.maps_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-ink-mute hover:text-ink hover:underline">📍 Map</a>
                               )}
