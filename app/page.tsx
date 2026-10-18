@@ -221,6 +221,11 @@ export default function Home() {
       {toast && <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-ink px-4 py-2 text-sm text-paper shadow-lg">{toast}</div>}
       <motion.div aria-hidden animate={{ x: [0, 30, 0], y: [0, 16, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
       <motion.div aria-hidden animate={{ x: [0, -24, 0], y: [0, 24, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
+      {/* color blooms down the content area so the gutters never read as flat white */}
+      <div aria-hidden className="pointer-events-none absolute -left-40 top-[42rem] h-[30rem] w-[30rem] rounded-full bg-saffron/15 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -right-48 top-[70rem] h-[32rem] w-[32rem] rounded-full bg-[#c23d6a]/12 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -left-44 top-[104rem] h-[30rem] w-[30rem] rounded-full bg-verified/12 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -right-40 top-[138rem] h-[30rem] w-[30rem] rounded-full bg-saffron/12 blur-3xl" />
 
       <SiteHeader />
 

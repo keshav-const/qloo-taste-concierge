@@ -1,7 +1,7 @@
 {
-  "exported_at": "2026-10-17T20:05:07.228584Z",
+  "exported_at": "2026-10-18T09:28:23.833976Z",
   "source": "Rasta (frozen) — India creator-evidence graph",
-  "poi_count": 143,
+  "poi_count": 171,
   "pois": [
     {
       "name": "Mamas Restaurant",
@@ -88,132 +88,6 @@
         "title": "Central Delhi Asli Food Legends! Chole Bhature, Mysore Dosa, Bakery, Chicken Tikka & Butter Chicken",
         "views": 15030,
         "timestamp_seconds": 346
-      }
-    },
-    {
-      "name": "Lotus Temple",
-      "name_local": "लोटस टेंपल",
-      "slug": "lotus-temple",
-      "normalized_name": "lotus temple",
-      "entity_type": "poi",
-      "poi_category": "temple",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.4942,
-      "frequency_count": 2,
-      "specialities": [
-        "Baha'i House of Worship, Lotus shape, Meditation hall"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": "Early morning or Late evening",
-      "price_level": "Free",
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.9,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Baha'i House of Worship, Lotus shape, Meditation hall",
-              "evidence": "इस टेंपल का आर्किटेक्चर बहुत ब्यूटीफुल है... शेप एक लोटस के फ्लower जैसी है... बेसिकली यह टेंपल है मेडिटेशन के लिए",
-              "confidence": 0.95,
-              "timestamp_seconds": 64
-            },
-            {
-              "field": "capacity",
-              "value": "25,000 people",
-              "evidence": "अंदर एक बड़ा सा हॉल बना हुआ है जिसमें एक बार में 25 हजार लोग बैठ सकते हैं",
-              "confidence": 0.9,
-              "timestamp_seconds": 74
-            },
-            {
-              "field": "opening_hours",
-              "value": "Around 8:00 AM",
-              "evidence": "लोटस टेंपल सुबह 8:00 बजे के आसपास ओपन हो जाता है",
-              "confidence": 0.9,
-              "timestamp_seconds": 87
-            },
-            {
-              "field": "closing_hours",
-              "value": "6:00 PM",
-              "evidence": "लास्ट एंट्री आपको मिल जाएगी शाम के 6:00 बजे तक",
-              "confidence": 0.9,
-              "timestamp_seconds": 91
-            },
-            {
-              "field": "closed_days",
-              "value": "Monday",
-              "evidence": "मंडे को यह क्लोज्ड रहता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 92
-            },
-            {
-              "field": "average_cost",
-              "value": "Free entry",
-              "evidence": "यहां पर एंट्री के कोई भी चार्जेस नहीं है",
-              "confidence": 0.95,
-              "timestamp_seconds": 94
-            },
-            {
-              "field": "parking",
-              "value": "₹40 for 2 hours",
-              "evidence": "अगर आपको अपनी कार पार्क करनी है तो उसके लिए आपको पे करने होंगे ₹ फॉर 2 आवर्स",
-              "confidence": 0.9,
-              "timestamp_seconds": 96
-            },
-            {
-              "field": "best_time",
-              "value": "Early morning or Late evening",
-              "evidence": "समर्स में अगर आप यहां पर जा रहे हो तो अर्ली मॉर्निंग जाना या फिर लेट इवनिंग",
-              "confidence": 0.9,
-              "timestamp_seconds": 101
-            }
-          ],
-          "views": 376773,
-          "upload_date": "2025-08-29",
-          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
-          "video_id": "Lw6PIT-wOMU",
-          "platform": "youtube",
-          "creator_name": "Saturday Shooters",
-          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-          "timestamp_seconds": 64,
-          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=64"
-        },
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "price_level",
-              "value": "Free",
-              "evidence": "जहाँ की एंट्री बिल्कुल फ्री होती है",
-              "confidence": 0.95,
-              "timestamp_seconds": 511
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
-          "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 511,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=511"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=64",
-        "video_id": "Lw6PIT-wOMU",
-        "platform": "youtube",
-        "creator_name": "Saturday Shooters",
-        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-        "views": 376773,
-        "timestamp_seconds": 64
       }
     },
     {
@@ -340,6 +214,132 @@
         "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
         "views": 376773,
         "timestamp_seconds": 19
+      }
+    },
+    {
+      "name": "Lotus Temple",
+      "name_local": "लोटस टेंपल",
+      "slug": "lotus-temple",
+      "normalized_name": "lotus temple",
+      "entity_type": "poi",
+      "poi_category": "temple",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4942,
+      "frequency_count": 2,
+      "specialities": [
+        "Baha'i House of Worship, Lotus shape, Meditation hall"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": "Early morning or Late evening",
+      "price_level": "Free",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Baha'i House of Worship, Lotus shape, Meditation hall",
+              "evidence": "इस टेंपल का आर्किटेक्चर बहुत ब्यूटीफुल है... शेप एक लोटस के फ्लower जैसी है... बेसिकली यह टेंपल है मेडिटेशन के लिए",
+              "confidence": 0.95,
+              "timestamp_seconds": 64
+            },
+            {
+              "field": "capacity",
+              "value": "25,000 people",
+              "evidence": "अंदर एक बड़ा सा हॉल बना हुआ है जिसमें एक बार में 25 हजार लोग बैठ सकते हैं",
+              "confidence": 0.9,
+              "timestamp_seconds": 74
+            },
+            {
+              "field": "opening_hours",
+              "value": "Around 8:00 AM",
+              "evidence": "लोटस टेंपल सुबह 8:00 बजे के आसपास ओपन हो जाता है",
+              "confidence": 0.9,
+              "timestamp_seconds": 87
+            },
+            {
+              "field": "closing_hours",
+              "value": "6:00 PM",
+              "evidence": "लास्ट एंट्री आपको मिल जाएगी शाम के 6:00 बजे तक",
+              "confidence": 0.9,
+              "timestamp_seconds": 91
+            },
+            {
+              "field": "closed_days",
+              "value": "Monday",
+              "evidence": "मंडे को यह क्लोज्ड रहता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 92
+            },
+            {
+              "field": "average_cost",
+              "value": "Free entry",
+              "evidence": "यहां पर एंट्री के कोई भी चार्जेस नहीं है",
+              "confidence": 0.95,
+              "timestamp_seconds": 94
+            },
+            {
+              "field": "parking",
+              "value": "₹40 for 2 hours",
+              "evidence": "अगर आपको अपनी कार पार्क करनी है तो उसके लिए आपको पे करने होंगे ₹ फॉर 2 आवर्स",
+              "confidence": 0.9,
+              "timestamp_seconds": 96
+            },
+            {
+              "field": "best_time",
+              "value": "Early morning or Late evening",
+              "evidence": "समर्स में अगर आप यहां पर जा रहे हो तो अर्ली मॉर्निंग जाना या फिर लेट इवनिंग",
+              "confidence": 0.9,
+              "timestamp_seconds": 101
+            }
+          ],
+          "views": 376773,
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 64,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=64"
+        },
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "price_level",
+              "value": "Free",
+              "evidence": "जहाँ की एंट्री बिल्कुल फ्री होती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 511
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 511,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=511"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=64",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 64
       }
     },
     {
@@ -1995,96 +1995,6 @@
       }
     },
     {
-      "name": "Akshardham Temple",
-      "name_local": "अक्षरधाम टेंपल",
-      "slug": "akshardham-temple",
-      "normalized_name": "akshardham temple",
-      "entity_type": "poi",
-      "poi_category": "temple",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.4418,
-      "frequency_count": 1,
-      "specialities": [
-        "Swami Narayan Temple, Beautiful Architecture"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": 260,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.9,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Swami Narayan Temple, Beautiful Architecture",
-              "evidence": "बहुत ही सुंदर स्वामी नारायण जी का टेंपल है... आर्किटेक्चर आपको बहुत पसंद आएगा",
-              "confidence": 0.95,
-              "timestamp_seconds": 565
-            },
-            {
-              "field": "closed_days",
-              "value": "Monday",
-              "evidence": "मंडे को यह बंद रहता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 568
-            },
-            {
-              "field": "opening_hours",
-              "value": "10:00 AM",
-              "evidence": "सुबह 10:00 बजे से",
-              "confidence": 0.9,
-              "timestamp_seconds": 571
-            },
-            {
-              "field": "closing_hours",
-              "value": "6:30 PM",
-              "evidence": "शाम के 6:30 बजे तक",
-              "confidence": 0.9,
-              "timestamp_seconds": 573
-            },
-            {
-              "field": "average_cost",
-              "value": "Free for temple, ~₹260 for exhibitions",
-              "evidence": "सिर्फ टेंपल विजिट करने के कोई भी चार्जेस नहीं है... टिकट का प्राइस है लगभग ₹260 पर एडल्ट",
-              "confidence": 0.9,
-              "timestamp_seconds": 577
-            },
-            {
-              "field": "rules",
-              "value": "No photography/videography inside",
-              "evidence": "अंदर फोटोग्राफी एंड वीडियोग्राफी अलाउड नहीं है",
-              "confidence": 0.95,
-              "timestamp_seconds": 582
-            }
-          ],
-          "views": 376773,
-          "upload_date": "2025-08-29",
-          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
-          "video_id": "Lw6PIT-wOMU",
-          "platform": "youtube",
-          "creator_name": "Saturday Shooters",
-          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-          "timestamp_seconds": 565,
-          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=565"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=565",
-        "video_id": "Lw6PIT-wOMU",
-        "platform": "youtube",
-        "creator_name": "Saturday Shooters",
-        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-        "views": 376773,
-        "timestamp_seconds": 565
-      }
-    },
-    {
       "name": "India Gate & Kartavya Path",
       "name_local": "इंडिया गेट एंड कर्तव्य पथ",
       "slug": "india-gate-kartavya-path",
@@ -2175,6 +2085,96 @@
       }
     },
     {
+      "name": "Akshardham Temple",
+      "name_local": "अक्षरधाम टेंपल",
+      "slug": "akshardham-temple",
+      "normalized_name": "akshardham temple",
+      "entity_type": "poi",
+      "poi_category": "temple",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4418,
+      "frequency_count": 1,
+      "specialities": [
+        "Swami Narayan Temple, Beautiful Architecture"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 260,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Swami Narayan Temple, Beautiful Architecture",
+              "evidence": "बहुत ही सुंदर स्वामी नारायण जी का टेंपल है... आर्किटेक्चर आपको बहुत पसंद आएगा",
+              "confidence": 0.95,
+              "timestamp_seconds": 565
+            },
+            {
+              "field": "closed_days",
+              "value": "Monday",
+              "evidence": "मंडे को यह बंद रहता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 568
+            },
+            {
+              "field": "opening_hours",
+              "value": "10:00 AM",
+              "evidence": "सुबह 10:00 बजे से",
+              "confidence": 0.9,
+              "timestamp_seconds": 571
+            },
+            {
+              "field": "closing_hours",
+              "value": "6:30 PM",
+              "evidence": "शाम के 6:30 बजे तक",
+              "confidence": 0.9,
+              "timestamp_seconds": 573
+            },
+            {
+              "field": "average_cost",
+              "value": "Free for temple, ~₹260 for exhibitions",
+              "evidence": "सिर्फ टेंपल विजिट करने के कोई भी चार्जेस नहीं है... टिकट का प्राइस है लगभग ₹260 पर एडल्ट",
+              "confidence": 0.9,
+              "timestamp_seconds": 577
+            },
+            {
+              "field": "rules",
+              "value": "No photography/videography inside",
+              "evidence": "अंदर फोटोग्राफी एंड वीडियोग्राफी अलाउड नहीं है",
+              "confidence": 0.95,
+              "timestamp_seconds": 582
+            }
+          ],
+          "views": 376773,
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 565,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=565"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=565",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 565
+      }
+    },
+    {
       "name": "Jagdish Poha & Kachori",
       "name_local": "जगदीश पोहा एवं कचौरी",
       "slug": "jagdish-poha-kachori",
@@ -2257,6 +2257,96 @@
         "title": "BEST Food in Udaipur | Desi GHEE Loaded Paratha, Jagdish POHA & Kachori, UNLIMITED Thali",
         "views": 24895,
         "timestamp_seconds": 13
+      }
+    },
+    {
+      "name": "National Crafts Museum",
+      "name_local": "नेशनल क्रैफ्ट म्यूज़ियम",
+      "slug": "national-crafts-museum",
+      "normalized_name": "national crafts museum",
+      "entity_type": "poi",
+      "poi_category": "museum",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4371,
+      "frequency_count": 1,
+      "specialities": [
+        "Indian Heritage, Culture, Handicrafts"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "Free",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "best_for",
+              "value": "Women, Culture Lovers",
+              "evidence": "यह जगह महिलाओं को बहुत पसंद आती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 356
+            },
+            {
+              "field": "speciality",
+              "value": "Indian Heritage, Culture, Handicrafts",
+              "evidence": "देश की रिसनेस, कल्चर और धरोहर को कैसे सजाया गया है... अलग-अलग स्टेट्स में कैसे घर हुआ करते थे",
+              "confidence": 0.95,
+              "timestamp_seconds": 358
+            },
+            {
+              "field": "price_level",
+              "value": "Free",
+              "evidence": "यहाँ की एंट्री बिल्कुल फ्री है",
+              "confidence": 0.95,
+              "timestamp_seconds": 369
+            },
+            {
+              "field": "opening_hours",
+              "value": "10:00 AM",
+              "evidence": "टाइमिंग सुबह 10:00 बजे से",
+              "confidence": 0.95,
+              "timestamp_seconds": 371
+            },
+            {
+              "field": "closing_hours",
+              "value": "7:00 PM",
+              "evidence": "शाम के 7:00 बजे तक",
+              "confidence": 0.95,
+              "timestamp_seconds": 373
+            },
+            {
+              "field": "transport",
+              "value": "Supreme Court Metro Station",
+              "evidence": "नियरेस्ट मेट्रो स्टेशन यहाँ का सुप्रीम कोर्ट ही है",
+              "confidence": 0.95,
+              "timestamp_seconds": 375
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 356,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=356"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=356",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 356
       }
     },
     {
@@ -2349,96 +2439,6 @@
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
         "timestamp_seconds": 189
-      }
-    },
-    {
-      "name": "National Crafts Museum",
-      "name_local": "नेशनल क्रैफ्ट म्यूज़ियम",
-      "slug": "national-crafts-museum",
-      "normalized_name": "national crafts museum",
-      "entity_type": "poi",
-      "poi_category": "museum",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.4371,
-      "frequency_count": 1,
-      "specialities": [
-        "Indian Heritage, Culture, Handicrafts"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": "Free",
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "best_for",
-              "value": "Women, Culture Lovers",
-              "evidence": "यह जगह महिलाओं को बहुत पसंद आती है",
-              "confidence": 0.95,
-              "timestamp_seconds": 356
-            },
-            {
-              "field": "speciality",
-              "value": "Indian Heritage, Culture, Handicrafts",
-              "evidence": "देश की रिसनेस, कल्चर और धरोहर को कैसे सजाया गया है... अलग-अलग स्टेट्स में कैसे घर हुआ करते थे",
-              "confidence": 0.95,
-              "timestamp_seconds": 358
-            },
-            {
-              "field": "price_level",
-              "value": "Free",
-              "evidence": "यहाँ की एंट्री बिल्कुल फ्री है",
-              "confidence": 0.95,
-              "timestamp_seconds": 369
-            },
-            {
-              "field": "opening_hours",
-              "value": "10:00 AM",
-              "evidence": "टाइमिंग सुबह 10:00 बजे से",
-              "confidence": 0.95,
-              "timestamp_seconds": 371
-            },
-            {
-              "field": "closing_hours",
-              "value": "7:00 PM",
-              "evidence": "शाम के 7:00 बजे तक",
-              "confidence": 0.95,
-              "timestamp_seconds": 373
-            },
-            {
-              "field": "transport",
-              "value": "Supreme Court Metro Station",
-              "evidence": "नियरेस्ट मेट्रो स्टेशन यहाँ का सुप्रीम कोर्ट ही है",
-              "confidence": 0.95,
-              "timestamp_seconds": 375
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
-          "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 356,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=356"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=356",
-        "video_id": "g3HUYC1Ui8w",
-        "platform": "youtube",
-        "creator_name": "AC Delhi Vlogs",
-        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-        "views": 726485,
-        "timestamp_seconds": 356
       }
     },
     {
@@ -3748,6 +3748,70 @@
       }
     },
     {
+      "name": "Gurudongmar Lake",
+      "name_local": "गुरुडोंगमार झील",
+      "slug": "gurudongmar-lake",
+      "normalized_name": "gurudongmar lake",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.4082,
+      "frequency_count": 1,
+      "specialities": [
+        "One of the highest lakes in the world with high-altitude desert landscapes resembling Ladakh or Spiti."
+      ],
+      "tips": null,
+      "warnings": [
+        "Extreme high altitude location where travelers often face breathing issues; avoid spending too long at the lake and carry an oxygen cylinder"
+      ],
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 1.0,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "One of the highest lakes in the world with high-altitude desert landscapes resembling Ladakh or Spiti.",
+              "evidence": "One of the most beautiful location... highest lake in the world which is Gurudongmar Lake... similar landscape you will see to Ladakh/Spiti.",
+              "confidence": 0.95,
+              "timestamp_seconds": 362
+            },
+            {
+              "field": "warning",
+              "value": "Extreme high altitude location where travelers often face breathing issues; avoid spending too long at the lake and carry an oxygen cylinder",
+              "evidence": "जितने भी हायर माउंटेन लाइक एरिया आएंगे लाइक गुरुदंगमा लेक नाथफुला पास वहां पे आपको ज्यादा नहीं रुकना है। बिकॉज़ आई पर्सनली हैव सीन सम पीपल फेसिंग ब्रीथिंग इशज़। तो वहां पे फिर ऑक्सीजन सिलेंडर आपके पास होना चाहिए।",
+              "confidence": 0.95,
+              "timestamp_seconds": 724
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 362,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=362"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=362",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 362
+      }
+    },
+    {
       "name": "Bal Ji Restaurant",
       "name_local": null,
       "slug": "bal-ji-restaurant",
@@ -4208,6 +4272,82 @@
       }
     },
     {
+      "name": "Waste to Wonder Park",
+      "name_local": "वेस्ट टू वंडर",
+      "slug": "waste-to-wonder-park",
+      "normalized_name": "waste to wonder park",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.4034,
+      "frequency_count": 1,
+      "specialities": [
+        "Replicas of 7 Wonders made from waste"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "₹50 (Weekdays), ₹100 (Weekends)",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Replicas of 7 Wonders made from waste",
+              "evidence": "यहाँ आपको सात अजूबे देखने को मिलते हैं... वेस्ट, लोहे और जो भी कबाड़ होते हैं उन सभी चीज़ों से इसे बनाया गया है",
+              "confidence": 0.95,
+              "timestamp_seconds": 416
+            },
+            {
+              "field": "activities",
+              "value": "Dinosaur Park",
+              "evidence": "वेस्ट टू वंडर के अंदर ही आपको एक डायनासोर पार्क भी देखने को मिलता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 424
+            },
+            {
+              "field": "best_for",
+              "value": "Children, Families",
+              "evidence": "यह जगह बच्चों और परिवार को घुमाने के लिए सबसे अच्छी जगह है",
+              "confidence": 0.95,
+              "timestamp_seconds": 431
+            },
+            {
+              "field": "price_level",
+              "value": "₹50 (Weekdays), ₹100 (Weekends)",
+              "evidence": "यहाँ की टिकट वीक डेज पर ₹50 और वीक एंड्स पे ₹100 है",
+              "confidence": 0.95,
+              "timestamp_seconds": 433
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 416,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=416"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=416",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 416
+      }
+    },
+    {
       "name": "National Science Centre",
       "name_local": "साइंस म्यूजियम",
       "slug": "national-science-centre",
@@ -4284,79 +4424,129 @@
       }
     },
     {
-      "name": "Waste to Wonder Park",
-      "name_local": "वेस्ट टू वंडर",
-      "slug": "waste-to-wonder-park",
-      "normalized_name": "waste to wonder park",
+      "name": "Baba Harbhajan Singh Temple",
+      "name_local": "बाबा हरभजन सिंह मंदिर",
+      "slug": "baba-harbhajan-singh-temple",
+      "normalized_name": "baba harbhajan singh temple",
       "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "delhi",
+      "poi_category": "temple",
+      "destination": "sikkim",
       "area": null,
-      "recommendation_score": 0.4034,
+      "recommendation_score": 0.4032,
       "frequency_count": 1,
       "specialities": [
-        "Replicas of 7 Wonders made from waste"
+        "Dedicated to Indian soldier Baba Harbhajan Singh; fascinating military history."
       ],
-      "tips": null,
+      "tips": [
+        "Must-visit site during the East Sikkim day tour."
+      ],
       "warnings": null,
       "best_time": null,
-      "price_level": "₹50 (Weekdays), ₹100 (Weekends)",
+      "price_level": null,
       "average_cost_inr": null,
       "crowd_info": null,
       "verification_status": "ai_extracted",
       "evidence": [
         {
           "stance": "recommended",
-          "strength": 0.8,
+          "strength": 0.95,
           "claims": [
             {
               "field": "speciality",
-              "value": "Replicas of 7 Wonders made from waste",
-              "evidence": "यहाँ आपको सात अजूबे देखने को मिलते हैं... वेस्ट, लोहे और जो भी कबाड़ होते हैं उन सभी चीज़ों से इसे बनाया गया है",
+              "value": "Dedicated to Indian soldier Baba Harbhajan Singh; fascinating military history.",
+              "evidence": "This is dedicated to Indian soldier Baba Harbhajan Singh. Believed by many that he is still taking care of that border area.",
               "confidence": 0.95,
-              "timestamp_seconds": 416
+              "timestamp_seconds": 305
             },
             {
-              "field": "activities",
-              "value": "Dinosaur Park",
-              "evidence": "वेस्ट टू वंडर के अंदर ही आपको एक डायनासोर पार्क भी देखने को मिलता है",
+              "field": "tip",
+              "value": "Must-visit site during the East Sikkim day tour.",
+              "evidence": "If you go there and you read about the history then it is very fascinating. So again you can't miss on that.",
               "confidence": 0.95,
-              "timestamp_seconds": 424
-            },
-            {
-              "field": "best_for",
-              "value": "Children, Families",
-              "evidence": "यह जगह बच्चों और परिवार को घुमाने के लिए सबसे अच्छी जगह है",
-              "confidence": 0.95,
-              "timestamp_seconds": 431
-            },
-            {
-              "field": "price_level",
-              "value": "₹50 (Weekdays), ₹100 (Weekends)",
-              "evidence": "यहाँ की टिकट वीक डेज पर ₹50 और वीक एंड्स पे ₹100 है",
-              "confidence": 0.95,
-              "timestamp_seconds": 433
+              "timestamp_seconds": 312
             }
           ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
           "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 416,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=416"
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 305,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=305"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=416",
-        "video_id": "g3HUYC1Ui8w",
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=305",
+        "video_id": "lQLmKHHIHIQ",
         "platform": "youtube",
-        "creator_name": "AC Delhi Vlogs",
-        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-        "views": 726485,
-        "timestamp_seconds": 416
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 305
+      }
+    },
+    {
+      "name": "Khecheopalri Lake",
+      "name_local": "खेचियोपलरी झील",
+      "slug": "khecheopalri-lake",
+      "normalized_name": "khecheopalri lake",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.4032,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": [
+        "A highly recommended lake in West Sikkim that should not be missed."
+      ],
+      "warnings": null,
+      "best_time": "Visit during the evening to relax.",
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "best_time",
+              "value": "Visit during the evening to relax.",
+              "evidence": "प्लैटली गो देयर ड्यूरिंग लाइक इवनिंग। और वहां पे जाके यू कैन रिलैक्स।",
+              "confidence": 0.9,
+              "timestamp_seconds": 449
+            },
+            {
+              "field": "tip",
+              "value": "A highly recommended lake in West Sikkim that should not be missed.",
+              "evidence": "There is also one most beautiful Khecheopalri Lake... इसको मिस मत करना प्लीज।",
+              "confidence": 0.95,
+              "timestamp_seconds": 444
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 444,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=444"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=444",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 444
       }
     },
     {
@@ -4598,21 +4788,23 @@
       }
     },
     {
-      "name": "Adventure Island",
-      "name_local": "एडवेंचर आइलैंड",
-      "slug": "adventure-island",
-      "normalized_name": "adventure island",
+      "name": "Nathu La Pass",
+      "name_local": "नाथूला दर्रा",
+      "slug": "nathu-la-pass",
+      "normalized_name": "nathu la pass",
       "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "delhi",
+      "poi_category": "viewpoint",
+      "destination": "sikkim",
       "area": null,
-      "recommendation_score": 0.3981,
+      "recommendation_score": 0.3982,
       "frequency_count": 1,
-      "specialities": [
-        "Thrilling rides, Water rides, Boating"
+      "specialities": null,
+      "tips": [
+        "Usually covered on Day 2 as part of a day tour from Gangtok alongside Tsomgo Lake and Baba Harbhajan Singh Temple."
       ],
-      "tips": null,
-      "warnings": null,
+      "warnings": [
+        "High altitude pass; stay hydrated and do not stay too long to avoid altitude sickness"
+      ],
       "best_time": null,
       "price_level": null,
       "average_cost_inr": null,
@@ -4621,56 +4813,42 @@
       "evidence": [
         {
           "stance": "recommended",
-          "strength": 0.8,
+          "strength": 0.9,
           "claims": [
             {
-              "field": "speciality",
-              "value": "Thrilling rides, Water rides, Boating",
-              "evidence": "काफी सारी थ्रिलिंग राइड्स एंड वॉटर राइड्स के ऑप्शन मिल जाएंगे... बोटिंग भी कर सकते हो",
-              "confidence": 0.9,
-              "timestamp_seconds": 594
+              "field": "tip",
+              "value": "Usually covered on Day 2 as part of a day tour from Gangtok alongside Tsomgo Lake and Baba Harbhajan Singh Temple.",
+              "evidence": "डे टू पे आप इन तीनों डेस्टिनेशंस का डे टूर करोगे।",
+              "confidence": 0.95,
+              "timestamp_seconds": 316
             },
             {
-              "field": "size",
-              "value": "62 acres",
-              "evidence": "यह प्लेस 62 एक्स में फैला हुआ है",
-              "confidence": 0.9,
-              "timestamp_seconds": 593
-            },
-            {
-              "field": "opening_hours",
-              "value": "11:00 AM",
-              "evidence": "सुबह 11:00 बजे से",
-              "confidence": 0.9,
-              "timestamp_seconds": 605
-            },
-            {
-              "field": "closing_hours",
-              "value": "7:00 PM",
-              "evidence": "शाम के 7:00 बजे तक",
-              "confidence": 0.9,
-              "timestamp_seconds": 607
+              "field": "warning",
+              "value": "High altitude pass; stay hydrated and do not stay too long to avoid altitude sickness",
+              "evidence": "जितने भी हायर माउंटेन लाइक एरिया आएंगे लाइक गुरुदंगमा लेक नाथफुला पास वहां पे आपको ज्यादा नहीं रुकना है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 724
             }
           ],
-          "views": 376773,
-          "upload_date": "2025-08-29",
-          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
-          "video_id": "Lw6PIT-wOMU",
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
           "platform": "youtube",
-          "creator_name": "Saturday Shooters",
-          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-          "timestamp_seconds": 593,
-          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=593"
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 316,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=316"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=593",
-        "video_id": "Lw6PIT-wOMU",
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=316",
+        "video_id": "lQLmKHHIHIQ",
         "platform": "youtube",
-        "creator_name": "Saturday Shooters",
-        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-        "views": 376773,
-        "timestamp_seconds": 593
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 316
       }
     },
     {
@@ -4751,6 +4929,82 @@
         "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
         "views": 376773,
         "timestamp_seconds": 530
+      }
+    },
+    {
+      "name": "Adventure Island",
+      "name_local": "एडवेंचर आइलैंड",
+      "slug": "adventure-island",
+      "normalized_name": "adventure island",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3981,
+      "frequency_count": 1,
+      "specialities": [
+        "Thrilling rides, Water rides, Boating"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Thrilling rides, Water rides, Boating",
+              "evidence": "काफी सारी थ्रिलिंग राइड्स एंड वॉटर राइड्स के ऑप्शन मिल जाएंगे... बोटिंग भी कर सकते हो",
+              "confidence": 0.9,
+              "timestamp_seconds": 594
+            },
+            {
+              "field": "size",
+              "value": "62 acres",
+              "evidence": "यह प्लेस 62 एक्स में फैला हुआ है",
+              "confidence": 0.9,
+              "timestamp_seconds": 593
+            },
+            {
+              "field": "opening_hours",
+              "value": "11:00 AM",
+              "evidence": "सुबह 11:00 बजे से",
+              "confidence": 0.9,
+              "timestamp_seconds": 605
+            },
+            {
+              "field": "closing_hours",
+              "value": "7:00 PM",
+              "evidence": "शाम के 7:00 बजे तक",
+              "confidence": 0.9,
+              "timestamp_seconds": 607
+            }
+          ],
+          "views": 376773,
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": 593,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=593"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM&t=593",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": 593
       }
     },
     {
@@ -5391,6 +5645,61 @@
       }
     },
     {
+      "name": "MG Marg",
+      "name_local": "एम जी मार्ग",
+      "slug": "mg-marg",
+      "normalized_name": "mg marg",
+      "entity_type": "poi",
+      "poi_category": "market",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.3893,
+      "frequency_count": 1,
+      "specialities": [
+        "The main highlight of Gangtok. Extremely clean pedestrian market area with great vibes, local cafes, delicious food, and souvenir shops."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.98,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "The main highlight of Gangtok. Extremely clean pedestrian market area with great vibes, local cafes, delicious food, and souvenir shops.",
+              "evidence": "विज़िट एमजी मार्ग व्हिच इज द मेन हाईलाइट ऑफ गैंगटक तमोल रोड रोड वेरी सुपर क्लीन प्लेस एंड वाइब बहुत अच्छी है। कैफेस आर देयर आर लाइक मेनी कैफेस टू एक्सप्लोर। वहां का एंड फूड इज लाइक वेरी गुड... आप इवनिंग के टाइम एमजी मार्ग एक्सप्लोर करो। कैफेस एक्सप्लोर करो। थोड़ी बहुत विनियर्स की शॉपिंग करो।",
+              "confidence": 0.95,
+              "timestamp_seconds": 208
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 208,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=208"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=208",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 208
+      }
+    },
+    {
       "name": "Mavalli Tiffin Room (MTR)",
       "name_local": "एमटीआर",
       "slug": "mavalli-tiffin-room-mtr",
@@ -5751,90 +6060,23 @@
       }
     },
     {
-      "name": "Garden of Five Senses",
-      "name_local": "गार्डन ऑफ फाइव सेंसेस",
-      "slug": "garden-of-five-senses",
-      "normalized_name": "garden of five senses",
+      "name": "National Rail Museum",
+      "name_local": "रेल म्यूजियम",
+      "slug": "national-rail-museum",
+      "normalized_name": "national rail museum",
       "entity_type": "poi",
-      "poi_category": "park",
-      "destination": "delhi",
-      "area": "Saket",
-      "recommendation_score": 0.3865,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": 35,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.8,
-          "claims": [
-            {
-              "field": "average_cost",
-              "value": "₹35 entry ticket",
-              "evidence": "एंटी टिकट गार्डन की ₹35 है",
-              "confidence": 0.95,
-              "timestamp_seconds": 649
-            },
-            {
-              "field": "opening_hours",
-              "value": "Open all 7 days",
-              "evidence": "यह जगह सप्ताह के सातों दिन खुला रहता है",
-              "confidence": 0.95,
-              "timestamp_seconds": 652
-            },
-            {
-              "field": "ambiance",
-              "value": "Beautiful, popular for couples",
-              "evidence": "बहुत ही सुंदर है... मगर यहां पर कपल्स बहुत ज्यादा आते हैं",
-              "confidence": 0.9,
-              "timestamp_seconds": 643
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
-          "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 643,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=643"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=643",
-        "video_id": "g3HUYC1Ui8w",
-        "platform": "youtube",
-        "creator_name": "AC Delhi Vlogs",
-        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-        "views": 726485,
-        "timestamp_seconds": 643
-      }
-    },
-    {
-      "name": "EOI Adventure Park",
-      "name_local": "EOI Adventure Park",
-      "slug": "eoi-adventure-park",
-      "normalized_name": "eoi adventure park",
-      "entity_type": "poi",
-      "poi_category": "park",
+      "poi_category": "museum",
       "destination": "delhi",
       "area": null,
       "recommendation_score": 0.3865,
       "frequency_count": 1,
       "specialities": [
-        "Adventure activities for families: Treetop, Zip line, Zip cycling, Boating, Food court"
+        "Joy train ride showing train models, museum showcasing Indian railway development"
       ],
       "tips": null,
       "warnings": null,
       "best_time": null,
-      "price_level": "Approx ₹4500 per person",
+      "price_level": "Museum Ticket ₹100, Joy Train Adults ₹50, Kids ₹20",
       "average_cost_inr": null,
       "crowd_info": null,
       "verification_status": "ai_extracted",
@@ -5845,24 +6087,24 @@
           "claims": [
             {
               "field": "speciality",
-              "value": "Adventure activities for families: Treetop, Zip line, Zip cycling, Boating, Food court",
-              "evidence": "पूरे परिवार के साथ घूमने के लिए एकदम परफेक्ट जगह है... ट्रेन लाइन, जिप लाइन, जिप साइकिलिंग, बोटिंग... अंदर आपको फूड कोर्ट मिल जाता है",
+              "value": "Joy train ride showing train models, museum showcasing Indian railway development",
+              "evidence": "आप एक सुंदर सी जॉय ट्रेन की यात्रा कर सकते हैं... अलग-अलग ट्रेन के नमूने दिखाते हुए पूरे रेल म्यूजियम का यह एक चक्कर लगाती है... भारतीय रेल के आज तक के विकास को देख सकेंगे",
               "confidence": 0.9,
-              "timestamp_seconds": 222
+              "timestamp_seconds": 161
             },
             {
               "field": "price_level",
-              "value": "Approx ₹4500 per person",
-              "evidence": "यहां की टिकट लगभग 4500 पर पर्सन होती है",
+              "value": "Museum Ticket ₹100, Joy Train Adults ₹50, Kids ₹20",
+              "evidence": "यहां की टिकट प्राइस ₹100 है और जॉय ट्रेन की सवारी करने के लिए ₹50 एडल्ट्स की टिकट है और किड्स की ₹20",
               "confidence": 0.9,
-              "timestamp_seconds": 237
+              "timestamp_seconds": 178
             },
             {
-              "field": "transport",
-              "value": "Near Trilokpuri Sanjay Lake Metro or Mayur Vihar Phase 1 Metro",
-              "evidence": "यहां का निकटतम मेट्रो स्टेशन है त्रिलोकपुरी संजय लेक और दूसरा मेट्रो स्टेशन है यहां का मेयर विहार फज वन",
+              "field": "closing_hours",
+              "value": "Closed on Mondays",
+              "evidence": "और यह जगह भी मंडे को क्लोज रहता है",
               "confidence": 0.9,
-              "timestamp_seconds": 239
+              "timestamp_seconds": 183
             }
           ],
           "views": 726485,
@@ -5872,18 +6114,18 @@
           "platform": "youtube",
           "creator_name": "AC Delhi Vlogs",
           "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 222,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=222"
+          "timestamp_seconds": 161,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=161"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=222",
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=161",
         "video_id": "g3HUYC1Ui8w",
         "platform": "youtube",
         "creator_name": "AC Delhi Vlogs",
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
-        "timestamp_seconds": 222
+        "timestamp_seconds": 161
       }
     },
     {
@@ -5956,23 +6198,23 @@
       }
     },
     {
-      "name": "National Rail Museum",
-      "name_local": "रेल म्यूजियम",
-      "slug": "national-rail-museum",
-      "normalized_name": "national rail museum",
+      "name": "EOI Adventure Park",
+      "name_local": "EOI Adventure Park",
+      "slug": "eoi-adventure-park",
+      "normalized_name": "eoi adventure park",
       "entity_type": "poi",
-      "poi_category": "museum",
+      "poi_category": "park",
       "destination": "delhi",
       "area": null,
       "recommendation_score": 0.3865,
       "frequency_count": 1,
       "specialities": [
-        "Joy train ride showing train models, museum showcasing Indian railway development"
+        "Adventure activities for families: Treetop, Zip line, Zip cycling, Boating, Food court"
       ],
       "tips": null,
       "warnings": null,
       "best_time": null,
-      "price_level": "Museum Ticket ₹100, Joy Train Adults ₹50, Kids ₹20",
+      "price_level": "Approx ₹4500 per person",
       "average_cost_inr": null,
       "crowd_info": null,
       "verification_status": "ai_extracted",
@@ -5983,24 +6225,24 @@
           "claims": [
             {
               "field": "speciality",
-              "value": "Joy train ride showing train models, museum showcasing Indian railway development",
-              "evidence": "आप एक सुंदर सी जॉय ट्रेन की यात्रा कर सकते हैं... अलग-अलग ट्रेन के नमूने दिखाते हुए पूरे रेल म्यूजियम का यह एक चक्कर लगाती है... भारतीय रेल के आज तक के विकास को देख सकेंगे",
+              "value": "Adventure activities for families: Treetop, Zip line, Zip cycling, Boating, Food court",
+              "evidence": "पूरे परिवार के साथ घूमने के लिए एकदम परफेक्ट जगह है... ट्रेन लाइन, जिप लाइन, जिप साइकिलिंग, बोटिंग... अंदर आपको फूड कोर्ट मिल जाता है",
               "confidence": 0.9,
-              "timestamp_seconds": 161
+              "timestamp_seconds": 222
             },
             {
               "field": "price_level",
-              "value": "Museum Ticket ₹100, Joy Train Adults ₹50, Kids ₹20",
-              "evidence": "यहां की टिकट प्राइस ₹100 है और जॉय ट्रेन की सवारी करने के लिए ₹50 एडल्ट्स की टिकट है और किड्स की ₹20",
+              "value": "Approx ₹4500 per person",
+              "evidence": "यहां की टिकट लगभग 4500 पर पर्सन होती है",
               "confidence": 0.9,
-              "timestamp_seconds": 178
+              "timestamp_seconds": 237
             },
             {
-              "field": "closing_hours",
-              "value": "Closed on Mondays",
-              "evidence": "और यह जगह भी मंडे को क्लोज रहता है",
+              "field": "transport",
+              "value": "Near Trilokpuri Sanjay Lake Metro or Mayur Vihar Phase 1 Metro",
+              "evidence": "यहां का निकटतम मेट्रो स्टेशन है त्रिलोकपुरी संजय लेक और दूसरा मेट्रो स्टेशन है यहां का मेयर विहार फज वन",
               "confidence": 0.9,
-              "timestamp_seconds": 183
+              "timestamp_seconds": 239
             }
           ],
           "views": 726485,
@@ -6010,18 +6252,259 @@
           "platform": "youtube",
           "creator_name": "AC Delhi Vlogs",
           "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 161,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=161"
+          "timestamp_seconds": 222,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=222"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=161",
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=222",
         "video_id": "g3HUYC1Ui8w",
         "platform": "youtube",
         "creator_name": "AC Delhi Vlogs",
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
-        "timestamp_seconds": 161
+        "timestamp_seconds": 222
+      }
+    },
+    {
+      "name": "Garden of Five Senses",
+      "name_local": "गार्डन ऑफ फाइव सेंसेस",
+      "slug": "garden-of-five-senses",
+      "normalized_name": "garden of five senses",
+      "entity_type": "poi",
+      "poi_category": "park",
+      "destination": "delhi",
+      "area": "Saket",
+      "recommendation_score": 0.3865,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": 35,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "average_cost",
+              "value": "₹35 entry ticket",
+              "evidence": "एंटी टिकट गार्डन की ₹35 है",
+              "confidence": 0.95,
+              "timestamp_seconds": 649
+            },
+            {
+              "field": "opening_hours",
+              "value": "Open all 7 days",
+              "evidence": "यह जगह सप्ताह के सातों दिन खुला रहता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 652
+            },
+            {
+              "field": "ambiance",
+              "value": "Beautiful, popular for couples",
+              "evidence": "बहुत ही सुंदर है... मगर यहां पर कपल्स बहुत ज्यादा आते हैं",
+              "confidence": 0.9,
+              "timestamp_seconds": 643
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 643,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=643"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=643",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 643
+      }
+    },
+    {
+      "name": "Yumthang Valley",
+      "name_local": "युमथांग घाटी",
+      "slug": "yumthang-valley",
+      "normalized_name": "yumthang valley",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.3863,
+      "frequency_count": 1,
+      "specialities": [
+        "Famous for stunning natural landscapes."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Famous for stunning natural landscapes.",
+              "evidence": "Yumthang Valley again its famous for the landscapes. So बहुत सुंदर जगह है।",
+              "confidence": 0.9,
+              "timestamp_seconds": 388
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 388,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=388"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=388",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 388
+      }
+    },
+    {
+      "name": "Hanuman Tok",
+      "name_local": "हनुमान टोक",
+      "slug": "hanuman-tok",
+      "normalized_name": "hanuman tok",
+      "entity_type": "poi",
+      "poi_category": "temple",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.3863,
+      "frequency_count": 1,
+      "specialities": [
+        "Beautiful temple surrounded by mountain ranges offering views of Kanchenjunga; a must-visit spot in Gangtok."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Beautiful temple surrounded by mountain ranges offering views of Kanchenjunga; a must-visit spot in Gangtok.",
+              "evidence": "लोकल साइड्स लाइक हनुमान टॉक वि ब्यूटीफुल टेंपल सराउंडेड बाय ब्यूटीफुल माउंटेन रेंजेस कंचनजंगा डेफिनेटली सो इट्स अ सम मस्ट विजिट प्लेस इन गैंगटक हनुमान टॉक",
+              "confidence": 0.95,
+              "timestamp_seconds": 186
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 186,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=186"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=186",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 186
+      }
+    },
+    {
+      "name": "Double Decker Living Root Bridge",
+      "name_local": "डबल डेकर लिविंग रूट ब्रिज",
+      "slug": "double-decker-living-root-bridge",
+      "normalized_name": "double decker living root bridge",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3862,
+      "frequency_count": 1,
+      "specialities": [
+        "One-of-a-kind natural living root bridge created by Khasi tribe using tree roots."
+      ],
+      "tips": [
+        "Experience a natural fish spa in the ponds under the bridge."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 1.0,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "One-of-a-kind natural living root bridge created by Khasi tribe using tree roots.",
+              "evidence": "मेघालय की खासी हिल्स में लोकेटेड यह यूनिक डबल डेकर लिविंग रूट ब्रिजेस दुनिया में अपनी तरह का एक ही है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 336
+            },
+            {
+              "field": "tip",
+              "value": "Experience a natural fish spa in the ponds under the bridge.",
+              "evidence": "डबल डेकर ब्रिज के नीचे आप नेचुरल फिश पोंड्स में अपने पैर डूबा के एक यूनिक स्पा का एक्सपीरियंस ले सकते हैं।",
+              "confidence": 0.9,
+              "timestamp_seconds": 397
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 336,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=336"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=336",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 336
       }
     },
     {
@@ -6373,6 +6856,298 @@
       }
     },
     {
+      "name": "Kanchenjunga Peak",
+      "name_local": "कंचनजंगा",
+      "slug": "kanchenjunga-peak",
+      "normalized_name": "kanchenjunga peak",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.3813,
+      "frequency_count": 1,
+      "specialities": [
+        "Third highest mountain peak in the world."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Third highest mountain peak in the world.",
+              "evidence": "होम टू द थर्ड हाईएस्ट माउंटेन इन द वर्ल्ड व्हिच इज़ कंचनजंगा पीक",
+              "confidence": 0.95,
+              "timestamp_seconds": 56
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 56,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=56"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=56",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 56
+      }
+    },
+    {
+      "name": "Tsomgo Lake",
+      "name_local": "सोम्गो झील",
+      "slug": "tsomgo-lake",
+      "normalized_name": "tsomgo lake",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.3813,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": [
+        "Part of Day 2 excursion combined with Nathu La Pass from Gangtok."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "tip",
+              "value": "Part of Day 2 excursion combined with Nathu La Pass from Gangtok.",
+              "evidence": "डे टू में हमारा डे टूर होगा। फॉर सोगमो लेक एंड नाथुला पास।",
+              "confidence": 0.9,
+              "timestamp_seconds": 240
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 240,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=240"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=240",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 240
+      }
+    },
+    {
+      "name": "Pelling Skywalk",
+      "name_local": "पेलिंग स्काईवाॉक",
+      "slug": "pelling-skywalk",
+      "normalized_name": "pelling skywalk",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.3813,
+      "frequency_count": 1,
+      "specialities": [
+        "India's first glass skywalk offering mesmerizing views."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "India's first glass skywalk offering mesmerizing views.",
+              "evidence": "यह इंडिया का फर्स्ट स्काई वॉक है एंड मेसोराइजिंग यूज़ हैं यहां से भी।",
+              "confidence": 0.95,
+              "timestamp_seconds": 439
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 439,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=439"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=439",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 439
+      }
+    },
+    {
+      "name": "Umngot River (Dawki)",
+      "name_local": "डॉकी रिवर / शॉन्ग पिटिंग",
+      "slug": "umngot-river-dawki",
+      "normalized_name": "umngot river dawki",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3812,
+      "frequency_count": 1,
+      "specialities": [
+        "Considered Asia's cleanest river; water is so transparent that boats appear floating in the air.",
+        "Riverside camping with bonfire, boat ride, cliff jumping, kayaking, snorkeling, swimming"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Considered Asia's cleanest river; water is so transparent that boats appear floating in the air.",
+              "evidence": "हम बात कर रहे हैं ओमगोट या डॉकी रिवर की जिसे एशिया की सबसे क्लीनेस्ट रिवर माना जाता है",
+              "confidence": 0.95,
+              "timestamp_seconds": 244
+            },
+            {
+              "field": "must_try_item",
+              "value": "Riverside camping with bonfire, boat ride, cliff jumping, kayaking, snorkeling, swimming",
+              "evidence": "डॉकी रिवर में बोट राइड के साथ-साथ अब कई सारी वाटर एक्टिविटीज जैसे कि क्लिफ जंपिंग, कयाकिंग, स्नोकलिंग या फिर आप सिंपली डॉकी रिवर में स्विमिंग कर सकते हैं।",
+              "confidence": 0.95,
+              "timestamp_seconds": 256
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 244,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=244"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=244",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 244
+      }
+    },
+    {
+      "name": "Phe Phe Waterfalls",
+      "name_local": "फीफी वॉटरफॉल्स",
+      "slug": "phe-phe-waterfalls",
+      "normalized_name": "phe phe waterfalls",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3812,
+      "frequency_count": 1,
+      "specialities": [
+        "Stunning two-tier waterfall with crystal clear blue waters falling off a cliff."
+      ],
+      "tips": [
+        "Requires a short scenic trek through a bamboo forest to reach."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Stunning two-tier waterfall with crystal clear blue waters falling off a cliff.",
+              "evidence": "फिफी फॉल्स एक शानदार दो टियर वाला वॉटरफॉल है जो अपने क्रिस्टल क्लियर ब्लूर्स के लिए जाना जाता है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 178
+            },
+            {
+              "field": "tip",
+              "value": "Requires a short scenic trek through a bamboo forest to reach.",
+              "evidence": "फीफी फॉल्स तक पहुंचने के लिए विजिटर्स को बमबू फॉरेस्ट से एक छोटा सा सीनिक ट्रैक करना पड़ता है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 194
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 178,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=178"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=178",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 178
+      }
+    },
+    {
       "name": "Jama Masjid Fried Chicken (JFC)",
       "name_local": "जामा मस्जिद फ्राइड चिकन",
       "slug": "jama-masjid-fried-chicken-jfc",
@@ -6442,6 +7217,69 @@
         "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
         "views": 6565893,
         "timestamp_seconds": 462
+      }
+    },
+    {
+      "name": "New Jalpaiguri Railway Station",
+      "name_local": "न्यू जलपाईगुड़ी रेलवे स्टेशन",
+      "slug": "new-jalpaiguri-railway-station",
+      "normalized_name": "new jalpaiguri railway station",
+      "entity_type": "poi",
+      "poi_category": "other",
+      "destination": "darjeeling",
+      "area": null,
+      "recommendation_score": 0.3788,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": [
+        "Nearest railway station for traveling to Sikkim by train. Shared cabs are available at low prices.",
+        "Overnight trains or late evening trains usually depart from NJP."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "tip",
+              "value": "Nearest railway station for traveling to Sikkim by train. Shared cabs are available at low prices.",
+              "evidence": "एंड इफ यू वांट टू रीच बाय ट्रेन देन द नियरेस्ट रेलवे स्टेशन इज़ न्यू जलपाईगुड़ी। अगर आप बजट ट्रेवलर हो तो आपको बहुत सारे शेयरिंग में भी ऑप्शंस मिलेंगे। शेयरिंग कैप्स चलती है जो कि बहुत मिनिमल अमाउंट होते हैं।",
+              "confidence": 0.95,
+              "timestamp_seconds": 97
+            },
+            {
+              "field": "tip",
+              "value": "Overnight trains or late evening trains usually depart from NJP.",
+              "evidence": "अगर आपकी ट्रेन है तो यूजली ट्रेंस ओवरनाइट या इवनिंग में ही होती है लेट इवनिंग में होती है",
+              "confidence": 0.9,
+              "timestamp_seconds": 528
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 97,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=97"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=97",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 97
       }
     },
     {
@@ -6530,6 +7368,70 @@
         "title": "Trying Viral & Overhyped Food Places in Delhi 🔥😱 #shorts #food",
         "views": 1875469,
         "timestamp_seconds": 28
+      }
+    },
+    {
+      "name": "Bun Maska Stall near Leisure Valley Park",
+      "name_local": null,
+      "slug": "bun-maska-stall-near-leisure-valley-park",
+      "normalized_name": "bun maska stall near leisure valley park",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "gurgaon",
+      "area": "Sector 29",
+      "recommendation_score": 0.3777,
+      "frequency_count": 1,
+      "specialities": [
+        "Bun maska with homemade buttermilk; multi-grain buns for healthy option"
+      ],
+      "tips": [
+        "Try the healthy version with multi-grain buns"
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Bun maska with homemade buttermilk; multi-grain buns for healthy option",
+              "evidence": "there's a brother who sits selling Krishna, bun, maska, and buttermilk... Their specialty is buttermilk... They have multi-grain buns.",
+              "confidence": 0.85,
+              "timestamp_seconds": 269
+            },
+            {
+              "field": "tip",
+              "value": "Try the healthy version with multi-grain buns",
+              "evidence": "How can I make the buns in a healthy way? They have multi-grain buns.",
+              "confidence": 0.85,
+              "timestamp_seconds": 297
+            }
+          ],
+          "views": 7778,
+          "upload_date": "2025-12-12",
+          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
+          "video_id": "Nv6lsSN1DtQ",
+          "platform": "youtube",
+          "creator_name": "Veggie Wander",
+          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+          "timestamp_seconds": 269,
+          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=269"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Nv6lsSN1DtQ?t=269",
+        "video_id": "Nv6lsSN1DtQ",
+        "platform": "youtube",
+        "creator_name": "Veggie Wander",
+        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
+        "views": 7778,
+        "timestamp_seconds": 269
       }
     },
     {
@@ -6657,139 +7559,6 @@
         "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
         "views": 7778,
         "timestamp_seconds": 1640
-      }
-    },
-    {
-      "name": "Bun Maska Stall near Leisure Valley Park",
-      "name_local": null,
-      "slug": "bun-maska-stall-near-leisure-valley-park",
-      "normalized_name": "bun maska stall near leisure valley park",
-      "entity_type": "poi",
-      "poi_category": "street_food",
-      "destination": "gurgaon",
-      "area": "Sector 29",
-      "recommendation_score": 0.3777,
-      "frequency_count": 1,
-      "specialities": [
-        "Bun maska with homemade buttermilk; multi-grain buns for healthy option"
-      ],
-      "tips": [
-        "Try the healthy version with multi-grain buns"
-      ],
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.85,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Bun maska with homemade buttermilk; multi-grain buns for healthy option",
-              "evidence": "there's a brother who sits selling Krishna, bun, maska, and buttermilk... Their specialty is buttermilk... They have multi-grain buns.",
-              "confidence": 0.85,
-              "timestamp_seconds": 269
-            },
-            {
-              "field": "tip",
-              "value": "Try the healthy version with multi-grain buns",
-              "evidence": "How can I make the buns in a healthy way? They have multi-grain buns.",
-              "confidence": 0.85,
-              "timestamp_seconds": 297
-            }
-          ],
-          "views": 7778,
-          "upload_date": "2025-12-12",
-          "source_url": "https://youtu.be/Nv6lsSN1DtQ",
-          "video_id": "Nv6lsSN1DtQ",
-          "platform": "youtube",
-          "creator_name": "Veggie Wander",
-          "source_title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
-          "timestamp_seconds": 269,
-          "deep_link": "https://youtu.be/Nv6lsSN1DtQ?t=269"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/Nv6lsSN1DtQ?t=269",
-        "video_id": "Nv6lsSN1DtQ",
-        "platform": "youtube",
-        "creator_name": "Veggie Wander",
-        "title": "Gurgaon Food Vlog | From Breakfast to Dinner & The Best Places to Eat in Gurgaon",
-        "views": 7778,
-        "timestamp_seconds": 269
-      }
-    },
-    {
-      "name": "ISKCON Temple",
-      "name_local": "इसॉन टेम्पल",
-      "slug": "iskcon-temple",
-      "normalized_name": "iskcon temple",
-      "entity_type": "poi",
-      "poi_category": "temple",
-      "destination": "delhi",
-      "area": null,
-      "recommendation_score": 0.3765,
-      "frequency_count": 1,
-      "specialities": [
-        "Evening Khichdi Prasad"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": "Evening",
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.7,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Evening Khichdi Prasad",
-              "evidence": "सभी इस टेम्पल में शाम को खिचड़ी का प्रसाद भी दिया जाता है",
-              "confidence": 0.9,
-              "timestamp_seconds": 618
-            },
-            {
-              "field": "best_time",
-              "value": "Evening",
-              "evidence": "शाम को खिचड़ी का प्रसाद भी दिया जाता है",
-              "confidence": 0.9,
-              "timestamp_seconds": 618
-            },
-            {
-              "field": "location_hint",
-              "value": "East of Kailash (Most Famous)",
-              "evidence": "पहला मोस्ट फेमस इसॉन टेम्पल दिल्ली के ईस्ट ऑफ कैलाश में है",
-              "confidence": 0.9,
-              "timestamp_seconds": 625
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
-          "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 618,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=618"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=618",
-        "video_id": "g3HUYC1Ui8w",
-        "platform": "youtube",
-        "creator_name": "AC Delhi Vlogs",
-        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-        "views": 726485,
-        "timestamp_seconds": 618
       }
     },
     {
@@ -7002,6 +7771,75 @@
       }
     },
     {
+      "name": "ISKCON Temple",
+      "name_local": "इसॉन टेम्पल",
+      "slug": "iskcon-temple",
+      "normalized_name": "iskcon temple",
+      "entity_type": "poi",
+      "poi_category": "temple",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3765,
+      "frequency_count": 1,
+      "specialities": [
+        "Evening Khichdi Prasad"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": "Evening",
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.7,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Evening Khichdi Prasad",
+              "evidence": "सभी इस टेम्पल में शाम को खिचड़ी का प्रसाद भी दिया जाता है",
+              "confidence": 0.9,
+              "timestamp_seconds": 618
+            },
+            {
+              "field": "best_time",
+              "value": "Evening",
+              "evidence": "शाम को खिचड़ी का प्रसाद भी दिया जाता है",
+              "confidence": 0.9,
+              "timestamp_seconds": 618
+            },
+            {
+              "field": "location_hint",
+              "value": "East of Kailash (Most Famous)",
+              "evidence": "पहला मोस्ट फेमस इसॉन टेम्पल दिल्ली के ईस्ट ऑफ कैलाश में है",
+              "confidence": 0.9,
+              "timestamp_seconds": 625
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 618,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=618"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=618",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 618
+      }
+    },
+    {
       "name": "Veena Stores",
       "name_local": null,
       "slug": "veena-stores",
@@ -7066,19 +7904,18 @@
       }
     },
     {
-      "name": "Butter Chicken Tikka Stall",
-      "name_local": null,
-      "slug": "butter-chicken-tikka-stall",
-      "normalized_name": "butter chicken tikka stall",
+      "name": "Zero Point",
+      "name_local": "जीरो पॉइंट",
+      "slug": "zero-point",
+      "normalized_name": "zero point",
       "entity_type": "poi",
-      "poi_category": "street_food",
-      "destination": "delhi",
+      "poi_category": "viewpoint",
+      "destination": "sikkim",
       "area": null,
-      "recommendation_score": 0.3744,
+      "recommendation_score": 0.3763,
       "frequency_count": 1,
       "specialities": [
-        "butter chicken and kebab",
-        "butter chicken tikka"
+        "High-altitude viewpoint near the China border."
       ],
       "tips": null,
       "warnings": null,
@@ -7090,49 +7927,152 @@
       "evidence": [
         {
           "stance": "recommended",
-          "strength": 0.8,
+          "strength": 0.85,
           "claims": [
             {
               "field": "speciality",
-              "value": "butter chicken and kebab",
-              "evidence": "On their five floors, they sell only two because their butter chicken and then their kebab. That's it.",
-              "confidence": 0.8,
-              "timestamp_seconds": 600
-            },
-            {
-              "field": "must_try_item",
-              "value": "butter chicken tikka",
-              "evidence": "This kind of butter chicken, you won't get anywhere in India. It's very special.",
-              "confidence": 0.8,
-              "timestamp_seconds": 653
-            },
-            {
-              "field": "closing_hours",
-              "value": "Around 4:00 AM",
-              "evidence": "How late does the iftar go for? Around 4:00.",
-              "confidence": 0.8,
-              "timestamp_seconds": 671
+              "value": "High-altitude viewpoint near the China border.",
+              "evidence": "You can also visit Zero Point again which is near to the China border.",
+              "confidence": 0.9,
+              "timestamp_seconds": 400
             }
           ],
-          "views": 6565893,
-          "upload_date": "2018-07-21",
-          "source_url": "https://youtu.be/XjRhYP-OXdM",
-          "video_id": "XjRhYP-OXdM",
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
           "platform": "youtube",
-          "creator_name": "The Food Ranger",
-          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
-          "timestamp_seconds": 600,
-          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=600"
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 400,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=400"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/XjRhYP-OXdM?t=600",
-        "video_id": "XjRhYP-OXdM",
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=400",
+        "video_id": "lQLmKHHIHIQ",
         "platform": "youtube",
-        "creator_name": "The Food Ranger",
-        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
-        "views": 6565893,
-        "timestamp_seconds": 600
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 400
+      }
+    },
+    {
+      "name": "Gangtok Ropeway",
+      "name_local": "गंगटोक रोपवे",
+      "slug": "gangtok-ropeway",
+      "normalized_name": "gangtok ropeway",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "sikkim",
+      "area": null,
+      "recommendation_score": 0.3763,
+      "frequency_count": 1,
+      "specialities": [
+        "Offers a panoramic bird's-eye view of Gangtok city."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Offers a panoramic bird's-eye view of Gangtok city.",
+              "evidence": "यू कैन डू अ रोफ राइड व्हिच इज़ अगेन गुड वे टू अ सी द बर्ड आई व्यू ऑफ गैंगटक सिटी",
+              "confidence": 0.9,
+              "timestamp_seconds": 199
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 199,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=199"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=199",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 199
+      }
+    },
+    {
+      "name": "Laitlum Canyons",
+      "name_local": "लैथम कैनियंस",
+      "slug": "laitlum-canyons",
+      "normalized_name": "laitlum canyons",
+      "entity_type": "poi",
+      "poi_category": "viewpoint",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3762,
+      "frequency_count": 1,
+      "specialities": [
+        "Laitlum means 'End of the World' locally due to low-hanging clouds concealing what lies beyond."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "₹20 per person entry fee",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "price_level",
+              "value": "₹20 per person entry fee",
+              "evidence": "एंट्री के चार्जेस ₹20 पर पर्सन है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 143
+            },
+            {
+              "field": "speciality",
+              "value": "Laitlum means 'End of the World' locally due to low-hanging clouds concealing what lies beyond.",
+              "evidence": "यहां के लोकल लैंग्वेज में लैथम का मतलब होता है एंड ऑफ द वर्ल्ड।",
+              "confidence": 0.95,
+              "timestamp_seconds": 146
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 143,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=143"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=143",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 143
       }
     },
     {
@@ -7205,6 +8145,76 @@
         "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
         "views": 6565893,
         "timestamp_seconds": 987
+      }
+    },
+    {
+      "name": "Butter Chicken Tikka Stall",
+      "name_local": null,
+      "slug": "butter-chicken-tikka-stall",
+      "normalized_name": "butter chicken tikka stall",
+      "entity_type": "poi",
+      "poi_category": "street_food",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3744,
+      "frequency_count": 1,
+      "specialities": [
+        "butter chicken and kebab",
+        "butter chicken tikka"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "butter chicken and kebab",
+              "evidence": "On their five floors, they sell only two because their butter chicken and then their kebab. That's it.",
+              "confidence": 0.8,
+              "timestamp_seconds": 600
+            },
+            {
+              "field": "must_try_item",
+              "value": "butter chicken tikka",
+              "evidence": "This kind of butter chicken, you won't get anywhere in India. It's very special.",
+              "confidence": 0.8,
+              "timestamp_seconds": 653
+            },
+            {
+              "field": "closing_hours",
+              "value": "Around 4:00 AM",
+              "evidence": "How late does the iftar go for? Around 4:00.",
+              "confidence": 0.8,
+              "timestamp_seconds": 671
+            }
+          ],
+          "views": 6565893,
+          "upload_date": "2018-07-21",
+          "source_url": "https://youtu.be/XjRhYP-OXdM",
+          "video_id": "XjRhYP-OXdM",
+          "platform": "youtube",
+          "creator_name": "The Food Ranger",
+          "source_title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+          "timestamp_seconds": 600,
+          "deep_link": "https://youtu.be/XjRhYP-OXdM?t=600"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/XjRhYP-OXdM?t=600",
+        "video_id": "XjRhYP-OXdM",
+        "platform": "youtube",
+        "creator_name": "The Food Ranger",
+        "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
+        "views": 6565893,
+        "timestamp_seconds": 600
       }
     },
     {
@@ -7474,21 +8484,23 @@
       }
     },
     {
-      "name": "Swaminarayan Akshardham",
-      "name_local": "अक्षरधाम",
-      "slug": "swaminarayan-akshardham",
-      "normalized_name": "swaminarayan akshardham",
+      "name": "Lachen Monastery",
+      "name_local": "लाचेन मठ",
+      "slug": "lachen-monastery",
+      "normalized_name": "lachen monastery",
       "entity_type": "poi",
       "poi_category": "temple",
-      "destination": "delhi",
+      "destination": "sikkim",
       "area": null,
-      "recommendation_score": 0.3696,
+      "recommendation_score": 0.3713,
       "frequency_count": 1,
       "specialities": null,
-      "tips": null,
+      "tips": [
+        "Can be visited upon arrival in Lachen on Day 3."
+      ],
       "warnings": null,
       "best_time": null,
-      "price_level": "Free",
+      "price_level": null,
       "average_cost_inr": null,
       "crowd_info": null,
       "verification_status": "ai_extracted",
@@ -7498,39 +8510,96 @@
           "strength": 0.8,
           "claims": [
             {
-              "field": "price_level",
-              "value": "Free",
-              "evidence": "यहाँ की एंट्री भी बिल्कुल फ्री है",
-              "confidence": 0.95,
-              "timestamp_seconds": 537
-            },
-            {
-              "field": "worst_time",
-              "value": "Monday (Closed)",
-              "evidence": "मंडे को यह जगह भी क्लोज रहती है",
-              "confidence": 0.95,
-              "timestamp_seconds": 539
+              "field": "tip",
+              "value": "Can be visited upon arrival in Lachen on Day 3.",
+              "evidence": "There is one Lachen Monastery that you can visit when you reach Lachen.",
+              "confidence": 0.9,
+              "timestamp_seconds": 345
             }
           ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
           "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 537,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=537"
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 345,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=345"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=537",
-        "video_id": "g3HUYC1Ui8w",
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=345",
+        "video_id": "lQLmKHHIHIQ",
         "platform": "youtube",
-        "creator_name": "AC Delhi Vlogs",
-        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-        "views": 726485,
-        "timestamp_seconds": 537
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 345
+      }
+    },
+    {
+      "name": "Lyngksiar Falls",
+      "name_local": "लिंगसियार वॉटरफॉल्स",
+      "slug": "lyngksiar-falls",
+      "normalized_name": "lyngksiar falls",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3712,
+      "frequency_count": 1,
+      "specialities": [
+        "Beautiful multi-tiered waterfall known for clear cascading waters and quiet surroundings."
+      ],
+      "tips": [
+        "Requires a short walk and trek to reach."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Beautiful multi-tiered waterfall known for clear cascading waters and quiet surroundings.",
+              "evidence": "लिंग्सियर फॉल्स मेघालय का एक खूबसूरत मल्टीटियर्ड वॉटरफॉल है जो अपने क्लियर कास्केडिंग बॉर्डर्स और लश सराउंडिंग्स के लिए जाना जाता है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 546
+            },
+            {
+              "field": "tip",
+              "value": "Requires a short walk and trek to reach.",
+              "evidence": "इस वॉटरफॉल तक पहुंचने के लिए एक छोटा सा ह और फिर थोड़ा सा ट्रैक करना होता है।",
+              "confidence": 0.9,
+              "timestamp_seconds": 560
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 546,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=546"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=546",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 546
       }
     },
     {
@@ -7591,6 +8660,121 @@
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
         "timestamp_seconds": 526
+      }
+    },
+    {
+      "name": "Swaminarayan Akshardham",
+      "name_local": "अक्षरधाम",
+      "slug": "swaminarayan-akshardham",
+      "normalized_name": "swaminarayan akshardham",
+      "entity_type": "poi",
+      "poi_category": "temple",
+      "destination": "delhi",
+      "area": null,
+      "recommendation_score": 0.3696,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": "Free",
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "price_level",
+              "value": "Free",
+              "evidence": "यहाँ की एंट्री भी बिल्कुल फ्री है",
+              "confidence": 0.95,
+              "timestamp_seconds": 537
+            },
+            {
+              "field": "worst_time",
+              "value": "Monday (Closed)",
+              "evidence": "मंडे को यह जगह भी क्लोज रहती है",
+              "confidence": 0.95,
+              "timestamp_seconds": 539
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 537,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=537"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=537",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 537
+      }
+    },
+    {
+      "name": "Blue Lagoon (Nongriat Trail)",
+      "name_local": "ब्लू लगून",
+      "slug": "blue-lagoon-nongriat-trail",
+      "normalized_name": "blue lagoon nongriat trail",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3693,
+      "frequency_count": 1,
+      "specialities": [
+        "Crystal clear natural swimming spot on the trail to Double Decker Bridge; called one of the best experiences of the Meghalaya trip."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 1.0,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Crystal clear natural swimming spot on the trail to Double Decker Bridge; called one of the best experiences of the Meghalaya trip.",
+              "evidence": "डबल डेकर रूट ब्रिज के रास्ते में पड़ने वाले ब्लू लगून में स्विमिंग का आनंद ले सकते हैं। एंड ट्रस्ट मी व्हेन आई से दैट दिस वाज़ वन ऑफ द बेस्ट एक्सपीरियंसेस ऑफ़ माय मेघालय ट्रिप।",
+              "confidence": 0.95,
+              "timestamp_seconds": 414
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 414,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=414"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=414",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 414
       }
     },
     {
@@ -7732,6 +8916,116 @@
         "title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
         "views": 7985,
         "timestamp_seconds": 399
+      }
+    },
+    {
+      "name": "Mawlynnong Village",
+      "name_local": "मोलिनोंग विलेज",
+      "slug": "mawlynnong-village",
+      "normalized_name": "mawlynnong village",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3643,
+      "frequency_count": 1,
+      "specialities": [
+        "Known as Asia's Cleanest Village, showcasing sustainable living, bamboo dustbins, and clean pathways."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Known as Asia's Cleanest Village, showcasing sustainable living, bamboo dustbins, and clean pathways.",
+              "evidence": "मोलिनोंग विलेज जिसे अक्सर एशियास क्लीनेस्ट विलेज कहा जाता है। अपनी अच्छी तरह मेंटेन की गई सफाई के लिए फेमस मोलिनोंग बमबू डस्टबिनस और वेल के पाथवे के साथ-साथ सस्टेनेबल लिविंग को शोकेस करता है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 270
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 270,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=270"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=270",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 270
+      }
+    },
+    {
+      "name": "Nohkalikai Falls",
+      "name_local": "नोखालेकाई वॉटरफॉल",
+      "slug": "nohkalikai-falls",
+      "normalized_name": "nohkalikai falls",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3643,
+      "frequency_count": 1,
+      "specialities": [
+        "One of India's highest plunge waterfalls falling 1,115 feet from a steep cliff."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "One of India's highest plunge waterfalls falling 1,115 feet from a steep cliff.",
+              "evidence": "नोखालेकाई वाटरफॉल्स इंडिया के हाईएस्ट वॉटरफॉल्स में से एक है जो एक क्लिफ से पूरे 1115 फीट नीचे गिरता है।",
+              "confidence": 0.95,
+              "timestamp_seconds": 498
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 498,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=498"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=498",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 498
       }
     },
     {
@@ -8006,6 +9300,61 @@
       }
     },
     {
+      "name": "Mawsmai Cave",
+      "name_local": "मौसमाई केव्स",
+      "slug": "mawsmai-cave",
+      "normalized_name": "mawsmai cave",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3593,
+      "frequency_count": 1,
+      "specialities": [
+        "Natural limestone cave formation with stunning rock structures and echo chambers."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.9,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Natural limestone cave formation with stunning rock structures and echo chambers.",
+              "evidence": "मौसमाई केव्स मेघालय का एक नेचुरल लाइमस्टोन वंडर है... मौसमाई केव्स में एंटर करते ही आप देखेंगे स्टनिंग रॉक फॉरमेशंस, एक चेंबर्स",
+              "confidence": 0.95,
+              "timestamp_seconds": 457
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 457,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=457"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=457",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 457
+      }
+    },
+    {
       "name": "Model Town Naini Lake",
       "name_local": "मॉडल टाउन नैनी लेक",
       "slug": "model-town-naini-lake",
@@ -8220,6 +9569,116 @@
       }
     },
     {
+      "name": "Umiam Lake",
+      "name_local": "ओमियम लेक",
+      "slug": "umiam-lake",
+      "normalized_name": "umiam lake",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3543,
+      "frequency_count": 1,
+      "specialities": [
+        "Artificial lake built for summer water shortage, offers panoramic views of Khasi Hills."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Artificial lake built for summer water shortage, offers panoramic views of Khasi Hills.",
+              "evidence": "यह एक आर्टिफिशियल लेक है जिसे समर में वाटर शॉर्टेज को डील करने के लिए बनाया गया था। यहां से आपको खासी हिल्स का बहुत ही अमेजिंग व्यू देखने को मिलेगा।",
+              "confidence": 0.95,
+              "timestamp_seconds": 89
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 89,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=89"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=89",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 89
+      }
+    },
+    {
+      "name": "Sky View Point",
+      "name_local": "स्काई व्यू पॉइंट",
+      "slug": "sky-view-point",
+      "normalized_name": "sky view point",
+      "entity_type": "poi",
+      "poi_category": "viewpoint",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3543,
+      "frequency_count": 1,
+      "specialities": [
+        "Bamboo structure constructed above trees providing panoramic views of Mawlynnong and surroundings."
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.85,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Bamboo structure constructed above trees providing panoramic views of Mawlynnong and surroundings.",
+              "evidence": "टॉप हाईलाइट्स में से एक है स्काई व्यू पॉइंट जो पेड़ों के ऊपर बमबू से बना है। यहां से आपको विलेज और सराउंडिंग एरियाज का पैनारोमिक व्यू मिलेगा।",
+              "confidence": 0.9,
+              "timestamp_seconds": 301
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 301,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=301"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=301",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 301
+      }
+    },
+    {
       "name": "India Gate",
       "name_local": "इंडिया गेट",
       "slug": "india-gate",
@@ -8325,6 +9784,69 @@
         "title": "EXTREMELY DEEP Indian Street Food Tour of OLD DELHI - INSANE Street Food ACTION for RAMZAN!",
         "views": 6565893,
         "timestamp_seconds": 1307
+      }
+    },
+    {
+      "name": "Rajasthani Aloo Pyaz & Rabdi Restaurant",
+      "name_local": null,
+      "slug": "rajasthani-aloo-pyaz-rabdi-restaurant",
+      "normalized_name": "rajasthani aloo pyaz rabdi",
+      "entity_type": "poi",
+      "poi_category": "restaurant",
+      "destination": "jaipur",
+      "area": null,
+      "recommendation_score": 0.3502,
+      "frequency_count": 1,
+      "specialities": [
+        "Bejad ki Roti roasted on coals, Aloo Pyaz Paneer Sabzi, and Rabdi",
+        "Bejad ki Roti with Aloo Pyaz Curry and Rabdi"
+      ],
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.95,
+          "claims": [
+            {
+              "field": "speciality",
+              "value": "Bejad ki Roti roasted on coals, Aloo Pyaz Paneer Sabzi, and Rabdi",
+              "evidence": "This is pure Rajasthani food... Bejad ki roti... cooked on the kind of a wok... put it directly on coals... Aloo pyaz paneer... Rabdi made with milk, cardamom, saffron",
+              "confidence": 0.9,
+              "timestamp_seconds": 320
+            },
+            {
+              "field": "must_try_item",
+              "value": "Bejad ki Roti with Aloo Pyaz Curry and Rabdi",
+              "evidence": "What we came here for is the Bejad ki roti which is a whole wheat flour bread smothered in desi ghee. This is the Rajasthani aloo pyaz curry... then this is rabri",
+              "confidence": 0.95,
+              "timestamp_seconds": 477
+            }
+          ],
+          "views": 421497,
+          "upload_date": "2022-07-03",
+          "source_url": "https://youtu.be/5-2p-HOc1Rg",
+          "video_id": "5-2p-HOc1Rg",
+          "platform": "youtube",
+          "creator_name": "Abroad and Hungry",
+          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+          "timestamp_seconds": 320,
+          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=320"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/5-2p-HOc1Rg?t=320",
+        "video_id": "5-2p-HOc1Rg",
+        "platform": "youtube",
+        "creator_name": "Abroad and Hungry",
+        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
+        "views": 421509,
+        "timestamp_seconds": 320
       }
     },
     {
@@ -8454,69 +9976,6 @@
       }
     },
     {
-      "name": "Rajasthani Aloo Pyaz & Rabdi Restaurant",
-      "name_local": null,
-      "slug": "rajasthani-aloo-pyaz-rabdi-restaurant",
-      "normalized_name": "rajasthani aloo pyaz rabdi",
-      "entity_type": "poi",
-      "poi_category": "restaurant",
-      "destination": "jaipur",
-      "area": null,
-      "recommendation_score": 0.3502,
-      "frequency_count": 1,
-      "specialities": [
-        "Bejad ki Roti roasted on coals, Aloo Pyaz Paneer Sabzi, and Rabdi",
-        "Bejad ki Roti with Aloo Pyaz Curry and Rabdi"
-      ],
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "recommended",
-          "strength": 0.95,
-          "claims": [
-            {
-              "field": "speciality",
-              "value": "Bejad ki Roti roasted on coals, Aloo Pyaz Paneer Sabzi, and Rabdi",
-              "evidence": "This is pure Rajasthani food... Bejad ki roti... cooked on the kind of a wok... put it directly on coals... Aloo pyaz paneer... Rabdi made with milk, cardamom, saffron",
-              "confidence": 0.9,
-              "timestamp_seconds": 320
-            },
-            {
-              "field": "must_try_item",
-              "value": "Bejad ki Roti with Aloo Pyaz Curry and Rabdi",
-              "evidence": "What we came here for is the Bejad ki roti which is a whole wheat flour bread smothered in desi ghee. This is the Rajasthani aloo pyaz curry... then this is rabri",
-              "confidence": 0.95,
-              "timestamp_seconds": 477
-            }
-          ],
-          "views": 421497,
-          "upload_date": "2022-07-03",
-          "source_url": "https://youtu.be/5-2p-HOc1Rg",
-          "video_id": "5-2p-HOc1Rg",
-          "platform": "youtube",
-          "creator_name": "Abroad and Hungry",
-          "source_title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
-          "timestamp_seconds": 320,
-          "deep_link": "https://youtu.be/5-2p-HOc1Rg?t=320"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/5-2p-HOc1Rg?t=320",
-        "video_id": "5-2p-HOc1Rg",
-        "platform": "youtube",
-        "creator_name": "Abroad and Hungry",
-        "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
-        "views": 421509,
-        "timestamp_seconds": 320
-      }
-    },
-    {
       "name": "Pink Cafe",
       "name_local": "पिंक कैफे",
       "slug": "pink-cafe",
@@ -8583,6 +10042,116 @@
         "title": "Top 4 Best Cafes In Hauz Khas Under Budget 1000 Couple Privacy Cafe in Delhi Enjoy Newyear Christmas",
         "views": 7985,
         "timestamp_seconds": 736
+      }
+    },
+    {
+      "name": "Rainbow Falls",
+      "name_local": "रेनबो फॉल्स",
+      "slug": "rainbow-falls",
+      "normalized_name": "rainbow falls",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "meghalaya",
+      "area": null,
+      "recommendation_score": 0.3493,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": [
+        "Located an additional 1-hour hike beyond the Double Decker Living Root Bridge."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "tip",
+              "value": "Located an additional 1-hour hike beyond the Double Decker Living Root Bridge.",
+              "evidence": "प्लस एक घंटे की और हाइप करके आप चाहे तो कास्केडिंग रेनबो फॉल्स को भी विजिट कर सकते हैं।",
+              "confidence": 0.9,
+              "timestamp_seconds": 409
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 409,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=409"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=409",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 409
+      }
+    },
+    {
+      "name": "Kamakhya Temple",
+      "name_local": "कामाख्या टेंपल",
+      "slug": "kamakhya-temple",
+      "normalized_name": "kamakhya temple",
+      "entity_type": "poi",
+      "poi_category": "temple",
+      "destination": "guwahati",
+      "area": null,
+      "recommendation_score": 0.3493,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": [
+        "Can be visited on Day 1 if reaching Guwahati early morning, or on Day 6 on return if time permits."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "recommended",
+          "strength": 0.8,
+          "claims": [
+            {
+              "field": "tip",
+              "value": "Can be visited on Day 1 if reaching Guwahati early morning, or on Day 6 on return if time permits.",
+              "evidence": "अगर आप अर्ली मॉर्निंग गुवाहाटी पहुंच जाते हैं तो आप चाहे तो यहां का फेमस कामाख्या टेंपल भी विजिट कर सकते हैं।",
+              "confidence": 0.9,
+              "timestamp_seconds": 78
+            }
+          ],
+          "views": 474326,
+          "upload_date": "2025-07-02",
+          "source_url": "https://youtu.be/7EWH9ZVoYq8",
+          "video_id": "7EWH9ZVoYq8",
+          "platform": "youtube",
+          "creator_name": "Travel with Vashishth",
+          "source_title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+          "timestamp_seconds": 78,
+          "deep_link": "https://youtu.be/7EWH9ZVoYq8?t=78"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/7EWH9ZVoYq8?t=78",
+        "video_id": "7EWH9ZVoYq8",
+        "platform": "youtube",
+        "creator_name": "Travel with Vashishth",
+        "title": "Meghalaya in 6 Days: Your COMPLETE Tour Plan! | Meghalaya tourism video | meghalaya shillong tour",
+        "views": 474326,
+        "timestamp_seconds": 78
       }
     },
     {
@@ -8768,6 +10337,61 @@
         "title": "FOOD HEAVEN in INDIA! Indian street food in Jaipur, India | Best RAJASTHANI street food in India",
         "views": 421509,
         "timestamp_seconds": 44
+      }
+    },
+    {
+      "name": "Bagdogra Airport",
+      "name_local": "बागडोगरा हवाई अड्डा",
+      "slug": "bagdogra-airport",
+      "normalized_name": "bagdogra airport",
+      "entity_type": "poi",
+      "poi_category": "other",
+      "destination": "darjeeling",
+      "area": null,
+      "recommendation_score": 0.3413,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": [
+        "Take a late evening flight on Day 8 when leaving Sikkim."
+      ],
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.3,
+          "claims": [
+            {
+              "field": "tip",
+              "value": "Take a late evening flight on Day 8 when leaving Sikkim.",
+              "evidence": "अगर आपकी फ्लाइट है तो आप बागदोगरा से लेट इवनिंग फ्लाइट लीजिए",
+              "confidence": 0.9,
+              "timestamp_seconds": 523
+            }
+          ],
+          "views": 52077,
+          "upload_date": "2026-03-19",
+          "source_url": "https://youtu.be/lQLmKHHIHIQ",
+          "video_id": "lQLmKHHIHIQ",
+          "platform": "youtube",
+          "creator_name": "Heena Bhatia",
+          "source_title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+          "timestamp_seconds": 523,
+          "deep_link": "https://youtu.be/lQLmKHHIHIQ?t=523"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/lQLmKHHIHIQ?t=523",
+        "video_id": "lQLmKHHIHIQ",
+        "platform": "youtube",
+        "creator_name": "Heena Bhatia",
+        "title": "SIKKIM - One Stop Travel Guide | Itinerary | Budget | Places to visit | Stay | Permits | A-Z Guide  ",
+        "views": 52077,
+        "timestamp_seconds": 523
       }
     },
     {
@@ -9221,13 +10845,13 @@
       }
     },
     {
-      "name": "Pratapgarh Farm",
-      "name_local": "प्रतापगढ़ फार्म",
-      "slug": "pratapgarh-farm",
-      "normalized_name": "pratapgarh farm",
+      "name": "Rithala Metro Station",
+      "name_local": "रिठाला",
+      "slug": "rithala-metro-station",
+      "normalized_name": "rithala metro station",
       "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
+      "poi_category": "other",
+      "destination": "delhi",
       "area": null,
       "recommendation_score": 0.3228,
       "frequency_count": 1,
@@ -9242,14 +10866,14 @@
       "evidence": [
         {
           "stance": "mentioned",
-          "strength": 0.2,
+          "strength": 0.1,
           "claims": [
             {
-              "field": "category",
-              "value": "Farm House",
-              "evidence": "प्रतापगढ़ फार्म",
+              "field": "transport",
+              "value": "Nearest Metro Station",
+              "evidence": "यहाँ का नजदीकी मेट्रो स्टेशन रिठाला है",
               "confidence": 0.95,
-              "timestamp_seconds": 330
+              "timestamp_seconds": 271
             }
           ],
           "views": 726485,
@@ -9259,71 +10883,18 @@
           "platform": "youtube",
           "creator_name": "AC Delhi Vlogs",
           "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 330,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330"
+          "timestamp_seconds": 271,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=271"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330",
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=271",
         "video_id": "g3HUYC1Ui8w",
         "platform": "youtube",
         "creator_name": "AC Delhi Vlogs",
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
-        "timestamp_seconds": 330
-      }
-    },
-    {
-      "name": "Rangmanch Farm",
-      "name_local": "रंगमंच फार्म",
-      "slug": "rangmanch-farm",
-      "normalized_name": "rangmanch farm",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
-      "area": null,
-      "recommendation_score": 0.3228,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "category",
-              "value": "Farm House",
-              "evidence": "रंगमंच फार्म",
-              "confidence": 0.95,
-              "timestamp_seconds": 332
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
-          "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 332,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=332"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=332",
-        "video_id": "g3HUYC1Ui8w",
-        "platform": "youtube",
-        "creator_name": "AC Delhi Vlogs",
-        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-        "views": 726485,
-        "timestamp_seconds": 332
+        "timestamp_seconds": 271
       }
     },
     {
@@ -9380,13 +10951,13 @@
       }
     },
     {
-      "name": "Just Chill Water Park",
-      "name_local": "जस्ट चिल",
-      "slug": "just-chill-water-park",
-      "normalized_name": "just chill water park",
+      "name": "Lohagarh Farm",
+      "name_local": "लोहागढ़ फार्म",
+      "slug": "lohagarh-farm",
+      "normalized_name": "lohagarh farm",
       "entity_type": "poi",
       "poi_category": "attraction",
-      "destination": "delhi",
+      "destination": "gurgaon",
       "area": null,
       "recommendation_score": 0.3228,
       "frequency_count": 1,
@@ -9404,11 +10975,11 @@
           "strength": 0.2,
           "claims": [
             {
-              "field": "location",
-              "value": "GT Road",
-              "evidence": "जस्ट चिल जीटी का नोड पे है",
+              "field": "category",
+              "value": "Farm House",
+              "evidence": "गुरुग्राम के कुछ फेमस फार्म्स हैं जैसे लोहगढ़ फार्म",
               "confidence": 0.95,
-              "timestamp_seconds": 291
+              "timestamp_seconds": 328
             }
           ],
           "views": 726485,
@@ -9418,18 +10989,124 @@
           "platform": "youtube",
           "creator_name": "AC Delhi Vlogs",
           "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 291,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=291"
+          "timestamp_seconds": 328,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=328"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=291",
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=328",
         "video_id": "g3HUYC1Ui8w",
         "platform": "youtube",
         "creator_name": "AC Delhi Vlogs",
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
-        "timestamp_seconds": 291
+        "timestamp_seconds": 328
+      }
+    },
+    {
+      "name": "Rangmanch Farm",
+      "name_local": "रंगमंच फार्म",
+      "slug": "rangmanch-farm",
+      "normalized_name": "rangmanch farm",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "gurgaon",
+      "area": null,
+      "recommendation_score": 0.3228,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "category",
+              "value": "Farm House",
+              "evidence": "रंगमंच फार्म",
+              "confidence": 0.95,
+              "timestamp_seconds": 332
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 332,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=332"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=332",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 332
+      }
+    },
+    {
+      "name": "Pratapgarh Farm",
+      "name_local": "प्रतापगढ़ फार्म",
+      "slug": "pratapgarh-farm",
+      "normalized_name": "pratapgarh farm",
+      "entity_type": "poi",
+      "poi_category": "attraction",
+      "destination": "gurgaon",
+      "area": null,
+      "recommendation_score": 0.3228,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "category",
+              "value": "Farm House",
+              "evidence": "प्रतापगढ़ फार्म",
+              "confidence": 0.95,
+              "timestamp_seconds": 330
+            }
+          ],
+          "views": 726485,
+          "upload_date": "2025-05-31",
+          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
+          "video_id": "g3HUYC1Ui8w",
+          "platform": "youtube",
+          "creator_name": "AC Delhi Vlogs",
+          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+          "timestamp_seconds": 330,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=330",
+        "video_id": "g3HUYC1Ui8w",
+        "platform": "youtube",
+        "creator_name": "AC Delhi Vlogs",
+        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
+        "views": 726485,
+        "timestamp_seconds": 330
       }
     },
     {
@@ -9486,12 +11163,12 @@
       }
     },
     {
-      "name": "Rithala Metro Station",
-      "name_local": "रिठाला",
-      "slug": "rithala-metro-station",
-      "normalized_name": "rithala metro station",
+      "name": "Just Chill Water Park",
+      "name_local": "जस्ट चिल",
+      "slug": "just-chill-water-park",
+      "normalized_name": "just chill water park",
       "entity_type": "poi",
-      "poi_category": "other",
+      "poi_category": "attraction",
       "destination": "delhi",
       "area": null,
       "recommendation_score": 0.3228,
@@ -9507,14 +11184,14 @@
       "evidence": [
         {
           "stance": "mentioned",
-          "strength": 0.1,
+          "strength": 0.2,
           "claims": [
             {
-              "field": "transport",
-              "value": "Nearest Metro Station",
-              "evidence": "यहाँ का नजदीकी मेट्रो स्टेशन रिठाला है",
+              "field": "location",
+              "value": "GT Road",
+              "evidence": "जस्ट चिल जीटी का नोड पे है",
               "confidence": 0.95,
-              "timestamp_seconds": 271
+              "timestamp_seconds": 291
             }
           ],
           "views": 726485,
@@ -9524,18 +11201,18 @@
           "platform": "youtube",
           "creator_name": "AC Delhi Vlogs",
           "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 271,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=271"
+          "timestamp_seconds": 291,
+          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=291"
         }
       ],
       "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=271",
+        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=291",
         "video_id": "g3HUYC1Ui8w",
         "platform": "youtube",
         "creator_name": "AC Delhi Vlogs",
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
-        "timestamp_seconds": 271
+        "timestamp_seconds": 291
       }
     },
     {
@@ -9589,59 +11266,6 @@
         "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
         "views": 726485,
         "timestamp_seconds": 330
-      }
-    },
-    {
-      "name": "Lohagarh Farm",
-      "name_local": "लोहागढ़ फार्म",
-      "slug": "lohagarh-farm",
-      "normalized_name": "lohagarh farm",
-      "entity_type": "poi",
-      "poi_category": "attraction",
-      "destination": "gurgaon",
-      "area": null,
-      "recommendation_score": 0.3228,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "category",
-              "value": "Farm House",
-              "evidence": "गुरुग्राम के कुछ फेमस फार्म्स हैं जैसे लोहगढ़ फार्म",
-              "confidence": 0.95,
-              "timestamp_seconds": 328
-            }
-          ],
-          "views": 726485,
-          "upload_date": "2025-05-31",
-          "source_url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN",
-          "video_id": "g3HUYC1Ui8w",
-          "platform": "youtube",
-          "creator_name": "AC Delhi Vlogs",
-          "source_title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-          "timestamp_seconds": 328,
-          "deep_link": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=328"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/g3HUYC1Ui8w?si=DHMOslYS9KHVZzHN&t=328",
-        "video_id": "g3HUYC1Ui8w",
-        "platform": "youtube",
-        "creator_name": "AC Delhi Vlogs",
-        "title": "Top 25 Best Place in Delhi NCR | दिल्ली में घूमने की 25 सबसे अच्छी जगहें | delhi me ghoomne ki jagah",
-        "views": 726485,
-        "timestamp_seconds": 328
       }
     },
     {
@@ -9772,59 +11396,6 @@
       }
     },
     {
-      "name": "Kath Roll",
-      "name_local": "काथ रोल",
-      "slug": "kath-roll",
-      "normalized_name": "kath roll",
-      "entity_type": "activity",
-      "poi_category": null,
-      "destination": "delhi",
-      "area": "Connaught Place",
-      "recommendation_score": 0.3171,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [
-            {
-              "field": "preparation_method",
-              "value": "Paratha on large tawa topped with chicken boti, kath kabab, onion, then wrapped",
-              "evidence": "पहले बड़े से तवे पर मैदे का पराठा बनाया जाता है उसके ऊपर में य चिकन की बोटी डाल दी जाती है काथ कबाब डाल दिया जाता है उसके बाद प्याज डालते हैं और फिर इसको रैप करकर बना देते हैं काथ रोल",
-              "confidence": 0.8,
-              "timestamp_seconds": 1672
-            }
-          ],
-          "views": 360529,
-          "upload_date": "2024-11-02",
-          "source_url": "https://youtu.be/0H1jFHYQyyE",
-          "video_id": "0H1jFHYQyyE",
-          "platform": "youtube",
-          "creator_name": "Delhi Food Walks",
-          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
-          "timestamp_seconds": 1672,
-          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1672"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/0H1jFHYQyyE?t=1672",
-        "video_id": "0H1jFHYQyyE",
-        "platform": "youtube",
-        "creator_name": "Delhi Food Walks",
-        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
-        "views": 360529,
-        "timestamp_seconds": 1672
-      }
-    },
-    {
       "name": "Minar Restaurant",
       "name_local": "मीनार रेस्टोरेंट",
       "slug": "minar-restaurant",
@@ -9875,6 +11446,59 @@
         "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
         "views": 360529,
         "timestamp_seconds": 1008
+      }
+    },
+    {
+      "name": "Kath Roll",
+      "name_local": "काथ रोल",
+      "slug": "kath-roll",
+      "normalized_name": "kath roll",
+      "entity_type": "activity",
+      "poi_category": null,
+      "destination": "delhi",
+      "area": "Connaught Place",
+      "recommendation_score": 0.3171,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [
+            {
+              "field": "preparation_method",
+              "value": "Paratha on large tawa topped with chicken boti, kath kabab, onion, then wrapped",
+              "evidence": "पहले बड़े से तवे पर मैदे का पराठा बनाया जाता है उसके ऊपर में य चिकन की बोटी डाल दी जाती है काथ कबाब डाल दिया जाता है उसके बाद प्याज डालते हैं और फिर इसको रैप करकर बना देते हैं काथ रोल",
+              "confidence": 0.8,
+              "timestamp_seconds": 1672
+            }
+          ],
+          "views": 360529,
+          "upload_date": "2024-11-02",
+          "source_url": "https://youtu.be/0H1jFHYQyyE",
+          "video_id": "0H1jFHYQyyE",
+          "platform": "youtube",
+          "creator_name": "Delhi Food Walks",
+          "source_title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+          "timestamp_seconds": 1672,
+          "deep_link": "https://youtu.be/0H1jFHYQyyE?t=1672"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/0H1jFHYQyyE?t=1672",
+        "video_id": "0H1jFHYQyyE",
+        "platform": "youtube",
+        "creator_name": "Delhi Food Walks",
+        "title": "Ep - 2, Delhi Neighbourhood Eats I Connaught Place DHABA SPL FOOD TRAIL I Mutton Gurde, Kapure,Bheja",
+        "views": 360529,
+        "timestamp_seconds": 1672
       }
     },
     {
@@ -10016,51 +11640,6 @@
       }
     },
     {
-      "name": "Bangla Sahib Gurudwara",
-      "name_local": "बंगला साहिब गुरुद्वारा",
-      "slug": "bangla-sahib-gurudwara",
-      "normalized_name": "bangla sahib gurudwara",
-      "entity_type": "poi",
-      "poi_category": "gurudwara",
-      "destination": "delhi",
-      "area": "Connaught Place",
-      "recommendation_score": 0.3006,
-      "frequency_count": 1,
-      "specialities": null,
-      "tips": null,
-      "warnings": null,
-      "best_time": null,
-      "price_level": null,
-      "average_cost_inr": null,
-      "crowd_info": null,
-      "verification_status": "ai_extracted",
-      "evidence": [
-        {
-          "stance": "mentioned",
-          "strength": 0.2,
-          "claims": [],
-          "views": 376773,
-          "upload_date": "2025-08-29",
-          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
-          "video_id": "Lw6PIT-wOMU",
-          "platform": "youtube",
-          "creator_name": "Saturday Shooters",
-          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-          "timestamp_seconds": null,
-          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM"
-        }
-      ],
-      "creator_video": {
-        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
-        "video_id": "Lw6PIT-wOMU",
-        "platform": "youtube",
-        "creator_name": "Saturday Shooters",
-        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
-        "views": 376773,
-        "timestamp_seconds": null
-      }
-    },
-    {
       "name": "Hanuman Temple (Connaught Place)",
       "name_local": "हनुमान टेंपल",
       "slug": "hanuman-temple-connaught-place",
@@ -10112,6 +11691,51 @@
       "normalized_name": "jantar mantar",
       "entity_type": "poi",
       "poi_category": "monument",
+      "destination": "delhi",
+      "area": "Connaught Place",
+      "recommendation_score": 0.3006,
+      "frequency_count": 1,
+      "specialities": null,
+      "tips": null,
+      "warnings": null,
+      "best_time": null,
+      "price_level": null,
+      "average_cost_inr": null,
+      "crowd_info": null,
+      "verification_status": "ai_extracted",
+      "evidence": [
+        {
+          "stance": "mentioned",
+          "strength": 0.2,
+          "claims": [],
+          "views": 376773,
+          "upload_date": "2025-08-29",
+          "source_url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+          "video_id": "Lw6PIT-wOMU",
+          "platform": "youtube",
+          "creator_name": "Saturday Shooters",
+          "source_title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+          "timestamp_seconds": null,
+          "deep_link": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM"
+        }
+      ],
+      "creator_video": {
+        "url": "https://youtu.be/Lw6PIT-wOMU?si=1QaiXqcRi3IVe9sM",
+        "video_id": "Lw6PIT-wOMU",
+        "platform": "youtube",
+        "creator_name": "Saturday Shooters",
+        "title": "Delhi Tourist Places | Delhi Travel Vlog | Delhi Top 12 Places | Delhi Best Places To Visit | Delhi",
+        "views": 376773,
+        "timestamp_seconds": null
+      }
+    },
+    {
+      "name": "Bangla Sahib Gurudwara",
+      "name_local": "बंगला साहिब गुरुद्वारा",
+      "slug": "bangla-sahib-gurudwara",
+      "normalized_name": "bangla sahib gurudwara",
+      "entity_type": "poi",
+      "poi_category": "gurudwara",
       "destination": "delhi",
       "area": "Connaught Place",
       "recommendation_score": 0.3006,
