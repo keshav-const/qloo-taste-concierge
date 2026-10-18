@@ -231,11 +231,12 @@ export default function Home() {
       {toast && <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-ink px-4 py-2 text-sm text-paper shadow-lg">{toast}</div>}
       <motion.div aria-hidden animate={{ x: [0, 30, 0], y: [0, 16, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
       <motion.div aria-hidden animate={{ x: [0, -24, 0], y: [0, 24, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
-      {/* animated color blooms down the content area so the gutters breathe, never flat white */}
-      <motion.div aria-hidden animate={{ x: [0, 28, 0], y: [0, -20, 0], scale: [1, 1.08, 1] }} transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -left-40 top-[42rem] h-[30rem] w-[30rem] rounded-full bg-saffron/15 blur-3xl" />
-      <motion.div aria-hidden animate={{ x: [0, -26, 0], y: [0, 24, 0], scale: [1, 1.1, 1] }} transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-48 top-[70rem] h-[32rem] w-[32rem] rounded-full bg-[#c23d6a]/12 blur-3xl" />
-      <motion.div aria-hidden animate={{ x: [0, 24, 0], y: [0, -18, 0], scale: [1, 1.07, 1] }} transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -left-44 top-[104rem] h-[30rem] w-[30rem] rounded-full bg-verified/12 blur-3xl" />
-      <motion.div aria-hidden animate={{ x: [0, -22, 0], y: [0, 22, 0], scale: [1, 1.09, 1] }} transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-40 top-[138rem] h-[30rem] w-[30rem] rounded-full bg-saffron/12 blur-3xl" />
+      {/* FIXED gutter blooms — subtle, always in view, drift slowly behind the content */}
+      <motion.div aria-hidden animate={{ x: [0, 26, 0], y: [0, -22, 0], scale: [1, 1.08, 1] }} transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none fixed -left-32 top-[28%] h-[26rem] w-[26rem] rounded-full bg-saffron/12 blur-3xl" />
+      <motion.div aria-hidden animate={{ x: [0, -22, 0], y: [0, 24, 0], scale: [1, 1.1, 1] }} transition={{ duration: 31, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none fixed -right-36 top-[52%] h-[28rem] w-[28rem] rounded-full bg-[#c23d6a]/10 blur-3xl" />
+      {/* deeper absolute blooms for the long results page */}
+      <motion.div aria-hidden animate={{ x: [0, 24, 0], y: [0, -18, 0], scale: [1, 1.07, 1] }} transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -left-44 top-[104rem] h-[30rem] w-[30rem] rounded-full bg-verified/12 blur-3xl" />
+      <motion.div aria-hidden animate={{ x: [0, -22, 0], y: [0, 22, 0], scale: [1, 1.09, 1] }} transition={{ duration: 33, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-40 top-[150rem] h-[30rem] w-[30rem] rounded-full bg-saffron/12 blur-3xl" />
 
       <SiteHeader />
 

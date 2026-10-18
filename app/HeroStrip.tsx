@@ -62,24 +62,28 @@ export default function HeroStrip() {
   const row = [...cards, ...cards]; // duplicated for a seamless loop
 
   return (
-    <div className="marquee-group pointer-events-none absolute inset-x-0 bottom-5 z-20 overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]">
+    // No overflow-clip/mask here: the hero section already clips horizontally, and a mask would
+    // hide the hover card (which sits above the strip). Horizontal fade is done with edge overlays.
+    <div className="marquee-group pointer-events-none absolute inset-x-0 bottom-5 z-20">
       <div className="animate-marquee flex w-max gap-3 px-4">
         {row.map((p, i) => (
           <div key={i} className="group/chip pointer-events-auto relative shrink-0">
-            {/* hover card */}
-            <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-60 -translate-x-1/2 scale-95 rounded-2xl border border-line bg-paper-card/95 p-3 text-left opacity-0 shadow-xl backdrop-blur transition-all duration-200 group-hover/chip:scale-100 group-hover/chip:opacity-100">
+            {/* hover card — compact, calm, appears above the chip */}
+            <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-2.5 w-52 -translate-x-1/2 translate-y-1 rounded-xl border border-line bg-paper-card/95 p-2.5 text-left opacity-0 shadow-lg backdrop-blur transition-all duration-200 ease-out group-hover/chip:translate-y-0 group-hover/chip:opacity-100">
               <div className="flex items-center gap-2">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.url} alt={p.label} className="h-10 w-10 rounded-lg object-cover" />
-                <div>
-                  <p className="text-sm font-semibold text-ink">{p.label}</p>
-                  <p className="text-[10px] uppercase tracking-wider text-saffron">{p.kind === "culture" ? "✦ Culture" : "📍 Destination"}</p>
+                <img src={p.url} alt={p.label} className="h-9 w-9 rounded-lg object-cover" />
+                <div className="min-w-0">
+                  <p className="truncate text-[13px] font-semibold text-ink">{p.label}</p>
+                  <p className="text-[9px] font-medium uppercase tracking-wider text-saffron">{p.kind === "culture" ? "Culture" : "Destination"}</p>
                 </div>
               </div>
-              {p.desc && <p className="mt-2 line-clamp-4 text-xs leading-snug text-ink-soft">{p.desc}…</p>}
+              {p.desc && <p className="mt-1.5 line-clamp-3 text-[11px] leading-snug text-ink-mute">{p.desc}…</p>}
+              {/* little pointer */}
+              <span className="absolute left-1/2 top-full h-2 w-2 -translate-x-1/2 -translate-y-1 rotate-45 border-b border-r border-line bg-paper-card/95" />
             </div>
             {/* chip */}
-            <div className="flex items-center gap-2 rounded-full border border-white/40 bg-black/25 py-1 pl-1 pr-3 backdrop-blur-sm transition group-hover/chip:border-white/80 group-hover/chip:bg-black/40">
+            <div className="flex items-center gap-2 rounded-full border border-white/40 bg-black/25 py-1 pl-1 pr-3 backdrop-blur-sm transition group-hover/chip:border-white/80 group-hover/chip:bg-black/45">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={p.url} alt={p.label} className="h-7 w-7 rounded-full object-cover" />
               <span className="whitespace-nowrap text-xs font-medium text-white drop-shadow">
@@ -89,6 +93,9 @@ export default function HeroStrip() {
           </div>
         ))}
       </div>
+      {/* subtle edge fades (don't clip the hover card) */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-paper/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-paper/70 to-transparent" />
     </div>
   );
 }
