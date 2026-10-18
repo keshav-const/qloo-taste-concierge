@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import HeroVideo from "./HeroVideo";
 import HeroStrip from "./HeroStrip";
 import SiteHeader from "./SiteHeader";
+import CursorGlow from "./CursorGlow";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -228,6 +229,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <div className="grain-overlay" />
+      <CursorGlow />
       {toast && <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-ink px-4 py-2 text-sm text-paper shadow-lg">{toast}</div>}
       <motion.div aria-hidden animate={{ x: [0, 30, 0], y: [0, 16, 0] }} transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-44 left-1/2 h-[26rem] w-[52rem] -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl" />
       <motion.div aria-hidden animate={{ x: [0, -24, 0], y: [0, 24, 0] }} transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute top-40 -right-40 h-[22rem] w-[22rem] rounded-full bg-verified/10 blur-3xl" />
