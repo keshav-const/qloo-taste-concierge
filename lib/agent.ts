@@ -11,6 +11,13 @@ import {
   type VerifiedPlace,
 } from "./evidence";
 import { chat, type ChatMessage, type ToolDef } from "./llm";
+import {
+  culturalScene,
+  inferMonth,
+  inferRegion,
+  tasteDomains,
+  type CulturalHighlight,
+} from "./culture";
 
 export type Destination = {
   name: string;
@@ -180,6 +187,37 @@ const TOOLS: ToolDef[] = [
       },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "cultural_scene",
+      description:
+        "The LIVING cultural scene in the destination — real festivals, music/film/dance/literature " +
+        "seasons and cultural venues (museums, theatres, art spaces) curated for that city/region. " +
+        "Call ONCE after you know the destination. Returns items flagged 'in_season' when the trip's " +
+        "month overlaps the event, and 'matches_taste' when it fits the user's cultural interests. Use " +
+        "it to honestly weave in timely culture (e.g. 'you're there in December — the Margazhi season " +
+        "is on'). The app also renders these as a 'cultural scene' panel.",
+      parameters: {
+        type: "object",
+        properties: {
+          city: { type: "string", description: "Destination city, e.g. Chennai, Kochi, Jaipur." },
+          month: {
+            type: ["number", "null"],
+            description: "Trip month as 1–12 if the user implied timing (e.g. December=12); else null.",
+          },
+          interests: {
+            type: ["array", "null"],
+            items: { type: "string" },
+            description:
+              "The user's cultural interest words (e.g. ['classical music','museums','theatre']) so " +
+              "matching items are flagged. Omit/null if unknown.",
+          },
+        },
+        required: ["city"],
+      },
+    },
+  },
 ];
 
 type Seed = { name: string; type: string };
@@ -278,6 +316,27 @@ async function runTool(name: string, args: unknown): Promise<unknown> {
     }
     return { cultural, qloo_places: qlooPlaces, cultural_seeds: culturalSeeds.map((r) => r.name) };
   }
+  if (name === "cultural_scene") {
+    const a = args as { city?: string; month?: number | null; interests?: string[] };
+    const domains = tasteDomains({ text: (a.interests ?? []).join(" ") });
+    const scene = culturalScene({
+      city: a.city,
+      region: inferRegion(a.city),
+      month: a.month ?? undefined,
+      domains,
+    });
+    return {
+      city: a.city,
+      scene: scene.map((h) => ({
+        kind: h.kind,
+        name: h.name,
+        when: h.when,
+        blurb: h.blurb,
+        in_season: h.inSeason,
+        matches_taste: h.matchesTaste,
+      })),
+    };
+  }
   if (name === "get_verified_places") {
     const a = args as { city?: string; interests?: string[]; category?: string; limit?: number };
     // Cap server-side to keep tool-result tokens small (free-tier TPM).
@@ -334,6 +393,12 @@ STEP B — Build the plan FOR THAT DESTINATION:
    cultural strip will simply be omitted (do NOT invent tastes to fill it). The app renders the cultural
    picks as a "cultural vibe" strip and uses qloo_places to rank verified places — you need NOT list
    them in prose. This makes Qloo visibly central.
+3b. CULTURAL SCENE: call cultural_scene ONCE with city=<destination>. Pass month=<1–12> if the user
+   implied WHEN they're travelling (e.g. "in December" → 12, "winter" → 12) and interests=<their
+   cultural interests>. It returns real festivals/seasons & cultural venues there. If any item comes
+   back in_season (the trip overlaps it), WEAVE IT INTO THE PLAN honestly on the right day (e.g. "Since
+   you're there in December, catch the Margazhi concerts at the Music Academy"). The app also shows
+   these as a panel, so you need only reference the timely ones. NEVER claim an event not returned here.
 4. Day-by-day narrative, WEIGHTED TO THE DESTINATION:
    - The days happen IN the destination. If it's a trip from a home city, the home city is only the
      start/end (one stop or meal at most) — NEVER 1–2 full days of the home city.
@@ -344,8 +409,10 @@ STEP B — Build the plan FOR THAT DESTINATION:
    - When a verified place includes a best_time or price (price_level / average_cost_inr), weave it in
      naturally ("best in the evening", "around ₹300 a head").
 
-BE ECONOMICAL: 3–5 tool calls total (include qloo_taste_graph once), then STOP and write the narrative.
-STRICT HONESTY: use ONLY facts the tools returned; never invent places, festivals, or claims.
+BE ECONOMICAL: 4–6 tool calls total (include qloo_taste_graph once and cultural_scene once), then STOP
+and write the narrative.
+STRICT HONESTY: use ONLY facts the tools returned; never invent places or claims. Any festival or event
+you mention MUST have come back from cultural_scene (ideally one flagged in_season).
 FORMAT (important): The app shows destinations + places as cards separately. Your narrative =
 a warm 1–2 sentence intro, THEN one line "**Best time to visit:** <months/season + why>" for the
 destination (use your general knowledge of India's seasons/festivals), then a day-by-day plan
@@ -484,6 +551,10 @@ export type AgentResult = {
   culturalVibe: CulturalPick[];
   /** The cultural tastes that drove the cultural vibe strip (for explainability). */
   culturalSeeds: string[];
+  /** Living cultural scene (events + venues) for the destination — festival/event-aware. */
+  culturalScene: CulturalHighlight[];
+  /** The city the plan is actually for (used for the cultural-scene panel heading). */
+  destinationCity?: string | null;
 };
 
 export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentResult> {
@@ -497,6 +568,9 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
   const verifiedPlaces: VerifiedPlace[] = [];
   const culturalVibe: CulturalPick[] = [];
   let culturalSeeds: string[] = []; // cultural tastes that drove the strip (explainability)
+  let culturalSceneOut: CulturalHighlight[] = []; // living cultural scene for the destination
+  let destinationCity: string | null = null; // the city the plan is actually for
+  const seedTypesUsed = new Set<string>(); // cultural seed TYPES the agent fed Qloo (for taste domains)
   const qlooPlaceNames: string[] = []; // Qloo venue names for the destination, for cross-ranking
   const addDest = (d: Destination) => {
     if (d?.name && !destinations.some((x) => x.name === d.name)) destinations.push(d);
@@ -514,6 +588,19 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       if (qlooCorroborates(p.name, qlooPlaceNames)) p.qloo_ranked = true;
     }
     verifiedPlaces.sort((a, b) => Number(b.qloo_ranked ?? false) - Number(a.qloo_ranked ?? false));
+  };
+  // Guarantee a cultural scene even if the model never called the tool: derive it from the
+  // destination city (or a requested region) the agent focused on, the trip's timing and taste.
+  const finalizeScene = () => {
+    if (culturalSceneOut.length) return;
+    const region = inferRegion(userInput);
+    if (!destinationCity && !region) return;
+    culturalSceneOut = culturalScene({
+      city: destinationCity,
+      region,
+      month: inferMonth(userInput),
+      domains: tasteDomains({ seedTypes: [...seedTypesUsed], text: userInput }),
+    });
   };
 
   for (let step = 0; step < maxSteps; step++) {
@@ -537,6 +624,12 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
           result = { error: e instanceof Error ? e.message : String(e) };
         }
 
+        // Note any cultural seed TYPES the agent fed Qloo (for taste-domain matching) and the
+        // destination city it's focusing on (for the cultural-scene panel + fallback).
+        for (const s of (parsed.seeds as Seed[] | undefined) ?? [])
+          if (s?.type && CULTURAL_SEED_TYPES.has(s.type.toLowerCase())) seedTypesUsed.add(s.type.toLowerCase());
+        if (typeof parsed.city === "string" && parsed.city.trim()) destinationCity = parsed.city.trim();
+
         // Harvest structured data for the UI.
         if (tc.function.name === "get_verified_places") {
           for (const p of (result as { verified_places?: VerifiedPlace[] }).verified_places ?? [])
@@ -555,6 +648,16 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
           for (const c of r.cultural ?? []) addCultural(c);
           for (const n of r.qloo_places ?? []) qlooPlaceNames.push(n);
           if (r.cultural_seeds?.length) culturalSeeds = r.cultural_seeds;
+        } else if (tc.function.name === "cultural_scene") {
+          // Recompute the full scene (with maps_url etc.) deterministically from the city the
+          // model passed — richer than the trimmed tool payload and keyed to the trip's timing/taste.
+          const city = typeof parsed.city === "string" ? parsed.city : destinationCity;
+          const month = typeof parsed.month === "number" ? parsed.month : inferMonth(userInput);
+          const domains = tasteDomains({
+            seedTypes: [...seedTypesUsed],
+            text: `${userInput} ${(parsed.interests as string[] | undefined)?.join(" ") ?? ""}`,
+          });
+          if (city) culturalSceneOut = culturalScene({ city, region: inferRegion(userInput), month, domains });
         }
 
         messages.push({
@@ -567,9 +670,11 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       continue;
     }
     applyQlooRanking();
-    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds };
+    finalizeScene();
+    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds, culturalScene: culturalSceneOut, destinationCity };
   }
   applyQlooRanking();
+  finalizeScene();
   // Didn't compose in-loop (the model kept calling tools). Compose from the data we gathered, in a
   // FRESH context (no tool-call history) so the model writes the plan instead of calling more tools.
   const dataSummary =
@@ -594,6 +699,8 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       verifiedPlaces,
       culturalVibe,
       culturalSeeds,
+      culturalScene: culturalSceneOut,
+      destinationCity,
     };
   } catch {
     return {
@@ -603,6 +710,8 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       verifiedPlaces,
       culturalVibe,
       culturalSeeds,
+      culturalScene: culturalSceneOut,
+      destinationCity,
     };
   }
 }

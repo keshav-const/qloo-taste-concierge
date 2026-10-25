@@ -46,6 +46,7 @@ export async function POST(req: Request) {
       verifiedPlaces: result.verifiedPlaces.map((p) => p.name),
       culturalSeeds: result.culturalSeeds,
       culturalVibe: result.culturalVibe.map((c) => `${c.domain}:${c.name}`),
+      culturalScene: result.culturalScene.map((h) => `${h.kind}:${h.name}${h.inSeason ? " (in-season)" : ""}`),
     });
     // Enrich with real imagery (Wikipedia) so the UI shows photos, not placeholders.
     const [destinations, verifiedPlaces, culturalVibe] = await Promise.all([
