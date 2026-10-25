@@ -8,6 +8,7 @@ import HeroVideo from "./HeroVideo";
 import HeroStrip from "./HeroStrip";
 import SiteHeader from "./SiteHeader";
 import CursorGlow from "./CursorGlow";
+import MapPanel from "./MapPanel";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -33,6 +34,7 @@ type VerifiedPlace = {
   specialities: string[]; tips: string[];
   best_time: string | null; price_level: string | null; average_cost_inr: number | null; image: string | null;
   qloo_ranked?: boolean; creator_video?: CreatorVideo | null; maps_url?: string;
+  lat?: number | null; lng?: number | null;
   evidence?: EvidenceSource[];
 };
 
@@ -500,6 +502,14 @@ export default function Home() {
                     );
                   })}
                 </div>
+              </section>
+            )}
+
+            {result.verifiedPlaces.some((p) => typeof p.lat === "number") && (
+              <section className="mb-12">
+                <SectionLabel>Map &amp; getting there{result.destinationCity ? ` · ${result.destinationCity}` : ""}</SectionLabel>
+                <p className="mb-5 text-sm text-ink-mute">Verified spots on one map — no extra tab. Plus the nearest airport and a prefilled flight/route search.</p>
+                <MapPanel places={result.verifiedPlaces} destinationCity={result.destinationCity} originCity={dest} />
               </section>
             )}
 

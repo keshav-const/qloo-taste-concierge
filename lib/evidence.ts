@@ -38,6 +38,8 @@ type Poi = {
   normalized_name: string;
   destination: string;
   area: string | null;
+  lat?: number | null;
+  lng?: number | null;
   poi_category: string | null;
   recommendation_score: number | null;
   frequency_count: number;
@@ -165,6 +167,9 @@ export type VerifiedPlace = {
   creator_video?: CreatorVideo | null;
   /** A Google Maps link for the place. */
   maps_url?: string;
+  /** Coordinates (from the free Nominatim geocode pass); null when OSM had no match. */
+  lat?: number | null;
+  lng?: number | null;
   /** The creator sources + their exact claims that vouch for this place (for the proof modal). */
   evidence?: EvidenceSource[];
 };
@@ -251,6 +256,8 @@ export function listVerifiedPlaces(
     average_cost_inr: p.average_cost_inr,
     creator_video: p.creator_video ?? null,
     maps_url: mapsUrl(p.name, p.destination),
+    lat: p.lat ?? null,
+    lng: p.lng ?? null,
     evidence: (p.evidence ?? []).slice(0, 3).map((e) => ({
       creator_name: e.creator_name ?? null,
       platform: e.platform ?? null,
