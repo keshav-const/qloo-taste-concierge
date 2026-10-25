@@ -5,7 +5,25 @@
 import fs from "node:fs";
 import path from "node:path";
 
-type Evidence = { stance: string; strength: number | null; claims: unknown[] };
+type Claim = {
+  field: string; value: string; evidence?: string | null;
+  confidence?: number | null; timestamp_seconds?: number | null;
+};
+type Evidence = {
+  stance: string; strength: number | null; claims: Claim[];
+  views?: number | null; upload_date?: string | null; source_url?: string | null;
+  video_id?: string | null; platform?: string | null; creator_name?: string | null;
+  source_title?: string | null; timestamp_seconds?: number | null; deep_link?: string | null;
+};
+
+/** A single creator claim, flattened for the "see the proof" modal. */
+export type EvidenceClaim = { label: string; value: string; quote: string | null; timestamp_seconds: number | null };
+/** One source (creator video/blog) that vouched for a place, with its claims. */
+export type EvidenceSource = {
+  creator_name: string | null; platform: string | null; source_title: string | null;
+  deep_link: string | null; timestamp_seconds: number | null; views: number | null;
+  stance: string; claims: EvidenceClaim[];
+};
 export type CreatorVideo = {
   url: string | null;
   video_id: string | null;
@@ -147,6 +165,8 @@ export type VerifiedPlace = {
   creator_video?: CreatorVideo | null;
   /** A Google Maps link for the place. */
   maps_url?: string;
+  /** The creator sources + their exact claims that vouch for this place (for the proof modal). */
+  evidence?: EvidenceSource[];
 };
 
 /** Build a Google Maps search link for a place (always works, no API). */
@@ -231,6 +251,21 @@ export function listVerifiedPlaces(
     average_cost_inr: p.average_cost_inr,
     creator_video: p.creator_video ?? null,
     maps_url: mapsUrl(p.name, p.destination),
+    evidence: (p.evidence ?? []).slice(0, 3).map((e) => ({
+      creator_name: e.creator_name ?? null,
+      platform: e.platform ?? null,
+      source_title: e.source_title ?? null,
+      deep_link: e.deep_link ?? e.source_url ?? null,
+      timestamp_seconds: e.timestamp_seconds ?? null,
+      views: e.views ?? null,
+      stance: e.stance,
+      claims: (e.claims ?? []).slice(0, 5).map((c) => ({
+        label: c.field,
+        value: c.value,
+        quote: c.evidence ?? null,
+        timestamp_seconds: c.timestamp_seconds ?? null,
+      })),
+    })),
   }));
 }
 

@@ -22,18 +22,40 @@ function sourceCta(cv: CreatorVideo): { icon: string; text: string } {
     default: return { icon: "🔗", text: who };
   }
 }
+type EvidenceClaim = { label: string; value: string; quote: string | null; timestamp_seconds: number | null };
+type EvidenceSource = {
+  creator_name: string | null; platform: string | null; source_title: string | null;
+  deep_link: string | null; timestamp_seconds: number | null; views: number | null;
+  stance: string; claims: EvidenceClaim[];
+};
 type VerifiedPlace = {
   name: string; category: string | null; area: string | null; sources: number;
   specialities: string[]; tips: string[];
   best_time: string | null; price_level: string | null; average_cost_inr: number | null; image: string | null;
   qloo_ranked?: boolean; creator_video?: CreatorVideo | null; maps_url?: string;
+  evidence?: EvidenceSource[];
 };
+
+function fmtTs(s: number | null): string {
+  if (s == null || s <= 0) return "";
+  const m = Math.floor(s / 60), sec = s % 60;
+  return `${m}:${String(sec).padStart(2, "0")}`;
+}
+function hasProof(p: VerifiedPlace): boolean {
+  return !!p.evidence?.some((e) => e.claims.length > 0);
+}
 type Destination = { name: string; city: string | null; image: string | null; why?: string; affinity?: number };
 type CulturalPick = { name: string; domain: string; image: string | null };
+type CulturalHighlight = {
+  kind: "event" | "venue"; name: string; city: string; region: string;
+  domains: string[]; blurb: string; when?: string; maps_url: string;
+  inSeason?: boolean; matchesTaste?: boolean;
+};
 type PlanResult = {
   itinerary: string; trace: string[];
   destinations: Destination[]; verifiedPlaces: VerifiedPlace[];
   culturalVibe: CulturalPick[]; culturalSeeds?: string[];
+  culturalScene?: CulturalHighlight[]; destinationCity?: string | null;
 };
 
 const CULTURE_META: Record<string, { icon: string; label: string }> = {
@@ -42,6 +64,15 @@ const CULTURE_META: Record<string, { icon: string; label: string }> = {
   music: { icon: "🎵", label: "Artist" },
   book: { icon: "📖", label: "Book" },
 };
+
+const DOMAIN_META: Record<string, string> = {
+  music: "🎵", dance: "💃", film: "🎬", art: "🎨", theatre: "🎭",
+  literature: "📚", crafts: "🧵", heritage: "🏛️", festival: "🎊",
+};
+function sceneEmoji(h: CulturalHighlight): string {
+  for (const d of h.domains) if (DOMAIN_META[d]) return DOMAIN_META[d];
+  return h.kind === "event" ? "🎊" : "🏛️";
+}
 
 const CHIPS = [
   { icon: "♫", label: "A.R. Rahman" }, { icon: "🎬", label: "Inception" }, { icon: "🍜", label: "street food" },
@@ -82,6 +113,7 @@ export default function Home() {
   const [qa, setQa] = useState<{ q: string; a: string }[]>([]);
   const [error, setError] = useState("");
   const [toast, setToast] = useState("");
+  const [proof, setProof] = useState<VerifiedPlace | null>(null);
   const [shared, setShared] = useState<{ r: string; q: { q: string; a: string }[]; i: string } | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -458,12 +490,47 @@ export default function Home() {
                               {p.maps_url && (
                                 <a href={p.maps_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-ink-mute hover:text-ink hover:underline">📍 Map</a>
                               )}
+                              {hasProof(p) && (
+                                <button type="button" onClick={() => setProof(p)} className="inline-flex items-center gap-1 font-medium text-verified hover:underline">✓ See the proof</button>
+                              )}
                             </div>
                           )}
                         </div>
                       </motion.div>
                     );
                   })}
+                </div>
+              </section>
+            )}
+
+            {result.culturalScene && result.culturalScene.length > 0 && (
+              <section className="mb-12">
+                <SectionLabel>Cultural scene{result.destinationCity ? ` in ${result.destinationCity}` : ""}</SectionLabel>
+                <p className="mb-5 text-sm text-ink-mute">
+                  The living culture to catch while you&apos;re there — real festivals, arts seasons &amp; cultural venues. <span className="font-medium text-saffron">🔥 In season</span> = it&apos;s on during your trip; <span className="font-medium text-ink-soft">✦ your taste</span> = fits what you love.
+                </p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {result.culturalScene.map((h, i) => (
+                    <motion.a key={h.name} href={h.maps_url} target="_blank" rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.45, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -2 }}
+                      className={`ring-soft group flex gap-3 rounded-2xl border bg-paper-card p-3 transition ${h.inSeason ? "border-saffron/60" : "border-line hover:border-ink/30"}`}>
+                      <div className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-saffron-soft via-paper to-verified-soft text-2xl">{sceneEmoji(h)}</div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <p className="font-medium text-ink">{h.name}</p>
+                          <span className="shrink-0 text-[11px] uppercase tracking-wider text-ink-mute">{h.kind === "event" ? "Festival" : "Venue"}</span>
+                        </div>
+                        <p className="mt-0.5 line-clamp-2 text-sm text-ink-soft">{h.blurb}</p>
+                        <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                          {h.inSeason && <span className="pill bg-saffron text-paper">🔥 In season{h.when ? ` · ${h.when}` : ""}</span>}
+                          {!h.inSeason && h.when && <span className="pill bg-saffron-soft text-saffron">🗓 {h.when}</span>}
+                          {h.matchesTaste && <span className="pill bg-ink text-paper">✦ Your taste</span>}
+                          <span className="pill border border-line text-ink-mute">📍 Map</span>
+                        </div>
+                      </div>
+                    </motion.a>
+                  ))}
                 </div>
               </section>
             )}
@@ -503,6 +570,56 @@ export default function Home() {
                 <button onClick={startOver} className="rounded-lg border border-line px-4 py-2 text-sm text-ink-soft transition hover:border-ink hover:text-ink">Start over</button>
               </div>
             </div>
+          </div>
+        )}
+
+        {proof && (
+          <div role="dialog" aria-modal="true" onClick={() => setProof(null)}
+            className="fixed inset-0 z-[60] grid place-items-center bg-ink/50 p-4 backdrop-blur-sm">
+            <motion.div initial={{ opacity: 0, y: 12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={EASE}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-3xl border border-line bg-paper-card p-5 shadow-2xl">
+              <div className="mb-3 flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-verified">✓ Creator-verified</p>
+                  <h3 className="font-display text-xl text-ink">{proof.name}</h3>
+                </div>
+                <button onClick={() => setProof(null)} aria-label="Close" className="shrink-0 rounded-full border border-line px-2 py-0.5 text-ink-mute hover:text-ink">✕</button>
+              </div>
+              <p className="mb-4 text-sm text-ink-mute">The exact moments creators vouched for this place — click any quote to jump to that second in the source.</p>
+              <div className="space-y-4">
+                {(proof.evidence ?? []).filter((e) => e.claims.length > 0).map((e, i) => {
+                  const cta = sourceCta({ url: e.deep_link, creator_name: e.creator_name, title: e.source_title, timestamp_seconds: e.timestamp_seconds, platform: e.platform });
+                  return (
+                    <div key={i} className="rounded-2xl border border-line bg-paper p-3">
+                      <div className="mb-2 flex items-center justify-between gap-2">
+                        <span className="truncate text-sm font-medium text-ink">{cta.icon} {e.creator_name || "Source"}</span>
+                        {e.views ? <span className="shrink-0 text-xs text-ink-mute">{Intl.NumberFormat("en", { notation: "compact" }).format(e.views)} views</span> : null}
+                      </div>
+                      {e.source_title && <p className="mb-2 line-clamp-1 text-xs text-ink-mute">{e.source_title}</p>}
+                      <ul className="space-y-2">
+                        {e.claims.map((c, j) => {
+                          const link = e.deep_link && c.timestamp_seconds ? e.deep_link.replace(/([&?]t=)\d+/, `$1${c.timestamp_seconds}`) : e.deep_link;
+                          const ts = fmtTs(c.timestamp_seconds);
+                          return (
+                            <li key={j} className="text-sm">
+                              <p className="text-ink-soft"><span className="font-medium text-ink">{c.value}</span></p>
+                              {c.quote && <p className="mt-0.5 border-l-2 border-saffron/50 pl-2 text-xs italic text-ink-mute">“{c.quote}”</p>}
+                              {link && (e.platform || "youtube") === "youtube" && (
+                                <a href={link} target="_blank" rel="noopener noreferrer" className="mt-0.5 inline-flex items-center gap-1 text-xs font-medium text-saffron hover:underline">▶ Watch{ts ? ` at ${ts}` : ""}</a>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      {e.deep_link && (
+                        <a href={e.deep_link} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-1 text-xs text-ink-mute hover:text-ink hover:underline">{cta.text} →</a>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </motion.div>
           </div>
         )}
       </main>
