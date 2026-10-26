@@ -125,10 +125,31 @@ export default function MapPanel({
         mapRef.current = map;
         map.on("click focus", () => { map.scrollWheelZoom.enable(); setZoomArmed(true); });
         map.on("mouseout blur", () => { map.scrollWheelZoom.disable(); setZoomArmed(false); });
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: "&copy; OpenStreetMap",
-          maxZoom: 18,
-        }).addTo(map);
+        // Prefer Mappls (MapmyIndia) tiles — they render India's OFFICIAL boundaries (J&K/Ladakh
+        // correct) — and fall back to OpenStreetMap automatically if they fail to load (bad key,
+        // quota, non-whitelisted origin), so the map is never blank.
+        const addOSM = () =>
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "&copy; OpenStreetMap",
+            maxZoom: 18,
+          }).addTo(map);
+        const mapplsKey = process.env.NEXT_PUBLIC_MAPPLS_KEY;
+        if (mapplsKey) {
+          const mappls = L.tileLayer(
+            `https://apis.mappls.com/advancedmaps/v1/${mapplsKey}/map_tiles/{z}/{x}/{y}.png`,
+            { attribution: "&copy; Mappls", maxZoom: 18 },
+          );
+          let fellBack = false;
+          mappls.on("tileerror", () => {
+            if (fellBack) return;
+            fellBack = true;
+            map.removeLayer(mappls);
+            addOSM();
+          });
+          mappls.addTo(map);
+        } else {
+          addOSM();
+        }
         const latlngs: [number, number][] = [];
         for (const p of pinned) {
           const lat = p.lat as number, lng = p.lng as number;
