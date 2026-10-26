@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "node:fs";
 import path from "node:path";
-import { runAgent } from "@/lib/agent";
+import { runAgent, deterministicPlan } from "@/lib/agent";
 import { enrichWithImages } from "@/lib/images";
 import { LLMError } from "@/lib/llm";
 
@@ -36,11 +36,28 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Provide 'tastes' (a non-empty string)." }, { status: 400 });
     }
     const t0 = Date.now();
-    const result = await runAgent(tastes.trim());
+    // When the planner LLM is rate-limited, degrade to a deterministic (no-LLM) plan so the app
+    // always renders every feature — verified places + proof, map, cultural scene — for a demo.
+    let result;
+    let offline = false;
+    try {
+      result = await runAgent(tastes.trim());
+    } catch (e) {
+      // Any LLM failure (rate-limit, empty content, provider down) → degrade to a deterministic
+      // plan so the app still renders every feature. Non-LLM errors (e.g. Qloo down) bubble up.
+      if (e instanceof LLMError) {
+        console.warn(`[plan] planner LLM failed (${e.rateLimited ? "rate-limited" : "error"}) — serving deterministic offline plan`);
+        result = await deterministicPlan(tastes.trim());
+        offline = true;
+      } else {
+        throw e;
+      }
+    }
     logSearch({
       at: new Date().toISOString(),
       ms: Date.now() - t0,
       tastes: tastes.trim(),
+      offline,
       trace: result.trace,
       destinations: result.destinations.map((d) => d.name),
       verifiedPlaces: result.verifiedPlaces.map((p) => p.name),
@@ -54,7 +71,7 @@ export async function POST(req: Request) {
       enrichWithImages(result.verifiedPlaces),
       enrichWithImages(result.culturalVibe),
     ]);
-    return NextResponse.json({ ...result, destinations, verifiedPlaces, culturalVibe });
+    return NextResponse.json({ ...result, destinations, verifiedPlaces, culturalVibe, offline });
   } catch (e) {
     console.error("[plan] error:", e instanceof Error ? e.message : e);
     const { message, status } = friendly(e);

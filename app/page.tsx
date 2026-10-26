@@ -58,6 +58,7 @@ type PlanResult = {
   destinations: Destination[]; verifiedPlaces: VerifiedPlace[];
   culturalVibe: CulturalPick[]; culturalSeeds?: string[];
   culturalScene?: CulturalHighlight[]; destinationCity?: string | null;
+  offline?: boolean;
 };
 
 const CULTURE_META: Record<string, { icon: string; label: string }> = {
@@ -398,6 +399,13 @@ export default function Home() {
                 <button onClick={goBack} className="shrink-0 rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-ink hover:text-ink">← Previous plan</button>
               )}
             </div>
+
+            {result.offline && (
+              <div className="mb-6 flex items-start gap-2 rounded-xl border border-saffron/40 bg-saffron-soft px-3 py-2 text-sm text-saffron">
+                <span>⚡</span>
+                <span>Our AI writer is rate-limited right now, so this is a <span className="font-medium">verified plan built live from Qloo + creator data</span> — every place, map pin and cultural highlight is real. Hit <span className="font-medium">Update plan</span> in a minute for a narrated version.</span>
+              </div>
+            )}
 
             {result.culturalVibe && result.culturalVibe.length > 0 && (
               <section className="mb-12">
