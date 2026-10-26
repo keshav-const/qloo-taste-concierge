@@ -9,6 +9,7 @@ import HeroStrip from "./HeroStrip";
 import SiteHeader from "./SiteHeader";
 import CursorGlow from "./CursorGlow";
 import MapPanel from "./MapPanel";
+import TasteGraph from "./TasteGraph";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -58,8 +59,11 @@ type PlanResult = {
   destinations: Destination[]; verifiedPlaces: VerifiedPlace[];
   culturalVibe: CulturalPick[]; culturalSeeds?: string[];
   culturalScene?: CulturalHighlight[]; destinationCity?: string | null;
+  culturalTrail?: CulturalTrail | null;
   offline?: boolean;
 };
+type TrailStop = { city: string; region: string; note: string };
+type CulturalTrail = { id: string; title: string; domains: string[]; blurb: string; stops: TrailStop[] };
 
 const CULTURE_META: Record<string, { icon: string; label: string }> = {
   film: { icon: "🎬", label: "Film" },
@@ -117,6 +121,7 @@ export default function Home() {
   const [error, setError] = useState("");
   const [toast, setToast] = useState("");
   const [proof, setProof] = useState<VerifiedPlace | null>(null);
+  const [swapping, setSwapping] = useState<number | null>(null);
   const [shared, setShared] = useState<{ r: string; q: { q: string; a: string }[]; i: string } | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
@@ -239,6 +244,34 @@ export default function Home() {
 
   function startOver() {
     setStage("compose"); setResult(null); setHistory([]); setQuestions([]); setSelected([]); setTyped([]); setQa([]); setError("");
+  }
+
+  // Re-roll one verified place for another taste-ranked alternative in the same city (no LLM).
+  async function swapPlace(i: number) {
+    if (!result || swapping !== null) return;
+    setSwapping(i);
+    try {
+      const exclude = result.verifiedPlaces.map((p) => p.name);
+      const r = await fetch("/api/swap", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ city: result.destinationCity, interests: reqText, exclude }),
+      });
+      const data = await r.json();
+      if (data.place) {
+        setResult((prev) => {
+          if (!prev) return prev;
+          const next = [...prev.verifiedPlaces];
+          next[i] = data.place;
+          return { ...prev, verifiedPlaces: next };
+        });
+      } else {
+        flash("No more verified spots to swap in");
+      }
+    } catch {
+      flash("Couldn't swap right now");
+    } finally {
+      setSwapping(null);
+    }
   }
 
   if (shared) {
@@ -415,6 +448,11 @@ export default function Home() {
                     ? <>Because you love <span className="font-medium text-ink-soft">{result.culturalSeeds.join(", ")}</span>, Qloo cross-matched these films, shows, music &amp; books you&apos;d also enjoy — the taste thread behind your trip.</>
                     : <>Films, shows, music &amp; books Qloo says share your taste DNA — the cross-domain thread behind your trip.</>}
                 </p>
+                {result.culturalSeeds && result.culturalSeeds.length > 0 && (
+                  <div className="mb-5 text-ink">
+                    <TasteGraph seeds={result.culturalSeeds} picks={result.culturalVibe} />
+                  </div>
+                )}
                 <div className="-mx-1 flex gap-3 overflow-x-auto px-1 pb-2">
                   {result.culturalVibe.map((c, i) => {
                     const m = CULTURE_META[c.domain] ?? { icon: "✨", label: "Pick" };
@@ -503,6 +541,7 @@ export default function Home() {
                               {hasProof(p) && (
                                 <button type="button" onClick={() => setProof(p)} className="inline-flex items-center gap-1 font-medium text-verified hover:underline">✓ See the proof</button>
                               )}
+                              <button type="button" onClick={() => swapPlace(i)} disabled={swapping !== null} className="inline-flex items-center gap-1 text-ink-mute hover:text-ink hover:underline disabled:opacity-40">{swapping === i ? "⟳ Swapping…" : "⟳ Swap"}</button>
                             </div>
                           )}
                         </div>
@@ -549,6 +588,30 @@ export default function Home() {
                       </div>
                     </motion.a>
                   ))}
+                </div>
+              </section>
+            )}
+
+            {result.culturalTrail && result.culturalTrail.stops.length > 1 && (
+              <section className="mb-12">
+                <SectionLabel>Extend it · {result.culturalTrail.title}</SectionLabel>
+                <p className="mb-5 text-sm text-ink-mute">{result.culturalTrail.blurb}</p>
+                <div className="ring-soft rounded-2xl border border-line bg-paper-card p-4">
+                  <div className="flex flex-col gap-0 sm:flex-row sm:items-stretch">
+                    {result.culturalTrail.stops.map((s, i) => (
+                      <div key={s.city} className="flex flex-1 items-start gap-3 sm:flex-col sm:items-center sm:text-center">
+                        <div className="flex flex-col items-center sm:w-full sm:flex-row sm:justify-center">
+                          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-saffron text-sm font-semibold text-paper">{i + 1}</span>
+                          {i < result.culturalTrail!.stops.length - 1 && <span className="mx-2 hidden h-px flex-1 bg-line sm:block" />}
+                        </div>
+                        <div className="pb-4 sm:pb-0 sm:pt-2">
+                          <p className="font-medium text-ink">{s.city}</p>
+                          <p className="text-[11px] uppercase tracking-wider text-ink-mute">{s.region}</p>
+                          <p className="mt-1 text-sm text-ink-soft">{s.note}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </section>
             )}

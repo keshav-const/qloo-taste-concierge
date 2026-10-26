@@ -251,3 +251,79 @@ export function culturalScene(opts: SceneOpts): CulturalHighlight[] {
   const cap = opts.limit ?? (matchedCity ? 8 : 5);
   return scored.slice(0, cap);
 }
+
+// ---------------------------------------------------------------------------
+// Cross-region cultural trails — curated multi-city routes that string together
+// places we cover by a shared cultural theme (the "breadth of India" story).
+// ---------------------------------------------------------------------------
+
+export type TrailStop = { city: string; region: Region; note: string };
+export type CulturalTrail = {
+  id: string;
+  title: string;
+  domains: CultureDomain[];
+  blurb: string;
+  stops: TrailStop[];
+};
+
+export const CULTURAL_TRAILS: CulturalTrail[] = [
+  {
+    id: "temple-art",
+    title: "Temple-Art & Sculpture Trail",
+    domains: ["art", "heritage", "crafts"],
+    blurb: "A sweep through India's greatest temple sculpture — erotic Chandela carvings, Kalinga spires and a living Dravidian megatemple.",
+    stops: [
+      { city: "Khajuraho", region: "Central", note: "Chandela temple sculpture (UNESCO), Western Group & Kandariya Mahadeva" },
+      { city: "Bhubaneswar", region: "East", note: "Kalinga-style temple city — Lingaraj, Mukteshwar, nearby Konark Sun Temple" },
+      { city: "Madurai", region: "South", note: "Meenakshi Amman — a living Dravidian megatemple of painted gopurams" },
+    ],
+  },
+  {
+    id: "himalayan-culture",
+    title: "Eastern Himalaya & Northeast Trail",
+    domains: ["heritage", "crafts", "festival"],
+    blurb: "Monasteries, living root bridges and tribal culture across the cloud-wrapped Northeast.",
+    stops: [
+      { city: "Darjeeling", region: "East", note: "Himalayan hill culture, toy train, tea heritage" },
+      { city: "Sikkim", region: "Northeast", note: "Buddhist monasteries (Rumtek, Pemayangtse) & Kanchenjunga" },
+      { city: "Meghalaya", region: "Northeast", note: "Khasi living-root bridges, Cherrapunji, sacred groves" },
+    ],
+  },
+  {
+    id: "classical-south",
+    title: "Classical Music & Dance Trail",
+    domains: ["music", "dance", "heritage"],
+    blurb: "The heartlands of Carnatic music and temple dance — from megatemples to the December season.",
+    stops: [
+      { city: "Madurai", region: "South", note: "Temple music & Meenakshi festivals" },
+      { city: "Chennai", region: "South", note: "Margazhi/December season — Carnatic sabhas & Bharatanatyam" },
+      { city: "Bhubaneswar", region: "East", note: "Odissi dance heartland & temple traditions" },
+    ],
+  },
+  {
+    id: "royal-rajasthan",
+    title: "Royal Rajasthan Craft Trail",
+    domains: ["crafts", "heritage", "art"],
+    blurb: "Palaces, miniature painting and living craft bazaars across the desert kingdoms.",
+    stops: [
+      { city: "Jaipur", region: "North", note: "Block-print, blue pottery, City Palace & Jantar Mantar" },
+      { city: "Udaipur", region: "West", note: "Lake palaces, miniature painting, Mewar heritage" },
+    ],
+  },
+];
+
+/** Pick the trail that best fits the user's taste domains, destination city or region. */
+export function pickTrail(opts: { domains?: CultureDomain[]; city?: string | null; region?: Region }): CulturalTrail | null {
+  const city = canonCity(opts.city);
+  const domains = new Set(opts.domains ?? []);
+  const score = (t: CulturalTrail) => {
+    let s = 0;
+    if (city && t.stops.some((st) => canonCity(st.city) === city)) s += 5;
+    if (opts.region && t.stops.some((st) => st.region === opts.region)) s += 2;
+    for (const d of t.domains) if (domains.has(d)) s += 1;
+    return s;
+  };
+  const ranked = [...CULTURAL_TRAILS].map((t) => ({ t, s: score(t) })).sort((a, b) => b.s - a.s);
+  // Only surface a trail when there's a real signal (taste/city/region match), else the strongest default.
+  return ranked[0]?.s ? ranked[0].t : null;
+}

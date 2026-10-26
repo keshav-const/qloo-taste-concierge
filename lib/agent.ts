@@ -16,7 +16,9 @@ import {
   inferMonth,
   inferRegion,
   tasteDomains,
+  pickTrail,
   type CulturalHighlight,
+  type CulturalTrail,
 } from "./culture";
 
 export type Destination = {
@@ -553,6 +555,8 @@ export type AgentResult = {
   culturalSeeds: string[];
   /** Living cultural scene (events + venues) for the destination — festival/event-aware. */
   culturalScene: CulturalHighlight[];
+  /** A cross-region cultural trail that fits the taste/destination (the breadth-of-India story). */
+  culturalTrail?: CulturalTrail | null;
   /** The city the plan is actually for (used for the cultural-scene panel heading). */
   destinationCity?: string | null;
 };
@@ -698,6 +702,9 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
   }
   lines.push(`\n_Estimated budget: ₹3,000–8,000 per person per day depending on stays & travel._`);
 
+  const culturalTrail = pickTrail({ domains: tasteDomains({ text: userInput }), city: destinationCity, region });
+  if (culturalTrail) trace.push(`Suggested the "${culturalTrail.title}" cross-region trail.`);
+
   return {
     itinerary: lines.join("\n\n"),
     trace,
@@ -706,6 +713,7 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
     culturalVibe,
     culturalSeeds,
     culturalScene: culturalScene_,
+    culturalTrail,
     destinationCity,
   };
 }
@@ -722,6 +730,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
   const culturalVibe: CulturalPick[] = [];
   let culturalSeeds: string[] = []; // cultural tastes that drove the strip (explainability)
   let culturalSceneOut: CulturalHighlight[] = []; // living cultural scene for the destination
+  let culturalTrailOut: CulturalTrail | null = null; // cross-region trail fitting the taste/destination
   let destinationCity: string | null = null; // the city the plan is actually for
   const seedTypesUsed = new Set<string>(); // cultural seed TYPES the agent fed Qloo (for taste domains)
   const qlooPlaceNames: string[] = []; // Qloo venue names for the destination, for cross-ranking
@@ -745,15 +754,12 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
   // Guarantee a cultural scene even if the model never called the tool: derive it from the
   // destination city (or a requested region) the agent focused on, the trip's timing and taste.
   const finalizeScene = () => {
-    if (culturalSceneOut.length) return;
     const region = inferRegion(userInput);
-    if (!destinationCity && !region) return;
-    culturalSceneOut = culturalScene({
-      city: destinationCity,
-      region,
-      month: inferMonth(userInput),
-      domains: tasteDomains({ seedTypes: [...seedTypesUsed], text: userInput }),
-    });
+    const domains = tasteDomains({ seedTypes: [...seedTypesUsed], text: userInput });
+    if (!culturalSceneOut.length && (destinationCity || region)) {
+      culturalSceneOut = culturalScene({ city: destinationCity, region, month: inferMonth(userInput), domains });
+    }
+    culturalTrailOut = pickTrail({ domains, city: destinationCity, region });
   };
 
   for (let step = 0; step < maxSteps; step++) {
@@ -824,7 +830,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
     }
     applyQlooRanking();
     finalizeScene();
-    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds, culturalScene: culturalSceneOut, destinationCity };
+    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds, culturalScene: culturalSceneOut, culturalTrail: culturalTrailOut, destinationCity };
   }
   applyQlooRanking();
   finalizeScene();
@@ -853,6 +859,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       culturalVibe,
       culturalSeeds,
       culturalScene: culturalSceneOut,
+      culturalTrail: culturalTrailOut,
       destinationCity,
     };
   } catch {
@@ -864,6 +871,7 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       culturalVibe,
       culturalSeeds,
       culturalScene: culturalSceneOut,
+      culturalTrail: culturalTrailOut,
       destinationCity,
     };
   }
