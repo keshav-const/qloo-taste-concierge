@@ -268,6 +268,17 @@ export type CulturalTrail = {
 
 export const CULTURAL_TRAILS: CulturalTrail[] = [
   {
+    id: "himalayan-adventure",
+    title: "Himalayan Adventure Trail",
+    domains: ["heritage", "crafts"],
+    blurb: "A high-mountain run of passes, river rapids and monasteries — hikes, rafting and raw Himalaya.",
+    stops: [
+      { city: "Manali", region: "North", note: "Rohtang/Solang passes, Beas river, paragliding & trailheads" },
+      { city: "Rishikesh", region: "North", note: "Ganga white-water rafting, yoga & Himalayan foothill treks" },
+      { city: "Leh", region: "North", note: "Ladakh monasteries, Khardung La & high-altitude desert rides" },
+    ],
+  },
+  {
     id: "temple-art",
     title: "Temple-Art & Sculpture Trail",
     domains: ["art", "heritage", "crafts"],
