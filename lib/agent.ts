@@ -574,6 +574,16 @@ function domainFromTypes(types?: string[]): string {
 
 const TITLE = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
 
+// Is this real itinerary prose, not an empty string or a leaked tool-call JSON? gpt-oss sometimes
+// emits a tool call as plain text content (no tool_calls array); we must never surface that.
+function isProse(text?: string | null): boolean {
+  const t = (text ?? "").trim();
+  if (t.length < 20) return false;
+  if (/^[{[]/.test(t)) return false;
+  if (/"(tool|parameters|target_domain|function|arguments)"\s*:/.test(t)) return false;
+  return /[a-zA-Z]{4,}/.test(t);
+}
+
 // Does a Qloo match actually correspond to the phrase the user typed? Guards against fuzzy
 // matches turning request text ("hey create the itinerary for me") into a bogus taste seed.
 function strongMatch(phrase: string, entityName?: string): boolean {
@@ -899,9 +909,13 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       }
       continue;
     }
-    applyQlooRanking();
-    finalizeScene();
-    return { itinerary: msg.content ?? "", trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds, culturalScene: culturalSceneOut, culturalTrail: culturalTrailOut, destinationCity };
+    // Only surface this as the plan if it's real prose; a leaked tool-call JSON → compose instead.
+    if (isProse(msg.content)) {
+      applyQlooRanking();
+      finalizeScene();
+      return { itinerary: msg.content!.trim(), trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds, culturalScene: culturalSceneOut, culturalTrail: culturalTrailOut, destinationCity };
+    }
+    break; // fall through to compose-from-data (fresh context)
   }
   applyQlooRanking();
   finalizeScene();
@@ -922,8 +936,11 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       undefined,
       { temperature: 0.5, maxTokens: 1600 },
     );
+    // If even the compose step won't produce prose (gpt-oss misbehaving), fall back to the
+    // deterministic plan so the user never sees raw JSON or an empty itinerary.
+    if (!isProse(composed.content)) return deterministicPlan(userInput);
     return {
-      itinerary: (composed.content ?? "").trim() || "Here are taste-matched picks for your trip — refine below to shape the plan.",
+      itinerary: composed.content!.trim(),
       trace,
       destinations,
       verifiedPlaces,
@@ -934,16 +951,6 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
       destinationCity,
     };
   } catch {
-    return {
-      itinerary: "Here are taste-matched picks for your trip — refine below to shape the plan.",
-      trace,
-      destinations,
-      verifiedPlaces,
-      culturalVibe,
-      culturalSeeds,
-      culturalScene: culturalSceneOut,
-      culturalTrail: culturalTrailOut,
-      destinationCity,
-    };
+    return deterministicPlan(userInput);
   }
 }
