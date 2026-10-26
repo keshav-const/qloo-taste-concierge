@@ -574,6 +574,17 @@ function domainFromTypes(types?: string[]): string {
 
 const TITLE = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
 
+// Theme → preferred destination cities. Lets the offline planner honor ACTIVITY intent (a hiking
+// trip shouldn't resolve to Delhi monuments) by biasing toward depth cities that fit the theme.
+const THEMES: { re: RegExp; cities: string[] }[] = [
+  { re: /\b(hik\w*|trek\w*|mountain\w*|climb\w*|adventur\w*|himalaya\w*|snow|ski|alpine|valley|camp\w*)\b/i,
+    cities: ["manali", "rishikesh", "ladakh", "leh", "srinagar", "gulmarg", "sikkim", "darjeeling", "meghalaya", "guwahati"] },
+  { re: /\b(beach\w*|coast\w*|sea|island|backwater\w*)\b/i, cities: ["goa", "kerala", "kochi"] },
+  { re: /\b(temple\w*|heritage|histor\w*|ancient|fort|palace|sculpt\w*|architect\w*)\b/i,
+    cities: ["khajuraho", "madurai", "bhubaneswar", "hampi", "udaipur", "jaipur", "varanasi"] },
+  { re: /\b(wildlife|safari|tiger|jungle|national park|bird\w*)\b/i, cities: ["panna", "khajuraho", "meghalaya"] },
+];
+
 /**
  * Deterministic, NO-LLM plan. When every LLM provider is rate-limited, we still assemble a full
  * plan from Qloo + the creator-evidence graph + the cultural dataset, with a templated itinerary.
@@ -582,36 +593,26 @@ const TITLE = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
  */
 export async function deterministicPlan(userInput: string): Promise<AgentResult> {
   const trace: string[] = ["⚠︎ Planner offline (LLM rate-limited) — assembled a verified plan from Qloo + creator data, no AI prose."];
-  const lower = userInput.toLowerCase();
-
-  // 1. Destination: first depth city whose slug appears in the request.
   const depth = citiesWithDepth();
-  const slug = depth.find((c) => lower.includes(c.toLowerCase()));
-  const destinationCity = slug ? TITLE(slug) : null;
+  const lower = userInput.toLowerCase();
   const region = inferRegion(userInput);
   const month = inferMonth(userInput);
-  if (destinationCity) trace.push(`Focused on ${destinationCity} (creator-verified depth city).`);
+  // Strip the appended "My answers:" Q&A block and any parenthetical instructions so taste seeds
+  // come from the user's ACTUAL tastes, not prompt scaffolding (which produced garbage before).
+  const cleanInput = userInput.split(/\n\n|my answers:/i)[0].replace(/\([^)]*\)/g, " ").trim();
+  const matchDepth = (name: string) => {
+    const n = name.toLowerCase();
+    return depth.find((d) => n === d || n.includes(d) || d.includes(n));
+  };
 
-  // 2. Creator-verified places (always available, no Qloo/LLM needed).
-  const verifiedPlaces = listVerifiedPlaces({ city: destinationCity ?? undefined, interests: [userInput], limit: 8 });
-  trace.push(`Pulled ${verifiedPlaces.length} creator-verified places from the evidence graph.`);
-
-  // 3. Cultural scene (dataset-driven; festival/event-aware).
-  const culturalScene_ = culturalScene({
-    city: destinationCity,
-    region,
-    month,
-    domains: tasteDomains({ text: userInput }),
-  });
-  if (culturalScene_.length) trace.push(`Matched ${culturalScene_.length} cultural highlights for the season & taste.`);
-
-  // 4. Best-effort Qloo (destinations + cross-domain vibe + verified-place ranking). Each call is
-  //    wrapped so a Qloo hiccup never breaks the offline plan.
+  // 1. Resolve taste seeds on Qloo (read entity types to classify cultural ones) + taste-matched
+  //    destinations + cross-domain vibe. All best-effort — a Qloo hiccup never breaks the plan.
   const destinations: Destination[] = [];
   const culturalVibe: CulturalPick[] = [];
   let culturalSeeds: string[] = [];
+  let allIds: string[] = [];
   try {
-    const seeds: Seed[] = userInput
+    const seeds: Seed[] = cleanInput
       .split(/[,;/\n]|\band\b|\bwith\b/i)
       .map((s) => s.trim())
       .filter((s) => s.length > 2 && s.length < 40)
@@ -623,19 +624,16 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
         const found = await searchEntities(s.name, undefined, 1);
         const id = found[0] && entityId(found[0]);
         if (id) resolvedAll.push({ id, name: s.name, domain: domainFromTypes(found[0].types) });
-      } catch {
-        /* skip this seed */
-      }
+      } catch { /* skip this seed */ }
     }
-    const allIds = resolvedAll.map((r) => r.id);
+    allIds = resolvedAll.map((r) => r.id);
     const culturalResolved = resolvedAll.filter((r) => r.domain);
     culturalSeeds = culturalResolved.map((r) => r.name);
 
     if (allIds.length) {
-      // (a) India-wide taste-matched destinations.
       try {
         const ents = await tasteExpand(allIds, EntityType.destination, { countryCode: "IN", take: 8 });
-        for (const e of ents.slice(0, 6)) {
+        for (const e of ents.slice(0, 8)) {
           if (!e.name) continue;
           destinations.push({
             name: e.name,
@@ -647,7 +645,6 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
         trace.push(`Qloo returned ${destinations.length} taste-matched destinations.`);
       } catch { /* skip destinations */ }
 
-      // (b) Cross-domain cultural vibe — only from genuinely cultural seeds (avoids garbage).
       const culturalIds = culturalResolved.map((r) => r.id);
       if (culturalIds.length) {
         const domains: { key: string; type: EntityTypeUrn }[] = [
@@ -665,26 +662,70 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
         }));
         if (culturalVibe.length) trace.push(`Built a cross-domain cultural vibe from ${culturalSeeds.join(", ")}.`);
       }
-
-      // (c) Rank verified places Qloo independently surfaces for the destination.
-      if (destinationCity) {
-        try {
-          const ents = await tasteExpand(allIds, EntityType.place, { locationQuery: destinationCity, take: 15 });
-          const names = ents.map((e) => e.name).filter((n): n is string => !!n);
-          for (const p of verifiedPlaces) if (qlooCorroborates(p.name, names)) p.qloo_ranked = true;
-          verifiedPlaces.sort((a, b) => Number(b.qloo_ranked ?? false) - Number(a.qloo_ranked ?? false));
-        } catch { /* skip ranking */ }
-      }
     }
   } catch { /* whole Qloo stage is best-effort */ }
 
-  // 5. Templated itinerary (no prose generation).
-  const where = destinationCity ?? destinations[0]?.name ?? "India";
+  // 2. Pick ONE destination to plan — prefer a city we have creator-verified DEPTH for, so the
+  //    plan is coherent: a depth city named in the request > the first Qloo destination we have
+  //    depth for > nothing (then we're honest that we lack verified depth and lean on Qloo).
+  let destinationCity: string | null = null;
+  const named = depth.find((c) => lower.includes(c));
+  if (named) {
+    destinationCity = TITLE(named);
+  } else {
+    // Honor activity/theme intent: prefer a depth city matching the detected theme (a hiking trip
+    // picks a mountain city, not whatever generic city Qloo returned for weak activity seeds).
+    const theme = THEMES.find((t) => t.re.test(lower));
+    const themeCity = theme?.cities.find((c) => depth.includes(c));
+    if (themeCity) {
+      destinationCity = TITLE(themeCity);
+      trace.push(`Read your activity/theme and matched ${destinationCity} — a fitting creator-verified city.`);
+    } else {
+      for (const d of destinations) {
+        const m = matchDepth(d.name);
+        if (m) { destinationCity = TITLE(m); break; }
+      }
+    }
+  }
+  if (destinationCity) trace.push(`Focused on ${destinationCity} — a creator-verified depth city.`);
+
+  // 3. Verified places for THAT city only (keeps the list, map pins and heading consistent).
+  //    Empty when we have no depth there — which we state honestly rather than showing other cities.
+  const verifiedPlaces = destinationCity
+    ? listVerifiedPlaces({ city: destinationCity, interests: [cleanInput], limit: 8 })
+    : [];
+  if (destinationCity) {
+    trace.push(`Pulled ${verifiedPlaces.length} creator-verified places in ${destinationCity}.`);
+    if (allIds.length) {
+      try {
+        const ents = await tasteExpand(allIds, EntityType.place, { locationQuery: destinationCity, take: 15 });
+        const names = ents.map((e) => e.name).filter((n): n is string => !!n);
+        for (const p of verifiedPlaces) if (qlooCorroborates(p.name, names)) p.qloo_ranked = true;
+        verifiedPlaces.sort((a, b) => Number(b.qloo_ranked ?? false) - Number(a.qloo_ranked ?? false));
+      } catch { /* skip ranking */ }
+    }
+  }
+
+  // 4. Cultural scene for the chosen city / region (festival/event-aware).
+  const culturalScene_ = culturalScene({
+    city: destinationCity,
+    region,
+    month,
+    domains: tasteDomains({ text: cleanInput }),
+  });
+  if (culturalScene_.length) trace.push(`Matched ${culturalScene_.length} cultural highlights for the season & taste.`);
+
+  // 5. Templated itinerary (no prose). Heading = the depth city, else the top Qloo destination.
+  const topDest = destinations.find((d) => !destinationCity || d.name.toLowerCase() !== destinationCity.toLowerCase());
+  const where = destinationCity ?? topDest?.name ?? (region ? `${region} India` : "India");
   const lines: string[] = [];
   lines.push(`# Your taste trip to ${where}`);
   lines.push(`*Our AI writer is rate-limited right now, so this is a verified plan straight from Qloo + creator data. Hit **Update plan** in a minute for a narrated version.*`);
+  if (!destinationCity) {
+    lines.push(`> We don't have creator-verified depth for **${where}** yet — so here are Qloo's taste-matched destinations and the cultural scene instead of hand-verified spots.`);
+  }
   if (verifiedPlaces.length) {
-    lines.push(`## Creator-verified spots${destinationCity ? ` in ${destinationCity}` : ""}`);
+    lines.push(`## Creator-verified spots in ${destinationCity}`);
     for (const p of verifiedPlaces.slice(0, 8)) {
       const bits = [p.specialities?.slice(0, 3).join(", ")].filter(Boolean).join(" ");
       lines.push(`- **${p.name}**${bits ? ` — ${bits}` : ""}${p.qloo_ranked ? " ✨ *Qloo pick*" : ""} _(✓ ${p.sources} source${p.sources === 1 ? "" : "s"})_`);
@@ -696,13 +737,14 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
       lines.push(`- **${h.name}**${h.when ? ` (${h.when})` : ""}${h.inSeason ? " 🔥 *in season*" : ""} — ${h.blurb}`);
     }
   }
-  if (destinations.length) {
-    lines.push(`## Other taste-matched destinations`);
-    lines.push(destinations.slice(0, 6).map((d) => d.name).join(" · "));
+  const otherDests = destinations.filter((d) => !destinationCity || d.name.toLowerCase() !== destinationCity.toLowerCase());
+  if (otherDests.length) {
+    lines.push(`## ${destinationCity ? "Also taste-matched for you" : "Taste-matched destinations"}`);
+    lines.push(otherDests.slice(0, 6).map((d) => d.name).join(" · "));
   }
   lines.push(`\n_Estimated budget: ₹3,000–8,000 per person per day depending on stays & travel._`);
 
-  const culturalTrail = pickTrail({ domains: tasteDomains({ text: userInput }), city: destinationCity, region });
+  const culturalTrail = pickTrail({ domains: tasteDomains({ text: cleanInput }), city: destinationCity, region });
   if (culturalTrail) trace.push(`Suggested the "${culturalTrail.title}" cross-region trail.`);
 
   return {

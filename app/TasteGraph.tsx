@@ -16,10 +16,11 @@ export default function TasteGraph({ seeds, picks }: { seeds: string[]; picks: P
   if (!P.length) return null;
 
   const W = 760;
+  const TOP = 44; // header band
   const rows = Math.max(S.length, P.length, 1);
   const rowH = 46;
-  const H = Math.max(rows * rowH + 40, 200);
-  const midY = H / 2;
+  const H = Math.max(rows * rowH + TOP + 24, 200);
+  const midY = TOP + (H - TOP) / 2;
   const hubX = W / 2;
   const seedX = 130;
   const pickX = W - 130;
@@ -29,7 +30,11 @@ export default function TasteGraph({ seeds, picks }: { seeds: string[]; picks: P
 
   return (
     <div className="ring-soft overflow-hidden rounded-2xl border border-line bg-paper-card p-2">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ maxHeight: 420 }} role="img" aria-label="How Qloo expanded your taste">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ maxHeight: 440 }} role="img" aria-label="How Qloo expanded your taste">
+        {/* column headers */}
+        <text x={seedX} y={22} textAnchor="middle" fontSize="11" fontWeight="700" fill="currentColor" fillOpacity="0.55" letterSpacing="0.5">YOUR TASTES</text>
+        <text x={hubX} y={22} textAnchor="middle" fontSize="11" fontWeight="700" fill="#e2550e" letterSpacing="0.5">CROSS-MATCHES TO</text>
+        <text x={pickX} y={22} textAnchor="middle" fontSize="11" fontWeight="700" fill="currentColor" fillOpacity="0.55" letterSpacing="0.5">FILMS · SHOWS · MUSIC · BOOKS</text>
         {/* seed -> hub links */}
         {S.map((_, i) => (
           <path key={`sl${i}`} d={`M ${seedX + 8} ${seedY(i)} C ${(seedX + hubX) / 2} ${seedY(i)}, ${(seedX + hubX) / 2} ${midY}, ${hubX - 46} ${midY}`}

@@ -315,9 +315,23 @@ export default function Home() {
         <section className="relative left-1/2 mb-8 flex min-h-[80vh] w-screen -translate-x-1/2 items-center justify-center overflow-hidden py-16 sm:min-h-[88vh]">
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <HeroVideo />
-            {/* readability wash + fade into the page */}
+            {/* readability wash */}
             <div className="absolute inset-0 bg-paper/45" />
-            <div className="absolute inset-0 bg-gradient-to-b from-paper/30 via-paper/20 to-paper" />
+            {/* fade the video out, but stop SHORT of fully opaque at the bottom so the page's
+                background + soft blooms show through continuously — no hard seam below the hero */}
+            <div className="absolute inset-0 bg-gradient-to-b from-paper/40 via-paper/25 to-paper/70" />
+            {/* soft blurred merge band: progressively blurs the video's bottom into the section
+                below so the two submerge into each other instead of meeting at a definite line */}
+            <div
+              className="absolute inset-x-0 bottom-0 h-60"
+              style={{
+                backdropFilter: "blur(14px)",
+                WebkitBackdropFilter: "blur(14px)",
+                WebkitMaskImage: "linear-gradient(to bottom, transparent, black 72%)",
+                maskImage: "linear-gradient(to bottom, transparent, black 72%)",
+                background: "linear-gradient(to bottom, transparent, rgba(250,246,238,0.45))",
+              }}
+            />
           </div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="relative z-10 px-4 text-center">
             <h1 className="font-display text-5xl leading-[1.05] text-ink drop-shadow-[0_2px_12px_rgba(244,238,227,0.95)] sm:text-[4.75rem]">
