@@ -220,7 +220,12 @@ function haystack(p: Poi): string {
 export function listVerifiedPlaces(
   opts: { city?: string; interests?: string[]; categoryLike?: string; limit?: number } = {},
 ): VerifiedPlace[] {
-  const dest = opts.city ? CITY_TO_DEST[opts.city.toLowerCase()] : undefined;
+  // Map a city name to its destination slug. Known aliases (New Delhi→delhi, Gurugram→gurgaon)
+  // come from CITY_TO_DEST; otherwise the slug IS the lowercased city (madurai, khajuraho, …),
+  // so fall back to that instead of silently returning places from every city.
+  const dest = opts.city
+    ? (CITY_TO_DEST[opts.city.toLowerCase()] ?? opts.city.toLowerCase().trim())
+    : undefined;
   const kw = opts.categoryLike?.toLowerCase();
   const terms = (opts.interests ?? [])
     .flatMap((s) => s.toLowerCase().split(/[\s,/&]+/))
