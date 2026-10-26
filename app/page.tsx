@@ -313,25 +313,20 @@ export default function Home() {
       <main className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
         {/* Hero — full-bleed looping India montage (intro/outro trimmed), extends behind the glass navbar */}
         <section className="relative left-1/2 mb-8 flex min-h-[80vh] w-screen -translate-x-1/2 items-center justify-center overflow-hidden py-16 sm:min-h-[88vh]">
-          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          {/* Mask the whole video+wash so it FADES TO TRANSPARENT toward the bottom — the page's
+              own background then shows through continuously, so the hero melts into the section
+              below instead of ending at a hard line (no color mismatch between cream & the page). */}
+          <div
+            className="pointer-events-none absolute inset-0 overflow-hidden"
+            style={{
+              WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 48%, transparent 82%)",
+              maskImage: "linear-gradient(to bottom, black 0%, black 48%, transparent 82%)",
+            }}
+          >
             <HeroVideo />
-            {/* readability wash */}
+            {/* readability wash over the video */}
             <div className="absolute inset-0 bg-paper/45" />
-            {/* fade the video out, but stop SHORT of fully opaque at the bottom so the page's
-                background + soft blooms show through continuously — no hard seam below the hero */}
-            <div className="absolute inset-0 bg-gradient-to-b from-paper/40 via-paper/25 to-paper/70" />
-            {/* soft blurred merge band: progressively blurs the video's bottom into the section
-                below so the two submerge into each other instead of meeting at a definite line */}
-            <div
-              className="absolute inset-x-0 bottom-0 h-60"
-              style={{
-                backdropFilter: "blur(14px)",
-                WebkitBackdropFilter: "blur(14px)",
-                WebkitMaskImage: "linear-gradient(to bottom, transparent, black 72%)",
-                maskImage: "linear-gradient(to bottom, transparent, black 72%)",
-                background: "linear-gradient(to bottom, transparent, rgba(250,246,238,0.45))",
-              }}
-            />
+            <div className="absolute inset-0 bg-gradient-to-b from-paper/40 via-paper/30 to-paper/50" />
           </div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={EASE} className="relative z-10 px-4 text-center">
             <h1 className="font-display text-5xl leading-[1.05] text-ink drop-shadow-[0_2px_12px_rgba(244,238,227,0.95)] sm:text-[4.75rem]">

@@ -1,6 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+// India's rough bounding box — drop any pin a bad geocode placed outside the country.
+function inIndia(lat: number, lng: number): boolean {
+  return lat >= 6 && lat <= 37.5 && lng >= 68 && lng <= 98.5;
+}
+/** Keep only valid, in-India pins and reject outliers far from the cluster (one bad geocode
+ *  otherwise blows the map out to a whole-subcontinent view). */
+function cleanPins(places: MapPlace[]): MapPlace[] {
+  const valid = places.filter(
+    (p) => typeof p.lat === "number" && typeof p.lng === "number" && inIndia(p.lat, p.lng),
+  );
+  if (valid.length <= 2) return valid;
+  const med = (arr: number[]) => [...arr].sort((a, b) => a - b)[Math.floor(arr.length / 2)];
+  const mlat = med(valid.map((p) => p.lat as number));
+  const mlng = med(valid.map((p) => p.lng as number));
+  const kept = valid.filter(
+    (p) => Math.abs((p.lat as number) - mlat) <= 2.5 && Math.abs((p.lng as number) - mlng) <= 2.5,
+  );
+  return kept.length ? kept : valid;
+}
 
 /** Minimal shape MapPanel needs from a verified place. */
 export type MapPlace = {
@@ -83,8 +103,9 @@ export default function MapPanel({
   const ref = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any>(null);
+  const [zoomArmed, setZoomArmed] = useState(false);
 
-  const pinned = places.filter((p) => typeof p.lat === "number" && typeof p.lng === "number");
+  const pinned = cleanPins(places);
 
   useEffect(() => {
     let cancelled = false;
@@ -98,8 +119,12 @@ export default function MapPanel({
           mapRef.current.remove();
           mapRef.current = null;
         }
+        // scrollWheelZoom OFF by default so the page scrolls past the map; a click on the map
+        // ARMS wheel-zoom (good UX), leaving the map re-disables it so scrolling never traps.
         const map = L.map(ref.current, { scrollWheelZoom: false });
         mapRef.current = map;
+        map.on("click focus", () => { map.scrollWheelZoom.enable(); setZoomArmed(true); });
+        map.on("mouseout blur", () => { map.scrollWheelZoom.disable(); setZoomArmed(false); });
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
           attribution: "&copy; OpenStreetMap",
           maxZoom: 18,
@@ -116,8 +141,9 @@ export default function MapPanel({
             .addTo(map)
             .bindPopup(`<strong>${safe(p.name)}</strong><br/><span style="color:#777">${safe([p.category, p.area].filter(Boolean).join(" · "))}</span>${link}`);
         }
-        if (latlngs.length === 1) map.setView(latlngs[0], 13);
-        else map.fitBounds(latlngs, { padding: [30, 30] });
+        // Cap how far in/out fitBounds goes so a city stays a city view (never a subcontinent one).
+        if (latlngs.length === 1) map.setView(latlngs[0], 12);
+        else map.fitBounds(latlngs, { padding: [30, 30], maxZoom: 12 });
         setTimeout(() => map.invalidateSize(), 100);
       })
       .catch(() => {});
@@ -137,7 +163,12 @@ export default function MapPanel({
   return (
     <div className="space-y-3">
       {pinned.length > 0 ? (
-        <div ref={ref} className="h-72 w-full overflow-hidden rounded-2xl border border-line" style={{ background: "#e8e6e0" }} />
+        <div className="relative">
+          <div ref={ref} className="h-72 w-full overflow-hidden rounded-2xl border border-line" style={{ background: "#e8e6e0" }} />
+          <div className={`pointer-events-none absolute right-3 top-3 z-[500] rounded-full px-2.5 py-1 text-xs font-medium shadow-sm transition ${zoomArmed ? "bg-verified text-paper" : "bg-paper-card/90 text-ink-soft"}`}>
+            {zoomArmed ? "scroll to zoom ✓" : "click map to zoom"}
+          </div>
+        </div>
       ) : (
         <div className="grid h-24 place-items-center rounded-2xl border border-dashed border-line text-sm text-ink-mute">
           Map pins appear as we geocode more of {destLabel}&apos;s spots.

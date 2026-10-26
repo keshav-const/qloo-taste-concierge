@@ -574,6 +574,20 @@ function domainFromTypes(types?: string[]): string {
 
 const TITLE = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
 
+// Does a Qloo match actually correspond to the phrase the user typed? Guards against fuzzy
+// matches turning request text ("hey create the itinerary for me") into a bogus taste seed.
+function strongMatch(phrase: string, entityName?: string): boolean {
+  if (!entityName) return false;
+  const norm = (x: string) => x.toLowerCase().replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  const a = norm(phrase), b = norm(entityName);
+  if (!a || !b) return false;
+  if (a.includes(b) || b.includes(a)) return true;
+  const ta = new Set(a.split(" ")), tb = new Set(b.split(" "));
+  let inter = 0;
+  for (const t of tb) if (ta.has(t)) inter++;
+  return inter / Math.max(1, Math.min(ta.size, tb.size)) >= 0.5;
+}
+
 // Theme → preferred destination cities. Lets the offline planner honor ACTIVITY intent (a hiking
 // trip shouldn't resolve to Delhi monuments) by biasing toward depth cities that fit the theme.
 const THEMES: { re: RegExp; cities: string[] }[] = [
@@ -612,22 +626,37 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
   let culturalSeeds: string[] = [];
   let allIds: string[] = [];
   try {
+    // Strip filler/logistics words so "I love Coldplay" → "Coldplay" (not a fuzzy book match) and
+    // "plan a trip to Jaipur" → "Jaipur" (a place, not a bogus cultural seed).
+    const strip = (s: string) =>
+      s.replace(/^(hey|hi|so|please|ok|okay)\b[,\s]*/i, "")
+        .replace(/^(me and my friends?|my friends? and i|i|we)\s+((really|also|just|quite)\s+)?(love|like|enjoy|adore|prefer|am into|are into|want|wanna|would like|like to|are)\s+/i, "")
+        .replace(/\b(plan(ning)?|book(ing)?|create|make|want|itinerary|itenary|trip|tour|holiday|vacation|getaway|travel(ling|ing)?|visit(ing)?|going|for me|adventurous|adventure)\b/gi, " ")
+        .replace(/\s+/g, " ")
+        .trim();
     const seeds: Seed[] = cleanInput
-      .split(/[,;/\n]|\band\b|\bwith\b/i)
-      .map((s) => s.trim())
+      .split(/[,;/\n]|\band\b|\bwith\b|\bto\b/i)
+      .map((s) => strip(s))
       .filter((s) => s.length > 2 && s.length < 40)
       .slice(0, 6)
       .map((name) => ({ name, type: "" }));
-    const resolvedAll: { id: string; name: string; domain: string }[] = [];
+    const resolvedAll: { id: string; name: string; domain: string; strong: boolean }[] = [];
     for (const s of seeds) {
       try {
         const found = await searchEntities(s.name, undefined, 1);
         const id = found[0] && entityId(found[0]);
-        if (id) resolvedAll.push({ id, name: s.name, domain: domainFromTypes(found[0].types) });
+        if (id) resolvedAll.push({
+          id,
+          name: found[0].name || s.name,            // use Qloo's real entity name as the label
+          domain: domainFromTypes(found[0].types),
+          strong: strongMatch(s.name, found[0].name), // did it really match what the user typed?
+        });
       } catch { /* skip this seed */ }
     }
     allIds = resolvedAll.map((r) => r.id);
-    const culturalResolved = resolvedAll.filter((r) => r.domain);
+    // Cultural vibe + graph use ONLY strongly-matched cultural seeds, so request text never
+    // becomes a bogus "taste". Destinations can still use the looser full set.
+    const culturalResolved = resolvedAll.filter((r) => r.domain && r.strong);
     culturalSeeds = culturalResolved.map((r) => r.name);
 
     if (allIds.length) {
