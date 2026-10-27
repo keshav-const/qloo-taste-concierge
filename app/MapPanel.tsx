@@ -125,31 +125,25 @@ export default function MapPanel({
         mapRef.current = map;
         map.on("click focus", () => { map.scrollWheelZoom.enable(); setZoomArmed(true); });
         map.on("mouseout blur", () => { map.scrollWheelZoom.disable(); setZoomArmed(false); });
-        // Prefer Mappls (MapmyIndia) tiles — they render India's OFFICIAL boundaries (J&K/Ladakh
-        // correct) — and fall back to OpenStreetMap automatically if they fail to load (bad key,
-        // quota, non-whitelisted origin), so the map is never blank.
-        const addOSM = () =>
-          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: "&copy; OpenStreetMap",
-            maxZoom: 18,
-          }).addTo(map);
-        const mapplsKey = process.env.NEXT_PUBLIC_MAPPLS_KEY;
-        if (mapplsKey) {
-          const mappls = L.tileLayer(
-            `https://apis.mappls.com/advancedmaps/v1/${mapplsKey}/map_tiles/{z}/{x}/{y}.png`,
-            { attribution: "&copy; Mappls", maxZoom: 18 },
-          );
-          let fellBack = false;
-          mappls.on("tileerror", () => {
-            if (fellBack) return;
-            fellBack = true;
-            map.removeLayer(mappls);
-            addOSM();
-          });
-          mappls.addTo(map);
-        } else {
-          addOSM();
-        }
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap",
+          maxZoom: 18,
+        }).addTo(map);
+
+        // Key-free overlay of India's OFFICIAL boundary (DataMeet composite, simplified) so J&K and
+        // Ladakh read as part of India: dim everything outside the country, then trace the official
+        // border. Pure enhancement — if the file fails to load the map still works. Markers live in
+        // Leaflet's markerPane (above the overlayPane), so they stay on top and clickable.
+        fetch("/india-outline.json")
+          .then((r) => r.json())
+          .then((data: { rings: number[][][] }) => {
+            if (cancelled || mapRef.current !== map) return;
+            const rings = data.rings.map((ring) => ring.map(([lng, lat]) => [lat, lng] as [number, number]));
+            const world: [number, number][] = [[-85, -180], [-85, 180], [85, 180], [85, -180]];
+            L.polygon([world, ...rings], { stroke: false, fillColor: "#1d1a16", fillOpacity: 0.18, interactive: false }).addTo(map);
+            L.polyline(rings, { color: "#e2550e", weight: 1.5, opacity: 0.6, interactive: false }).addTo(map);
+          })
+          .catch(() => {});
         const latlngs: [number, number][] = [];
         for (const p of pinned) {
           const lat = p.lat as number, lng = p.lng as number;
