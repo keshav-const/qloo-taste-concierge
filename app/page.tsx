@@ -11,6 +11,7 @@ import CursorGlow from "./CursorGlow";
 import MapPanel from "./MapPanel";
 import TasteGraph from "./TasteGraph";
 import CoverageMap from "./CoverageMap";
+import LocalPack from "./LocalPack";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -570,6 +571,14 @@ export default function Home() {
                 <SectionLabel>Map &amp; getting there{result.destinationCity ? ` · ${result.destinationCity}` : ""}</SectionLabel>
                 <p className="mb-5 text-sm text-ink-mute">Verified spots on one map — no extra tab. Plus the nearest airport and a prefilled flight/route search.</p>
                 <MapPanel places={result.verifiedPlaces} destinationCity={result.destinationCity} originCity={dest} />
+              </section>
+            )}
+
+            {result.destinationCity && (
+              <section className="mb-12">
+                <SectionLabel>Local pack · {result.destinationCity}</SectionLabel>
+                <p className="mb-5 text-sm text-ink-mute">A few words to greet people, what to know, and what to eat.</p>
+                <LocalPack city={result.destinationCity} />
               </section>
             )}
 
