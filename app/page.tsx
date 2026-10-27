@@ -10,6 +10,7 @@ import SiteHeader from "./SiteHeader";
 import CursorGlow from "./CursorGlow";
 import MapPanel from "./MapPanel";
 import TasteGraph from "./TasteGraph";
+import CoverageMap from "./CoverageMap";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -363,6 +364,9 @@ export default function Home() {
                   style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%", animation: "gradient-shift 6s ease-in-out infinite" }}
                   className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40">{busy === "questions" ? "Thinking…" : "Continue →"}</motion.button>
               </div>
+            </div>
+            <div className="mt-6">
+              <CoverageMap />
             </div>
           </motion.section>
         )}

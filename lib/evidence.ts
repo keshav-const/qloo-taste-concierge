@@ -185,6 +185,31 @@ export function citiesWithDepth(): string[] {
   return [...new Set(pois().map((p) => p.destination))];
 }
 
+export type CoverageCity = { city: string; lat: number; lng: number; count: number };
+/**
+ * Per-destination coverage for the India map: each depth city's POI count and a representative
+ * location (median of its geocoded POIs). Cities with no geocoded POI are omitted (no dot to place).
+ */
+export function coverageCities(): CoverageCity[] {
+  const byCity = new Map<string, { lats: number[]; lngs: number[]; count: number }>();
+  for (const p of pois()) {
+    const c = byCity.get(p.destination) ?? { lats: [], lngs: [], count: 0 };
+    c.count++;
+    if (typeof p.lat === "number" && typeof p.lng === "number") {
+      c.lats.push(p.lat);
+      c.lngs.push(p.lng);
+    }
+    byCity.set(p.destination, c);
+  }
+  const median = (arr: number[]) => [...arr].sort((a, b) => a - b)[Math.floor(arr.length / 2)];
+  const out: CoverageCity[] = [];
+  for (const [city, c] of byCity) {
+    if (!c.lats.length) continue;
+    out.push({ city, lat: median(c.lats), lng: median(c.lngs), count: c.count });
+  }
+  return out.sort((a, b) => b.count - a.count);
+}
+
 /**
  * Does Qloo's Taste AI independently corroborate this place? Fuzzy (creators use colloquial
  * names, Qloo uses formal ones), via normalized substring or high edit-similarity.
