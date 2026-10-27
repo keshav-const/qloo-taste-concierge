@@ -24,6 +24,7 @@ export type ToolDef = {
 type Provider = { base: string; key: string; model: string; label: string };
 const GROQ = "https://api.groq.com/openai/v1";
 const GEMINI = "https://generativelanguage.googleapis.com/v1beta/openai";
+const OPENAI = "https://api.openai.com/v1";
 
 function mkProvider(prefix: string, defBase: string, defModel: string, label: string): Provider | null {
   const key = process.env[`${prefix}_API_KEY`];
@@ -36,12 +37,14 @@ function mkProvider(prefix: string, defBase: string, defModel: string, label: st
   };
 }
 
-// Ordered chain: primary, then fallbacks. Groq rate-limits are PER-MODEL, so a second Groq
-// model (qwen) has its own daily quota — a free way to stay up when gpt-oss-120b is capped.
+// Ordered chain: primary, then fallbacks. OpenAI (gpt-4o-mini) is the primary when a key is
+// present — cheap, high-limit, reliable tool-calling — with the free Groq/Gemini tiers as
+// fallbacks so the app still works if OpenAI is unset or hits an error.
 const PROVIDERS: Provider[] = [
-  mkProvider("LLM", GROQ, "openai/gpt-oss-120b", "primary"),
-  mkProvider("LLM_FALLBACK", GROQ, "openai/gpt-oss-20b", "fallback-1"),
-  mkProvider("LLM_FALLBACK2", GEMINI, "gemini-3.6-flash", "fallback-2"),
+  mkProvider("LLM_OPENAI", OPENAI, "gpt-4o-mini", "openai"),
+  mkProvider("LLM", GROQ, "openai/gpt-oss-120b", "groq-120b"),
+  mkProvider("LLM_FALLBACK", GROQ, "openai/gpt-oss-20b", "groq-20b"),
+  mkProvider("LLM_FALLBACK2", GEMINI, "gemini-3.6-flash", "fallback-gemini"),
 ].filter((p): p is Provider => !!p);
 
 /** A friendly, user-safe error. Routes should surface `.userMessage`, never the raw body. */
