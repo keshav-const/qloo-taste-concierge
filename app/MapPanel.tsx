@@ -91,14 +91,37 @@ function loadLeaflet(): Promise<void> {
   return leafletReady;
 }
 
+const DAY_COLORS = ["#e2550e", "#0d6e5b", "#c23d6a", "#6b4fa0", "#b8860b", "#2f7d4f"];
+
+/** Which itinerary day mentions each place (by name), so map pins can be numbered by day. */
+function dayAssignments(itinerary: string | undefined, places: MapPlace[]): { byName: Map<string, number>; days: number } {
+  const byName = new Map<string, number>();
+  if (!itinerary) return { byName, days: 0 };
+  const re = /\*\*\s*Day\s*(\d+)[\s\S]*?(?=\*\*\s*Day\s*\d+|$)/gi;
+  const sections: { day: number; text: string }[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(itinerary))) sections.push({ day: parseInt(m[1], 10), text: m[0].toLowerCase() });
+  for (const p of places) {
+    const n = p.name.toLowerCase();
+    if (n.length < 4) continue;
+    for (const s of sections) {
+      if (s.text.includes(n)) { byName.set(p.name, s.day); break; }
+    }
+  }
+  const days = sections.length ? Math.max(...sections.map((s) => s.day)) : 0;
+  return { byName, days };
+}
+
 export default function MapPanel({
   places,
   destinationCity,
   originCity,
+  itinerary,
 }: {
   places: MapPlace[];
   destinationCity: string | null | undefined;
   originCity: string | null | undefined;
+  itinerary?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -106,6 +129,7 @@ export default function MapPanel({
   const [zoomArmed, setZoomArmed] = useState(false);
 
   const pinned = cleanPins(places);
+  const { byName: dayOf, days } = dayAssignments(itinerary, pinned);
 
   useEffect(() => {
     let cancelled = false;
@@ -152,9 +176,25 @@ export default function MapPanel({
           const link = p.maps_url
             ? `<br/><a href="${p.maps_url}" target="_blank" rel="noopener noreferrer" style="color:#e2550e">Open in Maps →</a>`
             : "";
-          L.marker([lat, lng])
+          // Places the itinerary slots into a day get a numbered, day-coloured pin; others stay plain.
+          const day = dayOf.get(p.name);
+          let marker;
+          if (day) {
+            const color = DAY_COLORS[(day - 1) % DAY_COLORS.length];
+            const icon = L.divIcon({
+              className: "",
+              html: `<div style="background:${color};width:24px;height:24px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center"><span style="transform:rotate(45deg);color:#fff;font-size:12px;font-weight:700">${day}</span></div>`,
+              iconSize: [24, 24],
+              iconAnchor: [12, 24],
+              popupAnchor: [0, -22],
+            });
+            marker = L.marker([lat, lng], { icon });
+          } else {
+            marker = L.marker([lat, lng]);
+          }
+          marker
             .addTo(map)
-            .bindPopup(`<strong>${safe(p.name)}</strong><br/><span style="color:#777">${safe([p.category, p.area].filter(Boolean).join(" · "))}</span>${link}`);
+            .bindPopup(`<strong>${safe(p.name)}</strong>${day ? ` <span style="color:${DAY_COLORS[(day - 1) % DAY_COLORS.length]};font-weight:700">· Day ${day}</span>` : ""}<br/><span style="color:#777">${safe([p.category, p.area].filter(Boolean).join(" · "))}</span>${link}`);
         }
         // Cap how far in/out fitBounds goes so a city stays a city view (never a subcontinent one).
         if (latlngs.length === 1) map.setView(latlngs[0], 12);
@@ -169,7 +209,8 @@ export default function MapPanel({
         mapRef.current = null;
       }
     };
-  }, [pinned.length, destinationCity]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pinned.length, destinationCity, itinerary]);
 
   const air = airportFor(destinationCity);
   const origin = originCity && originCity.toLowerCase() !== "anywhere in india" ? originCity : null;
@@ -187,6 +228,17 @@ export default function MapPanel({
       ) : (
         <div className="grid h-24 place-items-center rounded-2xl border border-dashed border-line text-sm text-ink-mute">
           Map pins appear as we geocode more of {destLabel}&apos;s spots.
+        </div>
+      )}
+      {days > 0 && dayOf.size > 0 && (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-mute">
+          <span className="font-medium text-ink-soft">Numbered pins = day on your plan:</span>
+          {Array.from({ length: days }, (_, i) => i + 1).map((d) => (
+            <span key={d} className="inline-flex items-center gap-1">
+              <span className="grid h-4 w-4 place-items-center rounded-full text-[10px] font-bold text-white" style={{ background: DAY_COLORS[(d - 1) % DAY_COLORS.length] }}>{d}</span>
+              Day {d}
+            </span>
+          ))}
         </div>
       )}
       <div className="flex flex-wrap items-center gap-2 text-sm">

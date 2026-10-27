@@ -570,7 +570,7 @@ export default function Home() {
               <section className="mb-12">
                 <SectionLabel>Map &amp; getting there{result.destinationCity ? ` · ${result.destinationCity}` : ""}</SectionLabel>
                 <p className="mb-5 text-sm text-ink-mute">Verified spots on one map — no extra tab. Plus the nearest airport and a prefilled flight/route search.</p>
-                <MapPanel places={result.verifiedPlaces} destinationCity={result.destinationCity} originCity={dest} />
+                <MapPanel places={result.verifiedPlaces} destinationCity={result.destinationCity} originCity={dest} itinerary={result.itinerary} />
               </section>
             )}
 
