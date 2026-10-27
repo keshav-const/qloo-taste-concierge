@@ -517,7 +517,7 @@ No prose, no markdown, no keys other than question/suggestions/label/desc.`;
           { role: "user", content: `Request: ${prompt}\n\nReturn the JSON array now.` },
         ],
         undefined,
-        { temperature: 0.6, maxTokens: 700 },
+        { temperature: 0.6, maxTokens: 700, freeOnly: true }, // light task → free tiers, not OpenAI
       );
       const qs = extractQuestions(msg.content ?? "");
       if (qs.length >= 2) return qs;
@@ -540,7 +540,7 @@ character. If the user asked a QUESTION (not an edit), answer it briefly at the 
 (possibly unchanged) itinerary. Return ONLY markdown.`;
   const user = `Current itinerary:\n${currentItinerary}\n\nTraveller context:\n${context || "(none)"}\n\nRequested change / question: ${request}`;
   const t0 = Date.now();
-  const msg = await chat([{ role: "system", content: sys }, { role: "user", content: user }], undefined, { temperature: 0.5, maxTokens: 1600 });
+  const msg = await chat([{ role: "system", content: sys }, { role: "user", content: user }], undefined, { temperature: 0.5, maxTokens: 1600, freeOnly: true });
   console.log(`[refine] done in ${Date.now() - t0}ms`);
   return (msg.content ?? "").trim() || currentItinerary;
 }

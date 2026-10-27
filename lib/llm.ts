@@ -130,13 +130,16 @@ async function callProvider(
 export async function chat(
   messages: ChatMessage[],
   tools?: ToolDef[],
-  opts: { temperature?: number; maxTokens?: number } = {},
+  opts: { temperature?: number; maxTokens?: number; freeOnly?: boolean } = {},
 ): Promise<ChatMessage> {
-  if (!PROVIDERS.length) throw new LLMError("no provider configured", "AI isn't configured on the server.");
+  // Reserve the paid OpenAI provider for the planner + extraction; lighter calls (follow-up
+  // questions, itinerary refine) pass freeOnly to stay on the free Groq/Gemini tiers.
+  const pool = opts.freeOnly ? PROVIDERS.filter((p) => p.label !== "openai") : PROVIDERS;
+  if (!pool.length) throw new LLMError("no provider configured", "AI isn't configured on the server.");
   const now = Date.now();
   // Try providers not on cooldown first, then any cooled-down ones as a last resort.
-  const ready = PROVIDERS.filter((p) => (cooldownUntil.get(p.label) ?? 0) <= now);
-  const cooled = PROVIDERS.filter((p) => (cooldownUntil.get(p.label) ?? 0) > now);
+  const ready = pool.filter((p) => (cooldownUntil.get(p.label) ?? 0) <= now);
+  const cooled = pool.filter((p) => (cooldownUntil.get(p.label) ?? 0) > now);
   const order = [...ready, ...cooled];
 
   let lastErr: unknown;
