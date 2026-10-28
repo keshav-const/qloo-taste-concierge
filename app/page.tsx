@@ -12,6 +12,7 @@ import MapPanel from "./MapPanel";
 import TasteGraph from "./TasteGraph";
 import CoverageMap from "./CoverageMap";
 import LocalPack from "./LocalPack";
+import HowItWorks from "./HowItWorks";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -88,6 +89,11 @@ const CHIPS = [
   { icon: "🎸", label: "Coldplay" }, { icon: "🏛", label: "Mughal history" }, { icon: "☕", label: "cozy cafes" },
 ];
 const DESTS = ["Anywhere in India", "Delhi", "Gurgaon", "Jaipur", "Goa", "Mumbai"];
+const EXAMPLES = [
+  "I love A.R. Rahman, temple architecture and filter coffee — plan a soulful South India trip.",
+  "Into trekking, Coldplay and mountain cafes — somewhere in the Himalayas for a long weekend.",
+  "Foodie who loves Mughal history and old-city bazaars — where should I go?",
+];
 const LOADING_STEPS = ["Reading your taste…", "Asking Qloo's Taste AI for destinations…", "Pulling creator-verified places…", "Composing your itinerary…"];
 const EASE: Transition = { duration: 0.6, ease: [0.22, 1, 0.36, 1] };
 
@@ -170,18 +176,21 @@ export default function Home() {
   const destHint = () => dest === "Anywhere in India" ? "(Suggest taste-matched destinations across India and plan the strongest match.)" : `(Destination: ${dest}.)`;
   const base = () => `${tastes.trim()}\n\n${destHint()}`;
 
-  async function getQuestions() {
-    if (!tastes.trim() || busy) return;
-    setReqText(tastes.trim());
+  async function getQuestions(override?: string) {
+    const t = (typeof override === "string" ? override : tastes).trim();
+    if (!t || busy) return;
+    if (typeof override === "string") setTastes(override);
+    setReqText(t);
     setBusy("questions"); setError("");
+    const prompt = `${t}\n\n${destHint()}`;
     try {
-      const r = await fetch("/api/questions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt: base() }) });
+      const r = await fetch("/api/questions", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt }) });
       const d = await r.json();
       if (d.error) setError(d.error);
       else {
         const qs: Question[] = d.questions ?? [];
         if (qs.length) { setQuestions(qs); setSelected(qs.map(() => [])); setTyped(qs.map(() => "")); setStage("questions"); }
-        else await runPlan(base(), []);
+        else await runPlan(prompt, []);
       }
     } catch (e) { setError(e instanceof Error ? e.message : String(e)); }
     finally { setBusy(""); }
@@ -336,7 +345,7 @@ export default function Home() {
               <span style={{ background: "linear-gradient(110deg, #e2550e, #c23d6a 38%, #0d6e5b 68%, #e2550e)", backgroundSize: "260% 100%", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", animation: "gradient-shift 9s ease-in-out infinite" }}>India</span>.
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-lg font-medium text-ink-soft drop-shadow-[0_1px_8px_rgba(244,238,227,0.95)]">
-              Tell us what you love. We&apos;ll ask a couple of quick questions, then plan a trip anywhere in India — with real places <span className="text-verified">verified by creators</span>.
+              Tell us what you love. <span className="text-ink">Qloo&apos;s Taste AI</span> turns it into a trip anywhere in India — with real places <span className="text-verified">verified by creators</span>.
             </p>
             <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }} className="mt-8 flex justify-center text-ink-mute">
               <span className="text-2xl">↓</span>
@@ -361,12 +370,25 @@ export default function Home() {
                 <label className="flex items-center gap-2 text-sm text-ink-mute">Where to?
                   <select value={dest} onChange={(e) => setDest(e.target.value)} className="rounded-lg border border-line bg-paper px-2 py-1 text-ink outline-none">{DESTS.map((d) => <option key={d}>{d}</option>)}</select>
                 </label>
-                <motion.button whileHover={{ y: -1 }} whileTap={{ scale: 0.97 }} onClick={getQuestions} disabled={!!busy || !tastes.trim()}
+                <motion.button whileHover={{ y: -1 }} whileTap={{ scale: 0.97 }} onClick={() => getQuestions()} disabled={!!busy || !tastes.trim()}
                   style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%", animation: "gradient-shift 6s ease-in-out infinite" }}
                   className="rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105 disabled:opacity-40">{busy === "questions" ? "Thinking…" : "Continue →"}</motion.button>
               </div>
             </div>
+            {/* One-tap examples — beat the blank page */}
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="text-xs text-ink-mute">Try one:</span>
+              {EXAMPLES.map((ex) => (
+                <button key={ex} onClick={() => getQuestions(ex)} disabled={!!busy}
+                  className="rounded-full border border-dashed border-line px-3 py-1 text-left text-xs text-ink-soft transition hover:border-saffron hover:bg-saffron-soft hover:text-saffron disabled:opacity-40">
+                  {ex.split("—")[0].trim().slice(0, 42)}…
+                </button>
+              ))}
+            </div>
+            <HowItWorks />
             <div className="mt-6">
+              <SectionLabel>Where the verified places are</SectionLabel>
+              <p className="mb-3 text-sm text-ink-mute">Every dot is a city with creator-verified spots in the graph — sized by how many.</p>
               <CoverageMap />
             </div>
           </motion.section>

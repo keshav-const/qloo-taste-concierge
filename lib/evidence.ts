@@ -185,6 +185,23 @@ export function citiesWithDepth(): string[] {
   return [...new Set(pois().map((p) => p.destination))];
 }
 
+export type GraphStats = { places: number; cities: number; creators: number; claims: number };
+/** Headline numbers for the landing credibility bar — the real scale of the evidence graph. */
+export function graphStats(): GraphStats {
+  const all = pois();
+  const cities = new Set<string>();
+  const creators = new Set<string>();
+  let claims = 0;
+  for (const p of all) {
+    if (p.destination) cities.add(p.destination);
+    for (const e of p.evidence ?? []) {
+      if (e.creator_name) creators.add(e.creator_name.trim().toLowerCase());
+      claims += (e.claims ?? []).length;
+    }
+  }
+  return { places: all.length, cities: cities.size, creators: creators.size, claims };
+}
+
 export type CoverageCity = { city: string; lat: number; lng: number; count: number };
 /**
  * Per-destination coverage for the India map: each depth city's POI count and a representative
