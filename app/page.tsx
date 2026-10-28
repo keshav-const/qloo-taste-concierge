@@ -13,6 +13,7 @@ import TasteGraph from "./TasteGraph";
 import CoverageMap from "./CoverageMap";
 import LocalPack from "./LocalPack";
 import HowItWorks from "./HowItWorks";
+import { getTrips, saveTrip, deleteTrip, isTripSaved, type SavedTrip } from "@/lib/trips";
 
 type Suggestion = { label: string; desc: string };
 type Question = { question: string; suggestions: Suggestion[] };
@@ -131,7 +132,28 @@ export default function Home() {
   const [proof, setProof] = useState<VerifiedPlace | null>(null);
   const [swapping, setSwapping] = useState<number | null>(null);
   const [shared, setShared] = useState<{ r: string; q: { q: string; a: string }[]; i: string } | null>(null);
+  const [trips, setTrips] = useState<SavedTrip[]>([]);
+  const [showTrips, setShowTrips] = useState(false);
+  const [savedNow, setSavedNow] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => { setTrips(getTrips()); }, []);
+  // Re-check "saved" state whenever the shown plan changes.
+  useEffect(() => { setSavedNow(result?.itinerary ? isTripSaved(result.itinerary) : false); }, [result?.itinerary]);
+
+  function saveCurrentTrip() {
+    if (!result?.itinerary) return;
+    const next = saveTrip({
+      title: result.destinationCity || reqText.slice(0, 40) || "India trip",
+      reqText, itinerary: result.itinerary, city: result.destinationCity ?? null, qa,
+    });
+    setTrips(next); setSavedNow(true); flash("Saved to My Trips ★");
+  }
+  function openSavedTrip(t: SavedTrip) {
+    setShared({ r: t.reqText, q: t.qa ?? [], i: t.itinerary });
+    setShowTrips(false);
+  }
+  function removeTrip(id: string) { setTrips(deleteTrip(id)); }
 
   // A shared plan link is a short /?p=<id> — fetch the stored plan and render it read-only.
   useEffect(() => {
@@ -357,6 +379,11 @@ export default function Home() {
         {/* STAGE: compose */}
         {stage === "compose" && (
           <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ ...EASE, delay: 0.08 }} className="mx-auto max-w-2xl">
+            {trips.length > 0 && (
+              <div className="mb-3 flex justify-end">
+                <button onClick={() => setShowTrips(true)} className="rounded-full border border-line bg-paper-card/70 px-3 py-1 text-sm text-ink-soft backdrop-blur transition hover:border-saffron hover:text-saffron">★ My Trips <span className="text-ink-mute">({trips.length})</span></button>
+              </div>
+            )}
             <div className="ring-soft rounded-2xl border border-line bg-paper-card/80 p-5 backdrop-blur">
               <textarea value={tastes} onChange={(e) => setTastes(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) getQuestions(); }} rows={3}
                 placeholder="e.g. Travelling with family over a long weekend — parents want pilgrimage, we love light hiking…"
@@ -661,15 +688,17 @@ export default function Home() {
             )}
 
             {result.itinerary && (
-              <section>
+              <section id="printable">
                 <SectionLabel>The plan</SectionLabel>
                 <div className="ring-soft mt-3 rounded-2xl border border-line bg-paper-card p-6">
                   <ItineraryMD md={result.itinerary} />
                 </div>
-                <div className="mt-3 flex flex-wrap items-center gap-2">
+                <div className="no-print mt-3 flex flex-wrap items-center gap-2">
+                  <button onClick={saveCurrentTrip} disabled={savedNow} className={`rounded-lg border px-3 py-1.5 text-sm transition ${savedNow ? "border-saffron bg-saffron-soft text-saffron" : "border-line text-ink-soft hover:border-saffron hover:text-saffron"}`}>{savedNow ? "★ Saved" : "☆ Save trip"}</button>
                   <button onClick={sharePlan} className="rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-saffron hover:text-saffron">🔗 Share link</button>
                   <button onClick={copyPlan} className="rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-ink hover:text-ink">Copy</button>
                   <button onClick={downloadPlan} className="rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-ink hover:text-ink">Download .md</button>
+                  <button onClick={() => window.print()} className="rounded-lg border border-line px-3 py-1.5 text-sm text-ink-soft transition hover:border-ink hover:text-ink">🖨 Print / PDF</button>
                 </div>
               </section>
             )}
@@ -695,6 +724,40 @@ export default function Home() {
                 <button onClick={startOver} className="rounded-lg border border-line px-4 py-2 text-sm text-ink-soft transition hover:border-ink hover:text-ink">Start over</button>
               </div>
             </div>
+          </div>
+        )}
+
+        {showTrips && (
+          <div role="dialog" aria-modal="true" onClick={() => setShowTrips(false)}
+            className="fixed inset-0 z-[60] grid place-items-center bg-ink/50 p-4 backdrop-blur-sm">
+            <motion.div initial={{ opacity: 0, y: 12, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={EASE}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-3xl border border-line bg-paper-card p-5 shadow-2xl">
+              <div className="mb-3 flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider text-saffron">★ My Trips</p>
+                  <h3 className="font-display text-xl text-ink">Saved on this device</h3>
+                </div>
+                <button onClick={() => setShowTrips(false)} aria-label="Close" className="shrink-0 rounded-full border border-line px-2 py-0.5 text-ink-mute hover:text-ink">✕</button>
+              </div>
+              {trips.length === 0 ? (
+                <p className="text-sm text-ink-mute">No saved trips yet. Hit <span className="font-medium text-ink-soft">☆ Save trip</span> on any plan.</p>
+              ) : (
+                <ul className="space-y-2">
+                  {trips.map((t) => (
+                    <li key={t.id} className="flex items-center gap-3 rounded-2xl border border-line bg-paper-card/70 p-3">
+                      <button onClick={() => openSavedTrip(t)} className="min-w-0 flex-1 text-left">
+                        <p className="truncate font-medium text-ink">{t.city ? `📍 ${t.city}` : "India trip"}</p>
+                        {t.reqText && <p className="truncate text-xs text-ink-mute">“{t.reqText}”</p>}
+                        <p className="mt-0.5 text-[11px] text-ink-mute">{new Date(t.savedAt).toLocaleDateString()}</p>
+                      </button>
+                      <button onClick={() => openSavedTrip(t)} className="shrink-0 rounded-lg border border-line px-2.5 py-1 text-xs text-ink-soft transition hover:border-saffron hover:text-saffron">Open</button>
+                      <button onClick={() => removeTrip(t.id)} aria-label="Delete" className="shrink-0 rounded-lg border border-line px-2 py-1 text-xs text-ink-mute transition hover:border-ink hover:text-ink">🗑</button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </motion.div>
           </div>
         )}
 

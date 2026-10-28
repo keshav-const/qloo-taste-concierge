@@ -11,6 +11,15 @@ const STEPS = [
   { n: "3", icon: "✓", title: "Creator-verified places", body: "Every spot is vouched for in real creator videos & guides — with the receipts." },
 ];
 
+const FEATURES = [
+  { icon: "🧬", title: "Cross-domain taste graph", body: "See the films, shows, music & books Qloo says share your taste DNA." },
+  { icon: "✓", title: "Proof for every place", body: "Open the receipts — the exact creator quotes & timestamps that vouch for each spot." },
+  { icon: "🗺", title: "Interactive India map", body: "Verified places pinned by day, with nearest airport & one-tap flight/route search." },
+  { icon: "🎭", title: "Live cultural scene", body: "Real festivals, arts seasons & venues — flagged when they're on during your trip." },
+  { icon: "💬", title: "Local culture pack", body: "Greetings in the local tongue, etiquette tips & the dishes you can't miss." },
+  { icon: "🧭", title: "Trails to extend it", body: "Turn one city into a themed route across India — temple art, Himalaya, royal Rajasthan." },
+];
+
 /** Landing credibility bar + the 3-step "how it works" flow that makes the Qloo pipeline legible. */
 export default function HowItWorks() {
   const [s, setS] = useState<Stats | null>(null);
@@ -62,6 +71,25 @@ export default function HowItWorks() {
             {i < STEPS.length - 1 && (
               <span className="absolute -right-2.5 top-1/2 z-10 hidden -translate-y-1/2 text-ink-mute sm:block">→</span>
             )}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* What you'll get — makes the depth of the app discoverable at a glance */}
+      <p className="mt-8 mb-3 text-center text-xs font-medium uppercase tracking-wider text-ink-mute">What you&apos;ll get in every plan</p>
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {FEATURES.map((f, i) => (
+          <motion.div
+            key={f.title}
+            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.45, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+            className="ring-soft flex gap-3 rounded-2xl border border-line bg-paper-card/60 p-3.5 backdrop-blur"
+          >
+            <span className="text-xl leading-none">{f.icon}</span>
+            <div>
+              <p className="text-sm font-medium text-ink">{f.title}</p>
+              <p className="mt-0.5 text-xs text-ink-soft">{f.body}</p>
+            </div>
           </motion.div>
         ))}
       </div>

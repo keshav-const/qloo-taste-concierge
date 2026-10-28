@@ -124,3 +124,15 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee { animation: none; }
 }
+
+/* Print / Save-as-PDF: show only the itinerary, drop all the ambient chrome. */
+@media print {
+  body { background: #fff !important; }
+  .grain-overlay, .no-print { display: none !important; }
+  body * { visibility: hidden; }
+  #printable, #printable * { visibility: visible; }
+  #printable {
+    position: absolute; left: 0; top: 0; width: 100%;
+    border: none !important; box-shadow: none !important; background: #fff !important;
+  }
+}
