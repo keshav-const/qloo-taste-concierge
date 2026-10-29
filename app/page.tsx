@@ -132,12 +132,20 @@ export default function Home() {
   const [proof, setProof] = useState<VerifiedPlace | null>(null);
   const [swapping, setSwapping] = useState<number | null>(null);
   const [shared, setShared] = useState<{ r: string; q: { q: string; a: string }[]; i: string } | null>(null);
+  const [shareStatus, setShareStatus] = useState<"idle" | "loading" | "notfound">("idle");
   const [trips, setTrips] = useState<SavedTrip[]>([]);
   const [showTrips, setShowTrips] = useState(false);
   const [savedNow, setSavedNow] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { setTrips(getTrips()); }, []);
+  // Escape closes whichever modal is open (keyboard a11y).
+  useEffect(() => {
+    if (!proof && !showTrips) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { setProof(null); setShowTrips(false); } };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [proof, showTrips]);
   // Re-check "saved" state whenever the shown plan changes.
   useEffect(() => { setSavedNow(result?.itinerary ? isTripSaved(result.itinerary) : false); }, [result?.itinerary]);
 
@@ -159,10 +167,14 @@ export default function Home() {
   useEffect(() => {
     const id = new URLSearchParams(window.location.search).get("p");
     if (!id) return;
+    setShareStatus("loading");
     fetch(`/api/share?id=${encodeURIComponent(id)}`)
       .then((r) => r.json())
-      .then((obj) => { if (obj?.i) setShared({ r: obj.r ?? "", q: Array.isArray(obj.q) ? obj.q : [], i: obj.i }); })
-      .catch(() => { /* ignore */ });
+      .then((obj) => {
+        if (obj?.i) { setShared({ r: obj.r ?? "", q: Array.isArray(obj.q) ? obj.q : [], i: obj.i }); setShareStatus("idle"); }
+        else setShareStatus("notfound");
+      })
+      .catch(() => setShareStatus("notfound"));
   }, []);
 
   function flash(msg: string) { setToast(msg); setTimeout(() => setToast(""), 2400); }
@@ -189,7 +201,8 @@ export default function Home() {
     if (!result) return;
     const blob = new Blob([`# ${reqText || "Your India trip"}\n\n${result.itinerary}\n`], { type: "text/markdown" });
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob); a.download = "tastetrail-itinerary.md"; a.click();
+    a.href = URL.createObjectURL(blob); a.download = "tastetrail-itinerary.md";
+    document.body.appendChild(a); a.click(); a.remove(); // appended for Firefox
     URL.revokeObjectURL(a.href);
   }
   function exitShared() { setShared(null); window.history.replaceState(null, "", "/"); }
@@ -277,6 +290,8 @@ export default function Home() {
 
   function startOver() {
     setStage("compose"); setResult(null); setHistory([]); setQuestions([]); setSelected([]); setTyped([]); setQa([]); setError("");
+    setTastes(""); setReqText(""); setRefine(""); setDest("Anywhere in India");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   // Re-roll one verified place for another taste-ranked alternative in the same city (no LLM).
@@ -305,6 +320,34 @@ export default function Home() {
     } finally {
       setSwapping(null);
     }
+  }
+
+  // A degenerate plan = the agent couldn't match anything (thin/garbage input). The itinerary is
+  // usually just a model apology, and every section is empty — show a friendly retry instead.
+  const degenerate = !!result && result.destinations.length === 0 && result.verifiedPlaces.length === 0 && (result.culturalVibe?.length ?? 0) === 0;
+
+  if (shareStatus === "loading" && !shared) {
+    return (
+      <div className="grid min-h-screen place-items-center bg-paper">
+        <div className="flex flex-col items-center gap-3 text-ink-mute">
+          <span className="pulse-dot text-2xl text-saffron">●</span>
+          <p className="text-sm">Loading shared itinerary…</p>
+        </div>
+      </div>
+    );
+  }
+  if (shareStatus === "notfound" && !shared) {
+    return (
+      <div className="grid min-h-screen place-items-center bg-paper px-6 text-center">
+        <div className="max-w-sm">
+          <p className="font-display text-3xl text-ink">Plan not found</p>
+          <p className="mt-2 text-sm text-ink-soft">This shared link may have expired or been mistyped.</p>
+          <button onClick={() => { setShareStatus("idle"); window.history.replaceState(null, "", "/"); }}
+            style={{ background: "linear-gradient(120deg, #f0702a, #e2550e 45%, #c9430a, #e2550e)", backgroundSize: "220% 100%" }}
+            className="mt-6 rounded-xl px-5 py-2.5 font-medium text-white shadow-sm transition hover:brightness-105">Plan your own trip →</button>
+        </div>
+      </div>
+    );
   }
 
   if (shared) {
@@ -471,7 +514,12 @@ export default function Home() {
           </motion.section>
         )}
 
-        {error && <p className="mx-auto mt-6 max-w-2xl rounded-xl border border-saffron/30 bg-saffron-soft px-4 py-3 text-sm text-ink-soft">{error}</p>}
+        {error && (
+          <div className="mx-auto mt-6 flex max-w-2xl items-start justify-between gap-3 rounded-xl border px-4 py-3 text-sm" style={{ borderColor: "rgba(194,61,106,0.4)", background: "rgba(194,61,106,0.08)", color: "#a32a52" }}>
+            <span><span className="mr-1">⚠</span>{error}</span>
+            <button onClick={() => setError("")} aria-label="Dismiss" className="shrink-0 opacity-70 hover:opacity-100">✕</button>
+          </div>
+        )}
 
         {/* STAGE: result */}
         {stage === "result" && result && (
@@ -496,7 +544,21 @@ export default function Home() {
               )}
             </div>
 
-            {result.offline && (
+            {degenerate && (
+              <div className="ring-soft rounded-2xl border border-line bg-paper-card p-6 text-center">
+                <p className="text-3xl">🧭</p>
+                <p className="mt-2 font-display text-2xl text-ink">We couldn&apos;t build a trip from that</p>
+                <p className="mx-auto mt-2 max-w-md text-sm text-ink-soft">Try adding a little more — a taste you love (a film, music, cuisine), a region, or the kind of trip you want. The more you share, the better Qloo can match.</p>
+                <div className="mt-5 flex flex-wrap justify-center gap-2">
+                  {EXAMPLES.map((ex) => (
+                    <button key={ex} onClick={() => { startOver(); setTimeout(() => getQuestions(ex), 0); }} className="rounded-full border border-dashed border-line px-3 py-1 text-xs text-ink-soft transition hover:border-saffron hover:bg-saffron-soft hover:text-saffron">{ex.split("—")[0].trim().slice(0, 40)}…</button>
+                  ))}
+                  <button onClick={startOver} className="rounded-full border border-line px-3 py-1 text-xs text-ink-soft transition hover:border-ink hover:text-ink">Start over</button>
+                </div>
+              </div>
+            )}
+
+            {!degenerate && result.offline && (
               <div className="mb-6 flex items-start gap-2 rounded-xl border border-saffron/40 bg-saffron-soft px-3 py-2 text-sm text-saffron">
                 <span>⚡</span>
                 <span>Our AI writer is rate-limited right now, so this is a <span className="font-medium">verified plan built live from Qloo + creator data</span> — every place, map pin and cultural highlight is real. Hit <span className="font-medium">Update plan</span> in a minute for a narrated version.</span>
@@ -543,7 +605,7 @@ export default function Home() {
                 <p className="mb-5 text-sm text-ink-mute">Matched to your taste by Qloo&apos;s Taste AI — tap one to plan it.</p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {result.destinations.slice(0, 6).map((d, i) => (
-                    <motion.button key={d.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -4 }} onClick={() => planDestination(d.name)} disabled={!!busy}
+                    <motion.button key={d.name + i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -4 }} onClick={() => planDestination(d.name)} disabled={!!busy}
                       className="ring-soft group block overflow-hidden rounded-2xl border border-line bg-paper-card text-left transition hover:border-saffron disabled:opacity-60">
                       <div className="relative h-36 overflow-hidden">
                         {d.image ? (
@@ -575,7 +637,7 @@ export default function Home() {
                   {result.verifiedPlaces.map((p, i) => {
                     const cat = catVisual(p.category); const price = priceSymbol(p.price_level);
                     return (
-                      <motion.div key={p.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.45, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -2 }} className="ring-soft flex gap-3 rounded-2xl border border-line bg-paper-card p-3">
+                      <motion.div key={p.name + i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.45, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }} whileHover={{ y: -2 }} className="ring-soft flex gap-3 rounded-2xl border border-line bg-paper-card p-3">
                         <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl">
                           {p.image ? (
                             // eslint-disable-next-line @next/next/no-img-element
@@ -615,7 +677,7 @@ export default function Home() {
               </section>
             )}
 
-            {result.verifiedPlaces.some((p) => typeof p.lat === "number") && (
+            {result.verifiedPlaces.some((p) => typeof p.lat === "number" && p.lat >= 6 && p.lat <= 37.6 && typeof p.lng === "number" && p.lng >= 68 && p.lng <= 97.5) && (
               <section className="mb-12">
                 <SectionLabel>Map &amp; getting there{result.destinationCity ? ` · ${result.destinationCity}` : ""}</SectionLabel>
                 <p className="mb-5 text-sm text-ink-mute">Verified spots on one map — no extra tab. Plus the nearest airport and a prefilled flight/route search.</p>
@@ -623,13 +685,7 @@ export default function Home() {
               </section>
             )}
 
-            {result.destinationCity && (
-              <section className="mb-12">
-                <SectionLabel>Local pack · {result.destinationCity}</SectionLabel>
-                <p className="mb-5 text-sm text-ink-mute">A few words to greet people, what to know, and what to eat.</p>
-                <LocalPack city={result.destinationCity} />
-              </section>
-            )}
+            {result.destinationCity && <LocalPack city={result.destinationCity} />}
 
             {result.culturalScene && result.culturalScene.length > 0 && (
               <section className="mb-12">
@@ -687,7 +743,7 @@ export default function Home() {
               </section>
             )}
 
-            {result.itinerary && (
+            {!degenerate && result.itinerary && (
               <section id="printable">
                 <SectionLabel>The plan</SectionLabel>
                 <div className="ring-soft mt-3 rounded-2xl border border-line bg-paper-card p-6">
@@ -714,7 +770,7 @@ export default function Home() {
               </details>
             )}
 
-            <div className="ring-soft mt-6 rounded-2xl border border-line bg-paper-card/80 p-4 backdrop-blur">
+            <div className={`ring-soft mt-6 rounded-2xl border border-line bg-paper-card/80 p-4 backdrop-blur ${degenerate ? "hidden" : ""}`}>
               <p className="mb-2 text-xs font-medium uppercase tracking-wider text-saffron">Not quite right? Refine or ask</p>
               <div className="flex flex-wrap gap-2">
                 <input value={refine} onChange={(e) => setRefine(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") refinePlan(); }} disabled={!!busy}

@@ -31,10 +31,25 @@ export default function LocalPack({ city }: { city: string }) {
     return () => { alive = false; };
   }, [city]);
 
-  if (loading) return <div className="h-20 animate-pulse rounded-2xl border border-line bg-paper-card/50" />;
+  // Header lives inside the component so the whole section disappears together when the pack
+  // fails to load (free tier can return nothing) — no orphaned "Local pack" heading.
+  const Header = (
+    <>
+      <div className="flex items-center gap-3">
+        <span className="text-saffron">◆</span>
+        <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-ink">Local pack · {city}</h2>
+        <span className="h-px flex-1 bg-gradient-to-r from-line to-transparent" />
+      </div>
+      <p className="mb-5 mt-2 text-sm text-ink-mute">A few words to greet people, what to know, and what to eat.</p>
+    </>
+  );
+
+  if (loading) return <section className="mb-12">{Header}<div className="h-20 animate-pulse rounded-2xl border border-line bg-paper-card/50" /></section>;
   if (!pack) return null;
 
   return (
+    <section className="mb-12">
+      {Header}
     <div className="grid gap-3 sm:grid-cols-3">
       {(pack.greeting || pack.phrases?.length) && (
         <div className="ring-soft rounded-2xl border border-line bg-paper-card p-4">
@@ -66,5 +81,6 @@ export default function LocalPack({ city }: { city: string }) {
         </div>
       ) : null}
     </div>
+    </section>
   );
 }

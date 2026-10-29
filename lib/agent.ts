@@ -541,7 +541,7 @@ character. If the user asked a QUESTION (not an edit), answer it briefly at the 
   const user = `Current itinerary:\n${currentItinerary}\n\nTraveller context:\n${context || "(none)"}\n\nRequested change / question: ${request}`;
   const t0 = Date.now();
   const msg = await chat([{ role: "system", content: sys }, { role: "user", content: user }], undefined, { temperature: 0.5, maxTokens: 1600, freeOnly: true });
-  console.log(`[refine] done in ${Date.now() - t0}ms`);
+  if (process.env.NODE_ENV !== "production") console.log(`[refine] done in ${Date.now() - t0}ms`);
   return (msg.content ?? "").trim() || currentItinerary;
 }
 
