@@ -600,14 +600,35 @@ function strongMatch(phrase: string, entityName?: string): boolean {
 
 // Theme → preferred destination cities. Lets the offline planner honor ACTIVITY intent (a hiking
 // trip shouldn't resolve to Delhi monuments) by biasing toward depth cities that fit the theme.
+// Order matters: specific sub-regions are matched BEFORE the generic catch-alls, so "Kashmir trek"
+// resolves to Srinagar (not a generic Himalaya default). Each list is the PREFERENCE order of depth
+// cities for that intent; the resolver prefers whichever one Qloo actually surfaced for the query.
 const THEMES: { re: RegExp; cities: string[] }[] = [
+  // --- Himalaya sub-regions (precise) ---
+  { re: /\b(kashmir|srinagar|gulmarg|pahalgam|sonmarg|dal lake)\b/i, cities: ["srinagar"] },
+  { re: /\b(ladakh|leh|pangong|nubra|zanskar)\b/i, cities: ["leh"] },
+  { re: /\b(himachal|manali|kasol|spiti|kullu|shimla|dharamshala|mcleodganj|parvati|kheerganga)\b/i, cities: ["manali", "shimla"] },
+  { re: /\b(uttarakhand|rishikesh|nainital|mussoorie|haridwar|dehradun|garhwal|kumaon|auli|kedarnath)\b/i, cities: ["rishikesh", "nainital", "mussoorie", "haridwar"] },
+  { re: /\b(north[- ]?east|sikkim|gangtok|meghalaya|shillong|darjeeling|assam|guwahati|arunachal|tawang|nagaland|kohima)\b/i, cities: ["sikkim", "meghalaya", "darjeeling", "guwahati"] },
+  // --- Generic Himalaya / trek / mountain -> NORTHERN cities only (NOT the north-east) ---
   { re: /\b(hik\w*|trek\w*|mountain\w*|climb\w*|adventur\w*|himalaya\w*|snow|ski|alpine|valley|camp\w*)\b/i,
-    cities: ["manali", "rishikesh", "ladakh", "leh", "srinagar", "gulmarg", "sikkim", "darjeeling", "meghalaya", "guwahati"] },
-  { re: /\b(beach\w*|coast\w*|sea|island|backwater\w*)\b/i, cities: ["goa", "kerala", "kochi"] },
+    cities: ["manali", "srinagar", "leh", "shimla", "rishikesh", "nainital", "mussoorie"] },
+  // --- Other themes ---
+  { re: /\b(beach\w*|coast\w*|sea|island|backwater\w*)\b/i, cities: ["goa", "kerala", "kochi", "gokarna", "pondicherry"] },
   { re: /\b(temple\w*|heritage|histor\w*|ancient|fort|palace|sculpt\w*|architect\w*)\b/i,
-    cities: ["khajuraho", "madurai", "bhubaneswar", "hampi", "udaipur", "jaipur", "varanasi"] },
+    cities: ["khajuraho", "madurai", "bhubaneswar", "hampi", "udaipur", "jaipur", "varanasi", "thanjavur", "konark"] },
   { re: /\b(wildlife|safari|tiger|jungle|national park|bird\w*)\b/i, cities: ["panna", "khajuraho", "meghalaya"] },
 ];
+
+/** Pick the best depth city for a matched theme: prefer one Qloo actually surfaced for THIS query
+ *  (taste-driven, varies by prompt), else the theme's top available depth city. */
+function themeCity(lower: string, depth: string[], qlooDests: string[]): string | undefined {
+  const theme = THEMES.find((t) => t.re.test(lower));
+  if (!theme) return undefined;
+  const inDepth = theme.cities.filter((c) => depth.includes(c));
+  const qlooLower = qlooDests.map((d) => d.toLowerCase());
+  return inDepth.find((c) => qlooLower.some((q) => q.includes(c))) ?? inDepth[0];
+}
 
 /**
  * Deterministic, NO-LLM plan. When every LLM provider is rate-limited, we still assemble a full
@@ -712,12 +733,11 @@ export async function deterministicPlan(userInput: string): Promise<AgentResult>
   if (named) {
     destinationCity = TITLE(named);
   } else {
-    // Honor activity/theme intent: prefer a depth city matching the detected theme (a hiking trip
-    // picks a mountain city, not whatever generic city Qloo returned for weak activity seeds).
-    const theme = THEMES.find((t) => t.re.test(lower));
-    const themeCity = theme?.cities.find((c) => depth.includes(c));
-    if (themeCity) {
-      destinationCity = TITLE(themeCity);
+    // Honor activity/sub-region intent: prefer the depth city Qloo surfaced for this query (a Kashmir
+    // trek picks Srinagar; a generic Himalaya trip picks a NORTHERN city, never the north-east).
+    const tCity = themeCity(lower, depth, destinations.map((d) => d.name));
+    if (tCity) {
+      destinationCity = TITLE(tCity);
       trace.push(`Read your activity/theme and matched ${destinationCity} — a fitting creator-verified city.`);
     } else {
       for (const d of destinations) {
@@ -850,8 +870,11 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
     if (destinationCity || verifiedPlaces.length) return;
     const depth = citiesWithDepth();
     const lower = userInput.toLowerCase();
+    // (a) a depth city named in the request wins outright.
     let city = depth.find((c) => lower.includes(c));
-    if (!city) city = THEMES.find((t) => t.re.test(lower))?.cities.find((c) => depth.includes(c));
+    // (b) activity/sub-region theme → the depth city Qloo surfaced for this query (else theme default).
+    if (!city) city = themeCity(lower, depth, destinations.map((d) => d.name));
+    // (c) any Qloo destination we have depth for.
     if (!city) {
       for (const d of destinations) {
         const n = d.name.toLowerCase();
