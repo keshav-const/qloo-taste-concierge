@@ -842,6 +842,28 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
     }
     culturalTrailOut = pickTrail({ domains, city: destinationCity, region });
   };
+  // If the model offered destinations but never committed to a city (common for vague-destination
+  // prompts like "Himalayas please"), resolve one ourselves from a depth city named in the request,
+  // the activity THEME, or a Qloo destination we actually have depth for — then pull its verified
+  // places. Guarantees a full plan (places + map + local pack) instead of only destination cards.
+  const ensureDepthCity = () => {
+    if (destinationCity || verifiedPlaces.length) return;
+    const depth = citiesWithDepth();
+    const lower = userInput.toLowerCase();
+    let city = depth.find((c) => lower.includes(c));
+    if (!city) city = THEMES.find((t) => t.re.test(lower))?.cities.find((c) => depth.includes(c));
+    if (!city) {
+      for (const d of destinations) {
+        const n = d.name.toLowerCase();
+        const m = depth.find((c) => n === c || n.includes(c) || c.includes(n));
+        if (m) { city = m; break; }
+      }
+    }
+    if (!city) return;
+    destinationCity = TITLE(city);
+    for (const p of listVerifiedPlaces({ city, interests: [userInput], limit: 8 })) addPlace(p);
+    trace.push(`Focused on ${destinationCity} — a creator-verified depth city that fits your trip.`);
+  };
 
   for (let step = 0; step < maxSteps; step++) {
     const msg = await chat(messages, TOOLS);
@@ -911,12 +933,14 @@ export async function runAgent(userInput: string, maxSteps = 6): Promise<AgentRe
     }
     // Only surface this as the plan if it's real prose; a leaked tool-call JSON → compose instead.
     if (isProse(msg.content)) {
+      ensureDepthCity();
       applyQlooRanking();
       finalizeScene();
       return { itinerary: msg.content!.trim(), trace, destinations, verifiedPlaces, culturalVibe, culturalSeeds, culturalScene: culturalSceneOut, culturalTrail: culturalTrailOut, destinationCity };
     }
     break; // fall through to compose-from-data (fresh context)
   }
+  ensureDepthCity();
   applyQlooRanking();
   finalizeScene();
   // Didn't compose in-loop (the model kept calling tools). Compose from the data we gathered, in a
