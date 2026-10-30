@@ -40,7 +40,7 @@ export default function HowItWorks() {
     <div className="mt-6">
       {/* Credibility bar — the real scale of the evidence graph */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="ring-soft flex items-center justify-around gap-2 rounded-2xl border border-line bg-paper-card/70 px-4 py-4 backdrop-blur"
       >
@@ -58,7 +58,7 @@ export default function HowItWorks() {
         {STEPS.map((st, i) => (
           <motion.div
             key={st.n}
-            initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }}
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="ring-soft relative rounded-2xl border border-line bg-paper-card/70 p-4 backdrop-blur"
           >
@@ -81,7 +81,7 @@ export default function HowItWorks() {
         {FEATURES.map((f, i) => (
           <motion.div
             key={f.title}
-            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }}
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
             className="ring-soft flex gap-3 rounded-2xl border border-line bg-paper-card/60 p-3.5 backdrop-blur"
           >
