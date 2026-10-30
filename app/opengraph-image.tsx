@@ -40,7 +40,7 @@ export default function OgImage() {
             <b style={{ color: "#0d6e5b", marginRight: 10 }}>2,000+</b> verified places
           </span>
           <span style={{ display: "flex" }}>
-            <b style={{ color: "#0d6e5b", marginRight: 10 }}>150+</b> cities
+            <b style={{ color: "#0d6e5b", marginRight: 10 }}>180+</b> cities
           </span>
           <span style={{ display: "flex" }}>
             <b style={{ color: "#0d6e5b", marginRight: 10 }}>80</b> creators
