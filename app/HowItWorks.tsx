@@ -29,9 +29,11 @@ export default function HowItWorks() {
 
   const stat = (v: number | undefined, label: string) => (
     <div className="flex flex-col items-center">
-      <span className="font-display text-2xl text-ink sm:text-3xl tabular-nums">
-        {v != null ? v.toLocaleString("en-IN") : "—"}
-      </span>
+      {v != null ? (
+        <span className="font-display text-2xl text-ink sm:text-3xl tabular-nums">{v.toLocaleString("en-IN")}</span>
+      ) : (
+        <span className="my-1 h-6 w-12 animate-pulse rounded bg-line/50 sm:h-7" />
+      )}
       <span className="text-[11px] uppercase tracking-wider text-ink-mute">{label}</span>
     </div>
   );

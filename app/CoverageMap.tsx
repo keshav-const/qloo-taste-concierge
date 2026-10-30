@@ -21,6 +21,7 @@ export default function CoverageMap() {
   const [cities, setCities] = useState<City[]>([]);
   const [total, setTotal] = useState(0);
   const [hover, setHover] = useState<City | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/india-outline.json").then((r) => r.json()).then((d: { rings: number[][][] }) => {
@@ -29,9 +30,22 @@ export default function CoverageMap() {
     fetch("/api/depth-map").then((r) => r.json()).then((d: { cities: City[]; total: number }) => {
       setCities(d.cities ?? []);
       setTotal(d.total ?? 0);
-    }).catch(() => {});
+    }).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
+  // Skeleton while the coverage data loads — keeps the slot filled (no blank space / layout shift).
+  if (loading) {
+    return (
+      <div className="ring-soft rounded-3xl border border-line bg-paper-card/70 p-5 backdrop-blur">
+        <div className="mb-1 flex items-baseline justify-between gap-3">
+          <p className="text-xs font-medium uppercase tracking-wider text-saffron">Creator-verified depth</p>
+          <div className="h-4 w-28 animate-pulse rounded bg-line/50" />
+        </div>
+        <p className="mb-3 text-sm text-ink-mute">Where we have real, creator-vouched places on the ground — growing across India.</p>
+        <div className="mx-auto w-full animate-pulse rounded-2xl bg-line/30" style={{ maxWidth: 360, aspectRatio: "360 / 400" }} />
+      </div>
+    );
+  }
   if (!cities.length) return null;
   const maxCount = Math.max(...cities.map((c) => c.count), 1);
   const r = (n: number) => 3 + Math.sqrt(n / maxCount) * 7; // dot radius by POI count
@@ -53,7 +67,7 @@ export default function CoverageMap() {
           {cities.map((c) => {
             const [x, y] = project(c.lng, c.lat);
             return (
-              <g key={c.city} onMouseEnter={() => setHover(c)} onMouseLeave={() => setHover(null)} style={{ cursor: "pointer" }}>
+              <g key={c.city} onMouseEnter={() => setHover(c)} onMouseLeave={() => setHover(null)} onClick={() => setHover((h) => (h?.city === c.city ? null : c))} style={{ cursor: "pointer" }}>
                 <motion.circle initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.4 }} cx={x} cy={y} r={r(c.count)} fill="#e2550e" fillOpacity="0.85" stroke="#fff" strokeWidth="0.8" />
               </g>
             );
